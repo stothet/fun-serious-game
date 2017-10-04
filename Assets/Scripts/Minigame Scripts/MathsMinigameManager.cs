@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using static MathsMinigame.Operations;
+//using static MathsMinigame.Operations;
 
 public class MathsMinigameManager : MonoBehaviour {
         
-    MathsMinigame[] games = new MathsMinigame[Configuration.MathsMinigameNumberOfGames];
+    /*MathsMinigame[] games = new MathsMinigame[Configuration.MathsMinigameNumberOfGames];
 
     int currentGame;
 
@@ -80,5 +80,5 @@ public class MathsMinigameManager : MonoBehaviour {
         result.text = game.getResult().ToString();
 
     }
-
+*/
 }
