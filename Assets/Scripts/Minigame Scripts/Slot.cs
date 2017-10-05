@@ -12,7 +12,7 @@ public class Slot : MonoBehaviour, IDropHandler {
     #region IdropHandler implementation 
     public void OnDrop(PointerEventData eventData) {
         if (!item) { // check if there is already an item
-            DragHandler.item.transform.SetParent(transform); // grab item that is dropped
+            DragHandler.item.transform.SetParent(transform); 
         }
     }
     #endregion

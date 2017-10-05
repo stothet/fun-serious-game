@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     public static GameObject item;  // the item being dragged 
-    Transform startParent;          //
+    Transform startParent;
     Vector3 startPosition;
     bool start = true;
     //Sprite sprite; 
