@@ -8,10 +8,10 @@ public class MathsMinigame {
     private Operations[] generatedOps;
     private int result;
 
-    private enum Operations { Add, Subtract, Multiply, Divide };
+    public enum Operations { Add, Subtract, Multiply, Divide };
 
     // Use this for initialization
-    void Start () {
+    public MathsMinigame() {
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
             generatedNumbers[i] = Random.Range(1, 10); 
@@ -63,30 +63,22 @@ public class MathsMinigame {
                         break;
                 }
             }
-            
-       
         }
-
     }
     public int[] getGeneratedNumbers()
     {
         return generatedNumbers;
     }
 
-    /*public Operations[] getGeneratedOperations()
+    public Operations[] getGeneratedOperations()
     {
         return generatedOps;
-    }*/
+    }
 
     public int getResult()
     {
         return result;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	    // Do nothing
-	}
 
     // Main for testing
     /*static int Main(string[] args)
