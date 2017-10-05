@@ -7,7 +7,10 @@ public class MathsMinigameManager : MonoBehaviour {
 	
     // Use this for initialization
 	void Start () {
-	    // Initialise games here
+	    for (int i = 0; i < games.Length; i++)
+        {
+            games[i] = new MathsMinigame();
+        }
 	}
 	
 	// Update is called once per frame
