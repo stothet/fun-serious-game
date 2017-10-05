@@ -8,14 +8,14 @@ public class MathsMinigame {
     private Operations[] generatedOps;
     private int result;
 
-    public enum Operations { Add, Subtract, Multiply, Divide };
-
     // Use this for initialization
     public MathsMinigame() {
+        generatedNumbers = new int[numSmallNumbers];
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
             generatedNumbers[i] = Random.Range(1, 10); 
         }
+        generatedOps = new Operations[numSmallNumbers - 1];
         for (int i = 0; i < generatedOps.Length; i++)
         {
             // Assign operations
@@ -89,3 +89,5 @@ public class MathsMinigame {
         return 0;
     }*/
 }
+public enum Operations { Add, Subtract, Multiply, Divide }
+
