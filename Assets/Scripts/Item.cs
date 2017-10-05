@@ -19,13 +19,13 @@ public class Item {
 
     public Item() { }
 
-    public Item(string name, int id, string desc, int value, ItemType type) //, Sprite spriteName)
+    public Item(string name, int id, string desc, int value, ItemType type, string spriteName)
     {
         _itemName = name;
         _itemId = id;
         _itemDescription = desc;
         _itemValue = value;
         _itemType = type;
-        //_itemIcon = Resources.Load<Sprite>("" + spriteName);
+        _itemIcon = Resources.Load<Sprite>("" + spriteName);
     }
 }

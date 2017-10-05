@@ -54,11 +54,12 @@ public class Inventory : MonoBehaviour {
 
     void addToEmptySlot(Item item)
     {
-        for (int i = 0; i < 24; i ++)
+        for (int i = 0; i < 25; i ++)
         {
             if (_items[i]._itemName == null)
             {
                 _items[i] = item;
+                _slots[i].name = _items[i]._itemName;
                 break;
             }
         }

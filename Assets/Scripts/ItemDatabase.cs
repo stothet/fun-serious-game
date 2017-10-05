@@ -8,7 +8,7 @@ public class ItemDatabase : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        items.Add(new Item("Wet sock", 0, "Just a wet sock.", 1, Item.ItemType.DUMMY));
+        items.Add(new Item("Rubber Duck", 0, "Just a rubber duck.", 1, Item.ItemType.DUMMY, "duck_yellow"));
 
     }
 
