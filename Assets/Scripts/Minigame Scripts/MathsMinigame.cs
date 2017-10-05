@@ -63,10 +63,7 @@ public class MathsMinigame {
                         break;
                 }
             }
-            
-       
         }
-
     }
     public int[] getGeneratedNumbers()
     {
