@@ -17,6 +17,8 @@ public class Item : MonoBehaviour {
         DUMMY
     }
 
+    public Item() { }
+
     public Item(string name, int id, string desc, int value, ItemType type)
     {
         _itemName = name;
