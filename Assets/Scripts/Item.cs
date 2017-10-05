@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour {
+public class Item {
 
     public string _itemName;
     public int _itemId;
@@ -19,13 +19,13 @@ public class Item : MonoBehaviour {
 
     public Item() { }
 
-    public Item(string name, int id, string desc, int value, ItemType type)
+    public Item(string name, int id, string desc, int value, ItemType type) //, Sprite spriteName)
     {
         _itemName = name;
         _itemId = id;
         _itemDescription = desc;
         _itemValue = value;
         _itemType = type;
-        //_itemIcon = Resources.Load<SPrite>("" + name);
+        //_itemIcon = Resources.Load<Sprite>("" + spriteName);
     }
 }

@@ -11,12 +11,14 @@ public class Inventory : MonoBehaviour {
     int y = 110;
 	// Use this for initialization
 	void Start () {
+        int _slotAmount = 0;
         database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>();
         for (int i = 1; i < 6; i++)
         {
             for (int j = 1; j < 6; j++)
             {
                 GameObject slot = Instantiate(slots);
+                slot.GetComponent<SlotScript>()._slotNumber = _slotAmount;
                 slot.transform.SetParent(this.gameObject.transform, false);
                 _slots.Add(slot);
                 _items.Add(new Item());
@@ -30,6 +32,7 @@ public class Inventory : MonoBehaviour {
                     x = -110;
                     y = y - 55;
                 }
+                _slotAmount++;
             }
         }
         addItem(0);
