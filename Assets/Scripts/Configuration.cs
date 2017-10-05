@@ -1,15 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Configuration : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class Configuration {
+    public static readonly int MathsMinigameNumberOfGames = 3;
+    public static readonly int MathsMinigameNumberOfIntegersPerGame = 4;
 }
