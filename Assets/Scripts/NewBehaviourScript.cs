@@ -64,10 +64,8 @@ public class MathsMinigameGenerator : MonoBehaviour {
                 }
             }
             
-            
-
+       
         }
-
 
     }
 	
@@ -79,7 +77,8 @@ public class MathsMinigameGenerator : MonoBehaviour {
     // Main for testing
     static int Main(string[] args)
     {
-        //... 
+        MathsMinigameGenerator = MathsMinigameGenerator.Instantiate();
+        Start();
         return 0;
     }
 }
