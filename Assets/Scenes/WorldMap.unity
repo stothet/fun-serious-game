@@ -172,7 +172,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 22448466, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.72547376
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22448466, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMax.x
@@ -264,35 +264,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22461824, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22461824, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22461824, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 22461824, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 22414948, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414948, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 22488028, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22488028, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
@@ -816,9 +816,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1564641334}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -4.4202}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 404, y: -62}
   m_SizeDelta: {x: 774, y: 104.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344479875

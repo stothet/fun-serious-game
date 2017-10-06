@@ -8,12 +8,13 @@ public class InventoryClickScript : MonoBehaviour
 
     //public Button yourButton;
     public GameObject inventoryPanel;
-    private bool active = true;
-    private string currentTab = "InventoryTab"; // should be null at the start, but currently inventory displays on beginning
+    private bool active = false;
+    private string currentTab; // should be null at the start, but currently inventory displays on beginning
 
     // Use this for initialization, register all child buttons of the inventory panel with a listener
     void Start()
     {
+		inventoryPanel.SetActive (false);
         Button[] btn = GetComponentsInChildren<Button>();
         for (int i = 0; i < btn.Length; i++)
         {
