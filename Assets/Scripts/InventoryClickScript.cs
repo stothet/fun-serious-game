@@ -14,7 +14,6 @@ public class InventoryClickScript : MonoBehaviour
     // Use this for initialization, register all child buttons of the inventory panel with a listener
     void Start()
     {
-		inventoryPanel.SetActive (false);
         Button[] btn = GetComponentsInChildren<Button>();
         for (int i = 0; i < btn.Length; i++)
         {

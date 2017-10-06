@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hi!");
+       // Debug.Log("Hi!");
         if (other.gameObject.CompareTag("Pickup"))
         {
             inventory.addItem(0);

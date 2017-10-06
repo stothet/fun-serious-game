@@ -296,7 +296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 14.59854
       objectReference: {fileID: 0}
     - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_MovementType
@@ -332,8 +332,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11417806, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_Size
-      value: 0.2745262
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11417806, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00002193451
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1945104138}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
   m_IsPrefabParent: 0
@@ -897,8 +909,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.50001, y: -114}
-  m_SizeDelta: {x: -1, y: -228}
+  m_AnchoredPosition: {x: -0.50001, y: -141.25002}
+  m_SizeDelta: {x: -1, y: -282.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564641335
 MonoBehaviour:

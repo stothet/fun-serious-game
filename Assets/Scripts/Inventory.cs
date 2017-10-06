@@ -13,6 +13,7 @@ using UnityEditor;
 public class Inventory : MonoBehaviour {
     public List<GameObject> _slots = new List<GameObject>();
     public List<Item> _items = new List<Item>();
+	public GameObject panel;
     public GameObject slots;
     ItemDatabase database;
     Journal _journal;
@@ -48,6 +49,7 @@ public class Inventory : MonoBehaviour {
         //Add items you want to show up in the inventory here. The number is the unique ID of the item.
         //addItem(0);
         //addItem(1);
+		panel.SetActive(false);
 	}
 
     //Utility method to add the desired item into the inventory.
