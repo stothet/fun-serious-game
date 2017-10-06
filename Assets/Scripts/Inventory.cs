@@ -41,6 +41,7 @@ public class Inventory : MonoBehaviour {
         }
         //Add items you want to show up in the inventory here. The number is the unique ID of the item.
         addItem(0);
+        addItem(1);
 	}
 
     //Utility method to add the desired item into the inventory.
