@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-<<<<<<< HEAD:Assets/Scripts/Minigame Scripts/MathsMinigameManager.cs
+
 //using static MathsMinigame.Operations;
-=======
->>>>>>> origin/MainMenu:Assets/Unity UI Sample/Scripts/Minigame Scripts/MathsMinigameManager.cs
 
 public class MathsMinigameManager : MonoBehaviour {
         
@@ -56,10 +54,10 @@ public class MathsMinigameManager : MonoBehaviour {
         }
 
         result = GameObject.Find("answer").GetComponent<Text>();*/
-    }
+    //}
 
-    void UpdateTextComponents()
-    {
+    //void UpdateTextComponents()
+    //{
         /*MathsMinigame game = games[currentGame];
 
         int[] generatedNumbers = game.getGeneratedNumbers();
@@ -93,6 +91,6 @@ public class MathsMinigameManager : MonoBehaviour {
 
         result.text = game.getResult().ToString();*/
 
-    }
-*/
+    //}
+
 }
