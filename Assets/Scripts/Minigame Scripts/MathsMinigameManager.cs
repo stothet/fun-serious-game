@@ -51,10 +51,8 @@ public class MathsMinigameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        UpdateTextComponents();
-        checkWinConditions();
+        
     }
-
 
     /**
      * Called on initialisation, update and whenever a game is won to update the text in all of the components.
@@ -76,19 +74,21 @@ public class MathsMinigameManager : MonoBehaviour {
     * If all games have been completed, the minigame scene transitions back to the real world.
     * 
     */
-    public void checkWinConditions() { 
+    public void checkWinConditions() {
+        Debug.Log("Xavier Button clicked");
+
         /*if (slot1.text.Equals() &&
             slot2.)*/
         string text1 = slot1.GetComponentInChildren<Text>().text;
-        Debug.Log("text1: " + text1.ToString());     
-            
+        Debug.Log("text1: " + text1.ToString());
+        
+        // If there is another game
+        // currentGame++;
+        //if ()
+            //UpdateTextComponents();
+
     }
 
-    void OnMouseUp()
-    {
-        // this object was clicked - do something
-        Debug.Log("Xavier Button clicked");
-    }
 
 
 
@@ -104,6 +104,8 @@ public class MathsMinigameManager : MonoBehaviour {
         }
         shuffleNumbers();
         // Set numbers
+        Debug.Log("num1" + number1.ToString());
+        Debug.Log("generatedNums[0]" + generatedNumbers[0] == null);
         number1.text = generatedNumbers[0] + "";
         number2.text = generatedNumbers[1] + "";
         number3.text = generatedNumbers[2] + "";
