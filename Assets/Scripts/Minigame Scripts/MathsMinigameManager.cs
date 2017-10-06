@@ -38,7 +38,7 @@ public class MathsMinigameManager : MonoBehaviour {
     private GameObject slot4 = null;
 
     [SerializeField]
-    private Text message = null;
+    private Text errorMessage = null;
 
     // Use this for initialization
     void Start () {
@@ -75,17 +75,29 @@ public class MathsMinigameManager : MonoBehaviour {
     * 
     */
     public void checkWinConditions() {
-        Debug.Log("Xavier Button clicked");
 
-        /*if (slot1.text.Equals() &&
-            slot2.)*/
-        string text1 = slot1.GetComponentInChildren<Text>().text;
-        Debug.Log("text1: " + text1.ToString());
-        
+        bool isSuccessful = false;
+        Text text1 = slot1.GetComponentInChildren<Text>();
+        Text text2 = slot2.GetComponentInChildren<Text>();
+        Text text3 = slot3.GetComponentInChildren<Text>();
+        Text text4 = slot4.GetComponentInChildren<Text>();
+
+        if (text1 != null && text2 != null && text3 != null && text4 != null)
+        {
+            isSuccessful = calculateResults(int.Parse(text1.text), int.Parse(text2.text), int.Parse(text3.text), int.Parse(text4.text));
+        }
+        else
+        {
+            Debug.Log("Was null: ");
+            setErrorMessage("Please make sure that all slots have a number assigned.");
+        }
+
+
+
         // If there is another game
         // currentGame++;
         //if ()
-            //UpdateTextComponents();
+        //UpdateTextComponents();
 
     }
 
@@ -96,7 +108,7 @@ public class MathsMinigameManager : MonoBehaviour {
     ////// Helper Methods //////
 
     // Sets the texts in unity
-    private void setText(int[] generatedNumbers, Operations[] generatedOps, int result, string newMessage)
+    private void setText(int[] generatedNumbers, Operations[] generatedOps, int result, string newErrorMessage)
     {
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
@@ -104,23 +116,34 @@ public class MathsMinigameManager : MonoBehaviour {
         }
         shuffleNumbers();
         // Set numbers
-        Debug.Log("num1" + number1.ToString());
-        Debug.Log("generatedNums[0]" + generatedNumbers[0] == null);
-        number1.text = generatedNumbers[0] + "";
-        number2.text = generatedNumbers[1] + "";
-        number3.text = generatedNumbers[2] + "";
-        number4.text = generatedNumbers[3] + "";
-        // Set operations
-        operation1.text = opToString(generatedOps[0]);
-        operation2.text = opToString(generatedOps[1]);
-        operation3.text = opToString(generatedOps[2]);
-        // Set answer
-        answer.text = result + "";
-        // Set message
-        if (message != null)
+        if (number1 != null && number2 != null && number3 != null && number4 != null)
         {
-            message.text = newMessage;
+            number1.text = generatedNumbers[0] + "";
+            number2.text = generatedNumbers[1] + "";
+            number3.text = generatedNumbers[2] + "";
+            number4.text = generatedNumbers[3] + "";
         }
+        // Set operations
+        if (operation1 != null && operation2 != null && operation3 != null)
+        {
+            operation1.text = opToString(generatedOps[0]);
+            operation2.text = opToString(generatedOps[1]);
+            operation3.text = opToString(generatedOps[2]);
+        }
+        // Set answer
+        if (answer != null)
+        {
+            answer.text = result + "";
+        }
+        // Set message
+        if (newErrorMessage != null)
+        {
+            errorMessage.text = newErrorMessage;
+        }
+    }
+    private void setErrorMessage(string localErrorMessage)
+    {
+         errorMessage.text = localErrorMessage;
     }
 
     // Shuffles the order of the numbers
@@ -152,6 +175,14 @@ public class MathsMinigameManager : MonoBehaviour {
             default:
                 throw new System.Exception("Unsupported operation: " + op);
         }
+    }
+
+    private bool calculateResults(int num1, int num2, int num3, int num4)
+    {
+        int total = num1;
+
+    return true;
+
     }
 
 }
