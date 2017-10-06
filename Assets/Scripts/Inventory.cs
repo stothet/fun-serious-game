@@ -16,9 +16,11 @@ public class Inventory : MonoBehaviour {
     int x = -90; //Initial x coordinate of the first slot.
     int y = 100; //Initial y coordinate of the first slot.
     // Use this for initialization
+
     void Start () {
         int _slotAmount = 0; //Variable used to notify the slotscript whether to enable the sprite icon in the slot interface.
         database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>(); //Instantiate the database
+        Debug.Log("does this work?");
         for (int i = 1; i < 6; i++) //Create 5 columns of slots
         {
             for (int j = 1; j < 6; j++) //Create 5 rows of slots.
@@ -40,12 +42,12 @@ public class Inventory : MonoBehaviour {
             }
         }
         //Add items you want to show up in the inventory here. The number is the unique ID of the item.
-        addItem(0);
-        addItem(1);
+        //addItem(0);
+        //addItem(1);
 	}
 
     //Utility method to add the desired item into the inventory.
-    void addItem(int id)
+   public void addItem(int id)
     {
         for (int i = 0; i < database.items.Count; i++)
         {
