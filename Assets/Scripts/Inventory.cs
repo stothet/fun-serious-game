@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour {
     public List<Item> _items = new List<Item>();
     public GameObject slots;
     ItemDatabase database;
+    Journal _journal;
     int x = -90; //Initial x coordinate of the first slot.
     int y = 100; //Initial y coordinate of the first slot.
     // Use this for initialization
@@ -20,6 +21,7 @@ public class Inventory : MonoBehaviour {
     void Start () {
         int _slotAmount = 0; //Variable used to notify the slotscript whether to enable the sprite icon in the slot interface.
         database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>(); //Instantiate the database
+        _journal = GameObject.FindGameObjectWithTag("Journal").GetComponent<Journal>();
         Debug.Log("does this work?");
         for (int i = 1; i < 6; i++) //Create 5 columns of slots
         {
@@ -55,6 +57,10 @@ public class Inventory : MonoBehaviour {
             {
                 Item item = database.items[i];
                 addToEmptySlot(item);
+                if (item._itemType == Item.ItemType.EVIDENCE)
+                {
+                    _journal.putJournalEntry("HAKUNA MATATA");
+                }
                 break;
             }
         }
