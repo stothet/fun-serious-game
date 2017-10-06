@@ -92,6 +92,11 @@ public class Minigame : MonoBehaviour {
     //Sets the texts in unity
     private void setText()
     {
+        for(int i=0; i < generatedNumbers.Length; i++)
+        {
+            Debug.Log(generatedNumbers[i].ToString());
+        }
+        shuffleNumbers();
         //set numbers
         number1.text = generatedNumbers[0] + "";
         number2.text = generatedNumbers[1] + "";
@@ -119,6 +124,19 @@ public class Minigame : MonoBehaviour {
                 return "/";
             default:
                 return null;
+        }
+    }
+
+    //shuffles the order of the numbers
+    private void shuffleNumbers()
+    {
+        int tempNumber;
+        for (int i = 0; i < generatedNumbers.Length; i++)
+        {
+            int rnd = Random.Range(0, generatedNumbers.Length);
+            tempNumber = generatedNumbers[rnd];
+            generatedNumbers[rnd] = generatedNumbers[i];
+            generatedNumbers[i] = tempNumber;
         }
     }
     public int[] getGeneratedNumbers()
