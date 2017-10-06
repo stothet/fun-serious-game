@@ -190,6 +190,10 @@ Prefab:
       propertyPath: warpTarget
       value: 
       objectReference: {fileID: 1461586354}
+    - target: {fileID: 2358306, guid: a977a9ee539f01443aa70fdeb302509c, type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a977a9ee539f01443aa70fdeb302509c, type: 2}
   m_IsPrefabParent: 0
