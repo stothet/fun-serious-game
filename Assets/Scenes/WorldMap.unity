@@ -140,7 +140,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 22448466, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.19666666
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22448466, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_AnchorMax.x
@@ -261,6 +261,38 @@ Prefab:
     - target: {fileID: 22488028, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
       value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 15.472128
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_MovementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_Inertia
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_ScrollSensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 129468, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_Name
+      value: InventoryJournalInterface
+      objectReference: {fileID: 0}
+    - target: {fileID: 183300, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_Name
+      value: InventoryContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 193260, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_Name
+      value: JournalContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440356, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
@@ -535,6 +567,134 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1150409695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1150409696}
+  - 222: {fileID: 1150409698}
+  - 114: {fileID: 1150409697}
+  - 114: {fileID: 1150409699}
+  m_Layer: 5
+  m_Name: Journal
+  m_TagString: Journal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1150409696
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150409695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1975144654}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1150409697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150409695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.\"\r\n\r\nSection 1.10.32
+    of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC\r\n\r\n\"Sed
+    ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+    quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
+    quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+    ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+    modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
+    enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+    nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
+    qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+    dolorem eum fugiat quo voluptas nulla pariatur?\"\r\n\r\n1914 translation by H.
+    Rackham\r\n\r\n\"But I must explain to you how all this mistaken idea of denouncing
+    pleasure and praising pain was born and I will give you a complete account of
+    the system, and expound the actual teachings of the great explorer of the truth,
+    the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure
+    itself, because it is pleasure, but because those who do not know how to pursue
+    pleasure rationally encounter consequences that are extremely painful. Nor again
+    is there anyone who loves or pursues or desires to obtain pain of itself, because
+    it is pain, but because occasionally circumstances occur in which toil and pain
+    can procure him some great pleasure. To take a trivial example, which of us ever
+    undertakes laborious physical exercise, except to obtain some advantage from it?
+    But who has any right to find fault with a man who chooses to enjoy a pleasure
+    that has no annoying consequences, or one who avoids a pain that produces no resultant
+    pleasure?\"\r\n\r\nSection 1.10.33 of \"de Finibus Bonorum et Malorum\", written
+    by Cicero in 45 BC\r\n\r\n\"At vero eos et accusamus et iusto odio dignissimos
+    ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+    et quas molestias excepturi sint occaecati cupiditate non provident, similique
+    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+    Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
+    cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+    placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+    eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque
+    earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
+    alias consequatur aut perferendis doloribus asperiores repellat.\""
+--- !u!222 &1150409698
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150409695}
+--- !u!114 &1150409699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1150409695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362d0044df36e9541b652f491fbef426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journal: {fileID: 0}
 --- !u!1001 &1180154688
 Prefab:
   m_ObjectHideFlags: 0
@@ -733,3 +893,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 283cc8bf54de4ab43b71666fd803e28e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1975144653 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 181764, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
+  m_PrefabInternal: {fileID: 449544436}
+--- !u!224 &1975144654 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91,
+    type: 2}
+  m_PrefabInternal: {fileID: 449544436}
+--- !u!114 &1975144659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975144653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2

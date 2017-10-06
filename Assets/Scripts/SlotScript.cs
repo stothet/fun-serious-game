@@ -14,11 +14,13 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler {
     Image _itemImage;
     public int _slotNumber;
     Inventory _inventory;
+    Journal _journal;
     UpdateText _itemNameInPanel;
     UpdateText _itemDescriptionInPanel;
 	// Use this for initialization
 	void Start () {
         _inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        _journal = GameObject.FindGameObjectWithTag("Journal").GetComponent<Journal>();
         _itemNameInPanel = GameObject.FindGameObjectWithTag("NameOfItem").GetComponent<UpdateText>();
         _itemDescriptionInPanel = GameObject.FindGameObjectWithTag("DescriptionOfItem").GetComponent<UpdateText>();
         _itemImage = gameObject.transform.GetChild(0).GetComponent<Image>();
@@ -29,6 +31,7 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler {
 	void Update () {
 	    if (_inventory._items[_slotNumber]._itemName != null)
         {
+            _journal.putJournalEntry("HAKUNA MATATA");
             _item = _inventory._items[_slotNumber];
             _itemImage.enabled = true;
             _itemImage.rectTransform.sizeDelta = new Vector2(30, 30);

@@ -9,6 +9,7 @@ TagManager:
   - Inventory
   - ItemDatabase
   - Pickup
+  - Journal
   layers:
   - Default
   - TransparentFX
