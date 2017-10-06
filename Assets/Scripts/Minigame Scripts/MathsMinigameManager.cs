@@ -29,13 +29,13 @@ public class MathsMinigameManager : MonoBehaviour {
     private Text answer = null;
 
     [SerializeField]
-    private Text slot1 = null;
+    private GameObject slot1 = null;
     [SerializeField]
-    private Text slot2 = null;
+    private GameObject slot2 = null;
     [SerializeField]
-    private Text slot3 = null;
+    private GameObject slot3 = null;
     [SerializeField]
-    private Text slot4 = null;
+    private GameObject slot4 = null;
 
     [SerializeField]
     private Text message = null;
@@ -52,6 +52,7 @@ public class MathsMinigameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         UpdateTextComponents();
+        checkWinConditions();
     }
 
 
@@ -70,7 +71,6 @@ public class MathsMinigameManager : MonoBehaviour {
         setText(generatedNumbers, generatedOperations, result, null);
 
     }
-
     /**
     * Checks if a minigame has been completed successfully. If it has, then the next one in the list is started.
     * If all games have been completed, the minigame scene transitions back to the real world.
@@ -79,8 +79,16 @@ public class MathsMinigameManager : MonoBehaviour {
     public void checkWinConditions() { 
         /*if (slot1.text.Equals() &&
             slot2.)*/
+        string text1 = slot1.GetComponentInChildren<Text>().text;
+        Debug.Log("text1: " + text1.ToString());     
+            
     }
 
+    void OnMouseUp()
+    {
+        // this object was clicked - do something
+        Debug.Log("Xavier Button clicked");
+    }
 
 
 
@@ -92,7 +100,7 @@ public class MathsMinigameManager : MonoBehaviour {
     {
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
-            Debug.Log(generatedNumbers[i].ToString());
+            //Debug.Log(generatedNumbers[i].ToString());
         }
         shuffleNumbers();
         // Set numbers
