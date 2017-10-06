@@ -79,15 +79,6 @@ public class MathsMinigame {
     {
         return result;
     }
-
-    // Main for testing
-    /*static int Main(string[] args)
-    {
-        MathsMinigameGenerator generator = new MathsMinigameGenerator();
-        generator.Start();
-
-        return 0;
-    }*/
 }
 public enum Operations { Add, Subtract, Multiply, Divide }
 

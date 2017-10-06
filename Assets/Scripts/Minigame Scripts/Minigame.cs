@@ -1,26 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class Minigame : MonoBehaviour {
-    [SerializeField]
-    private Text number1 = null;
-    [SerializeField]
-    private Text number2 = null;
-    [SerializeField]
-    private Text number3 = null;
-    [SerializeField]
-    private Text number4 = null;
-
-    [SerializeField]
-    private Text operation1 = null;
-    [SerializeField]
-    private Text operation2 = null;
-    [SerializeField]
-    private Text operation3 = null;
-
-    [SerializeField]
-    private Text answer = null;
-
+/*public class Minigame : MonoBehaviour {
 
     private static int numSmallNumbers = 4;
     private int[] generatedNumbers;
@@ -89,56 +70,10 @@ public class Minigame : MonoBehaviour {
         setText();
     }
 
-    //Sets the texts in unity
-    private void setText()
-    {
-        for(int i=0; i < generatedNumbers.Length; i++)
-        {
-            Debug.Log(generatedNumbers[i].ToString());
-        }
-        shuffleNumbers();
-        //set numbers
-        number1.text = generatedNumbers[0] + "";
-        number2.text = generatedNumbers[1] + "";
-        number3.text = generatedNumbers[2] + "";
-        number4.text = generatedNumbers[3] + "";
-        //set operations
-        operation1.text = opToString(generatedOps[0]);
-        operation2.text = opToString(generatedOps[1]);
-        operation3.text = opToString(generatedOps[2]);
-        //set answer
-        answer.text = getResult() + "";
-    }
-    //converts an Operation object into a string
-    private string opToString(Operations op)
-    {
-        switch (op)
-        {
-            case (Operations.Add):
-                return "+";
-            case (Operations.Subtract):
-                return "-";
-            case (Operations.Multiply):
-                return "*";
-            case (Operations.Divide):
-                return "/";
-            default:
-                return null;
-        }
-    }
+    
 
-    //shuffles the order of the numbers
-    private void shuffleNumbers()
-    {
-        int tempNumber;
-        for (int i = 0; i < generatedNumbers.Length; i++)
-        {
-            int rnd = Random.Range(0, generatedNumbers.Length);
-            tempNumber = generatedNumbers[rnd];
-            generatedNumbers[rnd] = generatedNumbers[i];
-            generatedNumbers[i] = tempNumber;
-        }
-    }
+
+  
     public int[] getGeneratedNumbers()
     {
         return generatedNumbers;
@@ -157,4 +92,4 @@ public class Minigame : MonoBehaviour {
     void Update () {
 	
 	}
-}
+}*/

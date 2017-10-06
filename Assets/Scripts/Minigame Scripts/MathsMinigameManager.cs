@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+
 
 public class MathsMinigameManager : MonoBehaviour {
         
@@ -7,11 +9,36 @@ public class MathsMinigameManager : MonoBehaviour {
 
     int currentGame;
 
-    Text[] operations;
+    [SerializeField]
+    private Text number1 = null;
+    [SerializeField]
+    private Text number2 = null;
+    [SerializeField]
+    private Text number3 = null;
+    [SerializeField]
+    private Text number4 = null;
 
-    Text[] numbers;
+    [SerializeField]
+    private Text operation1 = null;
+    [SerializeField]
+    private Text operation2 = null;
+    [SerializeField]
+    private Text operation3 = null;
 
-    Text result;
+    [SerializeField]
+    private Text answer = null;
+
+    [SerializeField]
+    private Text slot1 = null;
+    [SerializeField]
+    private Text slot2 = null;
+    [SerializeField]
+    private Text slot3 = null;
+    [SerializeField]
+    private Text slot4 = null;
+
+    [SerializeField]
+    private Text message = null;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +46,6 @@ public class MathsMinigameManager : MonoBehaviour {
         {
             games[i] = new MathsMinigame();
         }
-        initialiseComponents();
         UpdateTextComponents();
 	}
 	
@@ -28,67 +54,94 @@ public class MathsMinigameManager : MonoBehaviour {
         UpdateTextComponents();
     }
 
-    // Associates the components which will hold text in the minigame with local fields.
-    void initialiseComponents()
-    {
-        /*MathsMinigame game = games[currentGame];
-        numbers = new Text[Configuration.MathsMinigameNumberOfIntegersPerGame];
-        for (int i = 1; i <= numbers.Length; i++)
-        {
-            numbers[i] = GameObject.Find("NumberHolder" + i).GetComponent<Text>();
-            if (numbers[i] == null)
-            {
-                throw new UnityException("Unable to locate number" + i);
-            }
-        }
-        operations = new Text[Configuration.MathsMinigameNumberOfIntegersPerGame - 1];
-        for (int i = 1; i <= operations.Length; i++)
-        {
-            operations[i] = GameObject.Find("Operation" + i).GetComponent<Text>();
-            if (operations[i] == null)
-            {
-                throw new UnityException("Unable to locate operation" + i);
-            }
-        }
 
-        result = GameObject.Find("answer").GetComponent<Text>();*/
-    }
-
+    /**
+     * Called on initialisation, update and whenever a game is won to update the text in all of the components.
+     * 
+     */
     void UpdateTextComponents()
     {
-        /*MathsMinigame game = games[currentGame];
+        MathsMinigame game = games[currentGame];
 
         int[] generatedNumbers = game.getGeneratedNumbers();
-        for (int i = 1; i <= generatedNumbers.Length; i++)
-        {
-            Debug.Log("Numbers[i] " + numbers[i]);
-            Debug.Log("i " + i);
-            numbers[i].text = generatedNumbers[i].ToString();
-        }
-
         Operations[] generatedOperations = game.getGeneratedOperations();
-        for (int i = 1; i <= generatedOperations.Length; i++)
+        int result = game.getResult();
+
+        setText(generatedNumbers, generatedOperations, result, null);
+
+    }
+
+    /**
+    * Checks if a minigame has been completed successfully. If it has, then the next one in the list is started.
+    * If all games have been completed, the minigame scene transitions back to the real world.
+    * 
+    */
+    public void checkWinConditions() { 
+        /*if (slot1.text.Equals() &&
+            slot2.)*/
+    }
+
+
+
+
+
+    ////// Helper Methods //////
+
+    // Sets the texts in unity
+    private void setText(int[] generatedNumbers, Operations[] generatedOps, int result, string newMessage)
+    {
+        for (int i = 0; i < generatedNumbers.Length; i++)
         {
-            switch (generatedOperations[i])
-            {
-                case Operations.Add:
-                    operations[i].text = "+";
-                    break;
-                case Operations.Subtract:
-                    operations[i].text = "-";
-                    break;
-                case Operations.Multiply:
-                    operations[i].text = "×";
-                    break;
-                case Operations.Divide:
-                    operations[i].text = "÷";
-                    break;
-            }
-            operations[i].text = operations[i].ToString();
+            Debug.Log(generatedNumbers[i].ToString());
         }
+        shuffleNumbers();
+        // Set numbers
+        number1.text = generatedNumbers[0] + "";
+        number2.text = generatedNumbers[1] + "";
+        number3.text = generatedNumbers[2] + "";
+        number4.text = generatedNumbers[3] + "";
+        // Set operations
+        operation1.text = opToString(generatedOps[0]);
+        operation2.text = opToString(generatedOps[1]);
+        operation3.text = opToString(generatedOps[2]);
+        // Set answer
+        answer.text = result + "";
+        // Set message
+        if (message != null)
+        {
+            message.text = newMessage;
+        }
+    }
 
-        result.text = game.getResult().ToString();*/
+    // Shuffles the order of the numbers
+    private void shuffleNumbers()
+    {
+        /*int tempNumber;
+        for (int i = 0; i < generatedNumbers.Length; i++)
+        {
+            int rnd = Random.Range(0, generatedNumbers.Length);
+            tempNumber = generatedNumbers[rnd];
+            generatedNumbers[rnd] = generatedNumbers[i];
+            generatedNumbers[i] = tempNumber;
+        }*/
+    }
 
+    // Converts an Operation object into a string
+    private string opToString(Operations op)
+    {
+        switch (op)
+        {
+            case (Operations.Add):
+                return "+";
+            case (Operations.Subtract):
+                return "-";
+            case (Operations.Multiply):
+                return "×";
+            case (Operations.Divide):
+                return "÷";
+            default:
+                throw new System.Exception("Unsupported operation: " + op);
+        }
     }
 
 }
