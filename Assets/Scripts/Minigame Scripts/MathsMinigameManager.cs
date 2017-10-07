@@ -82,11 +82,6 @@ public class MathsMinigameManager : MonoBehaviour {
             Debug.Log("Was successful: " + isSuccessful);
 
         }
-        else
-        {
-            Debug.Log("Was null: ");
-            setErrorMessage("Please make sure that all slots have a number assigned.");
-        }
 
         // If successful
         if (isSuccessful) {
@@ -107,8 +102,16 @@ public class MathsMinigameManager : MonoBehaviour {
         }
         else
         {
-            // Not successful
-            setErrorMessage("Your order is incorrect.");
+            if (isFilledIn) {
+                // Not successful
+                setErrorMessage("Your order is incorrect.");
+            }
+            else
+            {
+                Debug.Log("Was null: ");
+                setErrorMessage("Please make sure that all slots have a number assigned.");
+            }
+
 
         }
     }
