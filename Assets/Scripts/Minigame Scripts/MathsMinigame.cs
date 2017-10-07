@@ -19,6 +19,7 @@ public class MathsMinigame {
         for (int i = 0; i < generatedOps.Length; i++)
         {
             // Assign operations
+            // No Division for now
             int currentOp = Random.Range(0, 3);
             switch (currentOp)
             {
