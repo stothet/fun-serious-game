@@ -39,7 +39,10 @@ public class MathsMinigame {
         }
         result = CalculateResult(generatedNumbers, generatedOps);
         
-        shuffleNumbers();
+        if (!Configuration.isTestMode)
+        {
+            shuffleNumbers();
+        }
     }
     public static int CalculateResult(int[] numbers, Operations[] ops)
     {

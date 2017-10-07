@@ -19,7 +19,10 @@ public class MathsMinigameManager : MonoBehaviour {
     private Text answer = null;
 
     [SerializeField]
-    private GameObject[] slots = null;
+    private GameObject[] answerSlots = null;
+
+    [SerializeField]
+    private GameObject[] numberSlots = null;
 
     [SerializeField]
     private Text errorMessage = null;
@@ -61,11 +64,11 @@ public class MathsMinigameManager : MonoBehaviour {
     */
     public void checkWinConditions() {
    
-        Text[] textArr = new Text[slots.Length];
+        Text[] textArr = new Text[answerSlots.Length];
         bool isFilledIn = true;
         for (int i = 0; i < textArr.Length; i++)
         {
-            textArr[i] = slots[i].GetComponentInChildren<Text>();
+            textArr[i] = answerSlots[i].GetComponentInChildren<Text>();
             if (textArr[i] == null)
             {
                 isFilledIn = false;
@@ -95,18 +98,10 @@ public class MathsMinigameManager : MonoBehaviour {
             }
             else
             {
+                resetSlotPositions();
                 UpdateTextComponents();
-
             }
         }
-
-
-
-
-
-
-
-
     }
 
 
@@ -189,8 +184,15 @@ public class MathsMinigameManager : MonoBehaviour {
         }
 
         return (results == MathsMinigame.CalculateResult(textInts, ops));
+    }
 
-
+    private void resetSlotPositions()
+    {
+        for (int i = 0; i < answerSlots.Length; i++)
+        {
+            Transform answerSlotChild = answerSlots[i].transform.GetChild(0);
+            answerSlotChild.SetParent(numberSlots[i].transform);
+        }
     }
 
 }
