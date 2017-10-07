@@ -36,7 +36,7 @@ public class NPCController : MonoBehaviour {
     {
 
         // When the player comes in contact with the NPC object
-        if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Return))
+		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
             // When the player presses Space to talk to the NPC
             //if (Input.GetKeyDown(KeyCode.Return))
