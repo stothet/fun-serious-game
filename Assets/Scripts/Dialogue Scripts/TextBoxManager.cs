@@ -9,6 +9,7 @@ public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
 
     public Text dialogueText;
+    public Text characterName;
 
     public TextAsset txtFile;
     public string[] txtLines;
@@ -22,7 +23,6 @@ public class TextBoxManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //player = FindObjectOfType<PlayerController>();
         NPC = FindObjectOfType<NPCController>();
 
         // Load the initial dialogue txt file (if there is one)
@@ -49,7 +49,7 @@ public class TextBoxManager : MonoBehaviour {
 
         if (currentLine <= endLine)
         {
-            dialogueText.text = txtLines[currentLine];
+            ParseDialogueLine(txtLines[currentLine]);
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -62,6 +62,13 @@ public class TextBoxManager : MonoBehaviour {
             DisableDialogueBox();
             currentLine = 0;
         }
+    }
+
+    private void ParseDialogueLine(string textLine)
+    {
+        string[] nameAndDialogue = textLine.Split('@');
+        dialogueText.text = nameAndDialogue[1];
+        characterName.text = nameAndDialogue[0];
     }
 
     public void ShowDialogueBox()
