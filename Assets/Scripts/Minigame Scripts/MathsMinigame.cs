@@ -100,7 +100,6 @@ public class MathsMinigame {
             generatedNumbers[i] = tempNumber;
         }
     }
-
 }
 public enum Operations { Add, Subtract, Multiply, Divide }
 

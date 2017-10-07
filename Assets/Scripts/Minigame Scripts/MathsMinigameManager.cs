@@ -98,9 +98,17 @@ public class MathsMinigameManager : MonoBehaviour {
             }
             else
             {
+                setErrorMessage("Correct");
+                setErrorMessageColour(Configuration.MathsMinigameSuccessColourR, Configuration.MathsMinigameSuccessColourG, Configuration.MathsMinigameSuccessColourB);
                 resetSlotPositions();
                 UpdateTextComponents();
             }
+        }
+        else
+        {
+            // Not successful
+            setErrorMessage("Your order is incorrect.");
+
         }
     }
 
@@ -148,10 +156,11 @@ public class MathsMinigameManager : MonoBehaviour {
     }
     private void setErrorMessage(string localErrorMessage)
     {
-         errorMessage.text = localErrorMessage;
+        errorMessage.text = localErrorMessage;
+        setErrorMessageColour(Configuration.MathsMinigameErrorColourR, Configuration.MathsMinigameErrorColourG, Configuration.MathsMinigameErrorColourB);
     }
 
-   
+
 
     // Converts an Operation object into a string
     private string opToString(Operations op)
@@ -193,6 +202,11 @@ public class MathsMinigameManager : MonoBehaviour {
             Transform answerSlotChild = answerSlots[i].transform.GetChild(0);
             answerSlotChild.SetParent(numberSlots[i].transform);
         }
+    }
+
+    private void setErrorMessageColour(float r, float g, float b)
+    {
+        errorMessage.color = new Color(r, g, b);
     }
 
 }
