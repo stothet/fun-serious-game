@@ -94,6 +94,7 @@ public class MathsMinigameManager : MonoBehaviour {
             currentGame++;
             if (currentGame > games.Length - 1)
             {
+                Debug.Log("currentGame = "+currentGame);
                 // Transition to next scene, minigame complete!
             }
             else
