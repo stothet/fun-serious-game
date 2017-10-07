@@ -9,16 +9,21 @@ public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
 
     public Text dialogueText;
-    public Text characterName;
+	public Image _person;
+
 
     public TextAsset txtFile;
     public string[] txtLines;
 
     public int currentLine;
     public int endLine;
+	public int toggle=0;
 
     public PlayerController player;
     public NPCController NPC;
+
+	public Sprite sprite1;
+	public Sprite sprite2;
 
     // Use this for initialization
     void Start()
@@ -49,12 +54,22 @@ public class TextBoxManager : MonoBehaviour {
 
         if (currentLine <= endLine)
         {
-            ParseDialogueLine(txtLines[currentLine]);
+            dialogueText.text = txtLines[currentLine];
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
             currentLine += 1;
+
+
+			if (toggle == 0) {
+				toggle = 1;
+				_person.GetComponent<Image>().sprite = sprite1;
+			} 
+			else {
+				toggle = 0;
+				_person.GetComponent<Image>().sprite = sprite2;
+			}
         }
 
         if (currentLine > endLine)
@@ -62,13 +77,6 @@ public class TextBoxManager : MonoBehaviour {
             DisableDialogueBox();
             currentLine = 0;
         }
-    }
-
-    private void ParseDialogueLine(string textLine)
-    {
-        string[] nameAndDialogue = textLine.Split('@');
-        dialogueText.text = nameAndDialogue[1];
-        characterName.text = nameAndDialogue[0];
     }
 
     public void ShowDialogueBox()

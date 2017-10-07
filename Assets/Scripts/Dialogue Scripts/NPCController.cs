@@ -12,8 +12,6 @@ public class NPCController : MonoBehaviour {
 
     public bool currentlyTalking;
 
-    public bool destroyWhenActivated;
-
     // Use this for initialization
     void Start()
     {
@@ -56,14 +54,6 @@ public class NPCController : MonoBehaviour {
             } else
             {
                 return;
-            }
-
-                
-            //}
-
-            if (destroyWhenActivated)
-            {
-                Destroy(gameObject);
             }
         }
     }
