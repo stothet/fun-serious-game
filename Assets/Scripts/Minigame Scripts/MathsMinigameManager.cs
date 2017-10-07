@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 
-
 public class MathsMinigameManager : MonoBehaviour {
         
     MathsMinigame[] games = new MathsMinigame[Configuration.MathsMinigameNumberOfGames];
