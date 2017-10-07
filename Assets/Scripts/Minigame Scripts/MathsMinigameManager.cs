@@ -173,7 +173,7 @@ public class MathsMinigameManager : MonoBehaviour {
             case (Operations.Subtract):
                 return "-";
             case (Operations.Multiply):
-                return "×";
+                return "X";//"×";
             case (Operations.Divide):
                 return "÷";
             default:
