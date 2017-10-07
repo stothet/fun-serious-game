@@ -8,16 +8,26 @@ public class PlayerController : MonoBehaviour {
 	private bool playerMoving;
 	private Vector2 lastMove;
     private Inventory inventory;
-	//private Rigidbody2D rb2d;
+    //private Rigidbody2D rb2d;
+    public bool canMove;
 
-	void Start(){
+
+    void Start(){
+        canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
     void Update () {
-		playerMoving = false;
+
+        if (!canMove)
+        {
+            anim.SetBool("PlayerMoving", false);
+            return;
+        }
+
+        playerMoving = false;
 		if (Input.GetAxisRaw ("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) {
 			transform.Translate (new Vector3 (Input.GetAxisRaw ("Horizontal") * speed * Time.deltaTime, 0f, 0f));
 			playerMoving = true;
