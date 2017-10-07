@@ -103,7 +103,7 @@ public class MathsMinigameManager : MonoBehaviour {
         {
             if (isFilledIn) {
                 // Not successful
-                setErrorMessage("Your order is incorrect.");
+                setErrorMessage("Your answer is incorrect.");
             }
             else
             {
