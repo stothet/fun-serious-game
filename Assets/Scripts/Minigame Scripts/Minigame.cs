@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+/*public class Minigame : MonoBehaviour {
 
-public class MathsMinigame {
-
-    private static int numSmallNumbers = Configuration.MathsMinigameNumberOfIntegersPerGame;
+    private static int numSmallNumbers = 4;
     private int[] generatedNumbers;
     private Operations[] generatedOps;
     private int result;
 
     // Use this for initialization
-    public MathsMinigame() {
+    void Start () {
         generatedNumbers = new int[numSmallNumbers];
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
-            generatedNumbers[i] = Random.Range(1, 10); 
+            generatedNumbers[i] = Random.Range(1, 10);
         }
+        
+
         generatedOps = new Operations[numSmallNumbers - 1];
         for (int i = 0; i < generatedOps.Length; i++)
         {
@@ -35,8 +37,8 @@ public class MathsMinigame {
                     generatedOps[i] = Operations.Divide;
                     break;
             }
-
         }
+        
         // Calculate result
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
@@ -46,6 +48,7 @@ public class MathsMinigame {
             }
             else
             {
+               
                 // Apply op + next number
                 switch (generatedOps[i - 1])
                 {
@@ -64,7 +67,13 @@ public class MathsMinigame {
                 }
             }
         }
+        setText();
     }
+
+    
+
+
+  
     public int[] getGeneratedNumbers()
     {
         return generatedNumbers;
@@ -79,15 +88,8 @@ public class MathsMinigame {
     {
         return result;
     }
-
-    // Main for testing
-    /*static int Main(string[] args)
-    {
-        MathsMinigameGenerator generator = new MathsMinigameGenerator();
-        generator.Start();
-
-        return 0;
-    }*/
-}
-public enum Operations { Add, Subtract, Multiply, Divide }
-
+    // Update is called once per frame
+    void Update () {
+	
+	}
+}*/
