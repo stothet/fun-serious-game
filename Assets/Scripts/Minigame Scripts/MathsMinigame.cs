@@ -37,34 +37,39 @@ public class MathsMinigame {
             }
 
         }
+        result = CalculateResult(generatedNumbers, generatedOps);
+        
+        shuffleNumbers();
+    }
+    public static int CalculateResult(int[] numbers, Operations[] ops)
+    {
         // Calculate result
-        for (int i = 0; i < generatedNumbers.Length; i++)
+        int localResult = numbers[0];
+        for (int i = 0; i < numbers.Length; i++)
         {
-            if (i == 0)
-            {
-                result = generatedNumbers[i];
-            }
-            else
+            if (i != 0)
             {
                 // Apply op + next number
-                switch (generatedOps[i - 1])
+                switch (ops[i - 1])
                 {
                     case (Operations.Add):
-                        result += generatedNumbers[i];
+                        localResult += numbers[i];
                         break;
                     case (Operations.Subtract):
-                        result -= generatedNumbers[i];
+                        localResult -= numbers[i];
                         break;
                     case (Operations.Multiply):
-                        result *= generatedNumbers[i];
+                        localResult *= numbers[i];
                         break;
                     case (Operations.Divide):
-                        result /= generatedNumbers[i];
+                        localResult /= numbers[i];
                         break;
                 }
             }
         }
+        return localResult;
     }
+   
     public int[] getGeneratedNumbers()
     {
         return generatedNumbers;
@@ -79,6 +84,20 @@ public class MathsMinigame {
     {
         return result;
     }
+
+    // Shuffles the order of the numbers
+    private void shuffleNumbers()
+    {
+        int tempNumber;
+        for (int i = 0; i < generatedNumbers.Length; i++)
+        {
+            int rnd = Random.Range(0, generatedNumbers.Length);
+            tempNumber = generatedNumbers[rnd];
+            generatedNumbers[rnd] = generatedNumbers[i];
+            generatedNumbers[i] = tempNumber;
+        }
+    }
+
 }
 public enum Operations { Add, Subtract, Multiply, Divide }
 

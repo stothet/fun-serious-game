@@ -10,38 +10,23 @@ public class MathsMinigameManager : MonoBehaviour {
     int currentGame;
 
     [SerializeField]
-    private Text number1 = null;
-    [SerializeField]
-    private Text number2 = null;
-    [SerializeField]
-    private Text number3 = null;
-    [SerializeField]
-    private Text number4 = null;
+    private Text[] numbers = null;
 
     [SerializeField]
-    private Text operation1 = null;
-    [SerializeField]
-    private Text operation2 = null;
-    [SerializeField]
-    private Text operation3 = null;
+    private Text[] operations = null;
 
     [SerializeField]
     private Text answer = null;
 
     [SerializeField]
-    private GameObject slot1 = null;
-    [SerializeField]
-    private GameObject slot2 = null;
-    [SerializeField]
-    private GameObject slot3 = null;
-    [SerializeField]
-    private GameObject slot4 = null;
+    private GameObject[] slots = null;
 
     [SerializeField]
     private Text errorMessage = null;
 
     // Use this for initialization
     void Start () {
+        currentGame = 0;
 	    for (int i = 0; i < games.Length; i++)
         {
             games[i] = new MathsMinigame();
@@ -75,16 +60,24 @@ public class MathsMinigameManager : MonoBehaviour {
     * 
     */
     public void checkWinConditions() {
+   
+        Text[] textArr = new Text[slots.Length];
+        bool isFilledIn = true;
+        for (int i = 0; i < textArr.Length; i++)
+        {
+            textArr[i] = slots[i].GetComponentInChildren<Text>();
+            if (textArr[i] == null)
+            {
+                isFilledIn = false;
+            }
+        }
 
         bool isSuccessful = false;
-        Text text1 = slot1.GetComponentInChildren<Text>();
-        Text text2 = slot2.GetComponentInChildren<Text>();
-        Text text3 = slot3.GetComponentInChildren<Text>();
-        Text text4 = slot4.GetComponentInChildren<Text>();
-
-        if (text1 != null && text2 != null && text3 != null && text4 != null)
+        if (isFilledIn)
         {
-            isSuccessful = calculateResults(int.Parse(text1.text), int.Parse(text2.text), int.Parse(text3.text), int.Parse(text4.text));
+            isSuccessful = calculateResults(textArr);
+            Debug.Log("Was successful: " + isSuccessful);
+
         }
         else
         {
@@ -92,12 +85,27 @@ public class MathsMinigameManager : MonoBehaviour {
             setErrorMessage("Please make sure that all slots have a number assigned.");
         }
 
+        // If successful
+        if (isSuccessful) {
+            // If there is another game
+            currentGame++;
+            if (currentGame > games.Length - 1)
+            {
+                // Transition to next scene, minigame complete!
+            }
+            else
+            {
+                UpdateTextComponents();
+
+            }
+        }
 
 
-        // If there is another game
-        // currentGame++;
-        //if ()
-        //UpdateTextComponents();
+
+
+
+
+
 
     }
 
@@ -114,22 +122,24 @@ public class MathsMinigameManager : MonoBehaviour {
         {
             //Debug.Log(generatedNumbers[i].ToString());
         }
-        shuffleNumbers();
         // Set numbers
-        if (number1 != null && number2 != null && number3 != null && number4 != null)
+        for (int i = 0; i < numbers.Length; i++)
         {
-            number1.text = generatedNumbers[0] + "";
-            number2.text = generatedNumbers[1] + "";
-            number3.text = generatedNumbers[2] + "";
-            number4.text = generatedNumbers[3] + "";
+            if (numbers[i] != null)
+            {
+                numbers[i].text = generatedNumbers[i] + "";
+            }
         }
+
         // Set operations
-        if (operation1 != null && operation2 != null && operation3 != null)
+        for (int i = 0; i < operations.Length; i++)
         {
-            operation1.text = opToString(generatedOps[0]);
-            operation2.text = opToString(generatedOps[1]);
-            operation3.text = opToString(generatedOps[2]);
+            if (operations[i] != null)
+            {
+                operations[i].text = opToString(generatedOps[i]);
+            }
         }
+       
         // Set answer
         if (answer != null)
         {
@@ -146,18 +156,7 @@ public class MathsMinigameManager : MonoBehaviour {
          errorMessage.text = localErrorMessage;
     }
 
-    // Shuffles the order of the numbers
-    private void shuffleNumbers()
-    {
-        /*int tempNumber;
-        for (int i = 0; i < generatedNumbers.Length; i++)
-        {
-            int rnd = Random.Range(0, generatedNumbers.Length);
-            tempNumber = generatedNumbers[rnd];
-            generatedNumbers[rnd] = generatedNumbers[i];
-            generatedNumbers[i] = tempNumber;
-        }*/
-    }
+   
 
     // Converts an Operation object into a string
     private string opToString(Operations op)
@@ -177,11 +176,20 @@ public class MathsMinigameManager : MonoBehaviour {
         }
     }
 
-    private bool calculateResults(int num1, int num2, int num3, int num4)
+    private bool calculateResults(Text[] textArr)
     {
-        int total = num1;
+        MathsMinigame game = games[currentGame];
+        int results = game.getResult();
+        Operations[] ops = game.getGeneratedOperations();
 
-    return true;
+        int[] textInts = new int[textArr.Length];
+        for (int i = 0; i < textInts.Length; i++)
+        {
+            textInts[i] = int.Parse(textArr[i].text);
+        }
+
+        return (results == MathsMinigame.CalculateResult(textInts, ops));
+
 
     }
 
