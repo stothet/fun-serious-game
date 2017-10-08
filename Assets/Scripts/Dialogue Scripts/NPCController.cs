@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NPCController : MonoBehaviour
-{
+public class NPCController : MonoBehaviour {
 
     public bool firstTimeTalk;
 
     public TextAsset initialDialogueFile;
     public TextAsset defaultDialogueFile;
-    public TextAsset characterDescription;
+	public TextAsset characterDescription;
 
     public TextBoxManager txtBox;
 
@@ -18,7 +17,10 @@ public class NPCController : MonoBehaviour
 
     public bool currentlyTalking;
 
-    public bool journalUpdated;
+	public bool journalUpdated;
+
+    public bool givenEvidence;
+    public string evidenceName;
 
     // Use this for initialization
     void Start()
@@ -26,21 +28,31 @@ public class NPCController : MonoBehaviour
         txtBox = FindObjectOfType<TextBoxManager>();
         firstTimeTalk = true;
         currentlyTalking = false;
-        journalUpdated = false;
+		journalUpdated = false;
+        givenEvidence = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
-    public void UpdateJournal(Journal journal)
+	public void UpdateJournal(Journal journal)
+	{
+		if (!journalUpdated) 
+		{
+			journal.putJournalEntry (characterDescription.text);
+			journalUpdated = true;
+		}
+	}
+
+    public void GiveEvidence(PlayerController player)
     {
-        if (!journalUpdated)
+        if (!givenEvidence)
         {
-            journal.putJournalEntry(characterDescription.text);
-            journalUpdated = true;
+            player.addToInventory(evidenceName);
+            givenEvidence = true;
         }
     }
 
@@ -50,14 +62,14 @@ public class NPCController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
     {
-
+        
         // When the player comes in contact with the NPC object
-        if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
 
-            sr = GetComponent<SpriteRenderer>();
+			sr = GetComponent<SpriteRenderer>();
 
-            _sprite = sr.sprite;
+			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
             txtBox.setNPCname(_name);
@@ -67,7 +79,7 @@ public class NPCController : MonoBehaviour
             if (!currentlyTalking)
             {
                 currentlyTalking = true;
-                txtBox.IdentifyNPC(this);
+				txtBox.IdentifyNPC (this);
                 if (firstTimeTalk)
                 {
                     txtBox.ReloadScript(initialDialogueFile);
@@ -77,16 +89,14 @@ public class NPCController : MonoBehaviour
                 {
                     txtBox.ReloadScript(defaultDialogueFile);
                 }
-            }
-            else
+            } else
             {
                 return;
             }
         }
     }
 
-    public Sprite getSprite()
-    {
+    public Sprite getSprite(){
         return _sprite;
     }
 }

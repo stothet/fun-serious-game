@@ -4,7 +4,8 @@ Erin:...Unless what?
 Rita:Oh, you see, I need to do me accounts for today, but me calculator has broke! I can't add me numbers in my head very good, you know. 
 Rita:Tough being an adult, kid. You look like a smart fella, though. Maybe if you do my accounts for me, you could jog my memory?
 Erin:...Fine.
-Rita:PHEW THANKS!!! I knew you is a smart kid. Glad I don't have to do these darn accounts myself. 
+ChangeScene: MathsMinigame
+Rita:PHEW THANKS!!! I knew you is a smart kid. Glad I don¡¯t have to do these darn accounts myself. 
 Erin:Ehem..
 Rita:Oh yes.. The big boy.. I remember he was here around noon, relishing on one of my world-famous Sloppy Joes.
 Rita:Here, you can find his signature in my register. Nasty eater. He probably needs a lesson or two in table etiquettes. 
