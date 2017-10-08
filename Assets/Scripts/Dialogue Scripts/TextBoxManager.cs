@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class TextBoxManager : MonoBehaviour {
+public class TextBoxManager : MonoBehaviour
+{
 
     public bool dialogBoxActive;
 
     public GameObject textBox;
 
     public Text dialogueText;
-	public Image _person;
+    public Image _person;
     public Text _name;
 
     public TextAsset txtFile;
@@ -22,30 +24,30 @@ public class TextBoxManager : MonoBehaviour {
     public PlayerController player;
     public NPCController NPC;
 
-	public Sprite sprite1;
-	public Sprite sprite2;
+    public Sprite sprite1;
+    public Sprite sprite2;
     public string _NPCname; //first method
     public string _currentNPCname; //second method
 
-	public Journal journal;
+    public Journal journal;
 
     // Use this for initialization
     void Start()
     {
-		
+
         NPC = FindObjectOfType<NPCController>();
-		journal = FindObjectOfType<Journal>();
+        journal = FindObjectOfType<Journal>();
 
         // Load the initial dialogue txt file (if there is one)
         ReloadScript(txtFile);
 
         if (dialogBoxActive)
         {
-			textBox.SetActive(true);
+            textBox.SetActive(true);
         }
         else
         {
-			textBox.SetActive(false);
+            textBox.SetActive(false);
         }
 
     }
@@ -60,34 +62,54 @@ public class TextBoxManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (currentLine <= endLine)
+            ContinueDialogue();
+        }
+    }
+
+    /// <summary>
+    /// Proceed to the next line in a dialogue conversation in the dialogue box.
+    /// </summary>
+    public void ContinueDialogue()
+    {
+
+        if (currentLine <= endLine)
+        {
+            txtLine = new string[2];
+            string s = txtLines[currentLine];
+            txtLine = (txtLines[currentLine].Split(':'));
+
+            bool isTransition = false;
+            if (txtLine[0].Equals(Configuration.ChangeScenePrompt))
             {
-                dialogueText.text = txtLines[currentLine];
-                txtLine = new string[1];
-                string s = txtLines[currentLine];
-                txtLine = (txtLines[currentLine].Split(':'));
+                isTransition = true;
+                SceneManager.LoadScene(Configuration.minigameSceneName);
+            }
+
+            if (!isTransition)
+            {
+                dialogueText.text = txtLine[1];
                 _currentNPCname = txtLine[0];
             }
-            else {
-				NPC.setOrder(0);
-				DisableDialogueBox();
-				currentLine = 0;
-				return;
-			}
 
-            currentLine += 1;
+        }
+        else
+        {
+            DisableDialogueBox();
+            currentLine = 0;
+            return;
+        }
 
-            if (_currentNPCname.Equals("Erin"))
-			{
-				_person.GetComponent<Image>().sprite = sprite1;
-				_name.text = "Erin";
-			}
-			else
-            {
-				_person.GetComponent<Image>().sprite = sprite2;
-				_name.text = _NPCname;
-			}
+        currentLine += 1;
 
+        if (_currentNPCname.Equals("Erin"))
+        {
+            _person.GetComponent<Image>().sprite = sprite1;
+            _name.text = "Erin";
+        }
+        else
+        {
+            _person.GetComponent<Image>().sprite = sprite2;
+            _name.text = _NPCname;
         }
     }
 
@@ -106,21 +128,20 @@ public class TextBoxManager : MonoBehaviour {
         dialogBoxActive = false;
         player.canMove = true;
 
-		// Update the journal if it hasn't already for NPC info.
-		NPC.UpdateJournal(journal);
+        // Update the journal if it hasn't already for NPC info.
+        NPC.UpdateJournal(journal);
 
-        // Give evidence, if hasn't already
         NPC.GiveEvidence(player);
     }
 
-	/// <summary>
-	/// Identifies the talking NPC by setting the local NPC field.
-	/// </summary>
-	/// <param name="npc">Npc.</param>
-	public void IdentifyNPC(NPCController npc)
-	{
-		NPC = npc;
-	}
+    /// <summary>
+    /// Identifies the talking NPC by setting the local NPC field.
+    /// </summary>
+    /// <param name="npc">Npc.</param>
+    public void IdentifyNPC(NPCController npc)
+    {
+        NPC = npc;
+    }
 
     /// <summary>
     ///  Load the script's info into local variables and show the dialog. Only loads if it hasn't already been before.
@@ -132,7 +153,7 @@ public class TextBoxManager : MonoBehaviour {
         if (script == null)
         {
             return;
-        } 
+        }
 
         // If it's a new script, load it locally. Else just skip this and show dialogue box immediately.
         if (script != txtFile)
@@ -150,12 +171,12 @@ public class TextBoxManager : MonoBehaviour {
     }
 
     public void setSprite(Sprite s)
-	{
-		sprite2 = s;
-	}
+    {
+        sprite2 = s;
+    }
 
-	public void setNPCname(string name)
-	{
+    public void setNPCname(string name)
+    {
         _NPCname = name;
-	}
+    }
 }

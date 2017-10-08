@@ -19,6 +19,13 @@ public class Configuration
     public static readonly float MathsMinigameErrorColourG = 91.0f / 255.0f;
     public static readonly float MathsMinigameErrorColourB = 65.0f / 255.0f;
 
-    public static Font MathsMinigameFont = (Font) Resources.Load("Fonts/kindergarten");
+    public static readonly string ChangeScenePrompt = "ChangeScene";
+
+    public static readonly string minigameSceneName = "MathsMinigame";
+    public static readonly string mainMenuSceneName = "MainMenu";
+    public static readonly string worldMapSceneName = "WorldMap";
+
+
+    public static Font MathsMinigameFont = (Font)Resources.Load("Fonts/kindergarten");
 
 }

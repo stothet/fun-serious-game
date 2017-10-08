@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class MathsMinigameManager : MonoBehaviour {
-        
+public class MathsMinigameManager : MonoBehaviour
+{
+
     MathsMinigame[] games = new MathsMinigame[Configuration.MathsMinigameNumberOfGames];
 
     int currentGame;
@@ -27,18 +29,20 @@ public class MathsMinigameManager : MonoBehaviour {
     private Text errorMessage = null;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         currentGame = 0;
-	    for (int i = 0; i < games.Length; i++)
+        for (int i = 0; i < games.Length; i++)
         {
             games[i] = new MathsMinigame();
         }
         UpdateTextComponents();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     /**
@@ -61,8 +65,9 @@ public class MathsMinigameManager : MonoBehaviour {
     * If all games have been completed, the minigame scene transitions back to the real world.
     * 
     */
-    public void checkWinConditions() {
-   
+    public void checkWinConditions()
+    {
+
         Text[] textArr = new Text[answerSlots.Length];
         bool isFilledIn = true;
         for (int i = 0; i < textArr.Length; i++)
@@ -83,13 +88,15 @@ public class MathsMinigameManager : MonoBehaviour {
         }
 
         // If successful
-        if (isSuccessful) {
+        if (isSuccessful)
+        {
             // If there is another game
             currentGame++;
             if (currentGame > games.Length - 1)
             {
-                Debug.Log("currentGame = "+currentGame);
+                Debug.Log("currentGame = " + currentGame);
                 // Transition to next scene, minigame complete!
+                SceneManager.LoadScene(Configuration.worldMapSceneName);
             }
             else
             {
@@ -101,7 +108,8 @@ public class MathsMinigameManager : MonoBehaviour {
         }
         else
         {
-            if (isFilledIn) {
+            if (isFilledIn)
+            {
                 // Not successful
                 setErrorMessage("Your answer is incorrect.");
             }
@@ -114,10 +122,6 @@ public class MathsMinigameManager : MonoBehaviour {
 
         }
     }
-
-
-
-
 
     ////// Helper Methods //////
 
@@ -145,7 +149,7 @@ public class MathsMinigameManager : MonoBehaviour {
                 operations[i].text = opToString(generatedOps[i]);
             }
         }
-       
+
         // Set answer
         if (answer != null)
         {
