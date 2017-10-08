@@ -29,21 +29,24 @@ public class TextBoxManager : MonoBehaviour {
     public string _NPCname; //first method
     public string _currentNPCname; //second method
 
+	public Journal journal;
+
     // Use this for initialization
     void Start()
     {
         NPC = FindObjectOfType<NPCController>();
+		journal = FindObjectOfType<Journal>();
 
         // Load the initial dialogue txt file (if there is one)
         ReloadScript(txtFile);
 
         if (dialogBoxActive)
         {
-            ShowDialogueBox();
+			textBox.SetActive(true);
         }
         else
         {
-            DisableDialogueBox();
+			textBox.SetActive(false);
         }
 
     }
@@ -102,7 +105,19 @@ public class TextBoxManager : MonoBehaviour {
         textBox.SetActive(false);
         dialogBoxActive = false;
         player.canMove = true;
+
+		// Update the journal if it hasn't already for NPC info.
+		NPC.UpdateJournal(journal);
     }
+
+	/// <summary>
+	/// Identifies the talking NPC by setting the local NPC field.
+	/// </summary>
+	/// <param name="npc">Npc.</param>
+	public void IdentifyNPC(NPCController npc)
+	{
+		NPC = npc;
+	}
 
     /// <summary>
     ///  Load the script's info into local variables and show the dialog. Only loads if it hasn't already been before.

@@ -7,6 +7,7 @@ public class NPCController : MonoBehaviour {
 
     public TextAsset initialDialogueFile;
     public TextAsset defaultDialogueFile;
+	public TextAsset characterDescription;
 
     public TextBoxManager txtBox;
 
@@ -16,12 +17,15 @@ public class NPCController : MonoBehaviour {
 
     public bool currentlyTalking;
 
+	public bool journalUpdated;
+
     // Use this for initialization
     void Start()
     {
         txtBox = FindObjectOfType<TextBoxManager>();
         firstTimeTalk = true;
         currentlyTalking = false;
+		journalUpdated = false;
     }
 
     // Update is called once per frame
@@ -29,6 +33,15 @@ public class NPCController : MonoBehaviour {
     {
 
     }
+
+	public void UpdateJournal(Journal journal)
+	{
+		if (!journalUpdated) 
+		{
+			journal.putJournalEntry (characterDescription.text);
+			journalUpdated = true;
+		}
+	}
 
     /// <summary>
     /// Triggers every frame playe is in contact with NPC. Used to trigger conversation.
@@ -40,7 +53,9 @@ public class NPCController : MonoBehaviour {
         // When the player comes in contact with the NPC object
 		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
+
 			sr = GetComponent<SpriteRenderer>();
+
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
@@ -51,6 +66,7 @@ public class NPCController : MonoBehaviour {
             if (!currentlyTalking)
             {
                 currentlyTalking = true;
+				txtBox.IdentifyNPC (this);
                 if (firstTimeTalk)
                 {
                     txtBox.ReloadScript(initialDialogueFile);
