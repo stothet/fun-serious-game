@@ -11,7 +11,7 @@ public class NPCController : MonoBehaviour {
     public TextBoxManager txtBox;
 
     public string _name;
-    public Sprite NPCsprite;
+    public Sprite _sprite;
     private SpriteRenderer sr;
 
     public bool currentlyTalking;
@@ -41,7 +41,9 @@ public class NPCController : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
 			sr = GetComponent<SpriteRenderer>();
-			NPCsprite = sr.sprite;
+			_sprite = sr.sprite;
+            print(getSprite());
+            txtBox.setSprite(getSprite());
             // When the player presses Space to talk to the NPC
             //if (Input.GetKeyDown(KeyCode.Return))
             //{
@@ -65,6 +67,6 @@ public class NPCController : MonoBehaviour {
     }
 
     public Sprite getSprite(){
-        return NPCsprite;
+        return _sprite;
     }
 }
