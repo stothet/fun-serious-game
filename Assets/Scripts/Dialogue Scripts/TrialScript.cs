@@ -93,8 +93,6 @@ public class TrialScript : MonoBehaviour
 
 				txtBox.ReloadScript(prelude);
 				txtBox.dialogBoxActive = true;
-				txtBox.order = -1;
-				txtBox.Update ();
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
 				break;
