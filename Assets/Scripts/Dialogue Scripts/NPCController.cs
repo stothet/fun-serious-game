@@ -55,17 +55,13 @@ public class NPCController : MonoBehaviour {
         {
 
 			sr = GetComponent<SpriteRenderer>();
-<<<<<<< HEAD
-			NPCsprite = sr.sprite;
 
-=======
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
             // When the player presses Space to talk to the NPC
             //if (Input.GetKeyDown(KeyCode.Return))
             //{
->>>>>>> 5c7359136f5164e738cbe6a62c4601b8894b46a4
             if (!currentlyTalking)
             {
                 currentlyTalking = true;

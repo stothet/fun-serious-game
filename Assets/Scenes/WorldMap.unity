@@ -487,7 +487,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 15.062761
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_MovementType
@@ -909,16 +909,14 @@ Prefab:
       value: 
       objectReference: {fileID: 4900000, guid: 21abe4a6ef22de649bfd410466bb5ecb, type: 3}
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
-<<<<<<< HEAD
-      propertyPath: characterDescription
-      value: 
-      objectReference: {fileID: 4900000, guid: 5f87b9299558cec4ab0425ec06d4b9fc, type: 3}
-=======
       propertyPath: NPCsprite
       value: 
       objectReference: {fileID: 21300000, guid: 3f831e84cac2740c69a141459acf3efe,
         type: 3}
->>>>>>> 5c7359136f5164e738cbe6a62c4601b8894b46a4
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: characterDescription
+      value: 
+      objectReference: {fileID: 4900000, guid: 5f87b9299558cec4ab0425ec06d4b9fc, type: 3}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -1824,14 +1822,9 @@ MonoBehaviour:
   toggle: 0
   player: {fileID: 641704448}
   NPC: {fileID: 0}
-<<<<<<< HEAD
-  sprite1: {fileID: 21300000, guid: 8db3b06d61286894696cad45dbd09535, type: 3}
-  sprite2: {fileID: 21300000, guid: c503e9a0ccfde4985ac958917ddf3fe9, type: 3}
-  journal: {fileID: 0}
-=======
   sprite1: {fileID: 21300036, guid: 8db3b06d61286894696cad45dbd09535, type: 3}
   sprite2: {fileID: 0}
->>>>>>> 5c7359136f5164e738cbe6a62c4601b8894b46a4
+  journal: {fileID: 0}
 --- !u!4 &1689302475
 Transform:
   m_ObjectHideFlags: 0
@@ -2051,16 +2044,6 @@ Prefab:
       propertyPath: defaultDialogueFile
       value: 
       objectReference: {fileID: 4900000, guid: d16d4f2b880bf424d8d4a59b35e7763b, type: 3}
-<<<<<<< HEAD
-    - target: {fileID: 5061992, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
-      propertyPath: characterDescription
-      value: 
-      objectReference: {fileID: 4900000, guid: 444e7621c58dbbd43ac06d17946fd3b9, type: 3}
-=======
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: NPCsprite
       value: 
@@ -2071,7 +2054,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: c503e9a0ccfde4985ac958917ddf3fe9,
         type: 3}
->>>>>>> 5c7359136f5164e738cbe6a62c4601b8894b46a4
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: characterDescription
+      value: 
+      objectReference: {fileID: 4900000, guid: 444e7621c58dbbd43ac06d17946fd3b9, type: 3}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
