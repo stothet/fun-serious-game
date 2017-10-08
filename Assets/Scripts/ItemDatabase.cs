@@ -14,8 +14,30 @@ public class ItemDatabase : MonoBehaviour {
     //Add additional items to the database with the following rubber duck template.
 	void Start () {
         //Item constructor is Item(String itemName, int itemId, string description, int itemQuantity, Enum evidenceType, string spriteName)
-        items.Add(new Item("Rubber Duck", 0, "Just a rubber duck.", 1, Item.ItemType.DUMMY, "duck_yellow"));
-        items.Add(new Item("Evidence Duck", 1, "This looks useful.", 1, Item.ItemType.EVIDENCE, "duck_yellow"));
+        items.Add(new Item("Bruce's register entry", 0, "Register entry for Bruce, with his signature and an official timestamp.", 1, Item.ItemType.EVIDENCE, "book"));
+        items.Add(new Item("Scrunched up paper", 1, "Bill's Art History report, scrunched to a ball.", 1, Item.ItemType.DUMMY, "paper"));
+        items.Add(new Item("Detention note", 2, "Detention note for Bruce, with the date and time nowhere to be seen.", 1, Item.ItemType.DUMMY, "slip"));
+    }
+
+    /// <summary>
+    /// Returns the associated item id with the item name within database.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static int NameToID(string name)
+    {
+        if (name.Equals("Bruce's register entry"))
+        {
+            return 0;
+        } else if (name.Equals("Scrunched up paper"))
+        {
+            return 1;
+        } else if (name.Equals("Detention note"))
+        {
+            return 2;
+        }
+
+        return -1;
     }
 
 }

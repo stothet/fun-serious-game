@@ -487,7 +487,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 14.209591
       objectReference: {fileID: 0}
     - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_MovementType
@@ -848,6 +848,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 74877e2296002c74caa59cf17ad7d6d8,
         type: 3}
+    - target: {fileID: 139022, guid: 955e18b7e6614164aa95a9832c460cda, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 955e18b7e6614164aa95a9832c460cda, type: 2}
   m_IsPrefabParent: 0
@@ -983,6 +987,10 @@ Prefab:
     - target: {fileID: 427072, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: evidenceName
+      value: Scrunched up paper
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -1186,6 +1194,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.8065946
       objectReference: {fileID: 0}
+    - target: {fileID: 139022, guid: 955e18b7e6614164aa95a9832c460cda, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 955e18b7e6614164aa95a9832c460cda, type: 2}
   m_IsPrefabParent: 0
@@ -1237,6 +1249,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 1295a3e09178be441b395225dbb07a01,
         type: 3}
+    - target: {fileID: 139022, guid: 955e18b7e6614164aa95a9832c460cda, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 955e18b7e6614164aa95a9832c460cda, type: 2}
   m_IsPrefabParent: 0
@@ -1703,6 +1719,10 @@ Prefab:
       propertyPath: characterDescription
       value: 
       objectReference: {fileID: 4900000, guid: e94b690241da5d74fb073f0160cc4b6a, type: 3}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: evidenceName
+      value: Bruce's register entry
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -2212,6 +2232,10 @@ Prefab:
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: _name
       value: Jimmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: evidenceName
+      value: Detention note
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}

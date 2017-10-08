@@ -61,10 +61,6 @@ public class Inventory : MonoBehaviour {
             {
                 Item item = database.items[i];
                 addToEmptySlot(item);
-                if (item._itemType == Item.ItemType.EVIDENCE)
-                {
-                    _journal.putJournalEntry("HAKUNA MATATA");
-                }
                 break;
             }
         }

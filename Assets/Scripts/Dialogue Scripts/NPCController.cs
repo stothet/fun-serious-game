@@ -19,6 +19,9 @@ public class NPCController : MonoBehaviour {
 
 	public bool journalUpdated;
 
+    public bool givenEvidence;
+    public string evidenceName;
+
     // Use this for initialization
     void Start()
     {
@@ -26,12 +29,13 @@ public class NPCController : MonoBehaviour {
         firstTimeTalk = true;
         currentlyTalking = false;
 		journalUpdated = false;
+        givenEvidence = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
 	public void UpdateJournal(Journal journal)
@@ -42,6 +46,15 @@ public class NPCController : MonoBehaviour {
 			journalUpdated = true;
 		}
 	}
+
+    public void GiveEvidence(PlayerController player)
+    {
+        if (!givenEvidence)
+        {
+            player.addToInventory(evidenceName);
+            givenEvidence = true;
+        }
+    }
 
     /// <summary>
     /// Triggers every frame playe is in contact with NPC. Used to trigger conversation.
