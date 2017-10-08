@@ -63,49 +63,54 @@ public class TextBoxManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            ContinueDialogue();
+        }
+    }
 
+    /// <summary>
+    /// Proceed to the next line in a dialogue conversation in the dialogue box.
+    /// </summary>
+    public void ContinueDialogue()
+    {
 
+        if (currentLine <= endLine)
+        {
+            txtLine = new string[2];
+            string s = txtLines[currentLine];
+            txtLine = (txtLines[currentLine].Split(':'));
 
-            if (currentLine <= endLine)
+            bool isTransition = false;
+            if (txtLine[0].Equals(Configuration.ChangeScenePrompt))
             {
-                txtLine = new string[2];
-                string s = txtLines[currentLine];
-                txtLine = (txtLines[currentLine].Split(':'));
-
-                bool isTransition = false;
-                if (txtLine[0].Equals(Configuration.ChangeScenePrompt))
-                {
-                    isTransition = true;
-                    SceneManager.LoadScene(Configuration.minigameSceneName);
-                }
-
-                if (!isTransition)
-                {
-                    dialogueText.text = txtLine[1];
-                    _currentNPCname = txtLine[0];
-                }
-
-            }
-            else
-            {
-                DisableDialogueBox();
-                currentLine = 0;
-                return;
+                isTransition = true;
+                SceneManager.LoadScene(Configuration.minigameSceneName);
             }
 
-            currentLine += 1;
-
-            if (_currentNPCname.Equals("Erin"))
+            if (!isTransition)
             {
-                _person.GetComponent<Image>().sprite = sprite1;
-                _name.text = "Erin";
-            }
-            else
-            {
-                _person.GetComponent<Image>().sprite = sprite2;
-                _name.text = _NPCname;
+                dialogueText.text = txtLine[1];
+                _currentNPCname = txtLine[0];
             }
 
+        }
+        else
+        {
+            DisableDialogueBox();
+            currentLine = 0;
+            return;
+        }
+
+        currentLine += 1;
+
+        if (_currentNPCname.Equals("Erin"))
+        {
+            _person.GetComponent<Image>().sprite = sprite1;
+            _name.text = "Erin";
+        }
+        else
+        {
+            _person.GetComponent<Image>().sprite = sprite2;
+            _name.text = _NPCname;
         }
     }
 

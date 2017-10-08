@@ -22,6 +22,9 @@ public class NPCController : MonoBehaviour {
     public bool givenEvidence;
     public string evidenceName;
 
+    // Make player auto-talk to NPC in a cutscene
+    public bool autoTalk;
+
     // Use this for initialization
     void Start()
     {
@@ -30,6 +33,7 @@ public class NPCController : MonoBehaviour {
         currentlyTalking = false;
 		journalUpdated = false;
         givenEvidence = false;
+        autoTalk = false;
     }
 
     // Update is called once per frame
@@ -64,9 +68,8 @@ public class NPCController : MonoBehaviour {
     {
         
         // When the player comes in contact with the NPC object
-		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
-
 			sr = GetComponent<SpriteRenderer>();
 
 			_sprite = sr.sprite;
@@ -84,6 +87,12 @@ public class NPCController : MonoBehaviour {
                 {
                     txtBox.ReloadScript(initialDialogueFile);
                     firstTimeTalk = false;
+
+                    if (autoTalk)
+                    {
+                        txtBox.ContinueDialogue();
+                    }
+
                 }
                 else
                 {
@@ -93,6 +102,7 @@ public class NPCController : MonoBehaviour {
             {
                 return;
             }
+            autoTalk = false;
         }
     }
 
