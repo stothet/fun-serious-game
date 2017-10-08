@@ -733,7 +733,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5061992, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_SleepingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21268344, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_SortingOrder
@@ -792,6 +792,10 @@ Prefab:
       propertyPath: _name
       value: Wilson
       objectReference: {fileID: 0}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: characterDescription
+      value: 
+      objectReference: {fileID: 4900000, guid: 9b535322434e11f448e157e726181e4c, type: 3}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -1504,7 +1508,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5061992, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_SleepingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5061992, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_Constraints
@@ -1568,6 +1572,10 @@ Prefab:
       propertyPath: _name
       value: Rita
       objectReference: {fileID: 0}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: characterDescription
+      value: 
+      objectReference: {fileID: 4900000, guid: e94b690241da5d74fb073f0160cc4b6a, type: 3}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
