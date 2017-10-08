@@ -10,6 +10,10 @@ public class NPCController : MonoBehaviour {
 
     public TextBoxManager txtBox;
 
+    public string _name;
+    public Sprite NPCsprite;
+    private SpriteRenderer sr;
+
     public bool currentlyTalking;
 
     // Use this for initialization
@@ -32,10 +36,12 @@ public class NPCController : MonoBehaviour {
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
     {
-
+        
         // When the player comes in contact with the NPC object
 		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
+			sr = GetComponent<SpriteRenderer>();
+			NPCsprite = sr.sprite;
             // When the player presses Space to talk to the NPC
             //if (Input.GetKeyDown(KeyCode.Return))
             //{
@@ -56,5 +62,9 @@ public class NPCController : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    public Sprite getSprite(){
+        return NPCsprite;
     }
 }
