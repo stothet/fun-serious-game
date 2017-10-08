@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
     //private Rigidbody2D rb2d;
     public bool canMove;
 
+    public NPCController cutsceneNPC;
+
     // Global fields
     private static int numLives;
     private static bool hasCompletedMinigame;
@@ -21,9 +23,12 @@ public class PlayerController : MonoBehaviour {
         canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
+        cutsceneNPC.autoTalk = true;
 
         numLives = 3;
         hasCompletedMinigame = false;
+
     }
 
     // Update is called once per frame

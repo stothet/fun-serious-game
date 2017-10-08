@@ -11,6 +11,7 @@ TagManager:
   - Pickup
   - Journal
   - Bill
+  - Principal
   layers:
   - Default
   - TransparentFX

@@ -61,33 +61,41 @@ public class TextBoxManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (currentLine <= endLine)
-            {
-                string s = txtLines[currentLine];
-                nameAndDialogue = new string[1];
-                nameAndDialogue = (txtLines[currentLine].Split(':'));
-                _currentNPCname = nameAndDialogue[0];
-                dialogueText.text = nameAndDialogue[1];
-            }
-            else {
-				DisableDialogueBox();
-				currentLine = 0;
-				return;
-			}
+            ContinueDialogue();
+        }
+    }
 
-            currentLine += 1;
+    /// <summary>
+    /// Proceed to the next line in a dialogue conversation in the dialogue box.
+    /// </summary>
+    public void ContinueDialogue()
+    {
+        if (currentLine <= endLine)
+        {
+            string s = txtLines[currentLine];
+            nameAndDialogue = new string[1];
+            nameAndDialogue = (txtLines[currentLine].Split(':'));
+            _currentNPCname = nameAndDialogue[0];
+            dialogueText.text = nameAndDialogue[1];
+        }
+        else
+        {
+            DisableDialogueBox();
+            currentLine = 0;
+            return;
+        }
 
-            if (_currentNPCname.Equals("Erin"))
-			{
-				_person.GetComponent<Image>().sprite = sprite1;
-				_name.text = "Erin";
-			}
-			else
-            {
-				_person.GetComponent<Image>().sprite = sprite2;
-				_name.text = _NPCname;
-			}
+        currentLine += 1;
 
+        if (_currentNPCname.Equals("Erin"))
+        {
+            _person.GetComponent<Image>().sprite = sprite1;
+            _name.text = "Erin";
+        }
+        else
+        {
+            _person.GetComponent<Image>().sprite = sprite2;
+            _name.text = _NPCname;
         }
     }
 
