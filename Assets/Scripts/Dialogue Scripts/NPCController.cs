@@ -84,8 +84,14 @@ public class NPCController : MonoBehaviour {
 				txtBox.IdentifyNPC (this);
                 if (firstTimeTalk)
                 {
-                    txtBox.ReloadScript(initialDialogueFile);
-                    firstTimeTalk = false;
+                    //txtBox.ReloadScript(initialDialogueFile);
+                    //firstTimeTalk = false;
+					if(_name.Equals("Wilson")){
+						trialBox = FindObjectOfType<TrialScript>();
+						trialBox.trialDialogue(order);
+						trialBox.gameObject.SetActive(true);
+
+					}
                 }
                 else
                 {
