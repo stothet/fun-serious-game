@@ -52,15 +52,17 @@ public class TextBoxManager : MonoBehaviour {
             return;
         }
 
-        if (currentLine <= endLine)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            dialogueText.text = txtLines[currentLine];
-        }
+			if (currentLine <= endLine) {
+				dialogueText.text = txtLines [currentLine];
+			} else {
+				DisableDialogueBox();
+				currentLine = 0;
+				return;
+			}
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
             currentLine += 1;
-
 
 			if (toggle == 0) {
 				toggle = 1;
@@ -70,12 +72,6 @@ public class TextBoxManager : MonoBehaviour {
 				toggle = 0;
 				_person.GetComponent<Image>().sprite = sprite2;
 			}
-        }
-
-        if (currentLine > endLine)
-        {
-            DisableDialogueBox();
-            currentLine = 0;
         }
     }
 
