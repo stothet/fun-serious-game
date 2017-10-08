@@ -11,6 +11,10 @@ public class NPCController : MonoBehaviour {
 
     public TextBoxManager txtBox;
 
+    public string _name;
+    public Sprite NPCsprite;
+    private SpriteRenderer sr;
+
     public bool currentlyTalking;
 
 	public bool journalUpdated;
@@ -45,11 +49,14 @@ public class NPCController : MonoBehaviour {
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
     {
-
+        
         // When the player comes in contact with the NPC object
 		if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
-            
+
+			sr = GetComponent<SpriteRenderer>();
+			NPCsprite = sr.sprite;
+
             if (!currentlyTalking)
             {
                 currentlyTalking = true;
@@ -68,5 +75,9 @@ public class NPCController : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    public Sprite getSprite(){
+        return NPCsprite;
     }
 }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     private Inventory inventory;
     //private Rigidbody2D rb2d;
     public bool canMove;
+    private static int numLives = 3;
 
 
     void Start(){
@@ -48,12 +49,37 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-       // Debug.Log("Hi!");
+        Debug.Log("Collision occured");
+        if (Configuration.isTestMode)
+        {
+            subtractLife(); // For testing life subtraction
+        }
         if (other.gameObject.CompareTag("Pickup"))
         {
             inventory.addItem(0);
             other.gameObject.SetActive(false);
         }
+
+    }
+
+    public void subtractLife()
+    {
+        numLives--;
+        if (numLives <= 0)
+        {
+            // Transition to game over scene;
+            Debug.Log("Game over");
+        }
+        else
+        {
+            // Update lives UI
+        }
+
+    }
+
+    public static int getNumberOfLives()
+    {
+        return numLives;
     }
 
 }
