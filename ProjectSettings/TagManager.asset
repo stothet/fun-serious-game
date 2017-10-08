@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NameOfItem
+  - DescriptionOfItem
+  - Inventory
+  - ItemDatabase
+  - Pickup
+  - Journal
+  - Bill
   layers:
   - Default
   - TransparentFX
@@ -13,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - BlockingLayer
+  - 
   - 
   - 
   - 
@@ -41,12 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 3138672409
+  - name: Pickups
+    uniqueID: 1907784817
     locked: 0
-  - name: Panel
-    uniqueID: 1716470495
-    locked: 0
-  - name: Unit
-    uniqueID: 785906471
+  - name: Player
+    uniqueID: 2337287237
     locked: 0

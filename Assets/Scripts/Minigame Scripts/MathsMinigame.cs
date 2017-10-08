@@ -8,17 +8,18 @@ public class MathsMinigame {
     private Operations[] generatedOps;
     private int result;
 
-    public enum Operations { Add, Subtract, Multiply, Divide };
-
     // Use this for initialization
     public MathsMinigame() {
+        generatedNumbers = new int[numSmallNumbers];
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
             generatedNumbers[i] = Random.Range(1, 10); 
         }
+        generatedOps = new Operations[numSmallNumbers - 1];
         for (int i = 0; i < generatedOps.Length; i++)
         {
             // Assign operations
+            // No Division for now
             int currentOp = Random.Range(0, 3);
             switch (currentOp)
             {
@@ -37,34 +38,42 @@ public class MathsMinigame {
             }
 
         }
-        // Calculate result
-        for (int i = 0; i < generatedNumbers.Length; i++)
+        result = CalculateResult(generatedNumbers, generatedOps);
+        
+        if (!Configuration.isTestMode)
         {
-            if (i == 0)
-            {
-                result = generatedNumbers[i];
-            }
-            else
+            shuffleNumbers();
+        }
+    }
+    public static int CalculateResult(int[] numbers, Operations[] ops)
+    {
+        // Calculate result
+        int localResult = numbers[0];
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (i != 0)
             {
                 // Apply op + next number
-                switch (generatedOps[i - 1])
+                switch (ops[i - 1])
                 {
                     case (Operations.Add):
-                        result += generatedNumbers[i];
+                        localResult += numbers[i];
                         break;
                     case (Operations.Subtract):
-                        result -= generatedNumbers[i];
+                        localResult -= numbers[i];
                         break;
                     case (Operations.Multiply):
-                        result *= generatedNumbers[i];
+                        localResult *= numbers[i];
                         break;
                     case (Operations.Divide):
-                        result /= generatedNumbers[i];
+                        localResult /= numbers[i];
                         break;
                 }
             }
         }
+        return localResult;
     }
+   
     public int[] getGeneratedNumbers()
     {
         return generatedNumbers;
@@ -80,12 +89,18 @@ public class MathsMinigame {
         return result;
     }
 
-    // Main for testing
-    /*static int Main(string[] args)
+    // Shuffles the order of the numbers
+    private void shuffleNumbers()
     {
-        MathsMinigameGenerator generator = new MathsMinigameGenerator();
-        generator.Start();
-
-        return 0;
-    }*/
+        int tempNumber;
+        for (int i = 0; i < generatedNumbers.Length; i++)
+        {
+            int rnd = Random.Range(0, generatedNumbers.Length);
+            tempNumber = generatedNumbers[rnd];
+            generatedNumbers[rnd] = generatedNumbers[i];
+            generatedNumbers[i] = tempNumber;
+        }
+    }
 }
+public enum Operations { Add, Subtract, Multiply, Divide }
+

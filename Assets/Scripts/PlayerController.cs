@@ -7,15 +7,27 @@ public class PlayerController : MonoBehaviour {
 	private Animator anim;
 	private bool playerMoving;
 	private Vector2 lastMove;
-	//private Rigidbody2D rb2d;
+    private Inventory inventory;
+    //private Rigidbody2D rb2d;
+    public bool canMove;
 
-	void Start(){
+
+    void Start(){
+        canMove = true;
 		anim = GetComponent<Animator> ();
-	}
+        inventory = inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+    }
 
-	// Update is called once per frame
-	void Update () {
-		playerMoving = false;
+    // Update is called once per frame
+    void Update () {
+
+        if (!canMove)
+        {
+            anim.SetBool("PlayerMoving", false);
+            return;
+        }
+
+        playerMoving = false;
 		if (Input.GetAxisRaw ("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) {
 			transform.Translate (new Vector3 (Input.GetAxisRaw ("Horizontal") * speed * Time.deltaTime, 0f, 0f));
 			playerMoving = true;
@@ -33,5 +45,15 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+       // Debug.Log("Hi!");
+        if (other.gameObject.CompareTag("Pickup"))
+        {
+            inventory.addItem(0);
+            other.gameObject.SetActive(false);
+        }
+    }
 
 }
