@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,13 +12,18 @@ public class PlayerController : MonoBehaviour {
     private Inventory inventory;
     //private Rigidbody2D rb2d;
     public bool canMove;
-    private static int numLives = 3;
 
+    // Global fields
+    private static int numLives;
+    private static bool hasCompletedMinigame;
 
     void Start(){
         canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+
+        numLives = 3;
+        hasCompletedMinigame = false;
     }
 
     // Update is called once per frame
@@ -69,6 +76,8 @@ public class PlayerController : MonoBehaviour {
         {
             // Transition to game over scene;
             Debug.Log("Game over");
+            SceneManager.LoadScene(0);
+
         }
         else
         {
@@ -81,5 +90,15 @@ public class PlayerController : MonoBehaviour {
     {
         return numLives;
     }
+
+    public static bool getHasCompletedMinigame()
+      {
+          return hasCompletedMinigame;
+      }
+  
+      public static void setHasCompletedMinigame(bool boolean)
+      {
+          hasCompletedMinigame = boolean;
+      }
 
 }
