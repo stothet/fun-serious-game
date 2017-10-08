@@ -10,9 +10,11 @@ public class NPCController : MonoBehaviour {
 	public TextAsset characterDescription;
 
     public TextBoxManager txtBox;
+	public TrialScript trialBox;
 
     public Sprite _sprite;
     public string _name;
+	public int order=0;
     private SpriteRenderer sr;
 
     public bool currentlyTalking;
@@ -74,7 +76,15 @@ public class NPCController : MonoBehaviour {
                 }
                 else
                 {
-                    txtBox.ReloadScript(defaultDialogueFile);
+					if(_name.Equals("Wilson")){
+						trialBox = FindObjectOfType<TrialScript>();
+						trialBox.trialDialogue(order);
+						trialBox.gameObject.SetActive(true);
+
+					}
+					else{
+						txtBox.ReloadScript(defaultDialogueFile);
+					}
                 }
             } else
             {
@@ -86,4 +96,8 @@ public class NPCController : MonoBehaviour {
     public Sprite getSprite(){
         return _sprite;
     }
+
+	public void setOrder(int _order){
+		order = _order;
+	}
 }

@@ -12,14 +12,12 @@ public class TextBoxManager : MonoBehaviour {
 	public Image _person;
     public Text _name;
 
-
     public TextAsset txtFile;
     public string[] txtLines;
     public string[] txtLine;
 
     public int currentLine;
     public int endLine;
-	public bool toggle = true;
 
     public PlayerController player;
     public NPCController NPC;
@@ -34,6 +32,7 @@ public class TextBoxManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		
         NPC = FindObjectOfType<NPCController>();
 		journal = FindObjectOfType<Journal>();
 
@@ -70,6 +69,7 @@ public class TextBoxManager : MonoBehaviour {
                 _currentNPCname = txtLine[0];
             }
             else {
+				NPC.setOrder(0);
 				DisableDialogueBox();
 				currentLine = 0;
 				return;
