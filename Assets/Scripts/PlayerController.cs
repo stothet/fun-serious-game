@@ -69,6 +69,16 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Adds an evidence object into the inventory
+    /// </summary>
+    /// <param name="itemName"></param>
+    public void addToInventory(string itemName)
+    {
+        int databaseID = ItemDatabase.NameToID(itemName);
+        inventory.addItem(databaseID);
+    }
+
     public void subtractLife()
     {
         numLives--;

@@ -108,6 +108,9 @@ public class TextBoxManager : MonoBehaviour {
 
 		// Update the journal if it hasn't already for NPC info.
 		NPC.UpdateJournal(journal);
+
+        // Give evidence, if hasn't already
+        NPC.GiveEvidence(player);
     }
 
 	/// <summary>
