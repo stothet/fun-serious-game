@@ -15,7 +15,7 @@ public class TextBoxManager : MonoBehaviour {
 
     public TextAsset txtFile;
     public string[] txtLines;
-    public string[] txtLine;
+    public string[] nameAndDialogue;
 
     public int currentLine;
     public int endLine;
@@ -63,11 +63,11 @@ public class TextBoxManager : MonoBehaviour {
         {
             if (currentLine <= endLine)
             {
-                dialogueText.text = txtLines[currentLine];
-                txtLine = new string[1];
                 string s = txtLines[currentLine];
-                txtLine = (txtLines[currentLine].Split(':'));
-                _currentNPCname = txtLine[0];
+                nameAndDialogue = new string[1];
+                nameAndDialogue = (txtLines[currentLine].Split(':'));
+                _currentNPCname = nameAndDialogue[0];
+                dialogueText.text = nameAndDialogue[1];
             }
             else {
 				DisableDialogueBox();
