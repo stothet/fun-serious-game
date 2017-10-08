@@ -67,13 +67,13 @@ public class TextBoxManager : MonoBehaviour {
 
             currentLine += 1;
 
-			if (toggle) {
-                toggle = false;
-				_person.GetComponent<Image>().sprite = NPC.getSprite();
+			if (!toggle) {
+                toggle = true;
+                print(sprite2);
+				_person.GetComponent<Image>().sprite = sprite2;
 			} 
 			else {
-				toggle = true;
-                print(sprite1);
+                toggle = false;
 				_person.GetComponent<Image>().sprite = sprite1;
 			}
         }
@@ -133,4 +133,9 @@ public class TextBoxManager : MonoBehaviour {
         // Show the dialogue box
         ShowDialogueBox();
     }
+
+    public void setSprite(Sprite s)
+	{
+		sprite2 = s;
+	}
 }
