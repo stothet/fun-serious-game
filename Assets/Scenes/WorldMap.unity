@@ -232,7 +232,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -333.8, y: -34.1}
+  m_AnchoredPosition: {x: -333.1, y: -49}
   m_SizeDelta: {x: 120.3, y: 27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216045235
@@ -1858,6 +1858,7 @@ MonoBehaviour:
   textBox: {fileID: 1564641333}
   dialogueText: {fileID: 1344479875}
   _person: {fileID: 1846504692}
+  _name: {fileID: 216045235}
   txtFile: {fileID: 0}
   txtLines: []
   currentLine: 0
@@ -1867,6 +1868,7 @@ MonoBehaviour:
   NPC: {fileID: 0}
   sprite1: {fileID: 21300036, guid: 8db3b06d61286894696cad45dbd09535, type: 3}
   sprite2: {fileID: 0}
+  _NPCname: 
 --- !u!4 &1689302475
 Transform:
   m_ObjectHideFlags: 0
