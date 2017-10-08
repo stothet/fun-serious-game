@@ -20,11 +20,12 @@ public class SelectOnInput : MonoBehaviour
     {
         if (Input.GetAxisRaw("Vertical") != 0 && selected == false)
         {
+            // select the object
             eventSystem.SetSelectedGameObject(gameObject);
             selected = true;
         }
     }
-
+    // deselect the object
     private void OnDisable()
     {
         selected = false;
