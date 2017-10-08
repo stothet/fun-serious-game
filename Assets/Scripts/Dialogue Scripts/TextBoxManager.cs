@@ -10,10 +10,12 @@ public class TextBoxManager : MonoBehaviour {
 
     public Text dialogueText;
 	public Image _person;
+    public Text _name;
 
 
     public TextAsset txtFile;
     public string[] txtLines;
+    public string[] txtLine;
 
     public int currentLine;
     public int endLine;
@@ -24,6 +26,8 @@ public class TextBoxManager : MonoBehaviour {
 
 	public Sprite sprite1;
 	public Sprite sprite2;
+    public string _NPCname; //first method
+    public string _currentNPCname; //second method
 
 	public Journal journal;
 
@@ -57,9 +61,15 @@ public class TextBoxManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-			if (currentLine <= endLine) {
-				dialogueText.text = txtLines [currentLine];
-			} else {
+            if (currentLine <= endLine)
+            {
+                dialogueText.text = txtLines[currentLine];
+                txtLine = new string[1];
+                string s = txtLines[currentLine];
+                txtLine = (txtLines[currentLine].Split(':'));
+                _currentNPCname = txtLine[0];
+            }
+            else {
 				DisableDialogueBox();
 				currentLine = 0;
 				return;
@@ -67,15 +77,17 @@ public class TextBoxManager : MonoBehaviour {
 
             currentLine += 1;
 
-			if (!toggle) {
-                toggle = true;
-                print(sprite2);
-				_person.GetComponent<Image>().sprite = sprite2;
-			} 
-			else {
-                toggle = false;
+            if (_currentNPCname.Equals("Erin"))
+			{
 				_person.GetComponent<Image>().sprite = sprite1;
+				_name.text = "Erin";
 			}
+			else
+            {
+				_person.GetComponent<Image>().sprite = sprite2;
+				_name.text = _NPCname;
+			}
+
         }
     }
 
@@ -137,5 +149,10 @@ public class TextBoxManager : MonoBehaviour {
     public void setSprite(Sprite s)
 	{
 		sprite2 = s;
+	}
+
+	public void setNPCname(string name)
+	{
+        _NPCname = name;
 	}
 }

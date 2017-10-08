@@ -11,8 +11,8 @@ public class NPCController : MonoBehaviour {
 
     public TextBoxManager txtBox;
 
-    public string _name;
     public Sprite _sprite;
+    public string _name;
     private SpriteRenderer sr;
 
     public bool currentlyTalking;
@@ -59,6 +59,7 @@ public class NPCController : MonoBehaviour {
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
+            txtBox.setNPCname(_name);
             // When the player presses Space to talk to the NPC
             //if (Input.GetKeyDown(KeyCode.Return))
             //{

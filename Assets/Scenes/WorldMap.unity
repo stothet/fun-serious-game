@@ -227,7 +227,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -333.8, y: -34.1}
+  m_AnchoredPosition: {x: -333.1, y: -49}
   m_SizeDelta: {x: 120.3, y: 27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216045235
@@ -788,6 +788,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 0bb4601bcd75745dd9e9f5c2d670cccf,
         type: 3}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: _name
+      value: Wilson
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -917,6 +921,10 @@ Prefab:
       propertyPath: characterDescription
       value: 
       objectReference: {fileID: 4900000, guid: 5f87b9299558cec4ab0425ec06d4b9fc, type: 3}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: _name
+      value: Bill
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -1556,6 +1564,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 69160ec7abae04c748cd1f730c1a6067,
         type: 3}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: _name
+      value: Rita
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -1815,8 +1827,10 @@ MonoBehaviour:
   textBox: {fileID: 1564641333}
   dialogueText: {fileID: 1344479875}
   _person: {fileID: 1846504692}
+  _name: {fileID: 216045235}
   txtFile: {fileID: 0}
   txtLines: []
+  txtLine: []
   currentLine: 0
   endLine: 0
   toggle: 0
@@ -1824,6 +1838,8 @@ MonoBehaviour:
   NPC: {fileID: 0}
   sprite1: {fileID: 21300036, guid: 8db3b06d61286894696cad45dbd09535, type: 3}
   sprite2: {fileID: 0}
+  _NPCname: 
+  _currentNPCname: 
   journal: {fileID: 0}
 --- !u!4 &1689302475
 Transform:
@@ -2058,6 +2074,10 @@ Prefab:
       propertyPath: characterDescription
       value: 
       objectReference: {fileID: 4900000, guid: 444e7621c58dbbd43ac06d17946fd3b9, type: 3}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: _name
+      value: Jimmy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
