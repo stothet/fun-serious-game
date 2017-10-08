@@ -5,30 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed;
-	private Animator anim;
-	private bool playerMoving;
-	private Vector2 lastMove;
+    public float speed;
+    private Animator anim;
+    private bool playerMoving;
+    private Vector2 lastMove;
     private Inventory inventory;
     //private Rigidbody2D rb2d;
     public bool canMove;
-
     public NPCController cutsceneNPC;
-
-    // Global fields
-    private static int numLives;
-    private static bool hasCompletedMinigame;
-
     void Start(){
         canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
         cutsceneNPC.autoTalk = true;
-
-        numLives = 3;
-        hasCompletedMinigame = false;
-
+        transform.position = GlobalPersistenceController.PlayerState.playerPosition;
     }
 
     // Update is called once per frame
@@ -57,6 +48,8 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
+
+        GlobalPersistenceController.PlayerState.playerPosition = transform.position;
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -86,9 +79,10 @@ public class PlayerController : MonoBehaviour {
 
     public void subtractLife()
     {
-        numLives--;
-        if (numLives <= 0)
+        GlobalPersistenceController.PlayerState.lives--;
+        if (GlobalPersistenceController.PlayerState.lives <= 0)
         {
+            GlobalPersistenceController.PlayerState.lives = Configuration.maxLives;
             // Transition to game over scene;
             Debug.Log("Game over");
             SceneManager.LoadScene(0);
@@ -100,20 +94,4 @@ public class PlayerController : MonoBehaviour {
         }
 
     }
-
-    public static int getNumberOfLives()
-    {
-        return numLives;
-    }
-
-    public static bool getHasCompletedMinigame()
-      {
-          return hasCompletedMinigame;
-      }
-  
-      public static void setHasCompletedMinigame(bool boolean)
-      {
-          hasCompletedMinigame = boolean;
-      }
-
 }

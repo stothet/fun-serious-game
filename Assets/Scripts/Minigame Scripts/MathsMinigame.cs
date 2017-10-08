@@ -42,7 +42,7 @@ public class MathsMinigame {
         
         if (!Configuration.isTestMode)
         {
-            shuffleNumbers();
+            //shuffleNumbers();
         }
     }
     public static int CalculateResult(int[] numbers, Operations[] ops)

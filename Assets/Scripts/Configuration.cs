@@ -25,7 +25,9 @@ public class Configuration
     public static readonly string mainMenuSceneName = "MainMenu";
     public static readonly string worldMapSceneName = "WorldMap";
 
-
     public static Font MathsMinigameFont = (Font)Resources.Load("Fonts/kindergarten");
+
+    public static Vector3 playerPosition = new Vector3(-29.69f, -2.14f, 0);
+    public static int maxLives = 3;
 
 }
