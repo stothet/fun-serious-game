@@ -17,7 +17,7 @@ public class TextBoxManager : MonoBehaviour {
 
     public int currentLine;
     public int endLine;
-	public int toggle=0;
+	public bool toggle = true;
 
     public PlayerController player;
     public NPCController NPC;
@@ -64,13 +64,14 @@ public class TextBoxManager : MonoBehaviour {
 
             currentLine += 1;
 
-			if (toggle == 0) {
-				toggle = 1;
-				_person.GetComponent<Image>().sprite = sprite1;
+			if (toggle) {
+                toggle = false;
+				_person.GetComponent<Image>().sprite = NPC.getSprite();
 			} 
 			else {
-				toggle = 0;
-				_person.GetComponent<Image>().sprite = sprite2;
+				toggle = true;
+                print(sprite1);
+				_person.GetComponent<Image>().sprite = sprite1;
 			}
         }
     }
