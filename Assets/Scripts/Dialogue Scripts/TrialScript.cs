@@ -90,9 +90,9 @@ public class TrialScript : MonoBehaviour
 		case 1:
 
 			{
-
+				txtBox.ContinueDialogue ();
 				txtBox.ReloadScript(prelude);
-				txtBox.dialogBoxActive = true;
+				//txtBox.dialogBoxActive = true;
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
 				break;
