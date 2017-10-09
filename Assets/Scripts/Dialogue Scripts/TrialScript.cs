@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TrialScript : MonoBehaviour
 {
 	public bool trialActive;
+	public bool trialFinished;
 	public Text question;
 	public TextBoxManager txtBox;
 
@@ -62,26 +63,31 @@ public class TrialScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		if (Input.GetKey(KeyCode.Space) && trialFinished) {
+			SceneManager.LoadScene (Configuration.endGameSceneName);
+		}			
 	}
 
 	//affects chances
 	void Outcome(){
 		if(cumulative > 0){
 			trialDialogue (2);
+			trialFinished = true;
 			endGameMessage = "You Win!";
-			SceneManager.LoadScene(Configuration.endGameSceneName);
+			//SceneManager.LoadScene(Configuration.endGameSceneName);
 			//You win end game screen
 		}else if(cumulative == 0){
 			trialDialogue (3);
+			trialFinished = true;
 			endGameMessage = "Try Again";
-			SceneManager.LoadScene (Configuration.endGameSceneName);
+			//SceneManager.LoadScene (Configuration.endGameSceneName);
 			//PlayerController.subtractLife();
 			livesKeeper.SetActive (true);
 		}else{
 			trialDialogue (4);
+			trialFinished = true;
 			endGameMessage = "Game Over";
-			SceneManager.LoadScene(Configuration.endGameSceneName);
+			//SceneManager.LoadScene(Configuration.endGameSceneName);
 			//you lose end game screen
 		}
 	}
