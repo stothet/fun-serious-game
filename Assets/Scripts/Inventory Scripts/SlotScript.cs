@@ -52,6 +52,7 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler {
         {
             _itemNameInPanel.SetNewText(_item._itemName);
             _itemDescriptionInPanel.SetNewText(_item._itemDescription);
+			_inventory.SetSelectedItem(_item);
         }
 
     }
