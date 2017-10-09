@@ -46,13 +46,6 @@ public class TrialScript : MonoBehaviour
 		option2.gameObject.SetActive (false);
 		option3.gameObject.SetActive (false);
 
-		Button choice1Button = GetComponent<Button>();
-		Button choice2Button = GetComponent<Button>();
-
-		option1 = GetComponent<Button>();
-		option2 = GetComponent<Button>();
-		option3 = GetComponent<Button>();
-
 		choice1.gameObject.SetActive (false);
 		choice2.gameObject.SetActive (false);
 
@@ -110,6 +103,9 @@ public class TrialScript : MonoBehaviour
 				txtBox.ContinueDialogue ();
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
+				option1.gameObject.SetActive (true);
+				option2.gameObject.SetActive (true);
+				option3.gameObject.SetActive (true);
 				break;
 			}
 
@@ -151,6 +147,12 @@ public class TrialScript : MonoBehaviour
 	//select item from inventory
 	//calls keepScore to change score given the item value
 	void selectObjectEvidence(){
+	}
+
+	//select journal entry option
+	//calls keepScore to change score given the item value
+	void selectJournalEvidence(){
+		
 	}
 
 	//picks option from the buttons
