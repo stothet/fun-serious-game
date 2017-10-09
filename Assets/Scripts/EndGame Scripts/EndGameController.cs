@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Controls the end game screen
+/// Controls the message showing on the ending scene depending on the trial
 /// </summary>
 public class EndGameController : MonoBehaviour {
     [SerializeField]
