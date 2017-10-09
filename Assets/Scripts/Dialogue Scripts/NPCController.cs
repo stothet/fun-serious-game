@@ -9,8 +9,6 @@ public class NPCController : MonoBehaviour {
     public TextAsset defaultDialogueFile;
 	public TextAsset characterDescription;
 
-    public TextBoxManager txtBox;
-
     public Sprite _sprite;
     public string _name;
     private SpriteRenderer sr;
@@ -46,7 +44,7 @@ public class NPCController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        txtBox = FindObjectOfType<TextBoxManager>();
+        PersistenceController.DialogueState.textBox = FindObjectOfType<TextBoxManager>();
         firstTimeTalk = true;
         currentlyTalking = false;
 		journalUpdated = false;
@@ -89,14 +87,11 @@ public class NPCController : MonoBehaviour {
         // When the player comes in contact with the NPC object
 		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
-			sr = GetComponent<SpriteRenderer>();
+			
             Debug.Log("Setting NPC state to: " + this);
             PersistenceController.JournalState.NPC = this;
-
-			_sprite = sr.sprite;
-            print(getSprite());
-            txtBox.setSprite(getSprite());
-            txtBox.setNPCname(_name);
+            setSprite();
+		
             // When the player presses Space to talk to the NPC
             //if (Input.GetKeyDown(KeyCode.Return))
             //{
@@ -107,18 +102,18 @@ public class NPCController : MonoBehaviour {
             
                 if (firstTimeTalk)
                 {
-                    txtBox.ReloadScript(initialDialogueFile);
+                    PersistenceController.DialogueState.textBox.ReloadScript(initialDialogueFile);
                     firstTimeTalk = false;
 
                     if (autoTalk)
                     {
-                        txtBox.ContinueDialogue();
+                        PersistenceController.DialogueState.textBox.ContinueDialogue();
                     }
 
                 }
                 else
                 {
-                    txtBox.ReloadScript(defaultDialogueFile);
+                    PersistenceController.DialogueState.textBox.ReloadScript(defaultDialogueFile);
                 }
             } else
             {
@@ -130,5 +125,14 @@ public class NPCController : MonoBehaviour {
 
     public Sprite getSprite(){
         return _sprite;
+    }
+
+    public void setSprite()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        _sprite = sr.sprite;
+        print(getSprite());
+        PersistenceController.DialogueState.textBox.setSprite(getSprite());
+        PersistenceController.DialogueState.textBox.setNPCname(_name);
     }
 }

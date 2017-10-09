@@ -67,7 +67,7 @@ public class TextBoxManager : MonoBehaviour
             return;
         }
         if (Input.GetKeyDown(KeyCode.Space) || PersistenceController.DialogueState.shouldStartConversation)
-        {
+        { 
             PersistenceController.DialogueState.shouldStartConversation = false;
             ContinueDialogue();
         }
@@ -79,6 +79,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
+        PersistenceController.JournalState.NPC.setSprite();
         if (!dialogBoxActive)
         {
             textBox.SetActive(true);

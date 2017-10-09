@@ -24,7 +24,8 @@ public class PersistenceController
         public static int currentLine = 0;
         public static int endLine = 0;
         public static string[] dialogueText = null;
-        
+        public static TextBoxManager textBox = null;
+
         public static bool shouldStartConversation = false;
 
         public static void ResetState()
@@ -32,6 +33,7 @@ public class PersistenceController
             currentLine = 0;
             endLine = 0;
             dialogueText = null;
+            textBox = null;
             shouldStartConversation = false;
         }
     }
