@@ -61,7 +61,7 @@ public class NPCController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Triggers every frame playe is in contact with NPC. Used to trigger conversation.
+    /// Triggers every frame that the player is in contact with NPC. Used to trigger conversation.
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)

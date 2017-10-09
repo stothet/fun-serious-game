@@ -27,8 +27,16 @@ public class Configuration
 
     public static Font MathsMinigameFont = (Font)Resources.Load("Fonts/kindergarten");
 
-    public static Vector3 playerPosition = new Vector3(-29.69f, -2.14f, 0);
-    public static Vector3 lunchLadyPositionTest = new Vector3(-35.0f, -45.0f, 0);
-    public static int maxLives = 3;
+    public static readonly Vector3 playerPosition = new Vector3(-29.69f, -2.14f, 0);
+    public static readonly Vector3 lunchLadyPositionTest = new Vector3(-35.0f, -45.0f, 0);
+    public static readonly int maxLives = 3;
+
+    public static readonly string bruceRegisterEntryName = "Bruce's register entry";
+    public static readonly string BillArtHistoryReportName = "Bill's Art History report, scrunched to a ball.";
+    public static readonly string DetentionNoteName = "Detention note";
+
+    public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature and an official timestamp.";
+    public static readonly string BillArtHistoryReportDescription = "Bill's Art History report, scrunched to a ball.";
+    public static readonly string DetentionNoteDescription = "Detention note for Bruce, with the date and time nowhere to be seen.";
 
 }

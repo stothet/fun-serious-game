@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     void Start(){
         canMove = true;
 		anim = GetComponent<Animator> ();
-        inventory = inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
         cutsceneNPC.autoTalk = true;
         transform.position = PersistenceController.PlayerState.playerPosition;
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (other.gameObject.CompareTag("Pickup"))
         {
-            inventory.addItem(0);
+            //inventory.addItem(0);
             other.gameObject.SetActive(false);
         }
 
@@ -73,8 +73,8 @@ public class PlayerController : MonoBehaviour {
     /// <param name="itemName"></param>
     public void addToInventory(string itemName)
     {
-        int databaseID = ItemDatabase.NameToID(itemName);
-        inventory.addItem(databaseID);
+ 
+        inventory.addItem(itemName);
     }
 
     public void subtractLife()

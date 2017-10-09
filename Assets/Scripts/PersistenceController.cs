@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PersistenceController
 {
@@ -35,9 +36,11 @@ public class PersistenceController
     {
         public static int currentLine = 0;
         public static bool shouldStartConversation = false;
+        public static Dictionary<string, Item> database = new Dictionary<string, Item>();
 
         public static void ResetState()
         {
+            database = new Dictionary<string, Item>();
             currentLine = 0;
             shouldStartConversation = false;
         }
