@@ -54,7 +54,9 @@ public class Inventory : MonoBehaviour {
     // Utility method to add the desired item into the inventory.
    public void addItem(string name)
     {
+        Debug.Log("Looking for: " + name);
         Item item = PersistenceController.InventoryState.database[name];
+        Debug.Log("Item was: " + item._itemName);
         if (item != null)
         {
             addToEmptySlot(item);
