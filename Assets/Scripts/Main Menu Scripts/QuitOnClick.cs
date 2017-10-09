@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Closes the scene when the quit button is pressed.
+/// </summary>
 public class QuitOnClick : MonoBehaviour{
-    // Quit method which closes the scene when the quit button is pressed.
     public void Quit()
     {
 #if UNITY_EDITOR

@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class handles the logic for presenting evidence to the principal
+/// </summary>
 public class TrialScript : MonoBehaviour
 {
 	public bool trialActive;
@@ -40,7 +43,9 @@ public class TrialScript : MonoBehaviour
 	public static string endGameMessage = null;
 	//panel and button would handle this script
 
-	// Use this for initialization
+	/// <summary>
+    /// Initialise variables
+    /// </summary>
 	void Start ()
 	{
 		NPC = FindObjectOfType<NPCController>();
@@ -60,7 +65,9 @@ public class TrialScript : MonoBehaviour
 		choice2.gameObject.SetActive (false);
 	}
 
-	// Update is called once per frame
+	/// <summary>
+    /// Check if the trail has ended
+    /// </summary>
 	void Update ()
 	{
 		if (Input.GetKey(KeyCode.Space) && trialFinished) {
@@ -68,7 +75,9 @@ public class TrialScript : MonoBehaviour
 		}			
 	}
 
-	//affects chances
+	/// <summary>
+    /// Determine the outcome of the trial
+    /// </summary>
 	void Outcome(){
 		if(cumulative > 0){
 			trialDialogue (2);
@@ -92,13 +101,17 @@ public class TrialScript : MonoBehaviour
 		}
 	}
 
-	//called when evidence is selected
-	void keepScore(int evidenceValue){
+    /// <summary>
+    /// Keep track of the player score when evidence is selected
+    /// </summary>
+    void keepScore(int evidenceValue){
 		cumulative += evidenceValue;
 		_score.text = cumulative.ToString ();
 	}
 
-	//reloads generic dialogues
+	/// <summary>
+    /// Loads the appropriate dialogue based on the players response
+    /// </summary>
 	public void trialDialogue(int caseSwitch){
 
 		switch (caseSwitch)
@@ -168,8 +181,9 @@ public class TrialScript : MonoBehaviour
 
 	}
 
-	//select item from inventory
-	//calls keepScore to change score given the item value
+    /// <summary>
+    /// Select an item from the inventory and update the players score
+    /// </summary>
 	public void SelectObjectEvidence(){
 		evidence = inventory.GetSelectedItem();
 
@@ -189,8 +203,11 @@ public class TrialScript : MonoBehaviour
 		}
 	}
 
-	//picks option from the buttons
-	//calls keepScore to change score given value (not implemented yet)
+
+    /// <summary>
+    /// Checks with dialgogue option has been selected
+    /// </summary>
+    /// <param name="b"> The button clicked </param>
 	public void CheckClick(Button b)
 	{
 

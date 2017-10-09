@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Controls the end game screen
+/// This class controls the end game screen
 /// </summary>
 public class EndGameController : MonoBehaviour {
     [SerializeField]

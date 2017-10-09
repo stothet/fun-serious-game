@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
-/// Stores the configuration for the game 
+/// This is a static class that stores the configuration for the game 
 /// </summary>
 public class Configuration
 {

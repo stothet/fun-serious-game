@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Controls the camera for the main menu
+/// </summary>
 public class MainMenuCameraController : MonoBehaviour {
 
 	public float x;

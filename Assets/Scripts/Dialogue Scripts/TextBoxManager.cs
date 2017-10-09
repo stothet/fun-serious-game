@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class controls the dialogue between and NPC and player interaction
+/// </summary>
 public class TextBoxManager : MonoBehaviour
 {
 
@@ -31,7 +34,9 @@ public class TextBoxManager : MonoBehaviour
 
     public Journal journal;
 
-    // Use this for initialization
+    /// <summary>
+    /// Initialise fields. Set up dialgoue box
+    /// </summary>
     void Start()
     {
 
@@ -52,6 +57,9 @@ public class TextBoxManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Check if the dialogue should continue
+    /// </summary>
     private void Update()
     {
         // Do nothing if no dialogue box active currently
@@ -112,7 +120,9 @@ public class TextBoxManager : MonoBehaviour
             _name.text = _NPCname;
         }
     }
-
+    /// <summary>
+    /// Display the dialogue box
+    /// </summary>
     public void ShowDialogueBox()
     {
         NPC.currentlyTalking = true;
@@ -120,7 +130,9 @@ public class TextBoxManager : MonoBehaviour
         dialogBoxActive = true;
         player.canMove = false;
     }
-
+    /// <summary>
+    /// Disables the dialogue box
+    /// </summary>
     public void DisableDialogueBox()
     {
         NPC.currentlyTalking = false;
@@ -171,12 +183,18 @@ public class TextBoxManager : MonoBehaviour
         // Show the dialogue box
         ShowDialogueBox();
     }
-
+    /// <summary>
+    /// Set the sprite of the dialogue box
+    /// </summary>
+    /// <param name="s"> Sprite for the dialogue box </param>
     public void setSprite(Sprite s)
     {
         sprite2 = s;
     }
-
+    /// <summary>
+    /// Set the name of the name of the NPC being interacted with
+    /// </summary>
+    /// <param name="name"> Name of the name </param>
     public void setNPCname(string name)
     {
         _NPCname = name;
