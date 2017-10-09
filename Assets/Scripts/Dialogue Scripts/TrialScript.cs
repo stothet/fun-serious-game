@@ -96,7 +96,7 @@ public class TrialScript : MonoBehaviour
 		switch (caseSwitch)
 		{
 		case 0:
-			
+
 			{
 				txtBox.ReloadScript(introFile);
 
@@ -141,7 +141,7 @@ public class TrialScript : MonoBehaviour
 				txtBox.ContinueDialogue();
 				break;
 			}
-		
+
 		case 4:
 
 			{
@@ -153,7 +153,7 @@ public class TrialScript : MonoBehaviour
 
 		default:
 			{
-			break;
+				break;
 			}
 
 		}
@@ -197,10 +197,12 @@ public class TrialScript : MonoBehaviour
 				//Rita
 				keepScore (5);
 			}
+			option1.gameObject.SetActive (false);
+			option2.gameObject.SetActive (false);
+			option3.gameObject.SetActive (false);
 			_evidenceCount++;
 		}
 
 	}
 
 }
-
