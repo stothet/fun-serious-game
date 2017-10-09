@@ -10,6 +10,7 @@ public class TrialScript : MonoBehaviour
 	public TextBoxManager txtBox;
 
 	public GameObject scoreKeeper;
+	public GameObject livesKeeper;
 	public Text _score;
 
 	public Button option1;
@@ -40,7 +41,7 @@ public class TrialScript : MonoBehaviour
 		NPC = FindObjectOfType<NPCController>();
 		txtBox = FindObjectOfType<TextBoxManager>();
 
-		scoreKeeper.SetActive (true);
+		scoreKeeper.SetActive (false);
 
 		option1.gameObject.SetActive (false);
 		option2.gameObject.SetActive (false);
@@ -67,6 +68,7 @@ public class TrialScript : MonoBehaviour
 		}else if(cumulative == 0){
 			trialDialogue (3);
 			//PlayerController.subtractLife();
+			livesKeeper.SetActive (true);
 		}else{
 			trialDialogue (4);
 			//SceneManager.LoadScene(3);
@@ -90,6 +92,8 @@ public class TrialScript : MonoBehaviour
 			{
 				txtBox.ReloadScript(introFile);
 
+				scoreKeeper.SetActive (true);
+				livesKeeper.SetActive (false);
 				choice1.gameObject.SetActive (true);
 				choice2.gameObject.SetActive (true);
 

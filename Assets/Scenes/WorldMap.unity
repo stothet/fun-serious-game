@@ -831,8 +831,9 @@ MonoBehaviour:
   trialActive: 0
   question: {fileID: 1344479875}
   txtBox: {fileID: 1689302474}
-  scoreKeeper: {fileID: 1796873474}
-  _score: {fileID: 0}
+  scoreKeeper: {fileID: 211417234}
+  livesKeeper: {fileID: 422949209}
+  _score: {fileID: 1796873476}
   option1: {fileID: 172292576}
   option2: {fileID: 224414364}
   option3: {fileID: 1562124335}
