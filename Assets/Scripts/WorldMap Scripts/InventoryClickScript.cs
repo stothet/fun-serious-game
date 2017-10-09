@@ -33,15 +33,15 @@ public class InventoryClickScript : MonoBehaviour
         }
         else
         {
-            if (go != null)
-                if (currentTab != null && currentTab.Equals(go.name))
+            if (go != null) // if the event triggering this, is not null
+                if (currentTab != null && currentTab.Equals(go.name)) // checking if currentTab is set, also checks that the currentTab is the event that triggered the click
                 {
                     active = false;
-                    inventoryPanel.SetActive(false);
+                    inventoryPanel.SetActive(false); // current active tab is the same as the event, so we toggle the view
                 }
                 else
                 {
-                    currentTab = go.name;
+                    currentTab = go.name; // current tab is not set yet, we set it to the event that triggered the click
                     Debug.Log("Clicked on : " + go.name);
                 }
 
