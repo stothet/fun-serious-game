@@ -69,15 +69,19 @@ public class TrialScript : MonoBehaviour
 	void Outcome(){
 		if(cumulative > 0){
 			trialDialogue (2);
-			//SceneManager.LoadScene(3);
+			endGameMessage = "You Win!";
+			SceneManager.LoadScene(Configuration.endGameSceneName);
 			//You win end game screen
 		}else if(cumulative == 0){
 			trialDialogue (3);
+			endGameMessage = "Try Again";
+			SceneManager.LoadScene (Configuration.endGameSceneName);
 			//PlayerController.subtractLife();
 			livesKeeper.SetActive (true);
 		}else{
 			trialDialogue (4);
-			//SceneManager.LoadScene(3);
+			endGameMessage = "Game Over";
+			SceneManager.LoadScene(Configuration.endGameSceneName);
 			//you lose end game screen
 		}
 	}
