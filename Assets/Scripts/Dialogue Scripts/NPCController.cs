@@ -75,7 +75,7 @@ public class NPCController : MonoBehaviour {
     {
 
         // When the player comes in contact with the NPC object
-		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
+		if (other.gameObject.CompareTag("Player") && (PersistenceController.DialogueState.autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
 			sr = GetComponent<SpriteRenderer>();
             PersistenceController.JournalState.NPC = this;
@@ -118,7 +118,7 @@ public class NPCController : MonoBehaviour {
             {
                 return;
             }
-            autoTalk = false;
+            PersistenceController.DialogueState.autoTalk = false;
         }
     }
 

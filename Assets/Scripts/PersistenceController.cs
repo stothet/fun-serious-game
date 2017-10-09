@@ -25,6 +25,7 @@ public class PersistenceController
     {
         public static Dictionary<string, bool> firstTalk;
         public static Dictionary<string, bool> givenEvidence;
+        public static bool autoTalk = true;
 
         public static void ResetState()
         {
