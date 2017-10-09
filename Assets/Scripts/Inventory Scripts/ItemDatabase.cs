@@ -16,8 +16,8 @@ public class ItemDatabase : MonoBehaviour {
 
         // Dictionary 
         PersistenceController.InventoryState.database[Configuration.bruceRegisterEntryName] = new Item(Configuration.bruceRegisterEntryName, Configuration.bruceRegisterEntryDescription, 1, Item.ItemType.EVIDENCE, "book");
-        PersistenceController.InventoryState.database[Configuration.BillArtHistoryReportName] = new Item(Configuration.BillArtHistoryReportName, Configuration.BillArtHistoryReportDescription, 1, Item.ItemType.DUMMY, "paper");
-        PersistenceController.InventoryState.database[Configuration.DetentionNoteName] = new Item(Configuration.DetentionNoteName, Configuration.DetentionNoteDescription, 1, Item.ItemType.DUMMY, "slip");
+        PersistenceController.InventoryState.database[Configuration.billArtHistoryReportName] = new Item(Configuration.billArtHistoryReportName, Configuration.billArtHistoryReportDescription, 1, Item.ItemType.DUMMY, "paper");
+        PersistenceController.InventoryState.database[Configuration.detentionNoteName] = new Item(Configuration.detentionNoteName, Configuration.detentionNoteDescription, 1, Item.ItemType.DUMMY, "slip");
     }
 
 }

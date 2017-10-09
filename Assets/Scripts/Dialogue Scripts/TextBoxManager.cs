@@ -88,7 +88,7 @@ public class TextBoxManager : MonoBehaviour
             txtLine = (txtLines[currentLine].Split(':'));
 
             bool isTransition = false;
-            if (txtLine[0].Equals(Configuration.ChangeScenePrompt))
+            if (txtLine[0].Equals(Configuration.changeScenePrompt))
             {
                 isTransition = true;
                 PersistenceController.DialogueState.shouldStartConversation = true;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MathsMinigame {
 
-    private static int numSmallNumbers = Configuration.MathsMinigameNumberOfIntegersPerGame;
+    private static int numSmallNumbers = Configuration.mathsMinigameNumberOfIntegersPerGame;
     private int[] generatedNumbers;
     private Operations[] generatedOps;
     private int result;
