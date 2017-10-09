@@ -25,12 +25,15 @@ public class PersistenceController
     {
         public static Dictionary<string, bool> firstTalk;
         public static Dictionary<string, bool> givenEvidence;
+        public static Dictionary<string, bool> journalUpdated;
         public static bool autoTalk = true;
 
         public static void ResetState()
         {
+            autoTalk = true;
             firstTalk = new Dictionary<string, bool>();
             givenEvidence = new Dictionary<string, bool>();
+            journalUpdated = new Dictionary<string, bool>();
         }
     }
     public static class InventoryState

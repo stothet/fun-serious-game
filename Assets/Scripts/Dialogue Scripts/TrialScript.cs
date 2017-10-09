@@ -121,7 +121,7 @@ public class TrialScript : MonoBehaviour
 
 			{
 				txtBox.ReloadScript(prelude);
-				txtBox.ContinueDialogue ();
+				txtBox.ContinueDialogue();
 
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
@@ -178,9 +178,9 @@ public class TrialScript : MonoBehaviour
 			Debug.Log("Evidence chosen: " + evidence._itemName);
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
-			if(_evidenceCount == 2){
+			//if(_evidenceCount == 2){
 				Outcome ();
-			}
+			//}
 
 		} else
 		{
