@@ -59,13 +59,15 @@ public class PersistenceController
     static PersistenceController()
     {
         Debug.Log("Constructor");
-        InitialiseStates();
+        InitialiseState();
 
     }
 
-    private static void InitialiseStates()
+    public static void InitialiseState()
     {
         PlayerState.ResetState();
         DialogueState.ResetState();
+        InventoryState.ResetState();
+        JournalState.ResetState();
     }
 }
