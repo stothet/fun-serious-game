@@ -9,7 +9,7 @@ public class PersistenceController
 
     public static class PlayerState
      {
-        public static Vector3 playerPosition = Configuration.lunchLadyPositionTest;
+        public static Vector3 playerPosition = Configuration.playerPosition;
         public static int lives = Configuration.maxLives;
         public static void ResetState()
         {
@@ -59,13 +59,15 @@ public class PersistenceController
     static PersistenceController()
     {
         Debug.Log("Constructor");
-        InitialiseStates();
+        InitialiseState();
 
     }
 
-    private static void InitialiseStates()
+    public static void InitialiseState()
     {
         PlayerState.ResetState();
         DialogueState.ResetState();
+        InventoryState.ResetState();
+        JournalState.ResetState();
     }
 }
