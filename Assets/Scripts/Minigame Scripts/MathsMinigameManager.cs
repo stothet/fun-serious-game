@@ -3,32 +3,42 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages the different rounds when playing the Maths minigame 
+/// </summary>
+/// <remarks>
+/// Sets and manages the displayed text in the UI.
+/// Determines if the player's answer is correct
+/// </remarks>
 public class MathsMinigameManager : MonoBehaviour
 {
-
-    MathsMinigame[] games = new MathsMinigame[Configuration.mathsMinigameNumberOfGames];
-
-    int currentGame;
+    MathsMinigame[] games = new MathsMinigame[Configuration.mathsMinigameNumberOfGames];    // create multiple math rounds
+    int currentGame;                        // stores the current round
 
     [SerializeField]
-    private Text[] numbers = null;
+    private Text[] numbers = null;          // store the text that hold the numbers
 
     [SerializeField]
-    private Text[] operations = null;
+    private Text[] operations = null;       // store the text that holds the operations                                                
 
     [SerializeField]
-    private Text answer = null;
+    private Text answer = null;             // stores the calculated answer result
 
     [SerializeField]
-    private GameObject[] answerSlots = null;
+    private GameObject[] answerSlots = null;// stores the objects in the answer slots 
 
     [SerializeField]
-    private GameObject[] numberSlots = null;
+    private GameObject[] numberSlots = null;// stores the objects in the number slots
 
     [SerializeField]
-    private Text errorMessage = null;
+    private Text errorMessage = null;       // store the text that displays the error messages
 
-    // Use this for initialization
+    /// <summary>
+    /// Initialises the MathsMiniGameManager 
+    /// </summary>
+    /// <remarks>
+    /// Creates an array on minigame rounds
+    /// </remarks>
     void Start()
     {
         currentGame = 0;
@@ -39,16 +49,9 @@ public class MathsMinigameManager : MonoBehaviour
         UpdateTextComponents();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    /**
-     * Called on initialisation, update and whenever a game is won to update the text in all of the components.
-     * 
-     */
+    /// <summary>
+    /// Called on initialisation, update and whenever a game is won to update the text in all of the components.
+    /// </summary>
     void UpdateTextComponents()
     {
         MathsMinigame game = games[currentGame];
@@ -60,14 +63,16 @@ public class MathsMinigameManager : MonoBehaviour
         setText(generatedNumbers, generatedOperations, result, null);
 
     }
-    /**
-    * Checks if a minigame has been completed successfully. If it has, then the next one in the list is started.
-    * If all games have been completed, the minigame scene transitions back to the real world.
-    * 
-    */
+
+    /// <summary>
+    /// Checks the win conditions of the minigame.
+    /// </summary>
+    /// <remarks>
+    /// If minigame has successfully completed, then the next one in the game list is started.
+    /// If all games have been completed, the minigame scene transitions back to the world map.
+    /// </remarks>
     public void checkWinConditions()
     {
-
         Text[] textArr = new Text[answerSlots.Length];
         bool isFilledIn = true;
         for (int i = 0; i < textArr.Length; i++)
@@ -118,14 +123,14 @@ public class MathsMinigameManager : MonoBehaviour
                 Debug.Log("Was null: ");
                 setErrorMessage("Please make sure that all slots have a number assigned.");
             }
-
-
         }
     }
 
     ////// Helper Methods //////
 
-    // Sets the texts in unity
+    /// <summary>
+    /// Set the text in the UI
+    /// </summary>
     private void setText(int[] generatedNumbers, Operations[] generatedOps, int result, string newErrorMessage)
     {
         for (int i = 0; i < generatedNumbers.Length; i++)
@@ -161,6 +166,9 @@ public class MathsMinigameManager : MonoBehaviour
             errorMessage.text = newErrorMessage;
         }
     }
+    /// <summary>
+    /// Set the text for the errors messages
+    /// </summary>
     private void setErrorMessage(string localErrorMessage)
     {
         errorMessage.text = localErrorMessage;
@@ -169,7 +177,9 @@ public class MathsMinigameManager : MonoBehaviour
 
 
 
-    // Converts an Operation object into a string
+    /// <summary>
+    /// Convert an Operation object into a string
+    /// </summary>
     private string opToString(Operations op)
     {
         switch (op)
@@ -187,6 +197,13 @@ public class MathsMinigameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if the player's answer is equal tot eh actual answer
+    /// </summary>
+    /// <param name="textArr"> The text inside the answer slots </param>
+    /// <returns>
+    /// Return True if the player's answer is correct. Return False if not
+    /// </returns>
     private bool calculateResults(Text[] textArr)
     {
         MathsMinigame game = games[currentGame];
@@ -202,6 +219,9 @@ public class MathsMinigameManager : MonoBehaviour
         return (results == MathsMinigame.CalculateResult(textInts, ops));
     }
 
+    /// <summary>
+    /// Resets the positions of the slots and numbers
+    /// </summary>
     private void resetSlotPositions()
     {
         for (int i = 0; i < answerSlots.Length; i++)
