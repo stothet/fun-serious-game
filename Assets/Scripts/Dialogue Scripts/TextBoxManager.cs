@@ -88,6 +88,9 @@ public class TextBoxManager : MonoBehaviour
         Debug.Log("continuing");
         Debug.Log("line no " + PersistenceController.DialogueState.currentLine);
         Debug.Log("end line " + PersistenceController.DialogueState.endLine);
+        Debug.Log("Text: " + PersistenceController.DialogueState.dialogueText);
+        Debug.Log("npc name CONTINUEXD " + PersistenceController.JournalState.NPC.name);
+        Debug.Log("npc sprite " + PersistenceController.JournalState.NPC._sprite.ToString());
 
         int currentLine = PersistenceController.DialogueState.currentLine;
         int endLine = PersistenceController.DialogueState.endLine;
@@ -103,6 +106,13 @@ public class TextBoxManager : MonoBehaviour
                 isTransition = true;
                 Debug.Log("NPC is set to: " + PersistenceController.JournalState.NPC);
                 PersistenceController.DialogueState.shouldStartConversation = true;
+                Debug.Log("PER NPC continuing: " + PersistenceController.JournalState.NPC);
+                Debug.Log("PER continuing");
+                Debug.Log("PER line no " + PersistenceController.DialogueState.currentLine);
+                Debug.Log("PER end line " + PersistenceController.DialogueState.endLine);
+                Debug.Log("PER Text: " + PersistenceController.DialogueState.dialogueText);
+                Debug.Log("PER npc name CONTINUEXD " + PersistenceController.JournalState.NPC.name);
+                Debug.Log("PER npc sprite " + PersistenceController.JournalState.NPC._sprite.ToString());
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
             if (!isTransition)

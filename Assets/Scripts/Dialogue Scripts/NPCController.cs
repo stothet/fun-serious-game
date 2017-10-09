@@ -23,7 +23,6 @@ public class NPCController : MonoBehaviour {
     // Make player auto-talk to NPC in a cutscene
     public bool autoTalk;
 
-
     void Awake()
     {
         DontDestroyChildOnLoad(gameObject);
@@ -83,12 +82,13 @@ public class NPCController : MonoBehaviour {
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
     {
-        
         // When the player comes in contact with the NPC object
-		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
+        if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
-			
-            Debug.Log("Setting NPC state to: " + this);
+            Debug.Log("is Space pressed" + Input.GetKeyDown(KeyCode.Space));
+            Debug.Log("is other player?" + (other.gameObject.CompareTag("Player")));
+            Debug.Log("autoTalk" + autoTalk);
+            Debug.Log("Setting NPC state to (collision): " + this);
             PersistenceController.JournalState.NPC = this;
             setSprite();
 		
