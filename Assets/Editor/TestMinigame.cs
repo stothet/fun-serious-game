@@ -2,9 +2,14 @@
 using UnityEditor;
 using NUnit.Framework;
 
+/// <summary>
+/// Unit tests for minigame.
+/// </summary>
 [TestFixture]
 public class TestMinigame {
-
+	/// <summary>
+	/// Tests method CalculateResult(). Stub numbers and operators were used to check the result.  
+	/// </summary>
     [Test]
     public void testCalculateResult() 
     {
@@ -14,6 +19,11 @@ public class TestMinigame {
         Assert.AreEqual(1, testResult);
 	}
 
+	/// <summary>
+	/// Tests if result varies everytime you run to check randomness. 
+	/// Due to the slight chance of having same combination of numbers and operators, 
+	/// while loop was used to check if two results are equal. 
+	/// </summary>
     [Test]
     public void testRandomness()
     {
