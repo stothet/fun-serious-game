@@ -25,6 +25,24 @@ public class NPCController : MonoBehaviour {
     // Make player auto-talk to NPC in a cutscene
     public bool autoTalk;
 
+
+    void Awake()
+    {
+        DontDestroyChildOnLoad(gameObject);
+    }
+    public static void DontDestroyChildOnLoad(GameObject child)
+    {
+        Transform parentTransform = child.transform;
+
+        // If this object doesn't have a parent then its the root transform.
+        while (parentTransform.parent != null)
+        {
+            // Keep going up the chain.
+            parentTransform = parentTransform.parent;
+        }
+        GameObject.DontDestroyOnLoad(parentTransform.gameObject);
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -72,7 +90,9 @@ public class NPCController : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
 			sr = GetComponent<SpriteRenderer>();
+            Debug.Log("Setting NPC state to: " + this);
             PersistenceController.JournalState.NPC = this;
+
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
@@ -83,7 +103,8 @@ public class NPCController : MonoBehaviour {
             if (!currentlyTalking)
             {
                 currentlyTalking = true;
-				txtBox.IdentifyNPC (this);
+                PersistenceController.JournalState.NPC = this;
+            
                 if (firstTimeTalk)
                 {
                     txtBox.ReloadScript(initialDialogueFile);

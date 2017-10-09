@@ -52,12 +52,18 @@ public class PersistenceController
         {
             journal = "";
             NPC = null;
+            Debug.Log("Reset to null!@@!!@@!#@@!@@");
         }
     }
     static PersistenceController()
     {
-        Debug.Log("Constructor");
-        InitialiseState();
+        if (instance == null)
+        {
+            instance = new PersistenceController();
+            Debug.Log("Constructor");
+            InitialiseState();
+        }
+        
 
     }
 

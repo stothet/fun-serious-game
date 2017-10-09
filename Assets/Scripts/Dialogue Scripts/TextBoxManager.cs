@@ -25,7 +25,6 @@ public class TextBoxManager : MonoBehaviour
 
 
     public PlayerController player;
-    public NPCController NPC;
 
     public Sprite sprite1;
     public Sprite sprite2;
@@ -37,8 +36,6 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // NPC = FindObjectOfType<NPCController>();
-        NPC = PersistenceController.JournalState.NPC;
         // Debug.Log("1 . NPC" + PersistenceController.JournalState.NPC._name);
         journal = FindObjectOfType<Journal>();
 
@@ -47,9 +44,10 @@ public class TextBoxManager : MonoBehaviour
 
         if (PersistenceController.DialogueState.shouldStartConversation)
         {
-            NPC = PersistenceController.JournalState.NPC;
             Debug.Log("Continuing dialog");
             Debug.Log("NPC is " + PersistenceController.JournalState.NPC);
+            Debug.Log("Journal is " + PersistenceController.JournalState.journal);
+            Debug.Log("XD current line is " + PersistenceController.DialogueState.currentLine);
             PersistenceController.DialogueState.shouldStartConversation = false;
             textBox.SetActive(true);
             ContinueDialogue();
@@ -85,7 +83,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-        Debug.Log("NPC continuing: " + NPC);
+        Debug.Log("NPC continuing: " + PersistenceController.JournalState.NPC);
         int currentLine = PersistenceController.DialogueState.currentLine;
         if (currentLine <= endLine)
         {
@@ -97,10 +95,7 @@ public class TextBoxManager : MonoBehaviour
             if (txtLine[0].Equals(Configuration.changeScenePrompt))
             {
                 isTransition = true;
-                Debug.Log("NPC set to: " + NPC);
-                PersistenceController.JournalState.NPC = NPC;
-
-         
+                Debug.Log("NPC is set to: " + PersistenceController.JournalState.NPC);
                 PersistenceController.DialogueState.shouldStartConversation = true;
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
@@ -134,7 +129,7 @@ public class TextBoxManager : MonoBehaviour
 
     public void ShowDialogueBox()
     {
-        NPC.currentlyTalking = true;
+        PersistenceController.JournalState.NPC.currentlyTalking = true;
         textBox.SetActive(true);
         dialogBoxActive = true;
         player.canMove = false;
@@ -142,25 +137,16 @@ public class TextBoxManager : MonoBehaviour
 
     public void DisableDialogueBox()
     {
-        NPC.currentlyTalking = false;
+        PersistenceController.JournalState.NPC.currentlyTalking = false;
         textBox.SetActive(false);
         dialogBoxActive = false;
         player.canMove = true;
 
 
         // Update the journal if it hasn't already for NPC info.
-        NPC.UpdateJournal(journal);
+        PersistenceController.JournalState.NPC.UpdateJournal(journal);
 
-        NPC.GiveEvidence(player);
-    }
-
-    /// <summary>
-    /// Identifies the talking NPC by setting the local NPC field.
-    /// </summary>
-    /// <param name="npc">Npc.</param>
-    public void IdentifyNPC(NPCController npc)
-    {
-        NPC = npc;
+        PersistenceController.JournalState.NPC.GiveEvidence(player);
     }
 
     /// <summary>
