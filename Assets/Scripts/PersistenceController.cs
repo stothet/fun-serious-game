@@ -14,7 +14,7 @@ public class PersistenceController
         public static void ResetState()
         {
             Debug.Log("Player.rs");
-             playerPosition = Configuration.lunchLadyPositionTest;
+             playerPosition = Configuration.playerPosition;
         
        
             lives = Configuration.maxLives;
