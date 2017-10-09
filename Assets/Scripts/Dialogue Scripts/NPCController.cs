@@ -10,9 +10,11 @@ public class NPCController : MonoBehaviour {
 	public TextAsset characterDescription;
 
     public TextBoxManager txtBox;
+	public TrialScript trialBox;
 
     public Sprite _sprite;
     public string _name;
+	public int order=0;
     private SpriteRenderer sr;
 
     public bool currentlyTalking;
@@ -39,12 +41,12 @@ public class NPCController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
 	public void UpdateJournal(Journal journal)
 	{
-		if (!journalUpdated) 
+		if (!journalUpdated)
 		{
             journal.putJournalEntry(characterDescription.text);
 			journalUpdated = true;
@@ -67,7 +69,7 @@ public class NPCController : MonoBehaviour {
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
     {
-        
+
         // When the player comes in contact with the NPC object
 		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
@@ -97,7 +99,15 @@ public class NPCController : MonoBehaviour {
                 }
                 else
                 {
-                    txtBox.ReloadScript(defaultDialogueFile);
+					if(_name.Equals("Wilson")){
+						trialBox = FindObjectOfType<TrialScript>();
+						trialBox.trialDialogue(order);
+						trialBox.gameObject.SetActive(true);
+
+					}
+					else{
+						txtBox.ReloadScript(defaultDialogueFile);
+					}
                 }
             } else
             {
@@ -110,4 +120,8 @@ public class NPCController : MonoBehaviour {
     public Sprite getSprite(){
         return _sprite;
     }
+
+	public void setOrder(int _order){
+		order = _order;
+	}
 }
