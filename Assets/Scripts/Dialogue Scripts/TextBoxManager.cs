@@ -14,14 +14,12 @@ public class TextBoxManager : MonoBehaviour
     public Image _person;
     public Text _name;
 
-
     public TextAsset txtFile;
     public string[] txtLines;
     public string[] txtLine;
 
+    public int currentLine;
     public int endLine;
-    public bool toggle = true;
-
 
     public PlayerController player;
     public NPCController NPC;
@@ -36,9 +34,8 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //NPC = FindObjectOfType<NPCController>();
-        NPC = PersistenceController.JournalState.NPC;
-       // Debug.Log("1 . NPC" + PersistenceController.JournalState.NPC._name);
+
+        NPC = FindObjectOfType<NPCController>();
         journal = FindObjectOfType<Journal>();
 
         // Load the initial dialogue txt file (if there is one)
@@ -47,11 +44,6 @@ public class TextBoxManager : MonoBehaviour
         if (dialogBoxActive)
         {
             textBox.SetActive(true);
-        }
-        else if (PersistenceController.DialogueState.shouldStartConversation)
-        {
-            textBox.SetActive(true);
-            ContinueDialogue();
         }
         else
         {
@@ -68,9 +60,8 @@ public class TextBoxManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)|| PersistenceController.DialogueState.shouldStartConversation)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            PersistenceController.DialogueState.shouldStartConversation = false;
             ContinueDialogue();
         }
     }
@@ -80,7 +71,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-        int currentLine = PersistenceController.DialogueState.currentLine;
+		
         if (currentLine <= endLine)
         {
             txtLine = new string[2];
@@ -91,9 +82,9 @@ public class TextBoxManager : MonoBehaviour
             if (txtLine[0].Equals(Configuration.changeScenePrompt))
             {
                 isTransition = true;
-                PersistenceController.DialogueState.shouldStartConversation = true;
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
+
             if (!isTransition)
             {
                 dialogueText.text = txtLine[1];
@@ -104,11 +95,11 @@ public class TextBoxManager : MonoBehaviour
         else
         {
             DisableDialogueBox();
-            PersistenceController.DialogueState.currentLine = 0;
+            currentLine = 0;
             return;
         }
 
-        PersistenceController.DialogueState.currentLine += 1;
+        currentLine += 1;
 
         if (_currentNPCname.Equals("Erin"))
         {
@@ -136,7 +127,6 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(false);
         dialogBoxActive = false;
         player.canMove = true;
-
 
         // Update the journal if it hasn't already for NPC info.
         NPC.UpdateJournal(journal);
@@ -174,6 +164,8 @@ public class TextBoxManager : MonoBehaviour
             // Set the end of the dialogue lines
             endLine = txtLines.Length - 1;
             txtFile = script;
+
+			currentLine = 0;
         }
 
         // Show the dialogue box
