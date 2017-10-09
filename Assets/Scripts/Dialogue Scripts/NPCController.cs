@@ -46,7 +46,7 @@ public class NPCController : MonoBehaviour {
 	{
 		if (!journalUpdated) 
 		{
-			journal.putJournalEntry (characterDescription.text);
+            journal.putJournalEntry(characterDescription.text);
 			journalUpdated = true;
 		}
 	}
@@ -71,7 +71,7 @@ public class NPCController : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
 			sr = GetComponent<SpriteRenderer>();
-
+            PersistenceController.JournalState.NPC=this;
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());

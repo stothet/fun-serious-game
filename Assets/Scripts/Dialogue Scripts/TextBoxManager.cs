@@ -36,7 +36,9 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        NPC = FindObjectOfType<NPCController>();
+        //NPC = FindObjectOfType<NPCController>();
+        NPC = PersistenceController.JournalState.NPC;
+       // Debug.Log("1 . NPC" + PersistenceController.JournalState.NPC._name);
         journal = FindObjectOfType<Journal>();
 
         // Load the initial dialogue txt file (if there is one)
@@ -46,10 +48,10 @@ public class TextBoxManager : MonoBehaviour
         {
             textBox.SetActive(true);
         }
-        else if (GlobalPersistenceController.DialogueState.shouldStartConversation)
+        else if (PersistenceController.DialogueState.shouldStartConversation)
         {
             textBox.SetActive(true);
-            GlobalPersistenceController.DialogueState.shouldStartConversation = false;
+            PersistenceController.DialogueState.shouldStartConversation = false;
             ContinueDialogue();
         }
         else
@@ -78,7 +80,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-        int currentLine = GlobalPersistenceController.DialogueState.currentLine;
+        int currentLine = PersistenceController.DialogueState.currentLine;
         if (currentLine <= endLine)
         {
             txtLine = new string[2];
@@ -89,7 +91,7 @@ public class TextBoxManager : MonoBehaviour
             if (txtLine[0].Equals(Configuration.ChangeScenePrompt))
             {
                 isTransition = true;
-                GlobalPersistenceController.DialogueState.shouldStartConversation = true;
+                PersistenceController.DialogueState.shouldStartConversation = true;
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
             if (!isTransition)
@@ -102,11 +104,11 @@ public class TextBoxManager : MonoBehaviour
         else
         {
             DisableDialogueBox();
-            GlobalPersistenceController.DialogueState.currentLine = 0;
+            PersistenceController.DialogueState.currentLine = 0;
             return;
         }
 
-        GlobalPersistenceController.DialogueState.currentLine += 1;
+        PersistenceController.DialogueState.currentLine += 1;
 
         if (_currentNPCname.Equals("Erin"))
         {
@@ -134,6 +136,7 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(false);
         dialogBoxActive = false;
         player.canMove = true;
+
 
         // Update the journal if it hasn't already for NPC info.
         NPC.UpdateJournal(journal);

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class GlobalPersistenceController
+public class PersistenceController
 {
-    public static GlobalPersistenceController instance;
+    public static PersistenceController instance;
 
     public static class PlayerState
      {
@@ -30,8 +31,29 @@ public class GlobalPersistenceController
             shouldStartConversation = false;
         }
     }
+    public static class InventoryState
+    {
+        public static int currentLine = 0;
+        public static bool shouldStartConversation = false;
 
-    static GlobalPersistenceController()
+        public static void ResetState()
+        {
+            currentLine = 0;
+            shouldStartConversation = false;
+        }
+    }
+
+    public static class JournalState
+    {
+        public static string journal = "";
+        public static NPCController NPC = null;
+        public static void ResetState()
+        {
+            journal = "";
+            NPC = null;
+        }
+    }
+    static PersistenceController()
     {
         Debug.Log("Constructor");
         InitialiseStates();
