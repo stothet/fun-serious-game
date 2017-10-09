@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MathsMinigameManager : MonoBehaviour
 {
 
-    MathsMinigame[] games = new MathsMinigame[Configuration.MathsMinigameNumberOfGames];
+    MathsMinigame[] games = new MathsMinigame[Configuration.mathsMinigameNumberOfGames];
 
     int currentGame;
 
@@ -101,7 +101,7 @@ public class MathsMinigameManager : MonoBehaviour
             else
             {
                 setErrorMessage("Correct");
-                setErrorMessageColour(Configuration.MathsMinigameSuccessColourR, Configuration.MathsMinigameSuccessColourG, Configuration.MathsMinigameSuccessColourB);
+                setErrorMessageColour(Configuration.mathsMinigameSuccessColourR, Configuration.mathsMinigameSuccessColourG, Configuration.mathsMinigameSuccessColourB);
                 resetSlotPositions();
                 UpdateTextComponents();
             }
@@ -164,7 +164,7 @@ public class MathsMinigameManager : MonoBehaviour
     private void setErrorMessage(string localErrorMessage)
     {
         errorMessage.text = localErrorMessage;
-        setErrorMessageColour(Configuration.MathsMinigameErrorColourR, Configuration.MathsMinigameErrorColourG, Configuration.MathsMinigameErrorColourB);
+        setErrorMessageColour(Configuration.mathsMinigameErrorColourR, Configuration.mathsMinigameErrorColourG, Configuration.mathsMinigameErrorColourB);
     }
 
 

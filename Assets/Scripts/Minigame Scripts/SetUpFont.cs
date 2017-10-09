@@ -11,7 +11,7 @@ public class SetUpFont : MonoBehaviour {
         Text[] allText = FindObjectsOfType<Text>();
         foreach (Text text in allText)
         {
-            text.font = Configuration.MathsMinigameFont;
+            text.font = Configuration.mathsMinigameFont;
         }
     }
 
