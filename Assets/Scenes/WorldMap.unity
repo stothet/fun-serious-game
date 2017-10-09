@@ -851,6 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trialActive: 0
+  trialFinished: 0
   question: {fileID: 1344479875}
   txtBox: {fileID: 1689302474}
   scoreKeeper: {fileID: 211417234}
@@ -1099,7 +1100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 15.936255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_MovementType

@@ -39,6 +39,7 @@ public class NPCController : MonoBehaviour {
         if (!PersistenceController.DialogueState.firstTalk.ContainsKey(name)){
             PersistenceController.DialogueState.firstTalk.Add(name, true);
             PersistenceController.DialogueState.givenEvidence.Add(name, false);
+            PersistenceController.DialogueState.journalUpdated.Add(name, false);
         }
     }
 
@@ -50,11 +51,11 @@ public class NPCController : MonoBehaviour {
 
 	public void UpdateJournal(Journal journal)
 	{
-		if (!journalUpdated)
+		if (!PersistenceController.DialogueState.journalUpdated[name])
 		{
             journal.putJournalEntry(characterDescription.text);
-			journalUpdated = true;
-		}
+            PersistenceController.DialogueState.journalUpdated[name] = true;
+        }
 	}
 
     public void GiveEvidence(PlayerController player)

@@ -7,6 +7,11 @@ using UnityEngine.UI;
 /// </summary>
 public class Journal : MonoBehaviour {
     public Text journal;
+
+    public void Start()
+    {
+        journal.text = PersistenceController.JournalState.journal;
+    }
     public void putJournalEntry(string txt)
     {
         PersistenceController.JournalState.journal += txt + "\n";
