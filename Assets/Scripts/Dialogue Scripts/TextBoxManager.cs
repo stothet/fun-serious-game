@@ -14,12 +14,13 @@ public class TextBoxManager : MonoBehaviour
     public Image _person;
     public Text _name;
 
+    public int endLine;
+
 
     public TextAsset txtFile;
     public string[] txtLines;
     public string[] txtLine;
 
-    public int endLine;
     public bool toggle = true;
 
 
@@ -36,22 +37,17 @@ public class TextBoxManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //NPC = FindObjectOfType<NPCController>();
+        // NPC = FindObjectOfType<NPCController>();
         NPC = PersistenceController.JournalState.NPC;
-       // Debug.Log("1 . NPC" + PersistenceController.JournalState.NPC._name);
+        // Debug.Log("1 . NPC" + PersistenceController.JournalState.NPC._name);
         journal = FindObjectOfType<Journal>();
 
         // Load the initial dialogue txt file (if there is one)
         ReloadScript(txtFile);
 
-        if (dialogBoxActive)
+        if (dialogBoxActive || PersistenceController.DialogueState.shouldStartConversation)
         {
             textBox.SetActive(true);
-        }
-        else if (PersistenceController.DialogueState.shouldStartConversation)
-        {
-            textBox.SetActive(true);
-            ContinueDialogue();
         }
         else
         {
@@ -67,12 +63,17 @@ public class TextBoxManager : MonoBehaviour
         {
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space)|| PersistenceController.DialogueState.shouldStartConversation)
+        if (PersistenceController.DialogueState.shouldStartConversation)
         {
+            NPC = PersistenceController.JournalState.NPC;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) || PersistenceController.DialogueState.shouldStartConversation)
+        {
+            
             PersistenceController.DialogueState.shouldStartConversation = false;
             ContinueDialogue();
         }
+        
     }
 
     /// <summary>
@@ -80,6 +81,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
+        Debug.Log(NPC);
         int currentLine = PersistenceController.DialogueState.currentLine;
         if (currentLine <= endLine)
         {
@@ -103,8 +105,8 @@ public class TextBoxManager : MonoBehaviour
         }
         else
         {
-            DisableDialogueBox();
             PersistenceController.DialogueState.currentLine = 0;
+            DisableDialogueBox();
             return;
         }
 

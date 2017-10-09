@@ -9,13 +9,11 @@ public class PersistenceController
 
     public static class PlayerState
      {
-        public static Vector3 playerPosition = Configuration.playerPosition;
+        public static Vector3 playerPosition = Configuration.lunchLadyTestPosition;
         public static int lives = Configuration.maxLives;
         public static void ResetState()
         {
-            Debug.Log("Player.rs");
-            playerPosition = Configuration.playerPosition;
-        
+            playerPosition = Configuration.lunchLadyTestPosition;
        
             lives = Configuration.maxLives;
         }
