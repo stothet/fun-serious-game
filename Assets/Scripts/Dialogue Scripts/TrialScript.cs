@@ -62,9 +62,7 @@ public class TrialScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(_evidenceCount == 2){
-			Outcome ();
-		}
+		
 	}
 
 	//affects chances
@@ -170,6 +168,9 @@ public class TrialScript : MonoBehaviour
 			Debug.Log("Evidence chosen: " + evidence._itemName);
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
+			if(_evidenceCount == 2){
+				Outcome ();
+			}
 
 		} else
 		{
@@ -201,6 +202,9 @@ public class TrialScript : MonoBehaviour
 			option2.gameObject.SetActive (false);
 			option3.gameObject.SetActive (false);
 			_evidenceCount++;
+			if(_evidenceCount == 2){
+				Outcome ();
+			}
 		}
 
 	}
