@@ -45,7 +45,16 @@ public class TextBoxManager : MonoBehaviour
         // Load the initial dialogue txt file (if there is one)
         ReloadScript(txtFile);
 
-        if (dialogBoxActive || PersistenceController.DialogueState.shouldStartConversation)
+        if (PersistenceController.DialogueState.shouldStartConversation)
+        {
+            NPC = PersistenceController.JournalState.NPC;
+            Debug.Log("Continuing dialog");
+            Debug.Log("NPC is " + PersistenceController.JournalState.NPC);
+            PersistenceController.DialogueState.shouldStartConversation = false;
+            textBox.SetActive(true);
+            ContinueDialogue();
+        }
+        else if (dialogBoxActive)
         {
             textBox.SetActive(true);
         }
@@ -63,14 +72,9 @@ public class TextBoxManager : MonoBehaviour
         {
             return;
         }
-        if (PersistenceController.DialogueState.shouldStartConversation)
-        {
-            NPC = PersistenceController.JournalState.NPC;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) || PersistenceController.DialogueState.shouldStartConversation)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             
-            PersistenceController.DialogueState.shouldStartConversation = false;
             ContinueDialogue();
         }
         
@@ -81,7 +85,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-        Debug.Log(NPC);
+        Debug.Log("NPC continuing: " + NPC);
         int currentLine = PersistenceController.DialogueState.currentLine;
         if (currentLine <= endLine)
         {
@@ -93,6 +97,10 @@ public class TextBoxManager : MonoBehaviour
             if (txtLine[0].Equals(Configuration.changeScenePrompt))
             {
                 isTransition = true;
+                Debug.Log("NPC set to: " + NPC);
+                PersistenceController.JournalState.NPC = NPC;
+
+         
                 PersistenceController.DialogueState.shouldStartConversation = true;
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
