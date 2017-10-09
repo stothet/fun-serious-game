@@ -48,10 +48,9 @@ public class MathsMinigame {
         }
         result = CalculateResult(generatedNumbers, generatedOps);
         
-        if (!Configuration.isTestMode)
-        {
-            //shuffleNumbers();
-        }
+     
+        shuffleNumbers();
+        
     }
 
     /// <summary>
