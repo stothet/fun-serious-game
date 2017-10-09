@@ -12,6 +12,7 @@ TagManager:
   - Journal
   - Bill
   - Principal
+  - SubmitButton
   layers:
   - Default
   - TransparentFX

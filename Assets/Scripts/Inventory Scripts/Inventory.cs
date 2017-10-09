@@ -19,8 +19,9 @@ public class Inventory : MonoBehaviour {
     Journal _journal;
     int x = -90; //Initial x coordinate of the first slot.
     int y = 100; //Initial y coordinate of the first slot.
-    // Use this for initialization
+	private Item _selectedItem;
 
+    // Use this for initialization
     void Start() {
         int _slotAmount = 0; // Variable used to notify the slotscript whether to enable the sprite icon in the slot interface.
         database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>(); //Instantiate the database
@@ -87,4 +88,22 @@ public class Inventory : MonoBehaviour {
             }
         }
     }
+
+	/// <summary>
+	/// Used by SlotScript to set the currently selected item.
+	/// </summary>
+	/// <param name="item"></param>
+	public void SetSelectedItem(Item item)
+	{
+		_selectedItem = item;
+	}
+
+	/// <summary>
+	/// Returns the currently selected item by the player.
+	/// </summary>
+	/// <returns></returns>
+	public Item GetSelectedItem()
+	{
+		return _selectedItem;
+	}
 }
