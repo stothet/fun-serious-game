@@ -13,7 +13,6 @@ public class ItemDatabase : MonoBehaviour {
     //Add additional items to the database with the following rubber duck template.
     void Start () {
         //Item constructor is Item(String itemName, string description, int itemValue, Enum evidenceType, string spriteName)
-
         // Dictionary 
         PersistenceController.InventoryState.database[Configuration.bruceRegisterEntryName] = new Item(Configuration.bruceRegisterEntryName, Configuration.bruceRegisterEntryDescription, 5, Item.ItemType.EVIDENCE, "book");
         PersistenceController.InventoryState.database[Configuration.billArtHistoryReportName] = new Item(Configuration.billArtHistoryReportName, Configuration.billArtHistoryReportDescription, -5, Item.ItemType.DUMMY, "paper");

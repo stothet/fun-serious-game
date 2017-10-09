@@ -52,8 +52,8 @@ public class Inventory : MonoBehaviour {
 		panel.SetActive(false);
 	}
 
-    // Utility method to add the desired item into the inventory.
-   public void addItem(string name)
+    /// <summary> Utility method to add the desired item into the inventory </summary>
+    public void addItem(string name)
     {
         Debug.Log("Looking for: " + name);
         Item item = PersistenceController.InventoryState.database[name];
