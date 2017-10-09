@@ -28,7 +28,7 @@ public class Configuration
     public static Font mathsMinigameFont = (Font)Resources.Load("Fonts/kindergarten");
 
     public static readonly Vector3 playerPosition = new Vector3(-29.69f, -2.14f, 0);
-    public static readonly Vector3 lunchLadyPositionTest = new Vector3(-35.0f, -45.0f, 0);
+    public static readonly Vector3 lunchLadyTestPosition = new Vector3(-35.0f, -45.0f, 0);
     public static readonly int maxLives = 3;
 
     public static readonly string bruceRegisterEntryName = "Bruce's register entry";

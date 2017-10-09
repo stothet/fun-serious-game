@@ -55,6 +55,7 @@ public class NPCController : MonoBehaviour {
 
     public void GiveEvidence(PlayerController player)
     {
+        Debug.Log(name);
         if (!givenEvidence)
         {
             player.addToInventory(evidenceName);
@@ -73,7 +74,7 @@ public class NPCController : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
 			sr = GetComponent<SpriteRenderer>();
-            PersistenceController.JournalState.NPC=this;
+            PersistenceController.JournalState.NPC = this;
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
