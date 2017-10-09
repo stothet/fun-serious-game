@@ -36,6 +36,10 @@ public class NPCController : MonoBehaviour {
 		journalUpdated = false;
         givenEvidence = false;
         autoTalk = false;
+        if (!PersistenceController.DialogueState.firstTalk.ContainsKey(name)){
+            PersistenceController.DialogueState.firstTalk.Add(name, true);
+            PersistenceController.DialogueState.givenEvidence.Add(name, false);
+        }
     }
 
     // Update is called once per frame
@@ -56,10 +60,10 @@ public class NPCController : MonoBehaviour {
     public void GiveEvidence(PlayerController player)
     {
         Debug.Log(name);
-        if (!givenEvidence)
+        if (!PersistenceController.DialogueState.givenEvidence[name])
         {
             player.addToInventory(evidenceName);
-            givenEvidence = true;
+            PersistenceController.DialogueState.givenEvidence[name] = true;
         }
     }
 
@@ -71,7 +75,7 @@ public class NPCController : MonoBehaviour {
     {
 
         // When the player comes in contact with the NPC object
-		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
+		if (other.gameObject.CompareTag("Player") && (PersistenceController.DialogueState.autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
 			sr = GetComponent<SpriteRenderer>();
             PersistenceController.JournalState.NPC = this;
@@ -86,10 +90,11 @@ public class NPCController : MonoBehaviour {
             {
                 currentlyTalking = true;
 				txtBox.IdentifyNPC (this);
-                if (firstTimeTalk)
+                Debug.Log(name);
+                if (PersistenceController.DialogueState.firstTalk[name])
                 {
                     txtBox.ReloadScript(initialDialogueFile);
-                    firstTimeTalk = false;
+                    PersistenceController.DialogueState.firstTalk[name] = false;
 
                     if (autoTalk)
                     {
@@ -113,7 +118,7 @@ public class NPCController : MonoBehaviour {
             {
                 return;
             }
-            autoTalk = false;
+            PersistenceController.DialogueState.autoTalk = false;
         }
     }
 
