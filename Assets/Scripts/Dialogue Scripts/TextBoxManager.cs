@@ -19,9 +19,9 @@ public class TextBoxManager : MonoBehaviour
     public string[] txtLines;
     public string[] txtLine;
 
-    public int currentLine;
     public int endLine;
     public bool toggle = true;
+
 
     public PlayerController player;
     public NPCController NPC;
@@ -45,6 +45,12 @@ public class TextBoxManager : MonoBehaviour
         if (dialogBoxActive)
         {
             textBox.SetActive(true);
+        }
+        else if (GlobalPersistenceController.DialogueState.shouldStartConversation)
+        {
+            textBox.SetActive(true);
+            GlobalPersistenceController.DialogueState.shouldStartConversation = false;
+            ContinueDialogue();
         }
         else
         {
@@ -72,7 +78,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-
+        int currentLine = GlobalPersistenceController.DialogueState.currentLine;
         if (currentLine <= endLine)
         {
             txtLine = new string[2];
@@ -83,9 +89,9 @@ public class TextBoxManager : MonoBehaviour
             if (txtLine[0].Equals(Configuration.ChangeScenePrompt))
             {
                 isTransition = true;
+                GlobalPersistenceController.DialogueState.shouldStartConversation = true;
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
-
             if (!isTransition)
             {
                 dialogueText.text = txtLine[1];
@@ -96,11 +102,11 @@ public class TextBoxManager : MonoBehaviour
         else
         {
             DisableDialogueBox();
-            currentLine = 0;
+            GlobalPersistenceController.DialogueState.currentLine = 0;
             return;
         }
 
-        currentLine += 1;
+        GlobalPersistenceController.DialogueState.currentLine += 1;
 
         if (_currentNPCname.Equals("Erin"))
         {
