@@ -28,12 +28,12 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler {
 	// Update is called once per frame
     //The update method checks if there exists an actual item in the slot. If there is, then we enable the sprite icon to be displayed.
 	void Update () {
-	    if (_inventory._items[_slotNumber]._itemName != null)
+	    if (Inventory._items[_slotNumber]._itemName != null)
         {
-            _item = _inventory._items[_slotNumber];
+            _item = Inventory._items[_slotNumber];
             _itemImage.enabled = true;
             _itemImage.rectTransform.sizeDelta = new Vector2(30, 30);
-            _itemImage.sprite = _inventory._items[_slotNumber]._itemIcon;
+            _itemImage.sprite = Inventory._items[_slotNumber]._itemIcon;
 
         }
         else

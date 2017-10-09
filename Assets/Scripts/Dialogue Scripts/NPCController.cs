@@ -48,7 +48,7 @@ public class NPCController : MonoBehaviour {
 	{
 		if (!journalUpdated)
 		{
-			journal.putJournalEntry (characterDescription.text);
+            journal.putJournalEntry(characterDescription.text);
 			journalUpdated = true;
 		}
 	}
@@ -63,7 +63,7 @@ public class NPCController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Triggers every frame playe is in contact with NPC. Used to trigger conversation.
+    /// Triggers every frame that the player is in contact with NPC. Used to trigger conversation.
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
@@ -73,7 +73,7 @@ public class NPCController : MonoBehaviour {
 		if (other.gameObject.CompareTag("Player") && (autoTalk || Input.GetKeyDown(KeyCode.Space)))
         {
 			sr = GetComponent<SpriteRenderer>();
-
+            PersistenceController.JournalState.NPC=this;
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());

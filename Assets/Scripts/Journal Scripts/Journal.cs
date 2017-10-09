@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class Journal : MonoBehaviour {
     public Text journal;
-
     public void putJournalEntry(string txt)
     {
-        journal.text += txt + "\n";
+        PersistenceController.JournalState.journal += txt + "\n";
+        journal.text = PersistenceController.JournalState.journal;
     }
 }

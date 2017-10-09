@@ -18,7 +18,7 @@ public class UpdateLivesGUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        int numLives = PlayerController.getNumberOfLives();
+        int numLives = PersistenceController.PlayerState.lives;
         life1.enabled = true;
         life2.enabled = true;
         life3.enabled = true;
