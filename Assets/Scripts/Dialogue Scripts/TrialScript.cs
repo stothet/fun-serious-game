@@ -9,6 +9,8 @@ public class TrialScript : MonoBehaviour
 	public Text question;
 	public TextBoxManager txtBox;
 
+	public GameObject scoreKeeper;
+
 	public Button option1;
 	public Button option2;
 	public Button option3;
