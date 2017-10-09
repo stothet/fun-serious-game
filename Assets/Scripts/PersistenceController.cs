@@ -9,7 +9,7 @@ public class PersistenceController
 
     public static class PlayerState
      {
-        public static Vector3 playerPosition = Configuration.lunchLadyPositionTest;
+        public static Vector3 playerPosition = Configuration.playerPosition;
         public static int lives = Configuration.maxLives;
         public static void ResetState()
         {
