@@ -92,8 +92,9 @@ public class TrialScript : MonoBehaviour
 			{
 				txtBox.ReloadScript(introFile);
 
-				scoreKeeper.SetActive (true);
-				livesKeeper.SetActive (false);
+				//scoreKeeper.SetActive (true);
+				//livesKeeper.SetActive (false);
+
 				choice1.gameObject.SetActive (true);
 				choice2.gameObject.SetActive (true);
 
@@ -105,11 +106,14 @@ public class TrialScript : MonoBehaviour
 			{
 				txtBox.ReloadScript(prelude);
 				txtBox.ContinueDialogue ();
+
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
-				option1.gameObject.SetActive (true);
-				option2.gameObject.SetActive (true);
-				option3.gameObject.SetActive (true);
+
+				//option1.gameObject.SetActive (true);
+				//option2.gameObject.SetActive (true);
+				//option3.gameObject.SetActive (true);
+
 				break;
 			}
 
