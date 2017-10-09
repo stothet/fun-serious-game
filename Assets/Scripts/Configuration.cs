@@ -32,7 +32,7 @@ public class Configuration
     public static readonly int maxLives = 3;
 
     public static readonly string bruceRegisterEntryName = "Bruce's register entry";
-    public static readonly string BillArtHistoryReportName = "Bill's Art History report, scrunched to a ball.";
+    public static readonly string BillArtHistoryReportName = "Scrunched up paper";
     public static readonly string DetentionNoteName = "Detention note";
 
     public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature and an official timestamp.";
