@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Creates a new round for the Math minigame
+/// </summary>
+/// <remarks>
+/// Randomly generates an array of numbers and mathematical operations. The randomly generated operations are applied to the generated numbers and a result is produced.
+/// </remarks>
 public class MathsMinigame {
 
-    private static int numSmallNumbers = Configuration.mathsMinigameNumberOfIntegersPerGame;
-    private int[] generatedNumbers;
-    private Operations[] generatedOps;
-    private int result;
+    private static int numSmallNumbers = Configuration.mathsMinigameNumberOfIntegersPerGame; // number of numbers used for the game
+    private int[] generatedNumbers;                                                          // stores an array of randomly generated numbers 
+    private Operations[] generatedOps;                                                       // stores an array of randomly generated mathematical operations
+    private int result;                                                                      // stores the result of applying the generated operations on the generated numbers
 
-    // Use this for initialization
+    /// <summary>
+    /// Contructor that creates a new round for the math game
+    /// </summary>
     public MathsMinigame() {
         generatedNumbers = new int[numSmallNumbers];
         for (int i = 0; i < generatedNumbers.Length; i++)
@@ -45,6 +53,15 @@ public class MathsMinigame {
             //shuffleNumbers();
         }
     }
+
+    /// <summary>
+    /// Calculates the result produce by applying the generated operations to the generated numbers 
+    /// </summary>
+    /// <param name="numbers">The numbers that will be used to the euqation to produce a result</param>
+    /// <param name="ops">The operations that will be applied on the array of numbers</param>
+    /// <returns>
+    /// The calculated result
+    /// </returns>
     public static int CalculateResult(int[] numbers, Operations[] ops)
     {
         // Calculate result
@@ -73,23 +90,43 @@ public class MathsMinigame {
         }
         return localResult;
     }
-   
+
+    /// <summary>
+    /// Returns the array of randomly generated numbers 
+    /// </summary>
+    /// <returns>
+    /// The array of randomly generated numbers
+    /// </returns>
     public int[] getGeneratedNumbers()
     {
         return generatedNumbers;
     }
 
+    /// <summary>
+    /// Returns the array of randomly generated operations 
+    /// </summary>
+    /// <returns>
+    /// The array of randomly generated operations
+    /// </returns>
     public Operations[] getGeneratedOperations()
     {
         return generatedOps;
     }
 
+    /// <summary>
+    /// Returns the calculated result 
+    /// </summary>
+    /// <returns>
+    /// The calculated result
+    /// </returns>
     public int getResult()
     {
         return result;
     }
 
-    // Shuffles the order of the numbers
+    /// <summary>
+    /// Shuffles the order of the randomly generated numbers
+    /// </summary>
     private void shuffleNumbers()
     {
         int tempNumber;
@@ -102,5 +139,9 @@ public class MathsMinigame {
         }
     }
 }
+
+/// <summary>
+/// An Enum that stores the diffrent types of operations that can be used when calculating a result
+/// </summary>
 public enum Operations { Add, Subtract, Multiply, Divide }
 

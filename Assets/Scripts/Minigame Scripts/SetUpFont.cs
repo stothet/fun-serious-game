@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
+/// <summary>
+/// Sets the font for the scene.
+/// </summary>
 public class SetUpFont : MonoBehaviour {
     void Start () {
         setFont();
