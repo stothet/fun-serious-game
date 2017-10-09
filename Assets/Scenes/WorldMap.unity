@@ -319,9 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e360693dd0793044cb91f9d7a20162c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life1: {fileID: 0}
-  life2: {fileID: 0}
-  life3: {fileID: 0}
 --- !u!114 &422949212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +487,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16.438356
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_MovementType
@@ -802,6 +799,10 @@ Prefab:
     - target: {fileID: 104358, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_TagString
       value: Principal
+      objectReference: {fileID: 0}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: givenEvidence
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -1295,8 +1296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1830971136}
-  offset: {x: 0, y: 0, z: 0}
-  mycam: {fileID: 0}
 --- !u!81 &1124120202
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2046,7 +2045,6 @@ MonoBehaviour:
   txtFile: {fileID: 0}
   txtLines: []
   txtLine: []
-  currentLine: 0
   endLine: 0
   toggle: 0
   player: {fileID: 641704448}
@@ -2466,8 +2464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 1945104138}
-  active: 0
-  currentTab: 
 --- !u!1 &1945104138 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 129468, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
