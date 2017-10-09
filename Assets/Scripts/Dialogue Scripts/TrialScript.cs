@@ -12,6 +12,7 @@ public class TrialScript : MonoBehaviour
 	public GameObject scoreKeeper;
 	public GameObject livesKeeper;
 	public Text _score;
+	int _evidenceCount=0;
 
 	public Button option1;
 	public Button option2;
@@ -61,7 +62,9 @@ public class TrialScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		if(_evidenceCount == 2){
+			Outcome ();
+		}
 	}
 
 	//affects chances
@@ -97,8 +100,8 @@ public class TrialScript : MonoBehaviour
 			{
 				txtBox.ReloadScript(introFile);
 
-				//scoreKeeper.SetActive (true);
-				//livesKeeper.SetActive (false);
+				scoreKeeper.SetActive (true);
+				livesKeeper.SetActive (false);
 
 				choice1.gameObject.SetActive (true);
 				choice2.gameObject.SetActive (true);
@@ -115,9 +118,9 @@ public class TrialScript : MonoBehaviour
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
 
-				//option1.gameObject.SetActive (true);
-				//option2.gameObject.SetActive (true);
-				//option3.gameObject.SetActive (true);
+				option1.gameObject.SetActive (true);
+				option2.gameObject.SetActive (true);
+				option3.gameObject.SetActive (true);
 
 				break;
 			}
@@ -165,17 +168,14 @@ public class TrialScript : MonoBehaviour
 		if (evidence != null)
 		{
 			Debug.Log("Evidence chosen: " + evidence._itemName);
+			keepScore(evidence._itemValue);
+			_evidenceCount++;
+
 		} else
 		{
 			// Do nothing as nothing is selected
 			return;
 		}
-	}
-
-	//select journal entry option
-	//calls keepScore to change score given the item value
-	void selectJournalEvidence(){
-		
 	}
 
 	//picks option from the buttons
@@ -185,19 +185,19 @@ public class TrialScript : MonoBehaviour
 
 		if (Button.ReferenceEquals (choice1, b) || Button.ReferenceEquals (choice2, b)) {
 			trialDialogue (1);
-			submitButton.gameObject.SetActive(true);
-		}
-		else if(Button.ReferenceEquals (option1, b)){
-			//Billy
-			keepScore(-5);
-		}
-		else if(Button.ReferenceEquals (option2, b)){
-			//Jimmy
-			keepScore(-5);
-		}
-		else if(Button.ReferenceEquals (option3, b)){
-			//Rita
-			keepScore(5);
+			submitButton.gameObject.SetActive (true);
+		} else {
+			if (Button.ReferenceEquals (option1, b)) {
+				//Billy
+				keepScore (-5);
+			} else if (Button.ReferenceEquals (option2, b)) {
+				//Jimmy
+				keepScore (-5);
+			} else if (Button.ReferenceEquals (option3, b)) {
+				//Rita
+				keepScore (5);
+			}
+			_evidenceCount++;
 		}
 
 	}
