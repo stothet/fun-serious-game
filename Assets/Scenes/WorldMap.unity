@@ -833,7 +833,7 @@ MonoBehaviour:
   question: {fileID: 1344479875}
   txtBox: {fileID: 1689302474}
   scoreKeeper: {fileID: 1796873474}
-  livesKeeper: {fileID: 0}
+  _score: {fileID: 0}
   option1: {fileID: 172292576}
   option2: {fileID: 224414364}
   option3: {fileID: 1562124335}
@@ -1437,11 +1437,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6106138, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_Size.y
-      value: 0.5058279
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6106138, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_Size.x
-      value: 0.9
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5061992, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: m_SleepingMode

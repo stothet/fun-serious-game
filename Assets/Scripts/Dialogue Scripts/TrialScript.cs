@@ -10,6 +10,7 @@ public class TrialScript : MonoBehaviour
 	public TextBoxManager txtBox;
 
 	public GameObject scoreKeeper;
+	public Text _score;
 
 	public Button option1;
 	public Button option2;
@@ -39,6 +40,8 @@ public class TrialScript : MonoBehaviour
 		NPC = FindObjectOfType<NPCController>();
 		txtBox = FindObjectOfType<TextBoxManager>();
 
+		scoreKeeper.SetActive (true);
+
 		option1.gameObject.SetActive (false);
 		option2.gameObject.SetActive (false);
 		option3.gameObject.SetActive (false);
@@ -60,7 +63,6 @@ public class TrialScript : MonoBehaviour
 	void Update ()
 	{
 		
-		//update score
 	}
 
 	//affects chances
@@ -82,6 +84,7 @@ public class TrialScript : MonoBehaviour
 	//called when evidence is selected
 	void keepScore(int evidenceValue){
 		cumulative += evidenceValue;
+		_score.text = cumulative.ToString ();
 	}
 
 	//reloads generic dialogues
