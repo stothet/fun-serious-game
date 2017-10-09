@@ -472,7 +472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &211417235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -491,8 +491,8 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -741.55005, y: -19.449997}
-  m_SizeDelta: {x: 116.9, y: 39.9}
+  m_AnchoredPosition: {x: -723.5, y: -21}
+  m_SizeDelta: {x: 153, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211417236
 MonoBehaviour:
@@ -909,9 +909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e360693dd0793044cb91f9d7a20162c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life1: {fileID: 0}
-  life2: {fileID: 0}
-  life3: {fileID: 0}
 --- !u!114 &422949212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1077,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473692, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16.438356
+      value: 14.466545
       objectReference: {fileID: 0}
     - target: {fileID: 11448508, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
       propertyPath: m_MovementType
@@ -2081,8 +2078,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1830971136}
-  offset: {x: 0, y: 0, z: 0}
-  mycam: {fileID: 0}
 --- !u!81 &1124120202
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3725,8 +3720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 1945104138}
-  active: 0
-  currentTab: 
 --- !u!1 &1945104138 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 129468, guid: 1b1d803437ea8f8429546135c74c9d91, type: 2}
