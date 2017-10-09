@@ -24,7 +24,7 @@ public class TrialScript : MonoBehaviour
 	public TextAsset goBack;
 	public TextAsset youLose;
 
-	public int cumulative=0;
+	public static int cumulative=0;
 
 	public PlayerController player;
 	public NPCController NPC;
@@ -66,12 +66,14 @@ public class TrialScript : MonoBehaviour
 		if(cumulative > 0){
 			trialDialogue (2);
 			//SceneManager.LoadScene(3);
+			//You win end game screen
 		}else if(cumulative == 0){
 			trialDialogue (3);
 			//PlayerController.subtractLife();
 		}else{
 			trialDialogue (4);
 			//SceneManager.LoadScene(3);
+			//you lose end game screen
 		}
 	}
 
