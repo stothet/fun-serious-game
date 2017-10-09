@@ -33,6 +33,9 @@ public class TrialScript : MonoBehaviour
 	public PlayerController player;
 	public NPCController NPC;
 
+	private Inventory inventory;
+	private Button submitButton;
+
 	//panel and button would handle this script
 
 	// Use this for initialization
@@ -40,6 +43,10 @@ public class TrialScript : MonoBehaviour
 	{
 		NPC = FindObjectOfType<NPCController>();
 		txtBox = FindObjectOfType<TextBoxManager>();
+		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
+
+		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
 
@@ -49,8 +56,6 @@ public class TrialScript : MonoBehaviour
 
 		choice1.gameObject.SetActive (false);
 		choice2.gameObject.SetActive (false);
-
-
 	}
 
 	// Update is called once per frame
@@ -154,7 +159,17 @@ public class TrialScript : MonoBehaviour
 
 	//select item from inventory
 	//calls keepScore to change score given the item value
-	void selectObjectEvidence(){
+	public void SelectObjectEvidence(){
+		evidence = inventory.GetSelectedItem();
+
+		if (evidence != null)
+		{
+			Debug.Log("Evidence chosen: " + evidence._itemName);
+		} else
+		{
+			// Do nothing as nothing is selected
+			return;
+		}
 	}
 
 	//select journal entry option
@@ -170,6 +185,7 @@ public class TrialScript : MonoBehaviour
 
 		if (Button.ReferenceEquals (choice1, b) || Button.ReferenceEquals (choice2, b)) {
 			trialDialogue (1);
+			submitButton.gameObject.SetActive(true);
 		}
 		else if(Button.ReferenceEquals (option1, b)){
 			//Billy

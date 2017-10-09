@@ -48,7 +48,7 @@ public class SlotScript : MonoBehaviour, IPointerDownHandler {
     //Currently bugged, will show an error message in the console displaying NullReferenceException when clicking a slot with no item in it.
     public void OnPointerDown(PointerEventData data)
     {
-        if (_item._itemName != null)
+        if (_item != null)
         {
             _itemNameInPanel.SetNewText(_item._itemName);
             _itemDescriptionInPanel.SetNewText(_item._itemDescription);
