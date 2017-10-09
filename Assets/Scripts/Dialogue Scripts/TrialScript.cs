@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TrialScript : MonoBehaviour
 {
@@ -23,9 +24,7 @@ public class TrialScript : MonoBehaviour
 	public TextAsset goBack;
 	public TextAsset youLose;
 
-	public string[] txtLines;
-	public string[] txtLine;
-	public int currentLine;
+	public int cumulative=0;
 
 	public PlayerController player;
 	public NPCController NPC;
@@ -58,17 +57,27 @@ public class TrialScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
+		
 		//update score
 	}
 
 	//affects chances
 	void Outcome(){
-
+		if(cumulative > 0){
+			trialDialogue (2);
+			//SceneManager.LoadScene(3);
+		}else if(cumulative == 0){
+			trialDialogue (3);
+			//PlayerController.subtractLife();
+		}else{
+			trialDialogue (4);
+			//SceneManager.LoadScene(3);
+		}
 	}
 
 	//called when evidence is selected
-	void keepScore(){
+	void keepScore(int evidenceValue){
+		cumulative += evidenceValue;
 	}
 
 	//reloads generic dialogues
@@ -90,11 +99,36 @@ public class TrialScript : MonoBehaviour
 		case 1:
 
 			{
-				txtBox.ContinueDialogue ();
 				txtBox.ReloadScript(prelude);
-				//txtBox.dialogBoxActive = true;
+				txtBox.ContinueDialogue ();
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
+				break;
+			}
+
+		case 2:
+
+			{
+
+				txtBox.ReloadScript(bruceIsFree);
+				txtBox.ContinueDialogue();
+				break;
+			}
+		case 3:
+
+			{
+
+				txtBox.ReloadScript(goBack);
+				txtBox.ContinueDialogue();
+				break;
+			}
+		
+		case 4:
+
+			{
+
+				txtBox.ReloadScript(youLose);
+				txtBox.ContinueDialogue();
 				break;
 			}
 
@@ -116,18 +150,23 @@ public class TrialScript : MonoBehaviour
 	//calls keepScore to change score given value (not implemented yet)
 	public void CheckClick(Button b)
 	{
-		print (choice1);
-		//string text = b.GetComponent<Text>().ToString();
 
 		if (Button.ReferenceEquals (choice1, b) || Button.ReferenceEquals (choice2, b)) {
 			trialDialogue (1);
 		}
+		else if(Button.ReferenceEquals (option1, b)){
+			//Billy
+			keepScore(-5);
+		}
+		else if(Button.ReferenceEquals (option2, b)){
+			//Jimmy
+			keepScore(-5);
+		}
+		else if(Button.ReferenceEquals (option3, b)){
+			//Rita
+			keepScore(5);
+		}
 
-
-	}
-
-	void getChoice(){
-		
 	}
 
 }

@@ -71,7 +71,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-
+		
         if (currentLine <= endLine)
         {
             txtLine = new string[2];
@@ -164,6 +164,8 @@ public class TextBoxManager : MonoBehaviour
             // Set the end of the dialogue lines
             endLine = txtLines.Length - 1;
             txtFile = script;
+
+			currentLine = 0;
         }
 
         // Show the dialogue box
