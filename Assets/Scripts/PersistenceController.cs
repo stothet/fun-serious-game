@@ -23,13 +23,13 @@ public class PersistenceController
 
     public static class DialogueState
     {
-        public static int currentLine = 0;
-        public static bool shouldStartConversation = false;
+        public static Dictionary<string, bool> firstTalk;
+        public static Dictionary<string, bool> givenEvidence;
 
         public static void ResetState()
         {
-            currentLine = 0;
-            shouldStartConversation = false;
+            firstTalk = new Dictionary<string, bool>();
+            givenEvidence = new Dictionary<string, bool>();
         }
     }
     public static class InventoryState
