@@ -24,6 +24,7 @@ public class Configuration
     public static readonly string minigameSceneName = "MathsMinigame";
     public static readonly string mainMenuSceneName = "MainMenu";
     public static readonly string worldMapSceneName = "WorldMap";
+	public static readonly string endGameSceneName = "EndGame";
 
     public static Font mathsMinigameFont = (Font)Resources.Load("Fonts/kindergarten");
 

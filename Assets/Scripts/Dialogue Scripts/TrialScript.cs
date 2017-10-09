@@ -36,7 +36,7 @@ public class TrialScript : MonoBehaviour
 
 	private Inventory inventory;
 	private Button submitButton;
-
+	public static string endGameMessage = null;
 	//panel and button would handle this script
 
 	// Use this for initialization
