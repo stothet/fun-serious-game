@@ -18,7 +18,6 @@ public class TextBoxManager : MonoBehaviour
 
 
     public TextAsset txtFile;
-    public string[] txtLines;
     public string[] txtLine;
 
     public bool toggle = true;
@@ -46,9 +45,6 @@ public class TextBoxManager : MonoBehaviour
         {
             Debug.Log("Continuing dialog");
             Debug.Log("NPC is " + PersistenceController.JournalState.NPC);
-            Debug.Log("Journal is " + PersistenceController.JournalState.journal);
-            Debug.Log("XD current line is " + PersistenceController.DialogueState.currentLine);
-            PersistenceController.DialogueState.shouldStartConversation = false;
             textBox.SetActive(true);
             ContinueDialogue();
         }
@@ -70,9 +66,9 @@ public class TextBoxManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || PersistenceController.DialogueState.shouldStartConversation)
         {
-            
+            PersistenceController.DialogueState.shouldStartConversation = false;
             ContinueDialogue();
         }
         
@@ -83,13 +79,22 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
+        if (!dialogBoxActive)
+        {
+            textBox.SetActive(true);
+        }
         Debug.Log("NPC continuing: " + PersistenceController.JournalState.NPC);
+        Debug.Log("continuing");
+        Debug.Log("line no " + PersistenceController.DialogueState.currentLine);
+        Debug.Log("end line " + PersistenceController.DialogueState.endLine);
+
         int currentLine = PersistenceController.DialogueState.currentLine;
+        int endLine = PersistenceController.DialogueState.endLine;
         if (currentLine <= endLine)
         {
             txtLine = new string[2];
-            string s = txtLines[currentLine];
-            txtLine = (txtLines[currentLine].Split(':'));
+            string s = PersistenceController.DialogueState.dialogueText[currentLine];
+            txtLine = (PersistenceController.DialogueState.dialogueText[currentLine].Split(':'));
 
             bool isTransition = false;
             if (txtLine[0].Equals(Configuration.changeScenePrompt))
@@ -164,11 +169,11 @@ public class TextBoxManager : MonoBehaviour
         // If it's a new script, load it locally. Else just skip this and show dialogue box immediately.
         if (script != txtFile)
         {
-            txtLines = new string[1];
-            txtLines = (script.text.Split('\n'));
+
+            PersistenceController.DialogueState.dialogueText = (script.text.Split('\n'));
 
             // Set the end of the dialogue lines
-            endLine = txtLines.Length - 1;
+            PersistenceController.DialogueState.endLine = PersistenceController.DialogueState.dialogueText.Length - 1;
             txtFile = script;
         }
 

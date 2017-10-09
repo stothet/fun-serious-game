@@ -22,11 +22,16 @@ public class PersistenceController
     public static class DialogueState
     {
         public static int currentLine = 0;
+        public static int endLine = 0;
+        public static string[] dialogueText = null;
+        
         public static bool shouldStartConversation = false;
 
         public static void ResetState()
         {
             currentLine = 0;
+            endLine = 0;
+            dialogueText = null;
             shouldStartConversation = false;
         }
     }
