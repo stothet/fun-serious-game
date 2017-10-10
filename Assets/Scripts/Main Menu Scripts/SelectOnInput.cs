@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Handles the selected object
+/// </summary>
 public class SelectOnInput : MonoBehaviour
 {
 

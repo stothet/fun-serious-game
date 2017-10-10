@@ -8,7 +8,7 @@ using UnityEditor;
 
 /// <summary>
 /// Author Andon
-/// 
+/// HThis class holds the inventory of the player
 /// </summary>
 public class Inventory : MonoBehaviour {
     public static List<GameObject> _slots = new List<GameObject>();

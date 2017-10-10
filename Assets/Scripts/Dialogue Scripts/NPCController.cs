@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This class controls how NCPs behave and interact with the player
+/// </summary>
+/// <remarks>
+/// Gives the appropriate evidence and items to player
+/// </remarks>
 public class NPCController : MonoBehaviour {
 
     public bool firstTimeTalk;
@@ -27,7 +33,9 @@ public class NPCController : MonoBehaviour {
     // Make player auto-talk to NPC in a cutscene
     public bool autoTalk;
 
-    // Use this for initialization
+    /// <summary>
+    /// Initialise fields
+    /// </summary>
     void Start()
     {
         txtBox = FindObjectOfType<TextBoxManager>();
@@ -49,6 +57,10 @@ public class NPCController : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Updates the journal based on the dialogue given
+    /// </summary>
+    /// <param name="journal"> The journal to be updated </param>
 	public void UpdateJournal(Journal journal)
 	{
 		if (!PersistenceController.DialogueState.journalUpdated[name])
@@ -58,6 +70,10 @@ public class NPCController : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Gives the evidence item to the player
+    /// </summary>
+    /// <param name="player"> The player to give the evidence to </param>
     public void GiveEvidence(PlayerController player)
     {
         Debug.Log(name);
@@ -122,11 +138,17 @@ public class NPCController : MonoBehaviour {
             PersistenceController.DialogueState.autoTalk = false;
         }
     }
-
+    /// <summary>
+    /// Gets the sprite of the NPC
+    /// </summary>
+    /// <returns> Sprite of the NPC </returns>
     public Sprite getSprite(){
         return _sprite;
     }
-
+    /// <summary>
+    /// Sets the order
+    /// </summary>
+    /// <param name="_order"> The order number </param>
 	public void setOrder(int _order){
 		order = _order;
 	}

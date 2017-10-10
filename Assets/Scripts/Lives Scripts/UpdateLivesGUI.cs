@@ -2,13 +2,16 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// This class controls the player's life system 
+/// </summary>
 public class UpdateLivesGUI : MonoBehaviour {
 
     Image life1;
     Image life2;
     Image life3;
 
-    // Use this for initialization
+    // Initialise lives sprites
     void Start()
     {
         life1 = GameObject.Find("LifeImage1").GetComponent<Image>();
@@ -16,7 +19,7 @@ public class UpdateLivesGUI : MonoBehaviour {
         life3 = GameObject.Find("LifeImage3").GetComponent<Image>();
     }
 
-    // Update is called once per frame
+    // Update the player's current lives
     void Update () {
         int numLives = PersistenceController.PlayerState.lives;
         life1.enabled = true;
