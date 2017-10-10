@@ -7,7 +7,8 @@ using System.Collections;
 /// <remarks>
 /// Randomly generates an array of numbers and mathematical operations. The randomly generated operations are applied to the generated numbers and a result is produced.
 /// </remarks>
-public class MathsMinigame {
+public class MathsMinigame
+{
 
     private static int numSmallNumbers = Configuration.mathsMinigameNumberOfIntegersPerGame; // number of numbers used for the game
     private int[] generatedNumbers;                                                          // stores an array of randomly generated numbers 
@@ -17,11 +18,12 @@ public class MathsMinigame {
     /// <summary>
     /// Contructor that creates a new round for the math game
     /// </summary>
-    public MathsMinigame() {
+    public MathsMinigame()
+    {
         generatedNumbers = new int[numSmallNumbers];
         for (int i = 0; i < generatedNumbers.Length; i++)
         {
-            generatedNumbers[i] = Random.Range(1, 10); 
+            generatedNumbers[i] = Random.Range(1, 10);
         }
         generatedOps = new Operations[numSmallNumbers - 1];
         for (int i = 0; i < generatedOps.Length; i++)
@@ -44,13 +46,13 @@ public class MathsMinigame {
                     generatedOps[i] = Operations.Divide;
                     break;
             }
-
         }
+
         result = CalculateResult(generatedNumbers, generatedOps);
-        
-     
+
+
         shuffleNumbers();
-        
+
     }
 
     /// <summary>
@@ -63,31 +65,49 @@ public class MathsMinigame {
     /// </returns>
     public static int CalculateResult(int[] numbers, Operations[] ops)
     {
-        // Calculate result
-        int localResult = numbers[0];
-        for (int i = 0; i < numbers.Length; i++)
+        // Create List
+        ArrayList numberList = new ArrayList(numbers);
+        ArrayList opsList = new ArrayList(ops);
+
+        // First loop: If addition/subtraction, ignore, if multiplcation, calculate result and remove second value + op from lists.
+        // Second loop: Perform all addition and subtraction.
+
+        // Perform multiplication and remove duplicates after multiplication.
+        for (int i = 1; i < numbers.Length; i++)
         {
-            if (i != 0)
+
+            if ((Operations)opsList[i - 1] == Operations.Multiply)
             {
-                // Apply op + next number
-                switch (ops[i - 1])
-                {
-                    case (Operations.Add):
-                        localResult += numbers[i];
-                        break;
-                    case (Operations.Subtract):
-                        localResult -= numbers[i];
-                        break;
-                    case (Operations.Multiply):
-                        localResult *= numbers[i];
-                        break;
-                    case (Operations.Divide):
-                        localResult /= numbers[i];
-                        break;
-                }
+
+                numberList[i - 1] = (int)numberList[i] * (int)numberList[i - 1];
+                numberList.RemoveAt(i);
+                opsList.RemoveAt(i - 1);
+                i--;
+            }
+            if (i >= opsList.Count)
+            {
+                break;
             }
         }
-        return localResult;
+        // Perform addition / subtraction
+        int currentValue = (int)numberList[0];
+        for (int i = 1; i < numberList.Count; i++)
+        {
+            Debug.Log("numbers" + numberList.Count);
+            Debug.Log("ops" + opsList.Count);
+            Debug.Log("i" + i);
+            if ((Operations)opsList[i - 1] == Operations.Add)
+            {
+                currentValue += (int)numberList[i];
+            }
+            if ((Operations)opsList[i - 1] == Operations.Subtract)
+            {
+                currentValue -= (int)numberList[i];
+            }
+        }
+
+
+        return currentValue;
     }
 
     /// <summary>
@@ -142,5 +162,11 @@ public class MathsMinigame {
 /// <summary>
 /// An Enum that stores the diffrent types of operations that can be used when calculating a result
 /// </summary>
-public enum Operations { Add, Subtract, Multiply, Divide }
+public enum Operations
+{
+    Add,
+    Subtract,
+    Multiply,
+    Divide
+}
 
