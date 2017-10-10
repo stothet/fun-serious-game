@@ -2651,7 +2651,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Place the numbers in the correct order to give the result.
 
-    (All operations are left-to-right)'
+    (The normal order of operations applies)'
 --- !u!222 &1582501906
 CanvasRenderer:
   m_ObjectHideFlags: 0
