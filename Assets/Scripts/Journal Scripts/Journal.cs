@@ -10,11 +10,11 @@ public class Journal : MonoBehaviour {
 
     public void Start()
     {
-        journal.text = PersistenceController.JournalState.journal;
+        journal.text = PersistenceController.instance.journalState.journal;
     }
     public void putJournalEntry(string txt)
     {
-        PersistenceController.JournalState.journal += txt + "\n";
-        journal.text = PersistenceController.JournalState.journal;
+        PersistenceController.instance.journalState.journal += txt + "\n";
+        journal.text = PersistenceController.instance.journalState.journal;
     }
 }

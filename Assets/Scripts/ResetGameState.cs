@@ -4,7 +4,8 @@ using System.Collections;
 public class ResetGameState : MonoBehaviour {
 
 	void Start () {
-        PersistenceController.InitialiseState();	
+        PersistenceController.instantiateInstance();
+        //PersistenceController.instance.InitialiseState();	
 	}
 	
 }

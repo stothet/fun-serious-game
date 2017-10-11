@@ -14,12 +14,13 @@ public class PlayerController : MonoBehaviour {
     public bool canMove;
     public NPCController cutsceneNPC;
     void Start(){
+        Debug.Log("Does this reinstantiate?");
         canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>(); // finding the inventory
         cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
         cutsceneNPC.autoTalk = true;
-        transform.position = PersistenceController.PlayerState.playerPosition;
+        transform.position = PersistenceController.instance.playerState.playerPosition;
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour {
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
 
-        PersistenceController.PlayerState.playerPosition = transform.position;
+        PersistenceController.instance.playerState.playerPosition = transform.position;
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -79,10 +80,10 @@ public class PlayerController : MonoBehaviour {
 
     public void subtractLife()
     {
-        PersistenceController.PlayerState.lives--;
-        if (PersistenceController.PlayerState.lives <= 0)
+        PersistenceController.instance.playerState.lives--;
+        if (PersistenceController.instance.playerState.lives <= 0)
         {
-            PersistenceController.PlayerState.lives = Configuration.maxLives;
+            PersistenceController.instance.playerState.lives = Configuration.maxLives;
             // Transition to game over scene;
             Debug.Log("Game over");
             SceneManager.LoadScene(0);

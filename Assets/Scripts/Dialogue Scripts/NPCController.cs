@@ -44,10 +44,10 @@ public class NPCController : MonoBehaviour {
 		journalUpdated = false;
         givenEvidence = false;
         autoTalk = false;
-        if (!PersistenceController.DialogueState.firstTalk.ContainsKey(name)){
-            PersistenceController.DialogueState.firstTalk.Add(name, true);
-            PersistenceController.DialogueState.givenEvidence.Add(name, false);
-            PersistenceController.DialogueState.journalUpdated.Add(name, false);
+        if (!PersistenceController.instance.dialogueState.firstTalk.ContainsKey(name)){
+            PersistenceController.instance.dialogueState.firstTalk.Add(name, true);
+            PersistenceController.instance.dialogueState.givenEvidence.Add(name, false);
+            PersistenceController.instance.dialogueState.journalUpdated.Add(name, false);
         }
     }
 
@@ -63,10 +63,10 @@ public class NPCController : MonoBehaviour {
     /// <param name="journal"> The journal to be updated </param>
 	public void UpdateJournal(Journal journal)
 	{
-		if (!PersistenceController.DialogueState.journalUpdated[name])
+		if (!PersistenceController.instance.dialogueState.journalUpdated[name])
 		{
             journal.putJournalEntry(characterDescription.text);
-            PersistenceController.DialogueState.journalUpdated[name] = true;
+            PersistenceController.instance.dialogueState.journalUpdated[name] = true;
         }
 	}
 
@@ -77,10 +77,10 @@ public class NPCController : MonoBehaviour {
     public void GiveEvidence(PlayerController player)
     {
         Debug.Log(name);
-        if (!PersistenceController.DialogueState.givenEvidence[name])
+        if (!PersistenceController.instance.dialogueState.givenEvidence[name])
         {
             player.addToInventory(evidenceName);
-            PersistenceController.DialogueState.givenEvidence[name] = true;
+            PersistenceController.instance.dialogueState.givenEvidence[name] = true;
         }
     }
 
@@ -92,10 +92,10 @@ public class NPCController : MonoBehaviour {
     {
 
         // When the player comes in contact with the NPC object
-        if (other.gameObject.CompareTag("Player") && (PersistenceController.DialogueState.autoTalk || (Input.touchCount > 0 || Input.GetKeyDown("space"))))
+        if (other.gameObject.CompareTag("Player") && (PersistenceController.instance.dialogueState.autoTalk || (Input.touchCount > 0 || Input.GetKeyDown("space"))))
         {
 			sr = GetComponent<SpriteRenderer>();
-            PersistenceController.JournalState.NPC = this;
+            //PersistenceController.instance.journalState.NPC = this;
 			_sprite = sr.sprite;
             print(getSprite());
             txtBox.setSprite(getSprite());
@@ -108,10 +108,10 @@ public class NPCController : MonoBehaviour {
                 currentlyTalking = true;
 				txtBox.IdentifyNPC (this);
                 Debug.Log(name);
-                if (PersistenceController.DialogueState.firstTalk[name])
+                if (PersistenceController.instance.dialogueState.firstTalk[name])
                 {
                     txtBox.ReloadScript(initialDialogueFile);
-                    PersistenceController.DialogueState.firstTalk[name] = false;
+                    PersistenceController.instance.dialogueState.firstTalk[name] = false;
 
                     if (autoTalk)
                     {
@@ -135,7 +135,7 @@ public class NPCController : MonoBehaviour {
             {
                 return;
             }
-            PersistenceController.DialogueState.autoTalk = false;
+            PersistenceController.instance.dialogueState.autoTalk = false;
         }
     }
     /// <summary>

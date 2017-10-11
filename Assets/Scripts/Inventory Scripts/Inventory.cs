@@ -46,6 +46,12 @@ public class Inventory : MonoBehaviour {
                 _slotAmount++;
             }
         }
+        Debug.Log("How many items in here: " + PersistenceController.instance.inventoryState.database.Count);
+
+        for(int i = 0; i<PersistenceController.instance.inventoryState.database.Count; i++)
+        {
+            addItem(PersistenceController.instance.inventoryState.database[i]);
+        }
         // Add items you want to show up in the inventory here. The number is the unique ID of the item.
         //addItem(0);
         //addItem(1);
@@ -56,11 +62,17 @@ public class Inventory : MonoBehaviour {
     public void addItem(string name)
     {
         Debug.Log("Looking for: " + name);
-        Item item = PersistenceController.InventoryState.database[name];
+        Item item = database.items[name];
         Debug.Log("Item was: " + item._itemName);
         if (item != null)
         {
-            addToEmptySlot(item);
+            if (!PersistenceController.instance.inventoryState.database.Contains(name)) {
+                PersistenceController.instance.inventoryState.database.Add(name);
+            }
+            if (!_items.Exists(x => x._itemName == name)) {
+                Debug.Log("DOES IT HAVE THIS ITEM: " + _items.Count);
+                addToEmptySlot(item);
+            }
         
         }
         else
