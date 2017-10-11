@@ -68,7 +68,7 @@ public class TextBoxManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.touchCount > 0 || Input.GetKeyDown("space"))
         {
             ContinueDialogue();
         }

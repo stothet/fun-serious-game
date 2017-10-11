@@ -92,7 +92,7 @@ public class NPCController : MonoBehaviour {
     {
 
         // When the player comes in contact with the NPC object
-		if (other.gameObject.CompareTag("Player") && (PersistenceController.DialogueState.autoTalk || Input.GetKeyDown(KeyCode.Space)))
+        if (other.gameObject.CompareTag("Player") && (PersistenceController.DialogueState.autoTalk || (Input.touchCount > 0 || Input.GetKeyDown("space"))))
         {
 			sr = GetComponent<SpriteRenderer>();
             PersistenceController.JournalState.NPC = this;
