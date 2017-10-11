@@ -10,7 +10,10 @@ public class Journal : MonoBehaviour {
     public GameObject JournalSlot;
     public void Start()
     {
-        //journalEntry.text = PersistenceController.JournalState.journal;
+        for(int i = 0; i<PersistenceController.instance.journalState.journal.Count; i++)
+        {
+            putJournalEntry(PersistenceController.instance.journalState.journal[i]);
+        }
     }
     
     /// <summary>
@@ -19,11 +22,15 @@ public class Journal : MonoBehaviour {
     /// <param name="txt">Text to be added to the journal slot entry.</param>
     public void putJournalEntry(string txt)
     {
+        //if(PersistenceController.JournalState.journal)
         GameObject slot = GameObject.Instantiate(JournalSlot);
         journalEntry = slot.GetComponentInChildren<Text>();
         slot.transform.SetParent(this.gameObject.transform, false);
         journalEntry.text = txt;
-        //PersistenceController.JournalState.journal += txt;
+        if (!PersistenceController.instance.journalState.journal.Contains(txt))
+        {
+            PersistenceController.instance.journalState.journal.Add(txt);
+        }
         //journalEntry.text = PersistenceController.JournalState.journal;
     }
 }

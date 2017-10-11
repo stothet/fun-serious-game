@@ -94,11 +94,11 @@ public class PersistenceController
     [Serializable]
     public class JournalState
     {
-        public string journal = "";
+        public List<string> journal;
         //public NPCController NPC = null;
         public JournalState()
         {
-            journal = "";
+            journal = new List<string>();
            // NPC = null;
         }
     }
