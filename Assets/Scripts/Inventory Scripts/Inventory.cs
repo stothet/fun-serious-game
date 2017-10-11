@@ -11,8 +11,8 @@ using UnityEditor;
 /// HThis class holds the inventory of the player
 /// </summary>
 public class Inventory : MonoBehaviour {
-    public static List<GameObject> _slots = new List<GameObject>();
-    public static List<Item> _items = new List<Item>();
+    public List<GameObject> _slots = new List<GameObject>();
+    public List<Item> _items = new List<Item>();
 	public GameObject panel;
     public GameObject slots;
     ItemDatabase database;
@@ -69,10 +69,7 @@ public class Inventory : MonoBehaviour {
             if (!PersistenceController.instance.inventoryState.database.Contains(name)) {
                 PersistenceController.instance.inventoryState.database.Add(name);
             }
-            if (!_items.Exists(x => x._itemName == name)) {
-                Debug.Log("DOES IT HAVE THIS ITEM: " + _items.Count);
                 addToEmptySlot(item);
-            }
         
         }
         else
