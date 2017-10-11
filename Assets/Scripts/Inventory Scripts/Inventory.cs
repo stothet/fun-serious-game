@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour {
     public static List<GameObject> _slots = new List<GameObject>();
     public static List<Item> _items = new List<Item>();
 	public GameObject panel;
-    public GameObject slots;
+    public GameObject inventorySlot;
     ItemDatabase database;
     Journal _journal;
     int x = -90; //Initial x coordinate of the first slot.
@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour {
         {
             for (int j = 1; j < 6; j++) // Create 5 rows of slots.
             {
-                GameObject slot = Instantiate(slots); // Instantiate a slot
+                GameObject slot = Instantiate(inventorySlot); // Instantiate a slot
                 slot.GetComponent<SlotScript>()._slotNumber = _slotAmount; // Set the slot number of the current slot as a field value.
                 slot.transform.SetParent(this.gameObject.transform, false); // Parent/Slot needs to be a GameObject
                 _slots.Add(slot); //
