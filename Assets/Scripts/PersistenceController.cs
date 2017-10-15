@@ -2,25 +2,33 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// This is a static class that handles the persistence of object states between scene transitions
 /// </summary>
+/// 
+[Serializable]
 public class PersistenceController
 {
     public static PersistenceController instance;
+    public PlayerState playerState;
+    public DialogueState dialogueState;
+    public InventoryState inventoryState;
+    public JournalState journalState;
 
     /// <summary>
     /// Stores the states of the player
     /// </summary>
-    public static class PlayerState
+    [Serializable]
+    public class PlayerState
      {
-        public static Vector3 playerPosition = Configuration.playerPosition;
-        public static int lives = Configuration.maxLives;
+        public SerializableVector3 playerPosition = Configuration.playerPosition;
+        public int lives = Configuration.maxLives;
         /// <summary>
         /// Resets the state of the object
         /// </summary>
-        public static void ResetState()
+        public PlayerState()
         {
             Debug.Log("Player.rs");
             playerPosition = Configuration.playerPosition;
@@ -33,17 +41,22 @@ public class PersistenceController
     /// <summary>
     /// Store the state of the current dialgue between NPCs
     /// </summary>
-    public static class DialogueState
+    /// 
+    [Serializable]
+    public class DialogueState
     {
-        public static Dictionary<string, bool> firstTalk;
-        public static Dictionary<string, bool> givenEvidence;
-        public static Dictionary<string, bool> journalUpdated;
-        public static bool autoTalk = true;
+        public Dictionary<string, bool> firstTalk;
+        public Dictionary<string, bool> givenEvidence;
+        public Dictionary<string, bool> journalUpdated;
+        public bool autoTalk = true;
 
         /// <summary>
         /// Resets the state of the object
         /// </summary>
-        public static void ResetState()
+        /// 
+
+
+        public DialogueState()
         {
             autoTalk = true;
             firstTalk = new Dictionary<string, bool>();
@@ -55,18 +68,20 @@ public class PersistenceController
     /// <summary>
     /// Stores the state of the player's inventory
     /// </summary>
-    public static class InventoryState
+    /// 
+    [Serializable]
+    public class InventoryState
     {
-        public static int currentLine = 0;
-        public static bool shouldStartConversation = false;
-        public static Dictionary<string, Item> database = new Dictionary<string, Item>();
+        public int currentLine = 0;
+        public bool shouldStartConversation = false;
+        public List<string> database = new List<string>();
 
         /// <summary>
         /// Resets the state of the object
         /// </summary>
-        public static void ResetState()
+        public InventoryState()
         {
-            database = new Dictionary<string, Item>();
+            database = new List<string>();
             currentLine = 0;
             shouldStartConversation = false;
         }
@@ -75,35 +90,55 @@ public class PersistenceController
     /// <summary>
     /// Stores the state of the player's journal
     /// </summary>
-    public static class JournalState
+    /// 
+    [Serializable]
+    public class JournalState
     {
-        public static string journal = "";
-        public static NPCController NPC = null;
-        public static void ResetState()
+        public List<string> journal;
+        //public NPCController NPC = null;
+        public JournalState()
         {
-            journal = "";
-            NPC = null;
+            journal = new List<string>();
+           // NPC = null;
         }
+    }
+
+    private PersistenceController()
+    {
+
+        InitialiseState();
+
+        //InitialiseState();
     }
 
     /// <summary>
     /// Static contructor to state the objects inital states
     /// </summary>
-    static PersistenceController()
+    /// 
+
+    public static void instantiateInstance()
+    {
+        if(instance == null)
+        {
+            instance = new PersistenceController();
+            instance.InitialiseState();
+        }
+    }
+
+    /*static PersistenceController()
     {
         Debug.Log("Constructor");
-        InitialiseState();
 
-    }
+    }*/
 
     /// <summary>
     /// Initialises the states of the objects
     /// </summary>
-    public static void InitialiseState()
+    private void InitialiseState()
     {
-        PlayerState.ResetState();
-        DialogueState.ResetState();
-        InventoryState.ResetState();
-        JournalState.ResetState();
+        dialogueState = new DialogueState();
+        playerState = new PlayerState();
+        journalState = new JournalState();
+        inventoryState = new InventoryState();
     }
 }

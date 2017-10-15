@@ -10,13 +10,14 @@ using System.Collections.Generic;
 /// </summary>
 public class ItemDatabase : MonoBehaviour {
 
+    public Dictionary<string, Item> items = new Dictionary<string, Item>();
     //Add additional items to the database with the following rubber duck template.
     void Start () {
         //Item constructor is Item(String itemName, string description, int itemValue, Enum evidenceType, string spriteName)
         // Dictionary 
-        PersistenceController.InventoryState.database[Configuration.bruceRegisterEntryName] = new Item(Configuration.bruceRegisterEntryName, Configuration.bruceRegisterEntryDescription, 5, Item.ItemType.EVIDENCE, "book");
-        PersistenceController.InventoryState.database[Configuration.billArtHistoryReportName] = new Item(Configuration.billArtHistoryReportName, Configuration.billArtHistoryReportDescription, -5, Item.ItemType.DUMMY, "paper");
-        PersistenceController.InventoryState.database[Configuration.detentionNoteName] = new Item(Configuration.detentionNoteName, Configuration.detentionNoteDescription, -5, Item.ItemType.DUMMY, "slip");
+       items.Add(Configuration.bruceRegisterEntryName, new Item(Configuration.bruceRegisterEntryName, Configuration.bruceRegisterEntryDescription, 5, Item.ItemType.EVIDENCE, "book"));
+       items.Add(Configuration.billArtHistoryReportName, new Item(Configuration.billArtHistoryReportName, Configuration.billArtHistoryReportDescription, -5, Item.ItemType.DUMMY, "paper"));
+       items.Add(Configuration.detentionNoteName, new Item(Configuration.detentionNoteName, Configuration.detentionNoteDescription, -5, Item.ItemType.DUMMY, "slip"));
     }
 
 }

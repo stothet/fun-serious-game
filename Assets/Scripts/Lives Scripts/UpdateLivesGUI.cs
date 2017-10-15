@@ -21,7 +21,7 @@ public class UpdateLivesGUI : MonoBehaviour {
 
     // Update the player's current lives
     void Update () {
-        int numLives = PersistenceController.PlayerState.lives;
+        int numLives = PersistenceController.instance.playerState.lives;
         life1.enabled = true;
         life2.enabled = true;
         life3.enabled = true;
