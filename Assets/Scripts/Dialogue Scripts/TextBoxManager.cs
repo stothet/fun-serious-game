@@ -33,6 +33,7 @@ public class TextBoxManager : MonoBehaviour
     public string _currentNPCname; //second method
 
     public Journal journal;
+	public GameObject controls;
 
     /// <summary>
     /// Initialise fields. Set up dialgoue box
@@ -129,6 +130,7 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(true);
         dialogBoxActive = true;
         player.canMove = false;
+		controls.SetActive (false);
     }
     /// <summary>
     /// Disables the dialogue box
@@ -139,10 +141,9 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(false);
         dialogBoxActive = false;
         player.canMove = true;
-
+		controls.SetActive (true);
         // Update the journal if it hasn't already for NPC info.
         NPC.UpdateJournal(journal);
-
         NPC.GiveEvidence(player);
     }
 

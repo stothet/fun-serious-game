@@ -2,19 +2,15 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
 public class PlayerController : MonoBehaviour {
-
     public float speed;
     private Animator anim;
     private bool playerMoving;
     private Vector2 lastMove;
     private Inventory inventory;
-    //private Rigidbody2D rb2d;
     public bool canMove;
     public NPCController cutsceneNPC;
     void Start(){
-        Debug.Log("Does this reinstantiate?");
         canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>(); // finding the inventory
@@ -22,10 +18,8 @@ public class PlayerController : MonoBehaviour {
         cutsceneNPC.autoTalk = true;
         transform.position = PersistenceController.instance.playerState.playerPosition;
     }
-
     // Update is called once per frame
     void Update () {
-
         if (!canMove) // this is to stop the player from moving during cutscenes
         {
             anim.SetBool("PlayerMoving", false);
@@ -33,20 +27,35 @@ public class PlayerController : MonoBehaviour {
         }
 
         playerMoving = false;
-		if (Input.GetAxisRaw ("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f) { // checking the input every frame, to see the directional input corresponding to L/R
-			transform.Translate (new Vector3 (Input.GetAxisRaw ("Horizontal") * speed * Time.deltaTime, 0f, 0f)); // moving the player across the X axis
+		if (Input.GetAxis ("Horizontal") > 0.5f || Input.GetAxis ("Horizontal") < -0.5f) { // checking the input every frame, to see the directional input corresponding to L/R
+			transform.Translate (new Vector3 (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0f, 0f)); // moving the player across the X axis
 			playerMoving = true;
-			lastMove = new Vector2 (Input.GetAxisRaw ("Horizontal"), 0f); // setting the last move direction for animations
+			lastMove = new Vector2 (Input.GetAxis ("Horizontal"), 0f); // setting the last move direction for animations
 		}
 
-		if (Input.GetAxisRaw ("Vertical") > 0.5f || Input.GetAxisRaw ("Vertical") < -0.5f) { // checking the input every frame, to see the directional input corresponding to UP and DOWN
-			transform.Translate (new Vector3 (0f, Input.GetAxisRaw ("Vertical") * speed * Time.deltaTime, 0f)); // moving player across the Y axis
+		if (Input.GetAxis ("Vertical") > 0.5f || Input.GetAxis ("Vertical") < -0.5f) { // checking the input every frame, to see the directional input corresponding to UP and DOWN
+			transform.Translate (new Vector3 (0f, Input.GetAxis ("Vertical") * speed * Time.deltaTime, 0f)); // moving player across the Y axis
 			playerMoving = true;
-			lastMove = new Vector2 (0f,Input.GetAxisRaw ("Vertical"));
+			lastMove = new Vector2 (0f,Input.GetAxis ("Vertical"));
 		}
+
+		if (TouchControls.directionX != 0) {
+			transform.Translate (new Vector3 (TouchControls.directionX * speed * Time.deltaTime, 0f, 0f)); // moving the player across the X axis
+			playerMoving = true;
+			lastMove = new Vector2 (TouchControls.directionX, 0f); // setting the last move direction for animations
+		}
+
+		if (TouchControls.directionY != 0) {
+			transform.Translate (new Vector3 (0f, TouchControls.directionY * speed * Time.deltaTime, 0f)); // moving the player across the X axis
+			playerMoving = true;
+			lastMove = new Vector2 (0f, TouchControls.directionY); // setting the last move direction for animations
+		}
+
 		anim.SetBool ("PlayerMoving", playerMoving);
-		anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal")); // these all relate to the animation logic for the blend tree
-		anim.SetFloat ("MoveY", Input.GetAxisRaw ("Vertical"));
+//		anim.SetFloat ("MoveX", TouchControls.directionX);
+//		anim.SetFloat ("MoveY", TouchControls.directionY);
+		anim.SetFloat ("MoveX", Input.GetAxis ("Horizontal")); // these all relate to the animation logic for the blend tree
+		anim.SetFloat ("MoveY", Input.GetAxis ("Vertical"));
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
 
