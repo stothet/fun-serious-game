@@ -1,0 +1,41 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'cafeteria_mesh_0014.obj'
+
+# Vertices (Count = 16)
+v -608 -256 0
+v -640 -256 0
+v -640 -224 0
+v -608 -224 0
+v -608 -288 0
+v -640 -288 0
+v -640 -256 0
+v -608 -256 0
+v -608 -320 0
+v -640 -320 0
+v -640 -288 0
+v -608 -288 0
+v -608 -352 0
+v -640 -352 0
+v -640 -320 0
+v -608 -320 0
+
+# Texture cooridinates (Count = 6)
+vt 0 0.6
+vt 0.25 0.6
+vt 0.25 0.8
+vt 0 0.8
+vt 0 0.4
+vt 0.25 0.4
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g cafeteria_mesh_0014
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+f 5/1/1 6/2/1 7/3/1 8/4/1
+f 9/1/1 10/2/1 11/3/1 12/4/1
+f 13/5/1 14/6/1 15/2/1 16/1/1
+

@@ -1,0 +1,24 @@
+﻿# Tiled2Unity generated file. Do not modify by hand.
+# Wavefront file for 'reception_mesh_0006.obj'
+
+# Vertices (Count = 4)
+v -192 -128 0
+v -224 -128 0
+v -224 -96 0
+v -192 -96 0
+
+# Texture cooridinates (Count = 4)
+vt 0.6666667 0.6666666
+vt 1 0.6666666
+vt 1 1
+vt 0.6666667 1
+
+# Normal
+vn 0 0 -1
+
+# Mesh description
+g reception_mesh_0006
+
+# Faces
+f 1/1/1 2/2/1 3/3/1 4/4/1
+
