@@ -6,9 +6,12 @@ public class SoundScript : MonoBehaviour
     AudioClip microphoneInput;
     bool microphoneInitialised;
     public float sensitivity;
+    public GameObject[] dustBlockers;
 
     void Start()
     {
+        //Get the array of dust particles to remove with each blow.
+        dustBlockers = GameObject.FindGameObjectsWithTag("Dust");
         //init microphone input
         if (Microphone.devices.Length > 0)
         {
@@ -39,6 +42,10 @@ public class SoundScript : MonoBehaviour
 
         if (level>sensitivity)
         {
+            for (var i = 0; i < dustBlockers.Length; i++)
+            {
+                Destroy(dustBlockers[i]);
+            }
             Debug.Log("SOUND DETECTED");
         }
     }
