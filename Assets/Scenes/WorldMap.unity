@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1793889451}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3389,7 +3389,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6745,6 +6745,11 @@ Prefab:
       propertyPath: m_LinearDrag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21219992, guid: 15c85663ca8babe4186ac4b018ed4bd6, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300036, guid: 581cb0b93f531f74e98375493cbab8eb,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15c85663ca8babe4186ac4b018ed4bd6, type: 2}
   m_IsPrefabParent: 0
@@ -9850,7 +9855,7 @@ MonoBehaviour:
   endLine: 0
   player: {fileID: 641704448}
   NPC: {fileID: 0}
-  sprite1: {fileID: 21300000, guid: af8659c42d9984847a7c0861b71ac7c6, type: 3}
+  sprite1: {fileID: 21300036, guid: 581cb0b93f531f74e98375493cbab8eb, type: 3}
   sprite2: {fileID: 0}
   _NPCname: 
   _currentNPCname: 
