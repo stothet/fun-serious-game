@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         playerMoving = false;
-		if (Input.GetAxis ("Horizontal") > 0.5f || Input.GetAxis ("Horizontal") < -0.5f) { // checking the input every frame, to see the directional input corresponding to L/R
+		/*if (Input.GetAxis ("Horizontal") > 0.5f || Input.GetAxis ("Horizontal") < -0.5f) { // checking the input every frame, to see the directional input corresponding to L/R
 			transform.Translate (new Vector3 (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0f, 0f)); // moving the player across the X axis
 			playerMoving = true;
 			lastMove = new Vector2 (Input.GetAxis ("Horizontal"), 0f); // setting the last move direction for animations
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 			transform.Translate (new Vector3 (0f, Input.GetAxis ("Vertical") * speed * Time.deltaTime, 0f)); // moving player across the Y axis
 			playerMoving = true;
 			lastMove = new Vector2 (0f,Input.GetAxis ("Vertical"));
-		}
+		}*/
 
 		if (TouchControls.directionX != 0) {
 			transform.Translate (new Vector3 (TouchControls.directionX * speed * Time.deltaTime, 0f, 0f)); // moving the player across the X axis
@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour {
 		anim.SetBool ("PlayerMoving", playerMoving);
 //		anim.SetFloat ("MoveX", TouchControls.directionX);
 //		anim.SetFloat ("MoveY", TouchControls.directionY);
-		anim.SetFloat ("MoveX", Input.GetAxis ("Horizontal")); // these all relate to the animation logic for the blend tree
-		anim.SetFloat ("MoveY", Input.GetAxis ("Vertical"));
+		anim.SetFloat ("MoveX", TouchControls.directionX); // these all relate to the animation logic for the blend tree
+		anim.SetFloat ("MoveY", TouchControls.directionY);
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
 
