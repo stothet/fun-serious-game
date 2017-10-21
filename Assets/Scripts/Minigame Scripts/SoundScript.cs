@@ -7,12 +7,16 @@ public class SoundScript : MonoBehaviour
     bool microphoneInitialised;
     public float sensitivity;
     public GameObject[] dustBlockers;
-
+    //A dustcounter is used so that all all the dust isn't blown away at once.
+    //Used in the update method to variably change how hard it is to blow away DustBlocker prefabs.
+    public int dustCounter;
     void Start()
     {
         //Get the array of dust particles to remove with each blow.
         dustBlockers = GameObject.FindGameObjectsWithTag("Dust");
+        dustCounter = 0;
         //init microphone input
+
         if (Microphone.devices.Length > 0)
         {
             microphoneInput = Microphone.Start(Microphone.devices[0], true, 999, 44100);
@@ -40,13 +44,19 @@ public class SoundScript : MonoBehaviour
         }
         float level = Mathf.Sqrt(Mathf.Sqrt(levelMax));
 
+        //Sensitivity is currently set as 0.9 at the inspector.
         if (level>sensitivity)
         {
-            for (var i = 0; i < dustBlockers.Length; i++)
+            //The microphone needs to detect 20 'blows' in order to remove on DustBlocker prefab.
+            //Change the value of 20 higher to make player blow harder to get rid of a DustBlocker.
+            //Or lower to make it easier for the player to get rid of a DustBlocker.
+            if (dustCounter/20 < dustBlockers.Length)
             {
-                Destroy(dustBlockers[i]);
+                dustCounter += 1;
+                Destroy(dustBlockers[dustCounter / 20]);
+
             }
-            Debug.Log("SOUND DETECTED");
+
         }
     }
 }
