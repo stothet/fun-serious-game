@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1793889451}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12306,7 +12306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 1287343335}
   pausePanel: {fileID: 2092199765}
-  volumeSlider: {fileID: 0}
+  volumeSlider: {fileID: 1512451058}
 --- !u!223 &1933944411
 Canvas:
   m_ObjectHideFlags: 0
