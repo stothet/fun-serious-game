@@ -6,9 +6,12 @@ public class PauseGameSettings : MonoBehaviour {
     public GameObject pauseButton;
     public GameObject pausePanel;
     public Slider volumeSlider;
+    Text volumeLabel;
     public void Start()
     {
+        volumeLabel = GameObject.Find("Text").GetComponent<Text>();
         unPauseGame();
+
     }
 
 
@@ -24,12 +27,16 @@ public class PauseGameSettings : MonoBehaviour {
         pausePanel.SetActive(false);
     }
 
-    
-
     public void OnValueChanged()
     {
         AudioListener.volume = volumeSlider.value;
     }
+
+ 	public void volumeLabelUpdate(float volumeValue)
+    {
+       float valueToBeUpdated = Mathf.RoundToInt(volumeValue * 100);
+       volumeLabel.text = valueToBeUpdated + "%";
+   }
 
 
 }
