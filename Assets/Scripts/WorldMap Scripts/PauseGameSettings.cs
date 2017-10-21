@@ -9,7 +9,7 @@ public class PauseGameSettings : MonoBehaviour {
     Text volumeLabel;
     public void Start()
     {
-        volumeLabel = GameObject.Find("Text").GetComponent<Text>();
+        volumeLabel = GameObject.Find("VolumeText").GetComponent<Text>();
         unPauseGame();
 
     }
