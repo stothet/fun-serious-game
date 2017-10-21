@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PauseGameSettings : MonoBehaviour {
     public GameObject pauseButton;
     public GameObject pausePanel;
-
+    public Slider volumeSlider;
     public void Start()
     {
         unPauseGame();
@@ -21,6 +22,13 @@ public class PauseGameSettings : MonoBehaviour {
         Time.timeScale = 1;
         pauseButton.SetActive(true);
         pausePanel.SetActive(false);
+    }
+
+    
+
+    public void OnValueChanged()
+    {
+        AudioListener.volume = volumeSlider.value;
     }
 
 
