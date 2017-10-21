@@ -2011,7 +2011,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205919458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.67, y: -26.02, z: 0}
+  m_LocalPosition: {x: 56.62, y: -25.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4520,6 +4520,7 @@ Transform:
   - {fileID: 1330813177}
   - {fileID: 988179392}
   - {fileID: 205919459}
+  - {fileID: 1614480002}
   m_Father: {fileID: 1960428738}
   m_RootOrder: 22
 --- !u!1 &550147137
@@ -5267,7 +5268,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847682925}
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8723,6 +8724,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Offset: {x: 0, y: 0}
+--- !u!1 &1056332172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1056332173}
+  - 61: {fileID: 1056332174}
+  - 114: {fileID: 1056332175}
+  m_Layer: 0
+  m_Name: Gym
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056332173
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056332172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.73, y: -41.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1975337198}
+  m_RootOrder: 4
+--- !u!61 &1056332174
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056332172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 1.2850304}
+  serializedVersion: 2
+  m_Size: {x: 2.820465, y: 1.5354309}
+--- !u!114 &1056332175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056332172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b69765899d79874ca0a66928694fa31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warpTarget: {fileID: 1659479212}
 --- !u!1 &1063792038
 GameObject:
   m_ObjectHideFlags: 0
@@ -13823,6 +13880,34 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1599359984}
+--- !u!1 &1614480001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1614480002}
+  m_Layer: 0
+  m_Name: Gym Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614480002
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1614480001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.73, y: -41.94, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 544550695}
+  m_RootOrder: 4
 --- !u!1001 &1626964003
 Prefab:
   m_ObjectHideFlags: 0
@@ -13952,9 +14037,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.00828743, y: 0.60241127}
+  m_Offset: {x: 0.00828743, y: -0.04010582}
   serializedVersion: 2
-  m_Size: {x: 2.8126464, y: 0.23517609}
+  m_Size: {x: 2.8126464, y: 1.5202068}
 --- !u!1 &1645706267
 GameObject:
   m_ObjectHideFlags: 0
@@ -14005,7 +14090,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1659479211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 773, y: -538, z: 0}
+  m_LocalPosition: {x: 787, y: -566, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -16134,7 +16219,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916519813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 788, y: -574, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -16151,7 +16236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b69765899d79874ca0a66928694fa31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpTarget: {fileID: 0}
+  warpTarget: {fileID: 1614480002}
 --- !u!61 &1916519816
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16161,7 +16246,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 785.83606, y: -607.71606}
   serializedVersion: 2
@@ -16850,6 +16935,7 @@ Transform:
   - {fileID: 1792074897}
   - {fileID: 1640919155}
   - {fileID: 783003926}
+  - {fileID: 1056332173}
   m_Father: {fileID: 1960428738}
   m_RootOrder: 23
 --- !u!1 &1985031084
