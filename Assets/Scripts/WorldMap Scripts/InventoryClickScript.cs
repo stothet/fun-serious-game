@@ -10,6 +10,8 @@ public class InventoryClickScript : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject journalPanel;
     public GameObject SOMET;
+    public Button Submit;
+    
 
     private bool active = false;
     private string currentTab; // should be null at the start, but currently inventory displays on beginning
@@ -45,6 +47,7 @@ public class InventoryClickScript : MonoBehaviour
                     active = false;
                     SOMET.SetActive(false);
                     getTabEvent(currentTab).SetActive(false); // current active tab is the same as the event, so we toggle the view
+                    Submit.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -64,6 +67,7 @@ public class InventoryClickScript : MonoBehaviour
 
     private GameObject getTabEvent(string name)
     {
+        Submit.gameObject.SetActive(true);
         if(name == "InventoryTab")
         {
             Debug.Log("Hello");
