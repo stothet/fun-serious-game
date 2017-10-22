@@ -8,9 +8,6 @@ public class InventoryClickScript : MonoBehaviour
 
     //public Button yourButton;
     public GameObject inventoryPanel;
-    public GameObject journalPanel;
-    public GameObject SOMET;
-
     private bool active = false;
     private string currentTab; // should be null at the start, but currently inventory displays on beginning
 
@@ -31,10 +28,7 @@ public class InventoryClickScript : MonoBehaviour
         if (!active) // the inventory panel is not active
         {
             currentTab = go.name; // set the currentTab name to the event name
-            SOMET.SetActive(true);
-            getTabEvent(currentTab).SetActive(true);
-            Debug.Log("did this call?");
-            //inventoryPanel.SetActive(true); // show the panel
+            inventoryPanel.SetActive(true); // show the panel
             active = true; // bool to store the state of the panel
         }
         else
@@ -43,13 +37,11 @@ public class InventoryClickScript : MonoBehaviour
                 if (currentTab != null && currentTab.Equals(go.name)) // checking if currentTab is set, also checks that the currentTab is the event that triggered the click
                 {
                     active = false;
-                    SOMET.SetActive(false);
-                    getTabEvent(currentTab).SetActive(false); // current active tab is the same as the event, so we toggle the view
+                    inventoryPanel.SetActive(false); // current active tab is the same as the event, so we toggle the view
                 }
                 else
                 {
                     currentTab = go.name; // current tab is not set yet, we set it to the event that triggered the click
-                    getTabEvent(currentTab).SetActive(true);
                     Debug.Log("Clicked on : " + go.name);
                 }
 
@@ -60,20 +52,5 @@ public class InventoryClickScript : MonoBehaviour
         /* Debug.Log("Hello!");
          active = !active;
          inventoryPanel.SetActive(active);*/
-    }
-
-    private GameObject getTabEvent(string name)
-    {
-        if(name == "InventoryTab")
-        {
-            Debug.Log("Hello");
-            journalPanel.SetActive(false);
-            return inventoryPanel;
-        } else
-        {
-            Debug.Log("DOES THIS ONE WORK!?!?!?!?");
-            inventoryPanel.SetActive(false);
-            return journalPanel;
-        }
     }
 }
