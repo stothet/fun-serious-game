@@ -1447,9 +1447,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 12.451155, y: -5.4660244}
+  m_Offset: {x: 12.451155, y: -5.974058}
   serializedVersion: 2
-  m_Size: {x: 2.6843662, y: 1.2166071}
+  m_Size: {x: 2.6843662, y: 2.36236}
 --- !u!61 &176158719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1462,9 +1462,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 12.4758215, y: -1.6299036}
+  m_Offset: {x: 12.4758215, y: -2.137935}
   serializedVersion: 2
-  m_Size: {x: 2.6543064, y: 1.2101629}
+  m_Size: {x: 2.6543064, y: 2.3559217}
 --- !u!61 &176158720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1477,9 +1477,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 6.6960135, y: -1.6103446}
+  m_Offset: {x: 6.6960135, y: -2.0859506}
   serializedVersion: 2
-  m_Size: {x: 2.6564617, y: 1.0928788}
+  m_Size: {x: 2.6564617, y: 2.3467271}
 --- !u!61 &176158721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1492,9 +1492,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.84217644, y: -1.6689947}
+  m_Offset: {x: 0.84217644, y: -2.0689366}
   serializedVersion: 2
-  m_Size: {x: 2.6843443, y: 1.2883631}
+  m_Size: {x: 2.6843443, y: 2.2611718}
 --- !u!61 &176158722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1506,9 +1506,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.8, y: -5.4660244}
+  m_Offset: {x: 0.80000114, y: -5.974059}
   serializedVersion: 2
-  m_Size: {x: 2.6843662, y: 1.2166071}
+  m_Size: {x: 2.6843662, y: 2.362359}
 --- !u!61 &176158723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1520,9 +1520,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 6.67, y: -5.4660244}
+  m_Offset: {x: 6.6699963, y: -5.995676}
   serializedVersion: 2
-  m_Size: {x: 2.6843662, y: 1.2166071}
+  m_Size: {x: 2.6843662, y: 2.4055953}
 --- !u!1 &177983605
 GameObject:
   m_ObjectHideFlags: 0
@@ -7344,9 +7344,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 5.94, y: -2.03}
+  m_Offset: {x: 5.9400024, y: -2.4226189}
   serializedVersion: 2
-  m_Size: {x: 1.0198135, y: 0.60372186}
+  m_Size: {x: 1.0198135, y: 1.3889499}
 --- !u!61 &918729673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7359,9 +7359,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 2.9126244, y: -1.68}
+  m_Offset: {x: 2.9126282, y: -2.0562596}
   serializedVersion: 2
-  m_Size: {x: 6.8252563, y: 0.6433525}
+  m_Size: {x: 6.8252563, y: 1.3958682}
 --- !u!61 &918729674
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7374,9 +7374,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.09000206, y: -2.1691885}
+  m_Offset: {x: 0.09000206, y: -2.578167}
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.85837555}
+  m_Size: {x: 1, y: 1.6763306}
 --- !u!1 &956829319
 GameObject:
   m_ObjectHideFlags: 0
@@ -12809,9 +12809,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 26.740005, y: -7.026173}
+  m_Offset: {x: 26.709648, y: -7.026173}
   serializedVersion: 2
-  m_Size: {x: 1, y: 12.091957}
+  m_Size: {x: 1.0607224, y: 12.091957}
 --- !u!61 &1665225927
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12824,9 +12824,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.52819824, y: -6.77204}
+  m_Offset: {x: 0.60409546, y: -6.77204}
   serializedVersion: 2
-  m_Size: {x: 0.92180467, y: 11.583698}
+  m_Size: {x: 1.0735981, y: 11.583698}
 --- !u!61 &1665225928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12839,9 +12839,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 13.662758, y: -1.5696822}
+  m_Offset: {x: 13.662758, y: -1.6000409}
   serializedVersion: 2
-  m_Size: {x: 27.108368, y: 3.8606071}
+  m_Size: {x: 27.108368, y: 3.9213247}
 --- !u!1 &1667861542
 GameObject:
   m_ObjectHideFlags: 0
