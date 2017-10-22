@@ -103,8 +103,7 @@ public class PersistenceController
         }
     }
 
-    // Visible for testing
-    public PersistenceController()
+    private PersistenceController()
     {
 
         InitialiseState();
@@ -117,19 +116,20 @@ public class PersistenceController
     /// </summary>
     /// 
 
-    public static void InstantiateInstance()
+    public static void instantiateInstance()
     {
         if(instance == null)
         {
-            ResetState();
+            instance = new PersistenceController();
+            instance.InitialiseState();
         }
     }
 
-    public static void ResetState()
+    /*static PersistenceController()
     {
-        instance = new PersistenceController();
-        instance.InitialiseState();
-    }
+        Debug.Log("Constructor");
+
+    }*/
 
     /// <summary>
     /// Initialises the states of the objects
