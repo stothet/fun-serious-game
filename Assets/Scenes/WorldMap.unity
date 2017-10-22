@@ -2015,6 +2015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trialFinished: 0
+  trialActive: 0
   txtBox: {fileID: 1689302474}
   livesKeeper: {fileID: 422949209}
   scoreKeeper: {fileID: 211417234}
@@ -9166,6 +9167,7 @@ MonoBehaviour:
   journalPanel: {fileID: 1578609787}
   SOMET: {fileID: 1945104138}
   Submit: {fileID: 878829298}
+  trial: {fileID: 0}
 --- !u!1 &1231301579
 GameObject:
   m_ObjectHideFlags: 0
@@ -14208,7 +14210,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -10.009186, y: 0}
+  m_AnchoredPosition: {x: -10.009247, y: 0}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1975144655

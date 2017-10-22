@@ -11,6 +11,7 @@ public class InventoryClickScript : MonoBehaviour
     public GameObject journalPanel;
     public GameObject SOMET;
     public Button Submit;
+    public TrialScript trial;
     
 
     private bool active = false;
@@ -19,6 +20,7 @@ public class InventoryClickScript : MonoBehaviour
     // Use this for initialization, register all child buttons of the inventory panel with a listener
     void Start()
     {
+        trial = FindObjectOfType<TrialScript>();
         Button[] btn = GetComponentsInChildren<Button>();
         for (int i = 0; i < btn.Length; i++)
         {
@@ -67,7 +69,11 @@ public class InventoryClickScript : MonoBehaviour
 
     private GameObject getTabEvent(string name)
     {
-        Submit.gameObject.SetActive(true);
+        if (trial.trialActive)
+        {
+            Submit.gameObject.SetActive(true);
+        }
+        
         if(name == "InventoryTab")
         {
             Debug.Log("Hello");

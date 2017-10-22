@@ -10,6 +10,8 @@ public class TrialScript : MonoBehaviour
 {
 	//boolean to switch off trial
 	public bool trialFinished = false;
+
+	public bool trialActive = false;
 	public TextBoxManager txtBox;
 
 	//keeps track of player health
@@ -83,7 +85,9 @@ public class TrialScript : MonoBehaviour
 	/// <summary>
     /// Determine the outcome of the trial
     /// </summary>
-	void Outcome(){
+	void Outcome()
+	{
+		trialActive = false;
 		trialFinished = true;
 		if(cumulative > 0){
 			trialDialogue (2);
@@ -122,8 +126,9 @@ public class TrialScript : MonoBehaviour
 			
 		case -1:
 
-			{
-				txtBox.ReloadScript(trialStart);
+		{
+				
+				txtBox.ReloadScript(introFile);
 
 				choice1.gameObject.SetActive (true);
 				choice2.gameObject.SetActive (true);
@@ -134,7 +139,8 @@ public class TrialScript : MonoBehaviour
 		case 0:
 
 			{
-				txtBox.ReloadScript(introFile);
+				trialActive = true;
+				txtBox.ReloadScript(trialStart);
 
 				option1.text = "You were right to doubt him, Mr. Wilson!";
 				option2.text = "It was not Bruce who did it...";
@@ -233,7 +239,7 @@ public class TrialScript : MonoBehaviour
 				submitButton.gameObject.SetActive(true);
 			}**/
 			
-			trialDialogue(1);
+			trialDialogue(0);
 		}
 		else
 		{
