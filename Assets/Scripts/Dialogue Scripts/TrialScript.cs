@@ -8,39 +8,48 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class TrialScript : MonoBehaviour
 {
-	public bool trialActive;
-	public bool trialFinished;
-	public Text question;
+	//boolean to switch off trial
+	public bool trialFinished = false;
 	public TextBoxManager txtBox;
 
-	public GameObject scoreKeeper;
+	//keeps track of player health
 	public GameObject livesKeeper;
+	
+	//keeps track of the trial score
+	public GameObject scoreKeeper;
 	public Text _score;
+	
+	//keeps track of number of evidence presented
 	int _evidenceCount=0;
 
-	public Button option1;
-	public Button option2;
-	public Button option3;
-
+	//we will only have 2 options during dialogue
+	//the rest will be controlled by evidence presentation
 	public Button choice1;
 	public Button choice2;
+	public Text option1;
+	public Text option2;
 
-	public Item evidence;
-
+	//all text files needed for dialogue
+	public TextAsset trialStart;
 	public TextAsset introFile;
 	public TextAsset prelude;
 	public TextAsset bruceIsFree;
 	public TextAsset goBack;
 	public TextAsset youLose;
 
+	// score data type
 	public static int cumulative=0;
 
-	public PlayerController player;
-	public NPCController NPC;
+	//characters
+	//public PlayerController player;
+	//public NPCController NPC;
 
+	public Item evidence;
 	private Inventory inventory;
 	private Button submitButton;
+	
 	public static string endGameMessage = null;
+	
 	//panel and button would handle this script
 
 	/// <summary>
@@ -48,7 +57,7 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Start ()
 	{
-		NPC = FindObjectOfType<NPCController>();
+		//NPC = FindObjectOfType<NPCController>();
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
@@ -56,10 +65,6 @@ public class TrialScript : MonoBehaviour
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
-
-		option1.gameObject.SetActive (false);
-		option2.gameObject.SetActive (false);
-		option3.gameObject.SetActive (false);
 
 		choice1.gameObject.SetActive (false);
 		choice2.gameObject.SetActive (false);
@@ -79,22 +84,20 @@ public class TrialScript : MonoBehaviour
     /// Determine the outcome of the trial
     /// </summary>
 	void Outcome(){
+		trialFinished = true;
 		if(cumulative > 0){
 			trialDialogue (2);
-			trialFinished = true;
 			endGameMessage = "You Win!";
 			//SceneManager.LoadScene(Configuration.endGameSceneName);
 			//You win end game screen
 		}else if(cumulative == 0){
 			trialDialogue (3);
-			trialFinished = true;
 			endGameMessage = "Try Again";
 			//SceneManager.LoadScene (Configuration.endGameSceneName);
 			//PlayerController.subtractLife();
 			livesKeeper.SetActive (true);
 		}else{
 			trialDialogue (4);
-			trialFinished = true;
 			endGameMessage = "Game Over";
 			//SceneManager.LoadScene(Configuration.endGameSceneName);
 			//you lose end game screen
@@ -116,16 +119,28 @@ public class TrialScript : MonoBehaviour
 
 		switch (caseSwitch)
 		{
+			
+		case -1:
+
+			{
+				txtBox.ReloadScript(trialStart);
+
+				choice1.gameObject.SetActive (true);
+				choice2.gameObject.SetActive (true);
+
+				break;
+			}
+			
 		case 0:
 
 			{
 				txtBox.ReloadScript(introFile);
 
+				option1.text = "You were right to doubt him, Mr. Wilson!";
+				option2.text = "It was not Bruce who did it...";
+				
 				scoreKeeper.SetActive (true);
 				livesKeeper.SetActive (false);
-
-				choice1.gameObject.SetActive (true);
-				choice2.gameObject.SetActive (true);
 
 				break;
 			}
@@ -139,9 +154,6 @@ public class TrialScript : MonoBehaviour
 				choice1.gameObject.SetActive (false);
 				choice2.gameObject.SetActive (false);
 
-				option1.gameObject.SetActive (true);
-				option2.gameObject.SetActive (true);
-				option3.gameObject.SetActive (true);
 
 				break;
 			}
@@ -211,28 +223,29 @@ public class TrialScript : MonoBehaviour
 	public void CheckClick(Button b)
 	{
 
-		if (Button.ReferenceEquals (choice1, b) || Button.ReferenceEquals (choice2, b)) {
-			trialDialogue (1);
-			submitButton.gameObject.SetActive (true);
-		} else {
-			if (Button.ReferenceEquals (option1, b)) {
-				//Billy
-				keepScore (-5);
-			} else if (Button.ReferenceEquals (option2, b)) {
-				//Jimmy
-				keepScore (-5);
-			} else if (Button.ReferenceEquals (option3, b)) {
-				//Rita
-				keepScore (5);
-			}
-			option1.gameObject.SetActive (false);
-			option2.gameObject.SetActive (false);
-			option3.gameObject.SetActive (false);
+		if (Button.ReferenceEquals (choice1, b))
+		{
+			/**
+			//depending on the level
+			if (inventory._items.Count == 3)
+			{
+				trialDialogue(1);
+				submitButton.gameObject.SetActive(true);
+			}**/
+			
+			trialDialogue(1);
+		}
+		else
+		{
+			txtBox.currentLine = 0;
+			txtBox.DisableDialogueBox();
+			return;
+		}
+
 			_evidenceCount++;
 			if(_evidenceCount == 2){
 				Outcome ();
 			}
-		}
 
 	}
 
