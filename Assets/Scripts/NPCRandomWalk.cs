@@ -105,7 +105,6 @@ public class NPCRandomWalk : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, points[0].position, 0.03f);
         if(points[0].position.x == transform.position.x && points[0].position.y == transform.position.y)
         {
-            Debug.Log("heELLO");
             playerMoving = false;
             lastMove.y = -1;
             lastMove.x = 0;

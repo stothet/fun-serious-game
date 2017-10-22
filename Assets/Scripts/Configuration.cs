@@ -39,10 +39,12 @@ public class Configuration
     public static readonly string bruceRegisterEntryName = "Bruce's register entry";        
     public static readonly string billArtHistoryReportName = "Scrunched up paper";
     public static readonly string detentionNoteName = "Detention note";
+	public static readonly string blueDrinkName = "Blue drink";
 
     // journal descriptions
     public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature and an official timestamp.";
     public static readonly string billArtHistoryReportDescription = "Bill's Art History report, scrunched to a ball.";
     public static readonly string detentionNoteDescription = "Detention note for Bruce, with the date and time nowhere to be seen.";
+    public static readonly string blueDrinkDescription = "What in tarnation is this?";
 
 }

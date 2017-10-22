@@ -8,22 +8,29 @@ public class SoundScript : MonoBehaviour
     bool microphoneInitialised;
     public float sensitivity;
     public GameObject[] dustBlockers;
+    public Button completionButton;
     Image dust;
     //A dustcounter is used so that all all the dust isn't blown away at once.
     //Used in the update method to variably change how hard it is to blow away DustBlocker prefabs.
     public int dustCounter;
     void Start()
     {
+        foreach (string device in Microphone.devices)
+        {
+            Debug.Log(device);
+        }
         //Get the array of dust particles to remove with each blow.
         dustBlockers = GameObject.FindGameObjectsWithTag("Dust");
         dustCounter = 0;
         //init microphone input
+
 
         if (Microphone.devices.Length > 0)
         {
             microphoneInput = Microphone.Start(Microphone.devices[0], true, 999, 44100);
             microphoneInitialised = true;
         }
+
     }
 
     void Update()
@@ -61,6 +68,11 @@ public class SoundScript : MonoBehaviour
                 c.a -= 0.03f;
                 dust.color = c;
                 //Destroy(dustBlockers[dustCounter / 20]);
+            } else
+            {
+                completionButton = GameObject.FindGameObjectWithTag("BlowMinigameCompleteButton").GetComponent<Button>();
+                completionButton.interactable = true;
+                Debug.Log("DONE");
             }
 
         }

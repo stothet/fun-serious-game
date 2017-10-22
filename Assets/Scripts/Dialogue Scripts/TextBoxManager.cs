@@ -29,18 +29,16 @@ public class TextBoxManager : MonoBehaviour
 
     public Sprite sprite1;
     public Sprite sprite2;
-    public string _NPCname; //first method
-    public string _currentNPCname; //second method
-
+    public string _NPCname; // first method
+    public string _currentNPCname; // second method
     public Journal journal;
-	public GameObject controls;
+    public GameObject controls;
 
     /// <summary>
     /// Initialise fields. Set up dialgoue box
     /// </summary>
     void Start()
     {
-
         NPC = FindObjectOfType<NPCController>();
         journal = FindObjectOfType<Journal>();
 
@@ -68,11 +66,12 @@ public class TextBoxManager : MonoBehaviour
         {
             return;
         }
-
-		if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
+        Debug.Log("Running update");
+        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
         {
             ContinueDialogue();
         }
+
     }
 
     /// <summary>
@@ -80,7 +79,14 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-		
+
+        if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(NPC.name) &&
+            PersistenceController.instance.dialogueState.firstTalk[NPC.name] == true)
+        {
+            PersistenceController.instance.dialogueState.firstTalk[NPC.name] = false;
+            currentLine = PersistenceController.instance.dialogueState.currentLine[NPC.name];
+        }
+
         if (currentLine <= endLine)
         {
             txtLine = new string[2];
@@ -91,6 +97,9 @@ public class TextBoxManager : MonoBehaviour
             if (txtLine[0].Equals(Configuration.changeScenePrompt))
             {
                 isTransition = true;
+                PersistenceController.instance.dialogueState.firstTalk[NPC.name] = true;
+                PersistenceController.instance.dialogueState.currentLine[NPC.name] = currentLine + 1;
+                Debug.Log("first talk + current line set for: " + NPC.name);
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
 
@@ -130,7 +139,7 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(true);
         dialogBoxActive = true;
         player.canMove = false;
-		controls.SetActive (false);
+        controls.SetActive(false);
     }
     /// <summary>
     /// Disables the dialogue box
@@ -141,10 +150,11 @@ public class TextBoxManager : MonoBehaviour
         textBox.SetActive(false);
         dialogBoxActive = false;
         player.canMove = true;
-		controls.SetActive (true);
+        controls.SetActive(true);
         // Update the journal if it hasn't already for NPC info.
-        NPC.UpdateJournal(journal);
-        NPC.GiveEvidence(player);
+        //NPC.UpdateJournal(journal);
+        //NPC.GiveEvidence(player);
+
     }
 
     /// <summary>
@@ -178,7 +188,7 @@ public class TextBoxManager : MonoBehaviour
             endLine = txtLines.Length - 1;
             txtFile = script;
 
-			currentLine = 0;
+            currentLine = 0;
         }
 
         // Show the dialogue box
