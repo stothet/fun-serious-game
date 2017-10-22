@@ -6,8 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MicrophoneMinigame.unity
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/Scenes/WorldMap.unity
@@ -17,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/EndGame.unity
   - enabled: 1
     path: Assets/Scenes/Act 2.unity
+  - enabled: 1
+    path: Assets/Scenes/MicrophoneMinigame.unity

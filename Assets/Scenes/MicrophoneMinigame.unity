@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796e052f80f038a4a8bd587f9cdd664d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 0.9
+  sensitivity: 0.2
   dustBlockers: []
   completionButton: {fileID: 0}
   dustCounter: 100

@@ -15,16 +15,22 @@ public class SoundScript : MonoBehaviour
     public int dustCounter;
     void Start()
     {
+        foreach (string device in Microphone.devices)
+        {
+            Debug.Log(device);
+        }
         //Get the array of dust particles to remove with each blow.
         dustBlockers = GameObject.FindGameObjectsWithTag("Dust");
         dustCounter = 0;
         //init microphone input
+
 
         if (Microphone.devices.Length > 0)
         {
             microphoneInput = Microphone.Start(Microphone.devices[0], true, 999, 44100);
             microphoneInitialised = true;
         }
+
     }
 
     void Update()

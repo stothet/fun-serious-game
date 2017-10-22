@@ -9,6 +9,7 @@ public class SoundCompletionScript : MonoBehaviour
     private Button completionButton;
     public void returnToWorld()
     {
+        BlowMinigameInitialiser.completed = true;
         SceneManager.LoadScene(Configuration.worldMapSceneName);
     }
 }
