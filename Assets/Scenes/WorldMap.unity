@@ -3516,6 +3516,10 @@ Prefab:
       propertyPath: m_Size.x
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 104358, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -4961,7 +4965,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847682925}
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7410,6 +7414,10 @@ Prefab:
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: evidenceName
       value: Scrunched up paper
+      objectReference: {fileID: 0}
+    - target: {fileID: 104358, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
