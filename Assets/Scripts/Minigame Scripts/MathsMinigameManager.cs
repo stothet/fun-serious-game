@@ -25,7 +25,7 @@ public class MathsMinigameManager : MonoBehaviour
     private Text answer = null;             // stores the calculated answer result
 
     [SerializeField]
-    private GameObject[] answerSlots = null;// stores the objects in the answer slots 
+    public GameObject[] answerSlots = null; // stores the objects in the answer slots - public for testing
 
     [SerializeField]
     private GameObject[] numberSlots = null;// stores the objects in the number slots
@@ -189,7 +189,7 @@ public class MathsMinigameManager : MonoBehaviour
             case (Operations.Subtract):
                 return "-";
             case (Operations.Multiply):
-                return "X";//"×";
+                return "X";
             case (Operations.Divide):
                 return "÷";
             default:

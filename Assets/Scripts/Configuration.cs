@@ -29,7 +29,7 @@ public class Configuration
     public static readonly string worldMapSceneName = "WorldMap";               // Name of the WorldMap scene
     public static readonly string endGameSceneName = "EndGame";                 // Name of the EndGame scene
 
-    public static Font mathsMinigameFont = (Font)Resources.Load("Fonts/kindergarten");      // Font used for the minigame
+    public static Font mathsMinigameFont = (Font) Resources.Load("Fonts/kindergarten");      // Font used for the minigame
 
     public static readonly Vector3 playerPosition = new Vector3(-29.69f, -2.14f, 0);        // inital position to spawn the player
     public static readonly Vector3 lunchLadyTestPosition = new Vector3(-35.0f, -45.0f, 0);  // positon to spawn player in the cafeteria

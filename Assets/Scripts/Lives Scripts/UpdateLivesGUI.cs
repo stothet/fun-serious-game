@@ -7,9 +7,15 @@ using System.Collections;
 /// </summary>
 public class UpdateLivesGUI : MonoBehaviour {
 
-    Image life1;
-    Image life2;
-    Image life3;
+    // Public for testability
+    public Image life1;
+    public Image life2;
+    public Image life3;
+
+   public UpdateLivesGUI()
+    {
+
+    }
 
     // Initialise lives sprites
     void Start()
