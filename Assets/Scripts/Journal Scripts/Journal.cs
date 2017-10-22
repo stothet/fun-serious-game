@@ -24,6 +24,8 @@ public class Journal : MonoBehaviour {
     {
         //if(PersistenceController.JournalState.journal)
         GameObject slot = GameObject.Instantiate(JournalSlot);
+        slot.AddComponent<RectTransform>();
+        slot.AddComponent<Button>();
         journalEntry = slot.GetComponentInChildren<Text>();
         slot.transform.SetParent(this.gameObject.transform, false);
         journalEntry.text = txt;
