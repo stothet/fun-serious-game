@@ -8378,6 +8378,7 @@ GameObject:
   - 60: {fileID: 979006640}
   - 60: {fileID: 979006639}
   - 61: {fileID: 979006645}
+  - 61: {fileID: 979006646}
   m_Layer: 0
   m_Name: Grass Audio
   m_TagString: Untagged
@@ -8646,7 +8647,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
@@ -8681,6 +8682,20 @@ BoxCollider2D:
   m_Offset: {x: -84.05588, y: 48.88677}
   serializedVersion: 2
   m_Size: {x: 18.483215, y: 9.203697}
+--- !u!61 &979006646
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979006635}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.96945953, y: 24.31722}
+  serializedVersion: 2
+  m_Size: {x: 20.34964, y: 8.716625}
 --- !u!1 &981982413
 GameObject:
   m_ObjectHideFlags: 0
@@ -16545,7 +16560,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -10.009079, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1975144655
