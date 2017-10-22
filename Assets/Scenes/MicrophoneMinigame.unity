@@ -387,15 +387,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 236643850}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 796e052f80f038a4a8bd587f9cdd664d, type: 3}
+  m_Script: {fileID: 11500000, guid: 242a82cf314ba4044a13540135ad319b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  microphoneInput: {fileID: 0}
-  microphoneInitialised: 0
   sensitivity: 0.9
   dustBlockers: []
-  dust: {fileID: 0}
-  dustCounter: 100
+  dustCounter: 0
 --- !u!82 &236643853
 AudioSource:
   m_ObjectHideFlags: 0
