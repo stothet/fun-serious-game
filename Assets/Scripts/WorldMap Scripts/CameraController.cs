@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour {
     public float shakeSpeedY;
     public float shakeSpeedX;
     public bool tiltActive = false;
+	private Vector3 currentGyroPlacement;
 
     // Use this for initialization
     void Start () {
@@ -21,21 +22,17 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
-        mycam.orthographicSize = (Screen.height / 100f) / 4f;
-
-        Vector3 gyroMovement = Input.gyro.rotationRateUnbiased;
-        float previousMovement = gyroMovement.x; // switch axises since y and x are flipped on phone
-        gyroMovement.x = gyroMovement.y;
-        gyroMovement.y = previousMovement;
         if (tiltActive) {
-            if (gyroMovement.y > shakeSpeedY || gyroMovement.y < shakeSpeedY * -1)
-            {
-                transform.Translate(new Vector3(0, gyroMovement.y, 0) * Time.deltaTime * speed);
-            }
-            if (gyroMovement.x > shakeSpeedX || gyroMovement.x < shakeSpeedX * -1)
-            {
-                transform.Translate(new Vector3(gyroMovement.x, 0, 0) * Time.deltaTime * speed);
-            }
+			currentGyroPlacement += Input.gyro.rotationRateUnbiased;
+			/*if (currentGyroPlacement.y > shakeSpeedY || currentGyroPlacement.y < shakeSpeedY * -1)
+			{
+				transform.Translate(new Vector3(0, currentGyroPlacement.y, 0)*Time.deltaTime);
+			}
+			if (currentGyroPlacement.x > shakeSpeedX || currentGyroPlacement.x < shakeSpeedX * -1)
+			{
+				transform.Translate(new Vector3(currentGyroPlacement.y, 0, 0) * Time.deltaTime);
+			}*/
+			transform.Translate (new Vector3(currentGyroPlacement.y, currentGyroPlacement.x*-1, 0)*Time.deltaTime);
         } else {
             if (player && !tiltActive)
             {
@@ -48,5 +45,6 @@ public class CameraController : MonoBehaviour {
     {
         Debug.Log("Is this called?");
         tiltActive = !tiltActive;
+		currentGyroPlacement = new Vector3 (0, 0, 0);
     }
 }

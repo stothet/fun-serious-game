@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ToggleTiltMode : MonoBehaviour {
     Button btn;
     Camera myCam;
+	Vector3 tiltAngle;
 	// Use this for initialization
 	void Start () {
         btn = GetComponent<Button>();

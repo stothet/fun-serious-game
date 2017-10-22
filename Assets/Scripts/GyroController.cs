@@ -8,6 +8,7 @@ public class GyroController : MonoBehaviour {
     float speed = 6;
     public float shakeSpeedY;
     public float shakeSpeedX;
+	public Vector3 currentGyroPlacement;
 
 	// Use this for initialization
 	void Start () {
@@ -18,18 +19,16 @@ public class GyroController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Debug.Log("???????");
-        Vector3 gyroMovement = Input.gyro.rotationRateUnbiased;
-        float previousMovement = gyroMovement.x; // switch axises since y and x are flipped on phone
-        gyroMovement.x = gyroMovement.y;
-        gyroMovement.y = previousMovement;
-        if (gyroMovement.y > shakeSpeedY || gyroMovement.y < shakeSpeedY * -1)
+		currentGyroPlacement += Input.gyro.rotationRateUnbiased;
+		/*if (currentGyroPlacement.y > shakeSpeedY || currentGyroPlacement.y < shakeSpeedY * -1)
         {
-            transform.Translate(new Vector3(0, gyroMovement.y, 0)*Time.deltaTime*speed);
+			transform.Translate(new Vector3(0, currentGyroPlacement.y, 0)*Time.deltaTime);
         }
-        if (gyroMovement.x > shakeSpeedX || gyroMovement.x < shakeSpeedX * -1)
+		if (currentGyroPlacement.x > shakeSpeedX || currentGyroPlacement.x < shakeSpeedX * -1)
         {
-            transform.Translate(new Vector3(gyroMovement.x, 0, 0) * Time.deltaTime * speed);
-        }
+			transform.Translate(new Vector3(currentGyroPlacement.x, 0, 0) * Time.deltaTime);
+        }*/
+		transform.Translate (currentGyroPlacement);
         /*Vector3 dir  = Vector3.zero;
         dir.x = Input.acceleration.x;
         dir.y = Input.acceleration.y;
