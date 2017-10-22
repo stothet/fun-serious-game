@@ -5,14 +5,14 @@ public class PlayerAudio : MonoBehaviour
 {
     public bool onPath = false;
     public bool onGrass = false;
+    public bool onBuildingFloor = false;
 
-    public float stepTimer = 0f;
-    public float stepPause = 0.6f; // amount of time between steps
+    private float stepTimer = 0f;
+    private float stepPause = 0.2f; // amount of time between steps
 
     private float xpos = 0f;
     private float ypos = 0f;
 
-    private Rigidbody2D rigidBody;
     private PlayerController playerController;
     private TouchControls touchControls;
     private AudioSource audioSource;
@@ -23,7 +23,6 @@ public class PlayerAudio : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         touchControls = GetComponent<TouchControls>();
         audioSource = GetComponent<AudioSource>();
-        rigidBody = GetComponent<Rigidbody2D>();
 
         onPath = false;
     }
@@ -47,15 +46,19 @@ public class PlayerAudio : MonoBehaviour
         if (xpos != transform.position.x || ypos != transform.position.y)
         {
             Debug.Log("STEP");
-            if (onPath)
+            if (onBuildingFloor)
             {
-                
-                StepSound(SoundManager.audioPathStep);
+                StepSound(SoundManager.audioBuildingStep, SoundManager.NUMBER_OF_BUILDING_STEPS);
             }
-            if (onGrass)
+            else if (onPath)
             {
-                StepSound(SoundManager.audioPathStep);
+                StepSound(SoundManager.audioPathStep, SoundManager.NUMBER_OF_PATH_STEPS);
             }
+            else if (onGrass)
+            {
+                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS);
+            }
+            
         }
         if (stepTimer > 0f)
         {
@@ -68,13 +71,12 @@ public class PlayerAudio : MonoBehaviour
         }
 
     }
-    void StepSound(AudioClip[] audioClip)
+    void StepSound(AudioClip[] audioClip, int numberOfSoundVariations)
     {
         Debug.Log("Play sound");
         if (stepTimer == 0)
         {
-            //audioSource.PlayOneShot()
-            audioSource.PlayOneShot(audioClip[Random.Range(0, SoundManager.NUMBER_OF_PATH_STEPS)], 100.0f);
+            audioSource.PlayOneShot(audioClip[Random.Range(0, numberOfSoundVariations)], 0.2f);
             stepTimer = stepPause;
         }
     }

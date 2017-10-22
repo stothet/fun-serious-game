@@ -15,7 +15,6 @@ public class OnGrass: MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("On Grass");
             footsteps.onGrass = true;
         }
     }
@@ -23,7 +22,6 @@ public class OnGrass: MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("Off Grass");
             footsteps.onGrass = false;
         }
     }
