@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnPath : MonoBehaviour
+public class OnBuildingFloor : MonoBehaviour
 {
     private PlayerAudio footsteps;
 
@@ -9,20 +9,20 @@ public class OnPath : MonoBehaviour
     void Start()
     {
         footsteps = GameObject.Find("Player").GetComponent<PlayerAudio>();
-        footsteps.onPath = false;
+        footsteps.onBuildingFloor = false;
     }
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            footsteps.onPath = true;
+            footsteps.onBuildingFloor = true;
         }
     }
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
-            footsteps.onPath = false;
+            footsteps.onBuildingFloor = false;
         }
     }
 }
