@@ -19,6 +19,10 @@ public class ItemDatabase : MonoBehaviour {
        items.Add(Configuration.billArtHistoryReportName, new Item(Configuration.billArtHistoryReportName, Configuration.billArtHistoryReportDescription, -5, Item.ItemType.DUMMY, "paper"));
        items.Add(Configuration.detentionNoteName, new Item(Configuration.detentionNoteName, Configuration.detentionNoteDescription, -5, Item.ItemType.DUMMY, "slip"));
 	   items.Add (Configuration.blueDrinkName, new Item (Configuration.blueDrinkName, Configuration.blueDrinkDescription, 10, Item.ItemType.EVIDENCE, "drink"));
+       items.Add(Configuration.principalsKeysName, new Item(Configuration.principalsKeysName, Configuration.principalsKeysNameDescription, 5, Item.ItemType.DUMMY, "keys"));
+       items.Add(Configuration.photographName, new Item(Configuration.photographName, Configuration.photographNameDescription, 5, Item.ItemType.DUMMY, "photo"));
+       items.Add(Configuration.capName, new Item(Configuration.capName, Configuration.capNameDescription, 5, Item.ItemType.DUMMY, "cap"));
+
     }
 
 }
