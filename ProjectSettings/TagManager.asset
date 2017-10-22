@@ -13,6 +13,8 @@ TagManager:
   - Bill
   - Principal
   - SubmitButton
+  - Dust
+  - BlowMinigameCompleteButton
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,7 @@ public class SoundScript : MonoBehaviour
     bool microphoneInitialised;
     public float sensitivity;
     public GameObject[] dustBlockers;
+    public Button completionButton;
     Image dust;
     //A dustcounter is used so that all all the dust isn't blown away at once.
     //Used in the update method to variably change how hard it is to blow away DustBlocker prefabs.
@@ -61,6 +62,11 @@ public class SoundScript : MonoBehaviour
                 c.a -= 0.03f;
                 dust.color = c;
                 //Destroy(dustBlockers[dustCounter / 20]);
+            } else
+            {
+                completionButton = GameObject.FindGameObjectWithTag("BlowMinigameCompleteButton").GetComponent<Button>();
+                completionButton.interactable = true;
+                Debug.Log("DONE");
             }
 
         }
