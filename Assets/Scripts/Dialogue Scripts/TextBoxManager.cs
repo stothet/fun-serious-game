@@ -152,8 +152,9 @@ public class TextBoxManager : MonoBehaviour
         player.canMove = true;
         controls.SetActive(true);
         // Update the journal if it hasn't already for NPC info.
-        NPC.UpdateJournal(journal);
-        NPC.GiveEvidence(player);
+        //NPC.UpdateJournal(journal);
+        //NPC.GiveEvidence(player);
+
     }
 
     /// <summary>

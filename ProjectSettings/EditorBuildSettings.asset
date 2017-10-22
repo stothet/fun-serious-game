@@ -13,3 +13,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MathsMinigame.unity
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
+  - enabled: 1
+    path: Assets/Scenes/Act 2.unity
+  - enabled: 1
+    path: Assets/Scenes/MicrophoneMinigame.unity

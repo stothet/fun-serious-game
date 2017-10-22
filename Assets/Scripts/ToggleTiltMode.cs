@@ -9,6 +9,7 @@ public class ToggleTiltMode : MonoBehaviour {
 	void Start () {
         btn = GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
+
     }
 
     // Update is called once per frame

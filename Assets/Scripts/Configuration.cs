@@ -31,7 +31,7 @@ public class Configuration
 
     public static Font mathsMinigameFont = (Font) Resources.Load("Fonts/kindergarten");      // Font used for the minigame
 
-    public static readonly Vector3 playerPosition = new Vector3(-29.69f, -2.14f, 0);        // inital position to spawn the player
+    public static readonly Vector3 playerPosition = new Vector3(-29.69f, -5.53f, 0);        // inital position to spawn the player
     public static readonly Vector3 lunchLadyTestPosition = new Vector3(-35.0f, -45.0f, 0);  // positon to spawn player in the cafeteria
     public static readonly int maxLives = 3;                                                // number of max lives
 
@@ -39,10 +39,12 @@ public class Configuration
     public static readonly string bruceRegisterEntryName = "Bruce's register entry";        
     public static readonly string billArtHistoryReportName = "Scrunched up paper";
     public static readonly string detentionNoteName = "Detention note";
+	public static readonly string blueDrinkName = "Blue drink";
 
     // journal descriptions
     public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature and an official timestamp.";
     public static readonly string billArtHistoryReportDescription = "Bill's Art History report, scrunched to a ball.";
     public static readonly string detentionNoteDescription = "Detention note for Bruce, with the date and time nowhere to be seen.";
+    public static readonly string blueDrinkDescription = "What in tarnation is this?";
 
 }
