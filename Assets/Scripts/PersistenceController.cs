@@ -32,8 +32,6 @@ public class PersistenceController
         {
             Debug.Log("Player.rs");
             playerPosition = Configuration.playerPosition;
-        
-       
             lives = Configuration.maxLives;
         }
     }
@@ -46,6 +44,7 @@ public class PersistenceController
     public class DialogueState
     {
         public Dictionary<string, bool> firstTalk;
+        public Dictionary<string, int> currentLine;
         public Dictionary<string, bool> givenEvidence;
         public Dictionary<string, bool> journalUpdated;
         public bool autoTalk = true;
@@ -55,15 +54,15 @@ public class PersistenceController
         /// </summary>
         /// 
 
-
         public DialogueState()
         {
             autoTalk = true;
             firstTalk = new Dictionary<string, bool>();
             givenEvidence = new Dictionary<string, bool>();
             journalUpdated = new Dictionary<string, bool>();
-        }
+            currentLine = new Dictionary<string, int>();
     }
+}
 
     /// <summary>
     /// Stores the state of the player's inventory
@@ -73,8 +72,8 @@ public class PersistenceController
     public class InventoryState
     {
         public int currentLine = 0;
-        public bool shouldStartConversation = false;
         public List<string> database = new List<string>();
+        public bool shouldStartConversation = false;
 
         /// <summary>
         /// Resets the state of the object
@@ -84,7 +83,7 @@ public class PersistenceController
             database = new List<string>();
             currentLine = 0;
             shouldStartConversation = false;
-        }
+    }
     }
 
     /// <summary>
