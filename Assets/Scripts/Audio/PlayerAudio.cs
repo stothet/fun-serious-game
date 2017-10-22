@@ -55,7 +55,7 @@ public class PlayerAudio : MonoBehaviour
             }
             else if (onGrass)
             {
-                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS, 0.1f);
+                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS, 0.2f);
             }
             
         }
