@@ -13,6 +13,7 @@ TagManager:
   - Bill
   - Principal
   - SubmitButton
+  - Drink
   layers:
   - Default
   - TransparentFX
