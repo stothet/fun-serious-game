@@ -69,10 +69,6 @@ public class TextBoxManager : MonoBehaviour
         Debug.Log("Running update");
         if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
         {
-            Debug.Log("XD NPC NAME UPDATE: " + NPC.name);
-            Debug.Log("CurrentLineKeyExists: " + PersistenceController.instance.dialogueState.currentLine.ContainsKey(NPC.name));
-            Debug.Log("FirstTalkForNPC: " + PersistenceController.instance.dialogueState.firstTalk[NPC.name]);
-
             ContinueDialogue();
         }
 
@@ -83,10 +79,6 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     public void ContinueDialogue()
     {
-
-        Debug.Log("2 XD NPC NAME UPDATE: " + NPC.name);
-        Debug.Log("2 CurrentLineKeyExists: " + PersistenceController.instance.dialogueState.currentLine.ContainsKey(NPC.name));
-        Debug.Log("2 FirstTalkForNPC: " + PersistenceController.instance.dialogueState.firstTalk[NPC.name]);
 
         if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(NPC.name) &&
             PersistenceController.instance.dialogueState.firstTalk[NPC.name] == true)
