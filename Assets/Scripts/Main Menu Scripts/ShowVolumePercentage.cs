@@ -7,7 +7,7 @@ public class ShowVolumePercentage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        volumeLabel = GetComponent<Text>();
+		volumeLabel = GameObject.Find("MasterVolPercentLabel").GetComponent<Text>();
 	}
 	
 	public void volumeLabelUpdate (float volumeValue)
