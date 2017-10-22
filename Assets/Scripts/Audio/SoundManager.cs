@@ -14,7 +14,6 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("SOUND: " + audioPathStep.Length);
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
