@@ -71,7 +71,7 @@ public class TrialScript : MonoBehaviour
 	void Update ()
 	{
 		if (Input.GetKey(KeyCode.Space) && trialFinished) {
-			SceneManager.LoadScene (Configuration.endGameSceneName);
+			SceneManager.LoadScene (Configuration.endAct1SceneName);
 		}			
 	}
 
