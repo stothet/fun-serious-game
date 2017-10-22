@@ -610,9 +610,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 368.4493, y: -108.16531}
+  m_Offset: {x: 368.4493, y: -126.776024}
   serializedVersion: 2
-  m_Size: {x: 85.33292, y: 26.03007}
+  m_Size: {x: 85.33292, y: 63.251175}
 --- !u!61 &71817332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -624,9 +624,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 47.2955, y: -106.03105}
+  m_Offset: {x: 47.2955, y: -121.92763}
   serializedVersion: 2
-  m_Size: {x: 22.289507, y: 43.216072}
+  m_Size: {x: 22.289507, y: 75.00922}
 --- !u!1 &79435258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,6 +3964,8 @@ GameObject:
   - 4: {fileID: 502432637}
   - 60: {fileID: 502432639}
   - 60: {fileID: 502432638}
+  - 60: {fileID: 502432641}
+  - 60: {fileID: 502432640}
   m_Layer: 0
   m_Name: Table Collisions
   m_TagString: Untagged
@@ -4045,6 +4047,53 @@ PolygonCollider2D:
       - {x: 8.572144, y: -50.78421}
       - {x: -21.956985, y: -51.605377}
       - {x: -20.930267, y: -50.970856}
+--- !u!60 &502432640
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502432636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 307.84, y: -219.39}
+  m_Points:
+    m_Paths:
+    - - {x: -50.443016, y: 4.3780365}
+      - {x: -20.631683, y: 28.785004}
+      - {x: 13.1828, y: 29.691437}
+      - {x: 40.56479, y: 7.7280273}
+      - {x: 40.49881, y: -8.996292}
+      - {x: -0.18759155, y: -10.11441}
+      - {x: -0.58778536, y: -0.80901694}
+      - {x: -0.8043213, y: -13.025314}
+      - {x: -49.02884, y: -13.649002}
+--- !u!60 &502432641
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 502432636}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 147.13, y: -219.39}
+  m_Points:
+    m_Paths:
+    - - {x: -50.443016, y: 4.3780365}
+      - {x: -20.631683, y: 28.785004}
+      - {x: 13.1828, y: 29.691437}
+      - {x: 40.56479, y: 7.7280273}
+      - {x: 40.49884, y: -14.424393}
+      - {x: 1.3631897, y: -13.216156}
+      - {x: -0.58778536, y: -0.80901694}
+      - {x: 17.61847, y: -19.021835}
+      - {x: -46.641037, y: -12.7747345}
+      - {x: -47.47792, y: 0.30900574}
 --- !u!1 &531173186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7037,9 +7086,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 239.30954, y: -62.911346}
+  m_Offset: {x: 239.30954, y: -65.62537}
   serializedVersion: 2
-  m_Size: {x: 479.6193, y: 126.82284}
+  m_Size: {x: 479.6193, y: 132.251}
 --- !u!1001 &883960443
 Prefab:
   m_ObjectHideFlags: 0
