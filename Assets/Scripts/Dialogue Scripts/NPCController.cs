@@ -80,8 +80,11 @@ public class NPCController : MonoBehaviour {
         Debug.Log(name);
         if (!PersistenceController.instance.dialogueState.givenEvidence[name])
         {
-            player.addToInventory(evidenceName);
-            PersistenceController.instance.dialogueState.givenEvidence[name] = true;
+            if (evidenceName != null && evidenceName != "")
+            {
+                player.addToInventory(evidenceName);
+                PersistenceController.instance.dialogueState.givenEvidence[name] = true;
+            }
         }
     }
 

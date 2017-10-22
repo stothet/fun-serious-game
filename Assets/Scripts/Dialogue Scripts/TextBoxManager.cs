@@ -114,6 +114,9 @@ public class TextBoxManager : MonoBehaviour
         {
             DisableDialogueBox();
             currentLine = 0;
+            // Update the journal if it hasn't already for NPC info.
+            NPC.UpdateJournal(journal);
+            NPC.GiveEvidence(player);
             return;
         }
 
@@ -151,10 +154,6 @@ public class TextBoxManager : MonoBehaviour
         dialogBoxActive = false;
         player.canMove = true;
         controls.SetActive(true);
-        // Update the journal if it hasn't already for NPC info.
-        //NPC.UpdateJournal(journal);
-        //NPC.GiveEvidence(player);
-
     }
 
     /// <summary>
