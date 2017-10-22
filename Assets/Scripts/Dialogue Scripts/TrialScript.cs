@@ -271,11 +271,12 @@ public class TrialScript : MonoBehaviour
 
 		}
 		
-		/**_evidenceCount++;
+		//LEADS TO END GAME SCREEN (KEEP PRESSING SPACE)
+		_evidenceCount++;
 		if (_evidenceCount == 2)
 		{
 			Outcome();
-		}**/
+		}
 	}
 
 }
