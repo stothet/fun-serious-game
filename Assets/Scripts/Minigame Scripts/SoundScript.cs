@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class SoundScript : MonoBehaviour
     bool microphoneInitialised;
     public float sensitivity;
     public GameObject[] dustBlockers;
+    Image dust;
     //A dustcounter is used so that all all the dust isn't blown away at once.
     //Used in the update method to variably change how hard it is to blow away DustBlocker prefabs.
     public int dustCounter;
@@ -50,11 +52,15 @@ public class SoundScript : MonoBehaviour
             //The microphone needs to detect 20 'blows' in order to remove on DustBlocker prefab.
             //Change the value of 20 higher to make player blow harder to get rid of a DustBlocker.
             //Or lower to make it easier for the player to get rid of a DustBlocker.
-            if (dustCounter/20 < dustBlockers.Length)
+            if (dustCounter/50 < dustBlockers.Length)
             {
-                dustCounter += 1;
-                Destroy(dustBlockers[dustCounter / 20]);
 
+                dustCounter += 1;
+                dust = dustBlockers[dustCounter / 50].GetComponent<Image>();
+                Color c = dust.color;
+                c.a -= 0.03f;
+                dust.color = c;
+                //Destroy(dustBlockers[dustCounter / 20]);
             }
 
         }
