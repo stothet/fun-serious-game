@@ -4433,6 +4433,7 @@ GameObject:
   - 61: {fileID: 599432172}
   - 61: {fileID: 599432171}
   - 60: {fileID: 599432170}
+  - 61: {fileID: 599432174}
   m_Layer: 0
   m_Name: Decal Collisions
   m_TagString: Untagged
@@ -4520,9 +4521,23 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 1.3842621, y: -1.9150753}
+  m_Offset: {x: 1.3198471, y: -2.1727395}
   serializedVersion: 2
-  m_Size: {x: 0.7085204, y: 1.8558064}
+  m_Size: {x: 0.83735347, y: 1.340478}
+--- !u!61 &599432174
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599432168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 7.1759624, y: -1.5116997}
+  serializedVersion: 2
+  m_Size: {x: 2.8294487, y: 1.343689}
 --- !u!4 &615179302
 Transform:
   m_ObjectHideFlags: 0
@@ -6656,9 +6671,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 7.250416, y: -0.3729328}
+  m_Offset: {x: 7.250416, y: -0.43734872}
   serializedVersion: 2
-  m_Size: {x: 14.434845, y: 3.164157}
+  m_Size: {x: 14.434845, y: 3.2929888}
 --- !u!1001 &847350323
 Prefab:
   m_ObjectHideFlags: 0
@@ -7083,6 +7098,10 @@ Prefab:
     - target: {fileID: 420906, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350310, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
+      propertyPath: m_SortingOrder
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
