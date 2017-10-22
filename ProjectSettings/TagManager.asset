@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - NameOfItem
-  - DescriptionOfItem
-  - Inventory
-  - ItemDatabase
-  - Pickup
-  - Journal
-  - Bill
-  - Principal
-  - SubmitButton
-  - Drink
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -50,10 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Pickups
-    uniqueID: 1907784817
-    locked: 0
-  - name: Player
-    uniqueID: 2337287237
     locked: 0
