@@ -6189,9 +6189,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 335.4, y: -228.1}
+  m_Offset: {x: 335.39996, y: -210.18593}
   serializedVersion: 2
-  m_Size: {x: 50.13723, y: 5.491639}
+  m_Size: {x: 50.13723, y: 19.567173}
 --- !u!61 &800567254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15405,6 +15405,14 @@ Prefab:
     - target: {fileID: 160452, guid: 95fd8a973f622784aacc83a424630da0, type: 2}
       propertyPath: m_Name
       value: Chairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359160, guid: 95fd8a973f622784aacc83a424630da0, type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380882, guid: 95fd8a973f622784aacc83a424630da0, type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95fd8a973f622784aacc83a424630da0, type: 2}
