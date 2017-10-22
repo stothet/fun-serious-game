@@ -48,6 +48,7 @@ public class NPCController : MonoBehaviour {
             PersistenceController.instance.dialogueState.firstTalk.Add(name, true);
             PersistenceController.instance.dialogueState.givenEvidence.Add(name, false);
             PersistenceController.instance.dialogueState.journalUpdated.Add(name, false);
+
         }
     }
 
@@ -111,7 +112,16 @@ public class NPCController : MonoBehaviour {
                 if (PersistenceController.instance.dialogueState.firstTalk[name])
                 {
                     txtBox.ReloadScript(initialDialogueFile);
-                    PersistenceController.instance.dialogueState.firstTalk[name] = false;
+                    if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
+                         PersistenceController.instance.dialogueState.firstTalk[name] == true)
+                    {
+
+                    }
+                    else
+                    {
+                        PersistenceController.instance.dialogueState.firstTalk[name] = false;
+                    }
+
 
                     if (autoTalk)
                     {
