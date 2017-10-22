@@ -11,6 +11,7 @@ public class TrialScript : MonoBehaviour
 	//boolean to switch off trial
 	public bool trialFinished = false;
 
+	public int order = -1;
 	public bool trialActive = false;
 	public TextBoxManager txtBox;
 
@@ -127,7 +128,7 @@ public class TrialScript : MonoBehaviour
 		case -1:
 
 		{
-				
+			order = 0;
 				txtBox.ReloadScript(introFile);
 
 				choice1.gameObject.SetActive (true);
@@ -138,9 +139,11 @@ public class TrialScript : MonoBehaviour
 			
 		case 0:
 
-			{
+		{
+			order = 1;
 				trialActive = true;
 				txtBox.ReloadScript(trialStart);
+				txtBox.ContinueDialogue();
 
 				option1.text = "You were right to doubt him, Mr. Wilson!";
 				option2.text = "It was not Bruce who did it...";
@@ -153,7 +156,8 @@ public class TrialScript : MonoBehaviour
 
 		case 1:
 
-			{
+		{
+			order = 2;
 				txtBox.ReloadScript(prelude);
 				txtBox.ContinueDialogue();
 
@@ -222,37 +226,56 @@ public class TrialScript : MonoBehaviour
 	}
 
 
-    /// <summary>
-    /// Checks with dialgogue option has been selected
-    /// </summary>
-    /// <param name="b"> The button clicked </param>
+	/// <summary>
+	/// Checks with dialgogue option has been selected
+	/// </summary>
+	/// <param name="b"> The button clicked </param>
 	public void CheckClick(Button b)
 	{
-
-		if (Button.ReferenceEquals (choice1, b))
+		switch (order)
 		{
-			/**
-			//depending on the level
-			if (inventory._items.Count == 3)
-			{
-				trialDialogue(1);
-				submitButton.gameObject.SetActive(true);
-			}**/
-			
-			trialDialogue(0);
-		}
-		else
-		{
-			txtBox.currentLine = 0;
-			txtBox.DisableDialogueBox();
-			return;
-		}
+			case 0: {
+				if (Button.ReferenceEquals(choice1, b))
+				{
+					/**
+					//depending on the level
+					if (inventory._items.Count == 3)
+					{
+						trialDialogue(1);
+						submitButton.gameObject.SetActive(true);
+					}**/
 
-			_evidenceCount++;
-			if(_evidenceCount == 2){
-				Outcome ();
+					trialDialogue(0);
+				}
+				
+				else
+				{
+					txtBox.currentLine = 0;
+					txtBox.DisableDialogueBox();
+					return;
+				}
+				break;
+				
 			}
 
+			case 1:
+			{
+				trialDialogue(1);
+				break;
+			}
+				
+			default:
+			{
+				break;
+			}
+
+		}
+		
+		/**_evidenceCount++;
+		if (_evidenceCount == 2)
+		{
+			Outcome();
+		}**/
 	}
 
 }
