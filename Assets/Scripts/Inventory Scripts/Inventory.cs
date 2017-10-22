@@ -75,7 +75,7 @@ public class Inventory : MonoBehaviour {
                 PersistenceController.instance.inventoryState.database.Add(name);
             }
             addToEmptySlot(item);
-			_inventoryTabImage.sprite = Resources.Load<Sprite>("duck_yellow");
+			_inventoryTabImage.sprite = Resources.Load<Sprite>("Icons/BagIconAlert");
         
         }
         else
