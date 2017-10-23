@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dust
+  - ItemDatabase
+  - Inventory
+  - NameOfItem
+  - DescriptionOfItem
+  - SubmitButton
+  - Journal
+  - Pickup
+  - Principal
+  - InventoryTab
+  - JournalTab
   layers:
   - Default
   - TransparentFX
