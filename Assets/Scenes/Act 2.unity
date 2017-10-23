@@ -2292,7 +2292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 283015562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afa3858417885d144b8e9a4e137e4412, type: 3}
+  m_Script: {fileID: 11500000, guid: 2211f238ce32d4708894c9a702fe2d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trialFinished: 0
@@ -2300,6 +2300,7 @@ MonoBehaviour:
   trialActive: 0
   txtBox: {fileID: 1689302474}
   presentEvidenceNow: 0
+  act2Script: 1
   livesKeeper: {fileID: 422949209}
   scoreKeeper: {fileID: 211417234}
   _score: {fileID: 1796873476}
@@ -2307,6 +2308,12 @@ MonoBehaviour:
   choice2: {fileID: 1492766140}
   option1: {fileID: 793738615}
   option2: {fileID: 134615455}
+  trialStart: {fileID: 0}
+  introFile: {fileID: 0}
+  prelude: {fileID: 0}
+  bruceIsFree: {fileID: 0}
+  goBack: {fileID: 0}
+  youLose: {fileID: 0}
   keyInDetention: {fileID: 4900000, guid: f3ba0a68d47022943972c9bdcc6155c9, type: 3}
   rileyJournal: {fileID: 4900000, guid: 87762c9d05c73d1479c03d241acd1a87, type: 3}
   hatPhoto: {fileID: 4900000, guid: e583140b1c0aff64d9fd39d29431205e, type: 3}
@@ -4010,7 +4017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 283015563}
         m_MethodName: CheckClick
         m_Mode: 2
         m_Arguments:
@@ -6017,7 +6024,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 283015563}
         m_MethodName: SelectObjectEvidence
         m_Mode: 1
         m_Arguments:
@@ -8910,11 +8917,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440098, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 420906, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2350310, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_SortingOrder
@@ -15262,7 +15269,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 283015563}
         m_MethodName: CheckClick
         m_Mode: 2
         m_Arguments:
@@ -15739,7 +15746,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 420432, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 471262, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
       propertyPath: m_RootOrder
@@ -15755,7 +15762,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479588, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
@@ -19300,7 +19307,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -10.009064, y: 0.0000076293945}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0.0000076293945}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1995804238
@@ -19529,7 +19536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495084, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 467712, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19537,19 +19544,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463648, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 455040, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443316, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 432886, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 419462, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19557,15 +19564,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418000, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 412462, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 401242, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19593,19 +19600,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498524, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 415100, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 426334, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 487594, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 484648, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19621,7 +19628,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498374, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
@@ -19737,7 +19744,7 @@ MonoBehaviour:
   journalPanel: {fileID: 714038951}
   SOMET: {fileID: 1892823636}
   Submit: {fileID: 661916287}
-  trial: {fileID: 0}
+  trial: {fileID: 283015563}
 --- !u!1001 &2020228826
 Prefab:
   m_ObjectHideFlags: 0

@@ -126,6 +126,7 @@ public class TextBoxManager : MonoBehaviour
                 this.disableDialogueTap = true;
                 return;
             }
+            Debug.Log("");
             DisableDialogueBox();
             NPC.GiveEvidence(player);
             // Update the journal if it hasn't already for NPC info.

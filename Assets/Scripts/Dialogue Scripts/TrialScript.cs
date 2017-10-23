@@ -15,6 +15,7 @@ public class TrialScript : MonoBehaviour
 	public bool trialActive = false;
 	public TextBoxManager txtBox;
     public bool presentEvidenceNow = false;
+    public bool act2Script = false;
 
 	//keeps track of player health
 	public GameObject livesKeeper;
@@ -41,8 +42,18 @@ public class TrialScript : MonoBehaviour
 	public TextAsset goBack;
 	public TextAsset youLose;
 
-	// score data type
-	public static int cumulative=0;
+    public TextAsset keyInDetention;
+    public TextAsset rileyJournal;
+    public TextAsset hatPhoto;
+    public TextAsset ritaJournal;
+    public TextAsset blueDrink;
+    public TextAsset blueSprayer;
+    public TextAsset blueLiquidPrompt;
+    public TextAsset wilsonConfused;
+    public TextAsset trialIntro;
+
+    // score data type
+    public static int cumulative=0;
 
 	public Item evidence;
 	private Inventory inventory;
@@ -131,150 +142,317 @@ public class TrialScript : MonoBehaviour
 		_score.text = cumulative.ToString ();
 	}
 
-	/// <summary>
+    /// <summary>
     /// Loads the appropriate dialogue based on the players response
     /// </summary>
-	public void trialDialogue(int caseSwitch){
+    public void trialDialogue(int caseSwitch)
+    {
 
         this.currentCaseSwitch = caseSwitch;
+        if (!act2Script)
+        {
+            switch (caseSwitch)
+            {
 
-        switch (caseSwitch)
-		{
+                case -1:
 
-		case -1:
+                    {
+                        if (Configuration.isFastAct2Mode)
+                        {
+                            Outcome();
+                        }
+                        order = 0;
+                        Debug.Log("ORDER PLS: " + order);
+                        txtBox.ReloadScript(introFile);
+                        txtBox.ContinueDialogue();
 
-		{
-				if (Configuration.isFastAct2Mode)
-				{
-					Outcome();
-				}
-				order = 0;
-				txtBox.ReloadScript(introFile);
-                    txtBox.ContinueDialogue();
+                        choice1.gameObject.SetActive(true);
+                        choice2.gameObject.SetActive(true);
+                        txtBox.disableDialogueTap = true;
+                        break;
+                    }
 
-				choice1.gameObject.SetActive (true);
-				choice2.gameObject.SetActive (true);
-                    txtBox.disableDialogueTap = true;
-				break;
-			}
+                case 0:
 
-		case 0:
+                    {
+                        Debug.Log("lost a life");
+                        order = 1;
+                        trialActive = true;
+                        txtBox.ReloadScript(trialStart);
+                        txtBox.ContinueDialogue();
 
-		{
-                    Debug.Log("lost a life");
-			order = 1;
-				trialActive = true;
-				txtBox.ReloadScript(trialStart);
-				txtBox.ContinueDialogue();
+                        /*option1.text = "You were right to doubt him, Mr. Wilson!";
+                        option2.text = "It was not Bruce who did it...";*/
+                        evidenceRequired = "Selma: School's reception lady. Swears she hasn't seen anyone sneak by her while she was at her desk. Was away from desk from 12.30 - 12.40.";
+                        //scoreKeeper.SetActive (true);
+                        //livesKeeper.SetActive (false);
+                        presentEvidenceNow = true;
+                        if (Configuration.isFastAct2Mode)
+                        {
+                            Outcome();
+                        }
+                        break;
+                    }
 
-                    /*option1.text = "You were right to doubt him, Mr. Wilson!";
-                    option2.text = "It was not Bruce who did it...";*/
-                    evidenceRequired = "Selma: School's reception lady. Swears she hasn't seen anyone sneak by her while she was at her desk. Was away from desk from 12.30 - 12.40.";
-				//scoreKeeper.SetActive (true);
-				//livesKeeper.SetActive (false);
-                    presentEvidenceNow = true;
-                if (Configuration.isFastAct2Mode)
-                {
-                    Outcome();
-                }
-                break;
-			}
+                case 1:
 
-		case 1:
+                    {
+                        order = 2;
+                        txtBox.ReloadScript(prelude);
+                        txtBox.ContinueDialogue();
+                        presentEvidenceNow = true;
+                        evidenceRequired = Configuration.bruceRegisterEntryName;
+                        break;
+                    }
 
-		{
-			order = 2;
-				txtBox.ReloadScript(prelude);
-				txtBox.ContinueDialogue();
-                    presentEvidenceNow = true;
-                    evidenceRequired = Configuration.bruceRegisterEntryName;
-                    break;
-			}
+                case 2:
 
-		case 2:
+                    {
 
-			{
+                        txtBox.ReloadScript(bruceIsFree);
+                        txtBox.ContinueDialogue();
+                        evidenceRequired = "finished";
+                        order = -1;
+                        currentCaseSwitch = 0;
+                        break;
+                    }
+                case 3:
 
-				txtBox.ReloadScript(bruceIsFree);
-				txtBox.ContinueDialogue();
-                evidenceRequired = "finished";
-				break;
-			}
-		case 3:
+                    {
 
-			{
+                        txtBox.ReloadScript(goBack);
+                        txtBox.ContinueDialogue();
+                        break;
+                    }
 
-				txtBox.ReloadScript(goBack);
-				txtBox.ContinueDialogue();
-				break;
-			}
+                case 4:
 
-		case 4:
+                    {
 
-			{
+                        txtBox.ReloadScript(youLose);
+                        txtBox.ContinueDialogue();
+                        break;
+                    }
 
-				txtBox.ReloadScript(youLose);
-				txtBox.ContinueDialogue();
-				break;
-			}
+                default:
+                    {
+                        break;
+                    }
+            }
+        }
+        else
+        {
+            switch (caseSwitch)
+            {
 
-		default:
-			{
-				break;
-			}
+                case -1:
 
-		}
-	}
+                    {
+                        order = 0;
+                        txtBox.ReloadScript(trialIntro);
+                        txtBox.ContinueDialogue();
+
+                        choice1.gameObject.SetActive(true);
+                        choice2.gameObject.SetActive(true);
+                        txtBox.disableDialogueTap = true;
+                        break;
+                    }
+
+                case 0:
+
+                    {
+                        order = 1;
+                        trialActive = true;
+                        txtBox.ReloadScript(blueLiquidPrompt);
+                        txtBox.ContinueDialogue();
+
+                        evidenceRequired = Configuration.blueDrinkName;
+
+                        presentEvidenceNow = true;
+                        break;
+                    }
+
+                case 1:
+
+                    {
+                        order = 2;
+                        txtBox.ReloadScript(blueDrink);
+                        txtBox.ContinueDialogue();
+                        presentEvidenceNow = true;
+                        evidenceRequired = "Lunchlady Rita: Sold three blue drinks today, to Brad, Jimmy, and Bruce.";
+                        break;
+                    }
+
+                case 2:
+
+                    {
+                        order = 3;
+                        txtBox.ReloadScript(ritaJournal);
+                        txtBox.ContinueDialogue();
+                        presentEvidenceNow = true;
+                        evidenceRequired = Configuration.photographName;
+                        break;
+                    }
+                case 3:
+
+                    {
+                        order = 4;
+                        txtBox.ReloadScript(hatPhoto);
+                        txtBox.ContinueDialogue();
+                        presentEvidenceNow = true;
+                        evidenceRequired = "Riley: Jimmy's Mom, here to pick up Jimmy. Complains that her son gets into detention a lot, unlike good boy Brad who never does.";
+                        break;
+                    }
+
+                case 4:
+
+                    {
+                        order = 5;
+                        txtBox.ReloadScript(rileyJournal);
+                        txtBox.ContinueDialogue();
+                        presentEvidenceNow = true;
+                        evidenceRequired = Configuration.principalsKeysName;
+                        break;
+                    }
+
+                case 5:
+
+                    {
+                        txtBox.ReloadScript(keyInDetention);
+                        txtBox.ContinueDialogue();
+                        evidenceRequired = "finished";
+                        break;
+                    }
+
+                case 99:
+
+                    {
+                        txtBox.ReloadScript(blueSprayer);
+                        txtBox.ContinueDialogue();
+                        presentEvidenceNow = true;
+                        evidenceRequired = "Haha you can't win from here";
+                        break;
+                    }
+
+                default:
+                    {
+                        Debug.Log("r u going in here");
+                        break;
+                    }
+
+            }
+        }
+    }
 
     /// <summary>
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-        if (inventory.GetSelectedItem() != null)
-		{
-            presentEvidenceNow = false;
-            txtBox.disableDialogueTap = false;
-			evidence = inventory.GetSelectedItem();
-            if (evidenceRequired.Equals(evidence._itemName))
-            {
-                trialDialogue(order);
-            } else
-            {
-                trialDialogue(currentCaseSwitch);
-                PersistenceController.instance.playerState.lives--;
-                if(PersistenceController.instance.playerState.lives == 0)
-                {
-					SceneManager.LoadScene(Configuration.loseGameSceneName);
-                }
-            }
-			keepScore(evidence._itemValue);
-			_evidenceCount++;
-
-		}
-		else
+        if (!act2Script)
         {
-	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
-	        presentEvidenceNow = false;
-	        txtBox.disableDialogueTap = false;
-	        //Debug.Log(godhelpme.GetSelectedEntry() +"");
-	        Text t = godhelpme.GetComponentInChildren<Text>();
-	        string clickedName = t.text;
-	        if (evidenceRequired.Equals(selectedText))
-	        {
-		        trialDialogue(order);
-	        }
-	        else
-	        {
-		        trialDialogue(currentCaseSwitch);
-		        PersistenceController.instance.playerState.lives--;
-		        if(PersistenceController.instance.playerState.lives == 0)
-		        {
-			        SceneManager.LoadScene(Configuration.endAct1SceneName);
-		        }
-	        }
-	        keepScore(godhelpme.GetSelectedEntry());
-	        godhelpme.journalEntryValue = 0;
-	        _evidenceCount++;
+            if (inventory.GetSelectedItem() != null)
+            {
+                presentEvidenceNow = false;
+                txtBox.disableDialogueTap = false;
+                evidence = inventory.GetSelectedItem();
+                if (evidenceRequired.Equals(evidence._itemName))
+                {
+                    trialDialogue(order);
+                }
+                else
+                {
+                    trialDialogue(currentCaseSwitch);
+                    PersistenceController.instance.playerState.lives--;
+                    if (PersistenceController.instance.playerState.lives == 0)
+                    {
+                        SceneManager.LoadScene(Configuration.loseGameSceneName);
+                    }
+                }
+                keepScore(evidence._itemValue);
+                _evidenceCount++;
+
+            }
+            else
+            {
+                godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+                presentEvidenceNow = false;
+                txtBox.disableDialogueTap = false;
+                //Debug.Log(godhelpme.GetSelectedEntry() +"");
+                Text t = godhelpme.GetComponentInChildren<Text>();
+                string clickedName = t.text;
+                if (evidenceRequired.Equals(selectedText))
+                {
+                    trialDialogue(order);
+                }
+                else
+                {
+                    Debug.Log("????????????");
+                    trialDialogue(currentCaseSwitch);
+                    PersistenceController.instance.playerState.lives--;
+                    if (PersistenceController.instance.playerState.lives == 0)
+                    {
+                        SceneManager.LoadScene(Configuration.endAct1SceneName);
+                    }
+                }
+                keepScore(godhelpme.GetSelectedEntry());
+                godhelpme.journalEntryValue = 0;
+                _evidenceCount++;
+            }
+        } else
+        {
+            if (inventory.GetSelectedItem() != null)
+            {
+                presentEvidenceNow = false;
+                txtBox.disableDialogueTap = false;
+                evidence = inventory.GetSelectedItem();
+                if (evidence._itemName.Equals(evidenceRequired))
+                {
+                    trialDialogue(order);
+                }
+                else
+                {
+                    if (currentCaseSwitch == 0 && evidence._itemName.Equals(Configuration.blueSprayName))
+                    {
+                        trialDialogue(99);
+                        return;
+                    }
+
+                    trialDialogue(currentCaseSwitch);
+                    PersistenceController.instance.playerState.lives--;
+                    if (PersistenceController.instance.playerState.lives == 0)
+                    {
+                        SceneManager.LoadScene(Configuration.endAct1SceneName);
+                    }
+                }
+                keepScore(evidence._itemValue);
+                _evidenceCount++;
+
+            }
+            else
+            {
+                godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+                presentEvidenceNow = false;
+                txtBox.disableDialogueTap = false;
+                //Debug.Log(godhelpme.GetSelectedEntry() +"");
+                Text t = godhelpme.GetComponentInChildren<Text>();
+                string clickedName = t.text;
+                if (evidenceRequired.Equals(selectedText))
+                {
+                    trialDialogue(order);
+                }
+                else
+                {
+                    trialDialogue(currentCaseSwitch);
+                    PersistenceController.instance.playerState.lives--;
+                    if (PersistenceController.instance.playerState.lives == 0)
+                    {
+                        SceneManager.LoadScene(Configuration.endAct1SceneName);
+                    }
+                }
+                keepScore(godhelpme.GetSelectedEntry());
+                godhelpme.journalEntryValue = 0;
+                _evidenceCount++;
+            }
         }
 	}
 
@@ -318,5 +496,4 @@ public class TrialScript : MonoBehaviour
                 }
         }
     }
-
 }
