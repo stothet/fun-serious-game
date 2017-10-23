@@ -48,6 +48,7 @@ public class PersistenceController
         public Dictionary<string, int> currentLine;
         public Dictionary<string, bool> givenEvidence;
         public Dictionary<string, bool> givenEvidenceRequiringTalk;
+        public Dictionary<string, bool> givenJournalUpdateEvidenceRequiringTalk;
         public Dictionary<string, bool> journalUpdated;
         public bool autoTalk = true;
 
@@ -64,7 +65,7 @@ public class PersistenceController
             journalUpdated = new Dictionary<string, bool>();
             currentLine = new Dictionary<string, int>();
             givenEvidenceRequiringTalk = new Dictionary<string, bool>();
-
+            givenJournalUpdateEvidenceRequiringTalk = new Dictionary<string, bool>();
         }
 }
 

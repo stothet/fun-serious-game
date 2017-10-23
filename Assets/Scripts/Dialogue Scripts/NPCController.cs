@@ -129,13 +129,13 @@ public class NPCController : MonoBehaviour {
                 if (PlayerHasRequiredItem())
                 {
                     Debug.Log(requiredItem + " ITEM3");
-                    if (PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(name) && PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] == false)
+                    if (!PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(name) || PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] == false)
                     {
                         Debug.Log(requiredItem + " ITEM4");
                         isEvidenceTalk = true;
                         shouldUpdateJournalWithNewDescription = true;
                         PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] = true;
-
+            
                         txtBox.ReloadScript(evidenceTriggerDialogueFile);
                         txtBox.ContinueDialogue();
                     }
@@ -204,11 +204,29 @@ public class NPCController : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// Gives the evidence item to the player
+    /// <summary>
+	/// Updates the journal based on the dialogue given
 	/// </summary>
-	/// <param name="player"> The player to give the evidence to </param>
-	public void GiveEvidence(PlayerController player)
+	/// <param name="journal"> The journal to be updated </param>
+	public void UpdateJournalSpecialEvidence(Journal journal)
+    {
+        Debug.Log("Updating with special evidence");
+        if (PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] == false)
+        {
+            journal.putJournalEntry(characterDescription2.text);
+            PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] = true;
+            Debug.Log("Special updated");
+
+        }
+    }
+
+
+
+    /// <summary>
+    /// Gives the evidence item to the player
+    /// </summary>
+    /// <param name="player"> The player to give the evidence to </param>
+    public void GiveEvidence(PlayerController player)
 	{
 		Debug.Log(name);
 		if (!PersistenceController.instance.dialogueState.givenEvidence[name])
@@ -221,7 +239,9 @@ public class NPCController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerStay2D(Collider2D other){
+
+
+    void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.CompareTag("Player") && (PersistenceController.instance.dialogueState.autoTalk)){
 			//txtBox.notNPC = false;
 			sr = GetComponent<SpriteRenderer>();
