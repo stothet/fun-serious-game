@@ -30,7 +30,6 @@ public class NPCController : MonoBehaviour {
 
 	public bool currentlyTalking;
 
-    bool shouldUpdateJournalWithNewDescription;
 
 	public bool journalUpdated;
 
@@ -51,7 +50,6 @@ public class NPCController : MonoBehaviour {
 		journalUpdated = false;
 		givenEvidence = false;
 		autoTalk = false;
-        shouldUpdateJournalWithNewDescription = false;
         if (!PersistenceController.instance.dialogueState.firstTalk.ContainsKey(name)){
 			PersistenceController.instance.dialogueState.firstTalk.Add(name, true);
 			PersistenceController.instance.dialogueState.givenEvidence.Add(name, false);
@@ -133,8 +131,7 @@ public class NPCController : MonoBehaviour {
                     {
                         Debug.Log(requiredItem + " ITEM4");
                         isEvidenceTalk = true;
-                        shouldUpdateJournalWithNewDescription = true;
-                        PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] = true;
+						PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.Add (name, true);
             
                         txtBox.ReloadScript(evidenceTriggerDialogueFile);
                         txtBox.ContinueDialogue();
@@ -211,7 +208,9 @@ public class NPCController : MonoBehaviour {
 	public void UpdateJournalSpecialEvidence(Journal journal)
     {
         Debug.Log("Updating with special evidence");
-        if (PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] == false)
+
+		if (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(name) ||
+			PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] == false)
         {
             journal.putJournalEntry(characterDescription2.text);
             PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] = true;
