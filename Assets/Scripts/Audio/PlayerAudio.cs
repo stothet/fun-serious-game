@@ -45,18 +45,17 @@ public class PlayerAudio : MonoBehaviour
         
         if (xpos != transform.position.x || ypos != transform.position.y)
         {
-            Debug.Log("STEP");
             if (onBuildingFloor)
             {
-                StepSound(SoundManager.audioBuildingStep, SoundManager.NUMBER_OF_BUILDING_STEPS);
+                StepSound(SoundManager.audioBuildingStep, SoundManager.NUMBER_OF_BUILDING_STEPS, 0.8f);
             }
             else if (onPath)
             {
-                StepSound(SoundManager.audioPathStep, SoundManager.NUMBER_OF_PATH_STEPS);
+                StepSound(SoundManager.audioPathStep, SoundManager.NUMBER_OF_PATH_STEPS, 0.8f);
             }
             else if (onGrass)
             {
-                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS);
+                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS, 0.6f);
             }
             
         }
@@ -71,12 +70,11 @@ public class PlayerAudio : MonoBehaviour
         }
 
     }
-    void StepSound(AudioClip[] audioClip, int numberOfSoundVariations)
+    void StepSound(AudioClip[] audioClip, int numberOfSoundVariations, float volume)
     {
-        Debug.Log("Play sound");
         if (stepTimer == 0)
         {
-            audioSource.PlayOneShot(audioClip[Random.Range(0, numberOfSoundVariations)], 0.2f);
+            audioSource.PlayOneShot(audioClip[Random.Range(0, numberOfSoundVariations)], volume);
             stepTimer = stepPause;
         }
     }

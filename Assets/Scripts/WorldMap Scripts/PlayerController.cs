@@ -74,7 +74,6 @@ public class PlayerController : MonoBehaviour {
             //inventory.addItem(0);
             other.gameObject.SetActive(false);
         }
-
     }
 
     /// <summary>
