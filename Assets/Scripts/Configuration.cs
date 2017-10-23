@@ -8,7 +8,7 @@ using System.Collections;
 public class Configuration
 {
     public static readonly bool isTestMode = false;                             // Enables test mode. Make sure this is false when releasing the final game
-    public static readonly bool isFastAct2Mode = true;                             // Enables fast act 2 mode. Make sure this is false when releasing the final game
+    public static readonly bool isFastAct2Mode = false;                             // Enables fast act 2 mode. Make sure this is false when releasing the final game
 
 
 
