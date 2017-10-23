@@ -70,18 +70,14 @@ public class Journal : MonoBehaviour {
 		
 		foreach (var key in PersistenceController.instance.journalState.journalEntries)
 		{
-			Debug.Log(key.Key + "KEYDOTKEY");
 			string k = key.Key;
 			if (k.Equals(text.text))
 			{
 				jrnl.journalEntryValue = key.Value;
-				
-				Debug.Log (jrnl.journalEntryValue + " HAKUNA MATATA");
 			}
 		}
 		Button b = selectedSlot.GetComponentInChildren<Button>();
 		b.interactable = false;
-
 	}
 
 	/// <summary>
@@ -92,6 +88,4 @@ public class Journal : MonoBehaviour {
 	{
 		return journalEntryValue;
 	}
-
-
 }

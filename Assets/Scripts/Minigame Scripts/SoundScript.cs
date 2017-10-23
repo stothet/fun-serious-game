@@ -74,7 +74,6 @@ public class SoundScript : MonoBehaviour
             {
                 completionButton = GameObject.FindGameObjectWithTag("BlowMinigameCompleteButton").GetComponent<Button>();
                 completionButton.interactable = true;
-                Debug.Log("DONE");
             }
 
         }
