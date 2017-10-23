@@ -422,7 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &44275413
 Prefab:
   m_ObjectHideFlags: 0
@@ -1204,7 +1203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &169878435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1602,6 @@ MonoBehaviour:
   pausePanel: {fileID: 1880357064}
   helpPanel: {fileID: 0}
   volumeSlider: {fileID: 2045667115}
-  volumeLabel: {fileID: 0}
 --- !u!114 &177983608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2397,7 +2394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &278858706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,7 +2502,6 @@ MonoBehaviour:
   livesKeeper: {fileID: 422949209}
   scoreKeeper: {fileID: 211417234}
   _score: {fileID: 1796873476}
-  _evidenceCount: 0
   choice1: {fileID: 449565543}
   choice2: {fileID: 1492766140}
   option1: {fileID: 0}
@@ -2517,11 +2512,6 @@ MonoBehaviour:
   bruceIsFree: {fileID: 4900000, guid: e6433e6f6ec204752b4c08cbbd6c8364, type: 3}
   goBack: {fileID: 4900000, guid: c8f4d2f53b3c745e098e8082ee770966, type: 3}
   youLose: {fileID: 4900000, guid: c316540c3408e4c3789a5b7915345151, type: 3}
-  inventory: {fileID: 0}
-  journal: {fileID: 0}
-  journalSlot: {fileID: 0}
-  submitButton: {fileID: 0}
-  godhelpme: {fileID: 0}
 --- !u!4 &283015564
 Transform:
   m_ObjectHideFlags: 0
@@ -2818,8 +2808,6 @@ MonoBehaviour:
   txtBox: {fileID: 1689302474}
   yesBtnObject: {fileID: 633774349}
   noBtnObject: {fileID: 1161589858}
-  yesBtn: {fileID: 0}
-  noBtn: {fileID: 0}
 --- !u!58 &316056408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2962,7 +2950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &340897862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,7 +4492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &535937107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,7 +4865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &588552817
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,8 +5681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b53a7a01b3be94981cf2fc7119bd12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 0}
-  myCam: {fileID: 0}
 --- !u!114 &641704448 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11457482, guid: 15c85663ca8babe4186ac4b018ed4bd6,
@@ -6367,7 +6350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c67ae6089f0d5418db94b21391c2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btn: {fileID: 0}
 --- !u!114 &707390555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7346,7 +7328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &793738613
 GameObject:
   m_ObjectHideFlags: 0
@@ -7863,7 +7844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &824353930
 GameObject:
   m_ObjectHideFlags: 0
@@ -8280,10 +8260,6 @@ MonoBehaviour:
   panel: {fileID: 1892823636}
   slots: {fileID: 192292, guid: 136b07a7758eac14ea28563f1e52f074, type: 2}
   _inventoryTabImage: {fileID: 0}
-  database: {fileID: 0}
-  _journal: {fileID: 0}
-  x: -90
-  y: 100
 --- !u!114 &848414140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9367,7 +9343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63ed93a2f31d14428f371de795cd583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footsteps: {fileID: 0}
 --- !u!60 &955892875
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9496,7 +9471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &976889528
 GameObject:
   m_ObjectHideFlags: 0
@@ -10269,7 +10243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &1050075823
 Prefab:
   m_ObjectHideFlags: 0
@@ -10405,7 +10378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1094794022
 GameObject:
   m_ObjectHideFlags: 0
@@ -10754,13 +10726,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1830971136}
-  offset: {x: 0, y: 0, z: 0}
-  mycam: {fileID: 0}
   speed: 10
   shakeSpeedY: 0
   shakeSpeedX: 0
   tiltActive: 0
-  currentGyroPlacement: {x: 0, y: 0, z: 0}
 --- !u!81 &1124120202
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11384,7 +11353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80ba38b95596324bb048fb4ec6944e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footsteps: {fileID: 0}
 --- !u!61 &1179444890
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11729,7 +11697,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 0}
   gameObject: {fileID: 642491049}
-  selected: 0
 --- !u!114 &1213171452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12068,7 +12035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1228191511
 GameObject:
   m_ObjectHideFlags: 0
@@ -12560,7 +12526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &1262633149
 Prefab:
   m_ObjectHideFlags: 0
@@ -12697,7 +12662,7 @@ Prefab:
       objectReference: {fileID: 4900000, guid: e94b690241da5d74fb073f0160cc4b6a, type: 3}
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: evidenceName
-      value: Bruce's register entry
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: evidenceTriggerDialogueFile
@@ -12953,7 +12918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00870df19a6a67246bec3a4ed9d46f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footsteps: {fileID: 0}
 --- !u!1 &1308342685
 GameObject:
   m_ObjectHideFlags: 0
@@ -13311,7 +13275,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1320616746}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13735,7 +13699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1379145765
 GameObject:
   m_ObjectHideFlags: 0
@@ -14102,7 +14065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1421947075
 GameObject:
   m_ObjectHideFlags: 0
@@ -14364,7 +14326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &1441364334
 Prefab:
   m_ObjectHideFlags: 0
@@ -14609,7 +14570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1001 &1488913083
 Prefab:
   m_ObjectHideFlags: 0
@@ -14867,13 +14827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - {fileID: 2037842999}
-  destPoint: 0
-  agent: {fileID: 0}
-  anim: {fileID: 0}
-  lastMove: {x: 0, y: 0}
-  playerMoving: 0
   currentWayPoint: 0
-  targetWayPoint: {fileID: 0}
   speed: 4
 --- !u!95 &1499623791
 Animator:
@@ -15696,7 +15650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1640919154
 GameObject:
   m_ObjectHideFlags: 0
@@ -15767,7 +15720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1645706267
 GameObject:
   m_ObjectHideFlags: 0
@@ -15966,7 +15918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1665225920
 GameObject:
   m_ObjectHideFlags: 0
@@ -17076,13 +17027,6 @@ MonoBehaviour:
   onGrass: 0
   onBuildingFloor: 0
   atDoor: 0
-  stepTimer: 0
-  stepPause: 0.42
-  xpos: 0
-  ypos: 0
-  playerController: {fileID: 0}
-  touchControls: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!114 &1759400167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17418,7 +17362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1796873474
 GameObject:
   m_ObjectHideFlags: 0
@@ -17757,7 +17700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1874020712
 GameObject:
   m_ObjectHideFlags: 0
@@ -17998,7 +17940,6 @@ MonoBehaviour:
   pausePanel: {fileID: 1880357064}
   helpPanel: {fileID: 1213171449}
   volumeSlider: {fileID: 2045667115}
-  volumeLabel: {fileID: 0}
 --- !u!1 &1885819862
 GameObject:
   m_ObjectHideFlags: 0
@@ -18394,7 +18335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &1923423470
 GameObject:
   m_ObjectHideFlags: 0
@@ -19062,7 +19002,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -10.00914, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1995804238
@@ -19079,9 +19019,7 @@ MonoBehaviour:
   journalEntry: {fileID: 0}
   journalEntryValue: 0
   JournalSlot: {fileID: 196656, guid: df8994a2927f0b84cabe4361db74b3d6, type: 2}
-  selectedText: {fileID: 0}
   _entries: []
-  journalTabImage: {fileID: 0}
   counter: 0
 --- !u!114 &1995804239
 MonoBehaviour:
@@ -19410,10 +19348,6 @@ MonoBehaviour:
   SOMET: {fileID: 1892823636}
   Submit: {fileID: 661916287}
   trial: {fileID: 0}
-  inventoryTabImage: {fileID: 0}
-  journalTabImage: {fileID: 0}
-  active: 0
-  currentTab: 
 --- !u!1001 &2020228826
 Prefab:
   m_ObjectHideFlags: 0
