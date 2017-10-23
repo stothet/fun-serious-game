@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
@@ -14,14 +15,15 @@ public class Journal : MonoBehaviour {
 	private Text selectedText;
 	public List<Button> _entries = new List<Button>();
 	Image journalTabImage;
-	public int counter;
+	public JournalValues journalValues;
+	public int _score;
 	public void Start()
 	{	
-		counter = 0;
 		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
-		for(int i = 0; i<PersistenceController.instance.journalState.journal.Count; i++)
+		journalValues = GameObject.FindGameObjectWithTag("JournalValues").GetComponent<JournalValues>();
+		foreach (var key in PersistenceController.instance.journalState.journalEntries)
 		{
-			putJournalEntry(PersistenceController.instance.journalState.journal[i]);
+			putJournalEntry(key.Key,key.Value);
 		}
 
 	}
@@ -30,27 +32,29 @@ public class Journal : MonoBehaviour {
 	/// Adds a new journal slot to the journal interface, populated with the desired text.
 	/// </summary>
 	/// <param name="txt">Text to be added to the journal slot entry.</param>
-	public void putJournalEntry(string txt)
+	public void putJournalEntry(string txt, int score)
 	{
 
-		if (!PersistenceController.instance.journalState.journal.Contains(txt))
+		if (!PersistenceController.instance.journalState.journalEntries.ContainsKey(txt))
 		{
-			counter += 1;
 			//if(PersistenceController.JournalState.journal)
 			GameObject slot = GameObject.Instantiate(JournalSlot);
 			//slot.AddComponent<RectTransform>();
 			slot.AddComponent<Button>();
+			slot.AddComponent<Text>();
 			Button b = slot.GetComponentInChildren<Button>();
 			b.onClick.AddListener(TaskOnClick);
 			_entries.Add(b);
-			
+			Text text = slot.GetComponent<Text>();
 			journalEntry = slot.GetComponentInChildren<Text>();
 			slot.transform.SetParent(this.gameObject.transform, false);
 			journalEntry.text = txt;
+			
 
 			Journal jrnl = slot.GetComponent<Journal>(); //Get the journal object of the slot instance.
-			jrnl.journalEntryValue = counter; //Set the journal entry value. Hardcoded as 6 as an example.
-			PersistenceController.instance.journalState.journal.Add(txt);
+			
+			_score = score; //Set the journal entry value. Hardcoded as 6 as an example.
+			PersistenceController.instance.journalState.journalEntries.Add(txt,score);
 			journalTabImage.sprite = Resources.Load<Sprite> ("Icons/JournalIconAlert");
 		}
 		//journalEntry.text = PersistenceController.JournalState.journal;
@@ -60,8 +64,23 @@ public class Journal : MonoBehaviour {
 	{
 		GameObject selectedSlot = EventSystem.current.currentSelectedGameObject;
 		Journal jrnl = selectedSlot.GetComponent<Journal> ();
-		Debug.Log (jrnl.journalEntryValue + " HAKUNA MATATA");
-		//selectedText = selectedSlot.GetComponentInChildren<Text>();
+
+		//Text text = selectedSlot.GetComponent<Text>();
+		Text text = selectedSlot.GetComponentInChildren<Text>();
+		
+		foreach (var key in PersistenceController.instance.journalState.journalEntries)
+		{
+			Debug.Log(key.Key + "KEYDOTKEY");
+			string k = key.Key;
+			if (k.Equals(text.text))
+			{
+				jrnl.journalEntryValue = key.Value;
+				
+				Debug.Log (jrnl.journalEntryValue + " HAKUNA MATATA");
+			}
+		}
+		Button b = selectedSlot.GetComponentInChildren<Button>();
+		b.interactable = false;
 
 	}
 

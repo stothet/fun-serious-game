@@ -98,11 +98,12 @@ public class PersistenceController
     [Serializable]
     public class JournalState
     {
-        public List<string> journal;
+        public Dictionary<string, int> journalEntries;
+        
         //public NPCController NPC = null;
         public JournalState()
         {
-            journal = new List<string>();
+            journalEntries = new Dictionary<string, int>();
            // NPC = null;
         }
     }

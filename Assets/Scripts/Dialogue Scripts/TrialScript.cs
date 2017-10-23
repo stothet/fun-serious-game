@@ -222,12 +222,10 @@ public class TrialScript : MonoBehaviour
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-	    godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
 	    
-	    Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
-			
+			Debug.Log("INVENTORY");
 			evidence = inventory.GetSelectedItem();
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
@@ -236,14 +234,13 @@ public class TrialScript : MonoBehaviour
 			//}
 
 		}
-		else if (godhelpme.GetSelectedEntry() != 9999999)
+		else
         {
+	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+	        Debug.Log(godhelpme.GetSelectedEntry() +"");
 	        keepScore(godhelpme.GetSelectedEntry());
+	        godhelpme.journalEntryValue = 0;
         }
-		else{
-			// Do nothing as nothing is selected
-			return;
-		}
 	}
 
 
