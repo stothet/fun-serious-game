@@ -8,7 +8,7 @@ using System.Collections;
 public class Configuration
 {
     public static readonly bool isTestMode = false;                             // Enables test mode. Make sure this is false when releasing the final game
-    public static readonly bool isFastAct2Mode = false;                             // Enables fast act 2 mode. Make sure this is false when releasing the final game
+	public static readonly bool isFastAct2Mode = false;                             // Enables fast act 2 mode. Make sure this is false when releasing the final game
 
 
 
@@ -50,6 +50,7 @@ public class Configuration
     public static readonly string principalsKeysName = "Keys to the principal's office";
     public static readonly string photographName = "Group photo of Brad, Jimmy and Bruce";
     public static readonly string capName = "Blue Cap with a red cross";
+	public static readonly string examScriptName = "Exam Script";
     
 
 
@@ -61,5 +62,6 @@ public class Configuration
     public static readonly string principalsKeysNameDescription = "";
     public static readonly string photographNameDescription = "";
     public static readonly string capNameDescription = "";
+	public static readonly string examScriptNameDescription = "";
 
 }
