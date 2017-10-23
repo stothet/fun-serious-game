@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoorAudio : MonoBehaviour {
+public class UIAudio : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
