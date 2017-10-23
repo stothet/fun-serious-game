@@ -2300,6 +2300,7 @@ MonoBehaviour:
   trialActive: 0
   txtBox: {fileID: 1689302474}
   presentEvidenceNow: 0
+  act2Script: 1
   livesKeeper: {fileID: 422949209}
   scoreKeeper: {fileID: 211417234}
   _score: {fileID: 1796873476}
@@ -2307,12 +2308,21 @@ MonoBehaviour:
   choice2: {fileID: 1492766140}
   option1: {fileID: 793738615}
   option2: {fileID: 134615455}
-  trialStart: {fileID: 4900000, guid: c77f38d80b9484047b32eb43354b9177, type: 3}
-  introFile: {fileID: 4900000, guid: 6b5608c1f021e41d4a63004b6e23bdfb, type: 3}
-  prelude: {fileID: 4900000, guid: 8da2c42bd9c164baaa419a7384d905e5, type: 3}
-  bruceIsFree: {fileID: 4900000, guid: e6433e6f6ec204752b4c08cbbd6c8364, type: 3}
-  goBack: {fileID: 4900000, guid: c8f4d2f53b3c745e098e8082ee770966, type: 3}
-  youLose: {fileID: 4900000, guid: c316540c3408e4c3789a5b7915345151, type: 3}
+  trialStart: {fileID: 0}
+  introFile: {fileID: 0}
+  prelude: {fileID: 0}
+  bruceIsFree: {fileID: 0}
+  goBack: {fileID: 0}
+  youLose: {fileID: 0}
+  keyInDetention: {fileID: 4900000, guid: f3ba0a68d47022943972c9bdcc6155c9, type: 3}
+  rileyJournal: {fileID: 4900000, guid: 87762c9d05c73d1479c03d241acd1a87, type: 3}
+  hatPhoto: {fileID: 4900000, guid: e583140b1c0aff64d9fd39d29431205e, type: 3}
+  ritaJournal: {fileID: 4900000, guid: 610db9bd8eefbce4b94345d1c701803a, type: 3}
+  blueDrink: {fileID: 4900000, guid: f8fac25f42fa28c46b9f44149a411222, type: 3}
+  blueSprayer: {fileID: 4900000, guid: 99a2b8f1e3f87cd41afcb6e0fbd2d733, type: 3}
+  blueLiquidPrompt: {fileID: 4900000, guid: 8a02a12830c31e94f90686e4edc90dcc, type: 3}
+  wilsonConfused: {fileID: 4900000, guid: ff6ce48dd48d9034881ef465902e4e29, type: 3}
+  trialIntro: {fileID: 4900000, guid: 72abbcbf8c3639d4db6a57fa1e79f68e, type: 3}
   evidenceRequired: 
 --- !u!4 &283015564
 Transform:
@@ -6014,7 +6024,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 283015563}
         m_MethodName: SelectObjectEvidence
         m_Mode: 1
         m_Arguments:
@@ -6262,7 +6272,7 @@ Prefab:
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: initialDialogueFile
       value: 
-      objectReference: {fileID: 4900000, guid: 948ac0540f4603849bc4efe853e4ed28, type: 3}
+      objectReference: {fileID: 4900000, guid: 0ec96023071dd8b479420128d08df055, type: 3}
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: defaultDialogueFile
       value: 
@@ -8907,11 +8917,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 440098, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 420906, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2350310, guid: 7827664456e0de24c9f19963a628f94e, type: 2}
       propertyPath: m_SortingOrder
@@ -10749,6 +10759,10 @@ Prefab:
       propertyPath: initialDialogueFile
       value: 
       objectReference: {fileID: 4900000, guid: 33d12a5355ebec849b8b97552c24b65c, type: 3}
+    - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: characterDescription
+      value: 
+      objectReference: {fileID: 4900000, guid: ab74194e77b56614088b5b898cf66c68, type: 3}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
@@ -15732,7 +15746,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 420432, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 471262, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
       propertyPath: m_RootOrder
@@ -15748,7 +15762,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 479588, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70b0ec0ff2405b045bbeb04e8108dab7, type: 2}
@@ -19522,7 +19536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495084, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 467712, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19530,19 +19544,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463648, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 455040, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 443316, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 432886, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 419462, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19550,15 +19564,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418000, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 412462, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 411710, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 401242, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19586,19 +19600,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498524, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 415100, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 426334, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 487594, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 484648, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
@@ -19614,7 +19628,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498374, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ff85444d70b47b4ab6c76afa2741756, type: 2}
@@ -19730,7 +19744,7 @@ MonoBehaviour:
   journalPanel: {fileID: 714038951}
   SOMET: {fileID: 1892823636}
   Submit: {fileID: 661916287}
-  trial: {fileID: 0}
+  trial: {fileID: 283015563}
 --- !u!1001 &2020228826
 Prefab:
   m_ObjectHideFlags: 0
