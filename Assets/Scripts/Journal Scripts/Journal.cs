@@ -9,6 +9,7 @@ using UnityEngine.UI;
 /// </summary>
 public class Journal : MonoBehaviour {
     public Text journalEntry;
+	public int journalEntryValue;
     public GameObject JournalSlot;
     private Text selectedText;
     public List<Button> _entries = new List<Button>();
@@ -39,6 +40,9 @@ public class Journal : MonoBehaviour {
         journalEntry = slot.GetComponentInChildren<Text>();
         slot.transform.SetParent(this.gameObject.transform, false);
         journalEntry.text = txt;
+
+		Journal jrnl = slot.GetComponent<Journal> (); //Get the journal object of the slot instance.
+		jrnl.journalEntryValue = 6; //Set the journal entry value. Hardcoded as 6 as an example.
         if (!PersistenceController.instance.journalState.journal.Contains(txt))
         {
             PersistenceController.instance.journalState.journal.Add(txt);
@@ -50,7 +54,8 @@ public class Journal : MonoBehaviour {
     {
         Debug.Log("HERe2");
         GameObject selectedSlot = EventSystem.current.currentSelectedGameObject;
-        selectedText = selectedSlot.GetComponentInChildren<Text>();
+
+        //selectedText = selectedSlot.GetComponentInChildren<Text>();
 
     }
 
