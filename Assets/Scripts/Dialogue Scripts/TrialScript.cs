@@ -92,12 +92,12 @@ public class TrialScript : MonoBehaviour
         Debug.Log("Updating XDXD");
 		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
 			&& trialFinished) {
-			string nextScene;
-			switch (SceneManager.GetActiveScene) {
-			case Configuration.act2SceneSceneName:
-				nextScene = Configuration.act2SceneSceneName;
-		
-			case Configuration.worldMapSceneName:
+			string nextScene = null;
+			string sceneName = SceneManager.GetActiveScene ().name;
+			if (sceneName == Configuration.act2SceneSceneName) {
+				nextScene = Configuration.endAct2SceneName;
+			}
+			else if (sceneName == Configuration.worldMapSceneName) {
 				nextScene = Configuration.endAct1SceneName;
 			}
             Debug.Log("Changing to next scene " + nextScene);
