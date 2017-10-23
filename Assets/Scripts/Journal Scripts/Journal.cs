@@ -14,9 +14,10 @@ public class Journal : MonoBehaviour {
     private Text selectedText;
     public List<Button> _entries = new List<Button>();
     Image journalTabImage;
-
+	public int counter;
     public void Start()
-    {
+    {	
+		counter = 0;
 		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
         for(int i = 0; i<PersistenceController.instance.journalState.journal.Count; i++)
         {
@@ -31,6 +32,7 @@ public class Journal : MonoBehaviour {
     /// <param name="txt">Text to be added to the journal slot entry.</param>
     public void putJournalEntry(string txt)
     {
+		counter += 1;
         //if(PersistenceController.JournalState.journal)
         GameObject slot = GameObject.Instantiate(JournalSlot);
         slot.AddComponent<RectTransform>();
@@ -44,7 +46,7 @@ public class Journal : MonoBehaviour {
         journalEntry.text = txt;
 
 		Journal jrnl = slot.GetComponent<Journal> (); //Get the journal object of the slot instance.
-		jrnl.journalEntryValue = 6; //Set the journal entry value. Hardcoded as 6 as an example.
+		jrnl.journalEntryValue = counter; //Set the journal entry value. Hardcoded as 6 as an example.
         if (!PersistenceController.instance.journalState.journal.Contains(txt))
         {
             PersistenceController.instance.journalState.journal.Add(txt);
@@ -57,7 +59,7 @@ public class Journal : MonoBehaviour {
     {
         Debug.Log("HERe2");
         GameObject selectedSlot = EventSystem.current.currentSelectedGameObject;
-
+		//Debug.Log (jrnl.journalEntryValue);
         //selectedText = selectedSlot.GetComponentInChildren<Text>();
 
     }

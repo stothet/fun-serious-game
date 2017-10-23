@@ -2437,7 +2437,7 @@ GameObject:
   - 114: {fileID: 296471225}
   m_Layer: 5
   m_Name: JournalTab
-  m_TagString: Untagged
+  m_TagString: JournalTab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3802,7 +3802,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!60 &461564214
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4958,7 +4958,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847682925}
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8406,7 +8406,7 @@ GameObject:
   - 114: {fileID: 956829321}
   m_Layer: 5
   m_Name: InventoryTab
-  m_TagString: Untagged
+  m_TagString: InventoryTab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8684,7 +8684,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!114 &979006637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9493,6 +9493,7 @@ MonoBehaviour:
   _slots: []
   panel: {fileID: 1945104138}
   slots: {fileID: 192292, guid: 136b07a7758eac14ea28563f1e52f074, type: 2}
+  _inventoryTabImage: {fileID: 0}
 --- !u!114 &1091506246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14769,6 +14770,7 @@ MonoBehaviour:
   txtLine: []
   currentLine: 0
   endLine: 0
+  notNPC: 0
   player: {fileID: 641704448}
   NPC: {fileID: 0}
   sprite1: {fileID: 21300036, guid: 581cb0b93f531f74e98375493cbab8eb, type: 3}
@@ -16642,7 +16644,7 @@ RectTransform:
   - {fileID: 799436635}
   - {fileID: 1040175085}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 17
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -16875,6 +16877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   journalEntry: {fileID: 0}
+  journalEntryValue: 0
   JournalSlot: {fileID: 196656, guid: df8994a2927f0b84cabe4361db74b3d6, type: 2}
   _entries: []
 --- !u!114 &1975144656
