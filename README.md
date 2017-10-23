@@ -26,3 +26,19 @@ A game based on a serious genre, built with the unity game engine.
 * It is currently possible to end the principal's trial by continuing with spacebar. Doing this will add trial dialogue button options to Jimmy and Rita (unintended).
 * (RESOLVED)Talking to Jimmy, then solving Rita's math minigame and then talking to Jimmy again will add duplicate Jimmy entries to the journal (this happens with or without collecting the register entry from Rita).
 * (RESOLVED)Solving Rita's math minigame clears the journal. Talking to Rita, Bill, or Jimmy again to obtain the register entry restores journal state. However if Bill or Jimmy have been previously talked to, a duplicate entry will be made to the journal.
+
+
+### Playtesting bugs 23/10
+* When picking up the scrunched paper, a dialogue with a random npc begins (might need to play minigame first)
+* Can walk off the map
+* Dialogue sometimes overflows and has some typos
+* Controls disappear after minigame until dialogue is completed
+* Erin appears on top of the lunchlady after the minigame
+* The basketball is too big
+* The basketball hoops randomly disappear
+* The journal/inventory times need updating eg Bruce's register entry.
+* Leaving a room after clicking tilt on a computer gives a black screen
+* Must start the trial twice
+* Can't talk to Jimmy
+* Walk animation for mobile joystick always goes up
+* Lives aren't used during the trial
