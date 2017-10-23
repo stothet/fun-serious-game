@@ -279,6 +279,7 @@ public class TrialScript : MonoBehaviour
                         txtBox.ReloadScript(blueDrink);
                         txtBox.ContinueDialogue();
                         presentEvidenceNow = true;
+                        Debug.Log("Does it go here or not?");
                         evidenceRequired = "Lunchlady Rita: Sold three blue drinks today, to Brad, Jimmy, and Bruce.";
                         break;
                     }
@@ -374,19 +375,19 @@ public class TrialScript : MonoBehaviour
             }
             else
             {
-                godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+                Debug.Log("Does this call?");
+                //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
                 presentEvidenceNow = false;
                 txtBox.disableDialogueTap = false;
                 //Debug.Log(godhelpme.GetSelectedEntry() +"");
-                Text t = godhelpme.GetComponentInChildren<Text>();
-                string clickedName = t.text;
+                //Text t = godhelpme.GetComponentInChildren<Text>();
+                //string clickedName = t.text;
                 if (evidenceRequired.Equals(selectedText))
                 {
                     trialDialogue(order);
                 }
                 else
                 {
-                    Debug.Log("????????????");
                     trialDialogue(currentCaseSwitch);
                     PersistenceController.instance.playerState.lives--;
                     if (PersistenceController.instance.playerState.lives == 0)
@@ -405,6 +406,7 @@ public class TrialScript : MonoBehaviour
                 presentEvidenceNow = false;
                 txtBox.disableDialogueTap = false;
                 evidence = inventory.GetSelectedItem();
+                inventory.SetSelectedItem(null);
                 if (evidence._itemName.Equals(evidenceRequired))
                 {
                     trialDialogue(order);
@@ -430,12 +432,15 @@ public class TrialScript : MonoBehaviour
             }
             else
             {
-                godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+                //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
                 presentEvidenceNow = false;
                 txtBox.disableDialogueTap = false;
                 //Debug.Log(godhelpme.GetSelectedEntry() +"");
-                Text t = godhelpme.GetComponentInChildren<Text>();
-                string clickedName = t.text;
+                //Text t = godhelpme.GetComponentInChildren<Text>();
+                //string clickedName = t.text;
+                Debug.Log("HELLO");
+                Debug.Log("a: "+evidenceRequired);
+                Debug.Log("B:" +selectedText);
                 if (evidenceRequired.Equals(selectedText))
                 {
                     trialDialogue(order);
@@ -449,8 +454,8 @@ public class TrialScript : MonoBehaviour
                         SceneManager.LoadScene(Configuration.endAct1SceneName);
                     }
                 }
-                keepScore(godhelpme.GetSelectedEntry());
-                godhelpme.journalEntryValue = 0;
+                //keepScore(godhelpme.GetSelectedEntry());
+                //godhelpme.journalEntryValue = 0;
                 _evidenceCount++;
             }
         }

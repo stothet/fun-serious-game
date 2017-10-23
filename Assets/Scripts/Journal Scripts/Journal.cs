@@ -20,7 +20,7 @@ public class Journal : MonoBehaviour {
 	public void Start()
 	{	
 		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
-		journalValues = GameObject.FindGameObjectWithTag("JournalValues").GetComponent<JournalValues>();
+		//journalValues = GameObject.FindGameObjectWithTag("JournalValues").GetComponent<JournalValues>();
 		foreach (var key in PersistenceController.instance.journalState.journalEntries)
 		{
 			putJournalEntry(key.Key, key.Value);
