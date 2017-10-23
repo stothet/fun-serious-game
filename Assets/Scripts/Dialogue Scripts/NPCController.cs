@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using UnityEngine.UI;
 /// <summary>
 /// This class controls how NCPs behave and interact with the player
 /// </summary>
@@ -14,8 +16,11 @@ public class NPCController : MonoBehaviour {
 	public TextAsset initialDialogueFile;
 	public TextAsset defaultDialogueFile;
 	public TextAsset characterDescription;
+    public TextAsset evidenceTriggerDialogueFile;
+    public TextAsset characterDescription2;
+    public string requiredItem;
 
-	public TextBoxManager txtBox;
+    public TextBoxManager txtBox;
 	public TrialScript trialBox;
 
 	public Sprite _sprite;
@@ -24,6 +29,8 @@ public class NPCController : MonoBehaviour {
 	private SpriteRenderer sr;
 
 	public bool currentlyTalking;
+
+    bool shouldUpdateJournalWithNewDescription;
 
 	public bool journalUpdated;
 
@@ -44,7 +51,8 @@ public class NPCController : MonoBehaviour {
 		journalUpdated = false;
 		givenEvidence = false;
 		autoTalk = false;
-		if (!PersistenceController.instance.dialogueState.firstTalk.ContainsKey(name)){
+        shouldUpdateJournalWithNewDescription = false;
+        if (!PersistenceController.instance.dialogueState.firstTalk.ContainsKey(name)){
 			PersistenceController.instance.dialogueState.firstTalk.Add(name, true);
 			PersistenceController.instance.dialogueState.givenEvidence.Add(name, false);
 			PersistenceController.instance.dialogueState.journalUpdated.Add(name, false);
@@ -202,38 +210,54 @@ public class NPCController : MonoBehaviour {
 				currentlyTalking = true;
 				txtBox.IdentifyNPC (this);
 				Debug.Log(name);
-				if (PersistenceController.instance.dialogueState.firstTalk[name])
-				{
-					txtBox.ReloadScript(initialDialogueFile);
-					if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
-						PersistenceController.instance.dialogueState.firstTalk[name] == true)
-					{
+                bool isEvidenceTalk = false;
+                if (requiredItem != null)
+                {
+                    if (PlayerHasRequiredItem())
+                    {
+                        isEvidenceTalk = true;
+                        shouldUpdateJournalWithNewDescription = true;
+                        txtBox.ReloadScript(evidenceTriggerDialogueFile);
+                    }
+                }
+                if (!isEvidenceTalk)
+                {
+                    if (PersistenceController.instance.dialogueState.firstTalk[name])
+                    {
+                        txtBox.ReloadScript(initialDialogueFile);
+                        if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
+                            PersistenceController.instance.dialogueState.firstTalk[name] == true)
+                        {
 
-					}
-					else
-					{
-						PersistenceController.instance.dialogueState.firstTalk[name] = false;
-					}
+                        }
+                        else
+                        {
+                            PersistenceController.instance.dialogueState.firstTalk[name] = false;
+                        }
 
 
-					if (autoTalk)
-					{
-						txtBox.ContinueDialogue();
-					}
+                        if (autoTalk)
+                        {
+                            txtBox.ContinueDialogue();
+                        }
 
-				}
-				else
-				{
-					if(_name.Equals("Wilson")){
-						trialBox = FindObjectOfType<TrialScript>();
-						trialBox.trialDialogue(-1);
-						trialBox.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        if (_name.Equals("Wilson"))
+                        {
+                            trialBox = FindObjectOfType<TrialScript>();
+                            trialBox.trialDialogue(-1);
+                            trialBox.gameObject.SetActive(true);
 
-					}
-					else{
-						txtBox.ReloadScript(defaultDialogueFile);
-					}
-				}
+                        }
+                        else
+                        {
+                            txtBox.ReloadScript(defaultDialogueFile);
+                        }
+                    }
+                }
+                
 			} else
 			{
 				return;
@@ -256,4 +280,10 @@ public class NPCController : MonoBehaviour {
 	public void setOrder(int _order){
 		order = _order;
 	}
+
+    public bool PlayerHasRequiredItem()
+    {
+        List<string> localDB = PersistenceController.instance.inventoryState.database;
+        return localDB.Contains(requiredItem);
+    }
 }

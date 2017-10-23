@@ -12217,8 +12217,8 @@ Prefab:
       objectReference: {fileID: 4900000, guid: c8ef5250393cfca46b4f0490f7c1a029, type: 3}
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: requiredItem
-      value: 
-      objectReference: {fileID: 4900000, guid: 64426e48914f20b41b1f8ffa0b410e4f, type: 3}
+      value: Blue drink
+      objectReference: {fileID: 0}
     - target: {fileID: 11419286, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
       propertyPath: characterDescription2
       value: 
@@ -17919,7 +17919,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -0.000076293945, y: 0}
+  m_AnchoredPosition: {x: -10.009125, y: 0}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1975144655
