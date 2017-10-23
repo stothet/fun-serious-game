@@ -2681,25 +2681,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2211f238ce32d4708894c9a702fe2d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trialActive: 0
   trialFinished: 0
-  question: {fileID: 1344479875}
+  order: -1
+  trialActive: 0
   txtBox: {fileID: 1689302474}
-  scoreKeeper: {fileID: 211417234}
   livesKeeper: {fileID: 422949209}
+  scoreKeeper: {fileID: 211417234}
   _score: {fileID: 1796873476}
-  option1: {fileID: 172292576}
-  option2: {fileID: 224414364}
-  option3: {fileID: 1562124335}
   choice1: {fileID: 449565543}
   choice2: {fileID: 1492766140}
+  option1: {fileID: 0}
+  option2: {fileID: 0}
+  trialStart: {fileID: 0}
   introFile: {fileID: 4900000, guid: 6b5608c1f021e41d4a63004b6e23bdfb, type: 3}
   prelude: {fileID: 4900000, guid: 8da2c42bd9c164baaa419a7384d905e5, type: 3}
   bruceIsFree: {fileID: 4900000, guid: e6433e6f6ec204752b4c08cbbd6c8364, type: 3}
   goBack: {fileID: 4900000, guid: c8f4d2f53b3c745e098e8082ee770966, type: 3}
   youLose: {fileID: 4900000, guid: c316540c3408e4c3789a5b7915345151, type: 3}
-  player: {fileID: 0}
-  NPC: {fileID: 0}
 --- !u!4 &283015564
 Transform:
   m_ObjectHideFlags: 0
@@ -2851,7 +2849,7 @@ RectTransform:
   m_Children:
   - {fileID: 1034064102}
   m_Father: {fileID: 1231122013}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 290.59995, y: 104.19998}
@@ -7747,11 +7745,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1320845554}
-  m_Father: {fileID: 2014871312}
-  m_RootOrder: 2
+  m_Father: {fileID: 1231122013}
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -153, y: -101}
+  m_AnchoredPosition: {x: 33.500015, y: -79.15001}
   m_SizeDelta: {x: 85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &878829298
@@ -8680,7 +8678,7 @@ RectTransform:
   - {fileID: 115029683}
   - {fileID: 326215317}
   m_Father: {fileID: 1231122013}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 250.0999, y: 104.2}
@@ -11484,6 +11482,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 878829297}
   - {fileID: 1945104141}
   - {fileID: 296471224}
   - {fileID: 956829320}
@@ -11508,6 +11507,8 @@ MonoBehaviour:
   inventoryPanel: {fileID: 1087654084}
   journalPanel: {fileID: 1578609787}
   SOMET: {fileID: 1945104138}
+  Submit: {fileID: 0}
+  trial: {fileID: 0}
 --- !u!1 &1231301579
 GameObject:
   m_ObjectHideFlags: 0
@@ -17110,7 +17111,7 @@ RectTransform:
   - {fileID: 1578609788}
   - {fileID: 2014871312}
   m_Father: {fileID: 1231122013}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 136, y: -30}
@@ -17250,7 +17251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   journalEntry: {fileID: 0}
+  journalEntryValue: 0
   JournalSlot: {fileID: 196656, guid: df8994a2927f0b84cabe4361db74b3d6, type: 2}
+  _entries: []
 --- !u!114 &1975144656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17605,7 +17608,6 @@ RectTransform:
   m_Children:
   - {fileID: 2044773044}
   - {fileID: 1091506244}
-  - {fileID: 878829297}
   m_Father: {fileID: 1945104141}
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
