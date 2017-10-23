@@ -7904,7 +7904,7 @@ GameObject:
   - 212: {fileID: 814252120}
   - 58: {fileID: 814252119}
   m_Layer: 0
-  m_Name: Blue Spray
+  m_Name: Blue spray
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
