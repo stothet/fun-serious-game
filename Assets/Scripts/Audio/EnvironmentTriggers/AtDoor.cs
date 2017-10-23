@@ -15,7 +15,6 @@ public class AtDoor : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("DOOR OPEN");
             player.PlayDoorSound();
         }
     }

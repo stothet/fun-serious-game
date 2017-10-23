@@ -44,10 +44,6 @@ public class TrialScript : MonoBehaviour
 	// score data type
 	public static int cumulative=0;
 
-	//characters
-	//public PlayerController player;
-	//public NPCController NPC;
-
 	public Item evidence;
 	private Inventory inventory;
 	private Journal journal;
@@ -67,23 +63,22 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Start ()
 	{
-		//NPC = FindObjectOfType<NPCController>();
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
         evidenceRequired = "none";
+<<<<<<< HEAD
 		selectedText = "";
 		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
 
 
 
 		//journaljournal = journalSlot.GetComponent<Journal>();
+=======
+>>>>>>> 06edfb30aa7dc9265f898e3f08e9e3dc9b09408a
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
-
-		/*choice1.gameObject.SetActive (false);
-		choice2.gameObject.SetActive (false);*/
 	}
 
 	/// <summary>
@@ -91,7 +86,6 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Update ()
 	{
-        Debug.Log("Updating XDXD");
 		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
 			&& trialFinished) {
 			string nextScene = null;
@@ -141,8 +135,6 @@ public class TrialScript : MonoBehaviour
     void keepScore(int evidenceValue){
 		cumulative += evidenceValue;
 		_score.text = cumulative.ToString ();
-
-
 	}
 
 	/// <summary>
@@ -202,10 +194,6 @@ public class TrialScript : MonoBehaviour
 				txtBox.ContinueDialogue();
                     presentEvidenceNow = true;
                     evidenceRequired = Configuration.bruceRegisterEntryName;
-                    /*choice1.gameObject.SetActive (false);
-                    choice2.gameObject.SetActive (false);*/
-
-
                     break;
 			}
 
@@ -215,7 +203,7 @@ public class TrialScript : MonoBehaviour
 
 				txtBox.ReloadScript(bruceIsFree);
 				txtBox.ContinueDialogue();
-                    evidenceRequired = "finished";
+                evidenceRequired = "finished";
 				break;
 			}
 		case 3:
@@ -238,26 +226,16 @@ public class TrialScript : MonoBehaviour
 
 		default:
 			{
-                    Debug.Log("r u going in here");
 				break;
 			}
 
 		}
-		/*
-		if (Configuration.isFastAct2Mode)
-		{
-			Outcome();
-		}
-*/
 	}
 
     /// <summary>
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-	    //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
-
-	    //Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
             presentEvidenceNow = false;
@@ -300,7 +278,6 @@ public class TrialScript : MonoBehaviour
 			        SceneManager.LoadScene(Configuration.endAct1SceneName);
 		        }
 	        }
-	        //if(godhelpme.)
 	        keepScore(godhelpme.GetSelectedEntry());
 	        godhelpme.journalEntryValue = 0;
 	        _evidenceCount++;
@@ -322,14 +299,6 @@ public class TrialScript : MonoBehaviour
                 {
                     if (Button.ReferenceEquals(choice1, b))
                     {
-                        /**
-                        //depending on the level
-                        if (inventory._items.Count == 3)
-                        {
-                            trialDialogue(1);
-                            submitButton.gameObject.SetActive(true);
-                        }**/
-
                         trialDialogue(0);
                     }
 
@@ -353,7 +322,6 @@ public class TrialScript : MonoBehaviour
                 {
                     break;
                 }
-
         }
     }
 

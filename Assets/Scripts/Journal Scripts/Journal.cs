@@ -95,7 +95,6 @@ public class Journal : MonoBehaviour {
 		}
 		Button b = selectedSlot.GetComponentInChildren<Button>();
 		b.interactable = false;
-
 	}
 
 	/// <summary>
@@ -106,6 +105,4 @@ public class Journal : MonoBehaviour {
 	{
 		return journalEntryValue;
 	}
-
-
 }
