@@ -50,7 +50,9 @@ public class TrialScript : MonoBehaviour
 	public Item evidence;
 	private Inventory inventory;
 	private Journal journal;
+	private GameObject journalSlot;
 	private Button submitButton;
+	private Journal godhelpme;
 
 	public static string endGameMessage = null;
 
@@ -65,7 +67,12 @@ public class TrialScript : MonoBehaviour
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
-		journal= GameObject.FindGameObjectWithTag("Journal").GetComponent<Journal>();
+		
+		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
+		
+		
+
+		//journaljournal = journalSlot.GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
@@ -215,9 +222,12 @@ public class TrialScript : MonoBehaviour
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-
+	    godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+	    
+	    Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
+			
 			evidence = inventory.GetSelectedItem();
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
@@ -226,10 +236,10 @@ public class TrialScript : MonoBehaviour
 			//}
 
 		}
-		/**else if (Journal.GetSelectedItem() != null)
-		{
-			Journal journal = Journal.GetSelectedItem();
-		}**/
+		else if (godhelpme.GetSelectedEntry() != 9999999)
+        {
+	        keepScore(godhelpme.GetSelectedEntry());
+        }
 		else{
 			// Do nothing as nothing is selected
 			return;

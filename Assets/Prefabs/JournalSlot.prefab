@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11401916}
   m_Layer: 5
   m_Name: JournalSlot
-  m_TagString: Untagged
+  m_TagString: JournalSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
