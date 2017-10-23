@@ -44,10 +44,6 @@ public class TrialScript : MonoBehaviour
 	// score data type
 	public static int cumulative=0;
 
-	//characters
-	//public PlayerController player;
-	//public NPCController NPC;
-
 	public Item evidence;
 	private Inventory inventory;
 	private Journal journal;
@@ -66,22 +62,13 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Start ()
 	{
-		//NPC = FindObjectOfType<NPCController>();
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
         evidenceRequired = "none";
-		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
-		
-		
-
-		//journaljournal = journalSlot.GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
-
-		/*choice1.gameObject.SetActive (false);
-		choice2.gameObject.SetActive (false);*/
 	}
 
 	/// <summary>
@@ -89,10 +76,16 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Update ()
 	{
-        Debug.Log("Updating XDXD");
 		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
 			&& trialFinished) {
-            string nextScene = Configuration.endAct1SceneName;
+			string nextScene = null;
+			string sceneName = SceneManager.GetActiveScene ().name;
+			if (sceneName == Configuration.act2SceneSceneName) {
+				nextScene = Configuration.endAct2SceneName;
+			}
+			else if (sceneName == Configuration.worldMapSceneName) {
+				nextScene = Configuration.endAct1SceneName;
+			}
             Debug.Log("Changing to next scene " + nextScene);
             PersistenceController.currentScene = nextScene;
 			SceneManager.LoadScene(nextScene);
@@ -132,8 +125,6 @@ public class TrialScript : MonoBehaviour
     void keepScore(int evidenceValue){
 		cumulative += evidenceValue;
 		_score.text = cumulative.ToString ();
-
-
 	}
 
 	/// <summary>
@@ -174,7 +165,7 @@ public class TrialScript : MonoBehaviour
 
                     /*option1.text = "You were right to doubt him, Mr. Wilson!";
                     option2.text = "It was not Bruce who did it...";*/
-                    evidenceRequired = "register";
+                    evidenceRequired = "Selma: School's reception lady. Swears she hasn't seen anyone sneak by her while she was at her desk. Was away from desk from 12.30 - 12.40.";
 				//scoreKeeper.SetActive (true);
 				//livesKeeper.SetActive (false);
                     presentEvidenceNow = true;
@@ -193,10 +184,6 @@ public class TrialScript : MonoBehaviour
 				txtBox.ContinueDialogue();
                     presentEvidenceNow = true;
                     evidenceRequired = Configuration.bruceRegisterEntryName;
-                    /*choice1.gameObject.SetActive (false);
-                    choice2.gameObject.SetActive (false);*/
-
-
                     break;
 			}
 
@@ -206,7 +193,7 @@ public class TrialScript : MonoBehaviour
 
 				txtBox.ReloadScript(bruceIsFree);
 				txtBox.ContinueDialogue();
-                    evidenceRequired = "finished";
+                evidenceRequired = "finished";
 				break;
 			}
 		case 3:
@@ -229,32 +216,22 @@ public class TrialScript : MonoBehaviour
 
 		default:
 			{
-                    Debug.Log("r u going in here");
 				break;
 			}
 
 		}
-		/*
-		if (Configuration.isFastAct2Mode)
-		{
-			Outcome();
-		}
-*/
 	}
 
     /// <summary>
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-	    //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
-	    
-	    //Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
             presentEvidenceNow = false;
             txtBox.disableDialogueTap = false;
 			evidence = inventory.GetSelectedItem();
-            if (true)
+            if (evidenceRequired.Equals(evidence._itemName))
             {
                 trialDialogue(order);
             } else
@@ -263,21 +240,42 @@ public class TrialScript : MonoBehaviour
                 PersistenceController.instance.playerState.lives--;
                 if(PersistenceController.instance.playerState.lives == 0)
                 {
-                    SceneManager.LoadScene(Configuration.endAct1SceneName);
+					SceneManager.LoadScene(Configuration.loseGameSceneName);
                 }
             }
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
 
 		}
-		else if (godhelpme.GetSelectedEntry() != 9999999)
+		else
         {
+<<<<<<< HEAD
+=======
+	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+	        presentEvidenceNow = false;
+	        txtBox.disableDialogueTap = false;
+	        //Debug.Log(godhelpme.GetSelectedEntry() +"");
+	        Text t = godhelpme.GetComponentInChildren<Text>();
+	        string clickedName = t.text;
+	        if (evidenceRequired.Equals(clickedName))
+	        {
+		        trialDialogue(order);
+	        }
+	        else
+	        {
+		        trialDialogue(currentCaseSwitch);
+		        PersistenceController.instance.playerState.lives--;
+		        if(PersistenceController.instance.playerState.lives == 0)
+		        {
+			        SceneManager.LoadScene(Configuration.endAct1SceneName);
+		        }
+	        }
+	        //if(godhelpme.)
+>>>>>>> a32dbfc6d0c88ffb67a19d2646cfa074bf44cb30
 	        keepScore(godhelpme.GetSelectedEntry());
+	        godhelpme.journalEntryValue = 0;
+	        _evidenceCount++;
         }
-		else{
-			// Do nothing as nothing is selected
-			return;
-		}
 	}
 
     /// <summary>
@@ -288,21 +286,13 @@ public class TrialScript : MonoBehaviour
     {
         txtBox.disableDialogueTap = false;
         choice1.gameObject.SetActive(false);
-        choice2.gameObject.SetActive(false); 
+        choice2.gameObject.SetActive(false);
         switch (order)
         {
             case 0:
                 {
                     if (Button.ReferenceEquals(choice1, b))
                     {
-                        /**
-                        //depending on the level
-                        if (inventory._items.Count == 3)
-                        {
-                            trialDialogue(1);
-                            submitButton.gameObject.SetActive(true);
-                        }**/
-
                         trialDialogue(0);
                     }
 
@@ -326,7 +316,6 @@ public class TrialScript : MonoBehaviour
                 {
                     break;
                 }
-
         }
     }
 

@@ -3,10 +3,6 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
-    //public AudioSource backgroundAudio;
-    //public AudioSource uiAudio;
-    //public AudioSource environmentAudio;
-
     public static readonly int NUMBER_OF_PATH_STEPS = 8;
     public static readonly int NUMBER_OF_GRASS_STEPS = 2;
     public static readonly int NUMBER_OF_BUILDING_STEPS = 2;

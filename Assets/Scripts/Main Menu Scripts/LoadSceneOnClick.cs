@@ -15,7 +15,6 @@ public class LoadSceneOnClick : MonoBehaviour
     }
     public void LoadByState()
     {
-        Debug.Log("loading scene number " + PersistenceController.currentScene);
         SceneManager.LoadScene(PersistenceController.currentScene);
     }
 

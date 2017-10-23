@@ -11,6 +11,5 @@ public class EndGameController : MonoBehaviour {
     public Text message = null;
     void Start()
     {
-		// message.text = TrialScript.endGameMessage; No longer needed
 	}
 }

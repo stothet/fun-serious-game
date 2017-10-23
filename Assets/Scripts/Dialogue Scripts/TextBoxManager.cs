@@ -71,7 +71,6 @@ public class TextBoxManager : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Running update");
         if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
         {
             if (!disableDialogueTap) {
@@ -105,7 +104,6 @@ public class TextBoxManager : MonoBehaviour
                 isTransition = true;
                 PersistenceController.instance.dialogueState.firstTalk[NPC.name] = true;
                 PersistenceController.instance.dialogueState.currentLine[NPC.name] = currentLine + 1;
-                Debug.Log("first talk + current line set for: " + NPC.name);
                 SceneManager.LoadScene(Configuration.minigameSceneName);
             }
 
@@ -118,7 +116,6 @@ public class TextBoxManager : MonoBehaviour
         }
         else
         {
-			Debug.Log (name + "name before kill");  
             currentLine = 0;
             if (trialBox.evidenceRequired.Equals("finished"))
             {
@@ -131,26 +128,16 @@ public class TextBoxManager : MonoBehaviour
             }
             DisableDialogueBox();
             NPC.GiveEvidence(player);
-            Debug.Log("running special check");
             // Update the journal if it hasn't already for NPC info.
-			foreach (KeyValuePair<string, bool> kvp in PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk) {
-				Debug.Log("Key = " +  kvp.Key + ", Value = " + kvp.Value );
-			}
-			Debug.Log("NAME XDXD" + NPC.name);
-
-			Debug.Log(PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(NPC.name) + " boolcheck 1");
-			Debug.Log (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(NPC.name) + " boolcheck 2");
 			if ((PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(NPC.name) &&
 				PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[NPC.name] == true)
             && (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(NPC.name) ||
                 PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[NPC.name] == false))
             {
-                Debug.Log("passed special check");
                 NPC.UpdateJournalSpecialEvidence(journal);
             }
             else
             {
-                Debug.Log("failed special check");
                 NPC.UpdateJournal(journal);
             }
             return;

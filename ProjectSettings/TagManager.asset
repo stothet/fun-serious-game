@@ -17,6 +17,7 @@ TagManager:
   - JournalTab
   - NPC
   - JournalSlot
+  - JournalValues
   layers:
   - Default
   - TransparentFX

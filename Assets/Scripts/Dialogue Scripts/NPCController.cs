@@ -25,7 +25,7 @@ public class NPCController : MonoBehaviour {
 
 	public Sprite _sprite;
 	public string _name;
-	public int order=0;
+	public int score;
 	private SpriteRenderer sr;
 
 	public bool currentlyTalking;
@@ -54,7 +54,6 @@ public class NPCController : MonoBehaviour {
 			PersistenceController.instance.dialogueState.firstTalk.Add(name, true);
 			PersistenceController.instance.dialogueState.givenEvidence.Add(name, false);
 			PersistenceController.instance.dialogueState.journalUpdated.Add(name, false);
-
 		}
 	}
 
@@ -67,15 +66,11 @@ public class NPCController : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit2D[] hits = Physics2D.GetRayIntersectionAll (ray, Mathf.Infinity);
 			foreach (var hit in hits) {
-				Debug.Log (hit.collider.name);
-				//Debug.Log ("SR: "+sr.gameObject.transform.position);
-				//Debug.Log ("Hit: "+hit.point);
 				Vector2 pointHit = hit.point;
 				Vector3 spritePoint = sr.gameObject.transform.position;
 				if (hit.collider.CompareTag("NPC") || hit.collider.CompareTag("Principal")) {
 					if (pointHit.x > spritePoint.x - 0.5 && pointHit.x < spritePoint.x + 0.5) {
 						if (pointHit.y > spritePoint.y - 0.5 && pointHit.y < spritePoint.y + 0.5) {
-							Debug.Log ("This is text: "+txtBox.dialogueText.text);
 							startConversation ();
 
 						}
@@ -83,53 +78,22 @@ public class NPCController : MonoBehaviour {
 				}
 			}
 		}
-		//			RaycastHit2D hit = Physics2D.GetRayIntersection (ray, Mathf.Infinity);
-		/*
-		Debug.Log (hit.point);
-			Debug.Log ("The clicked point: " + sr.gameObject.transform.position);
-			if (hit.point.x > -33 && hit.point.x < -29 && hit.point.y > -6 && hit.point.y < -2) {
-				Debug.Log ("Principal clicked");
-			} else if (hit.point.x > 17 && hit.point.x < 21 && hit.point.y > -46 && hit.point.y < -42) {
-				Debug.Log ("Jimmy clicked");
-			} else if (hit.point.x > -57 && hit.point.x < -53 && hit.point.y > -8 && hit.point.y < -4) {
-				Debug.Log ("LunchLady clicked");
-			} else if (hit.point.x > -35 && hit.point.x < -31 && hit.point.y > -25 && hit.point.y < -21) {
-				Debug.Log ("ScienceGuy clicked");
-			}
-
-		}					
-		*/
 	}
 
 	private void startConversation(){
-		//Debug.Log ("Hello");
-		//txtBox.notNPC = false;
-		//sr = GetComponent<SpriteRenderer>();
-		//PersistenceController.instance.journalState.NPC = this;
-		//_sprite = sr.sprite;
-		//print(getSprite());
 		txtBox.setSprite(getSprite());
 		txtBox.setNPCname(_name);
-		Debug.Log ("Hello is the npc name right?"+txtBox._NPCname);
-		// When the player presses Space to talk to the NPC
-		//if (Input.GetKeyDown(KeyCode.Return))
-		//{
 		if (!currentlyTalking)
 		{
 			currentlyTalking = true;
 			txtBox.IdentifyNPC (this);
-			Debug.Log("Name of NPC: "+name);
             bool isEvidenceTalk = false;
-            Debug.Log(requiredItem + " ITEM1");
             if (requiredItem != null)
             {
-                Debug.Log(requiredItem + " ITEM2");
                 if (PlayerHasRequiredItem())
                 {
-                    Debug.Log(requiredItem + " ITEM3");
                     if (!PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(name) || PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] == false)
                     {
-                        Debug.Log(requiredItem + " ITEM4");
                         isEvidenceTalk = true;
 						PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.Add (name, true);
             
@@ -145,16 +109,9 @@ public class NPCController : MonoBehaviour {
                 if (PersistenceController.instance.dialogueState.firstTalk[name])
                 {
                     txtBox.ReloadScript(initialDialogueFile);
-                    /*if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
-                        PersistenceController.instance.dialogueState.firstTalk[name] == true)
-                    {
-                        Debug.Log ("Hello?");
-                    }
-                    /*else
-                    {*/
                     txtBox.ContinueDialogue();
                     PersistenceController.instance.dialogueState.firstTalk[name] = false;
-                    //}
+                    
 
 
                     if (autoTalk)
@@ -196,7 +153,7 @@ public class NPCController : MonoBehaviour {
 	{
 		if (!PersistenceController.instance.dialogueState.journalUpdated[name])
 		{
-			journal.putJournalEntry(characterDescription.text);
+			journal.putJournalEntry(characterDescription.text, score);
 			PersistenceController.instance.dialogueState.journalUpdated[name] = true;
 		}
 	}
@@ -207,15 +164,11 @@ public class NPCController : MonoBehaviour {
 	/// <param name="journal"> The journal to be updated </param>
 	public void UpdateJournalSpecialEvidence(Journal journal)
     {
-        Debug.Log("Updating with special evidence");
-
 		if (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(name) ||
 			PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] == false)
         {
-            journal.putJournalEntry(characterDescription2.text);
+            journal.putJournalEntry(characterDescription2.text,score);
             PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] = true;
-            Debug.Log("Special updated");
-
         }
     }
 
@@ -227,7 +180,6 @@ public class NPCController : MonoBehaviour {
     /// <param name="player"> The player to give the evidence to </param>
     public void GiveEvidence(PlayerController player)
 	{
-		Debug.Log(name);
 		if (!PersistenceController.instance.dialogueState.givenEvidence[name])
 		{
 			if (evidenceName != null && evidenceName != "")
@@ -242,17 +194,11 @@ public class NPCController : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other){
 		if (other.gameObject.CompareTag("Player") && (PersistenceController.instance.dialogueState.autoTalk)){
-			//txtBox.notNPC = false;
 			sr = GetComponent<SpriteRenderer>();
-			//PersistenceController.instance.journalState.NPC = this;
 			_sprite = sr.sprite;
 			print(getSprite());
 			txtBox.setSprite(getSprite());
 			txtBox.setNPCname(_name);
-            // When the player presses Space to talk to the NPC
-            //if (Input.GetKeyDown(KeyCode.Return))
-            //{
-            Debug.Log("ACTUALly DOING SOMETHING");
 			if (!currentlyTalking)
 			{
 				currentlyTalking = true;
@@ -310,13 +256,7 @@ public class NPCController : MonoBehaviour {
 	public Sprite getSprite(){
 		return _sprite;
 	}
-	/// <summary>
-	/// Sets the order
-	/// </summary>
-	/// <param name="_order"> The order number </param>
-	public void setOrder(int _order){
-		order = _order;
-	}
+	
 
     public bool PlayerHasRequiredItem()
     {

@@ -51,14 +51,12 @@ public class Inventory : MonoBehaviour {
                 _slotAmount++;
             }
         }
-        Debug.Log("How many items in here: " + PersistenceController.instance.inventoryState.database.Count);
-
         for(int i = 0; i<PersistenceController.instance.inventoryState.database.Count; i++)
         {
             addItem(PersistenceController.instance.inventoryState.database[i]);
         }
         // Add items you want to show up in the inventory here. The number is the unique ID of the item.
-        //addItem(0);
+        addItem(Configuration.billArtHistoryReportName);
         //addItem(1);
 		panel.SetActive(false);
 	}
@@ -66,9 +64,7 @@ public class Inventory : MonoBehaviour {
     /// <summary> Utility method to add the desired item into the inventory </summary>
     public void addItem(string name)
     {
-        Debug.Log("Looking for: " + name);
         Item item = database.items[name];
-        Debug.Log("Item was: " + item._itemName);
         if (item != null)
         {
             if (!PersistenceController.instance.inventoryState.database.Contains(name)) {
@@ -88,7 +84,6 @@ public class Inventory : MonoBehaviour {
     // Helper method to checks whether the slot is free. If a slot is a free, then add the desired item, else go to the next available slot.
     void addToEmptySlot(Item item)
     {
-        Debug.Log("Count " + _items.Count);
         for (int i = 0; i < 25; i ++)
         {
             if (_items[i]._itemName == null)
