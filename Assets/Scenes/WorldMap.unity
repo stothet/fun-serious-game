@@ -11507,7 +11507,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 1087654084}
   journalPanel: {fileID: 1578609787}
   SOMET: {fileID: 1945104138}
-  Submit: {fileID: 0}
+  Submit: {fileID: 878829298}
   trial: {fileID: 0}
 --- !u!1 &1231301579
 GameObject:
