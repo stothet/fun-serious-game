@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public static AudioClip[] audioPathStep = new AudioClip[NUMBER_OF_PATH_STEPS];
     public static AudioClip[] audioDirtStep = new AudioClip[NUMBER_OF_GRASS_STEPS];
     public static AudioClip[] audioBuildingStep = new AudioClip[NUMBER_OF_BUILDING_STEPS];
+    public static AudioClip audioBackgroundMusic;
 
     public static AudioSource audioSource;
 
@@ -29,7 +30,7 @@ public class SoundManager : MonoBehaviour
         LoadAudioAssets();
 
         audioSource = gameObject.GetComponent<AudioSource>();
-        PlayBackGroundMusic();
+        //PlayBackGroundMusic();
     }
 
     private void LoadAudioAssets()
@@ -48,11 +49,12 @@ public class SoundManager : MonoBehaviour
         {
             audioBuildingStep[i] = (AudioClip)Resources.Load("Audio/Steps/stepwood_" + (i + 1));
         }
+        audioBackgroundMusic = (AudioClip)Resources.Load("Audio/Music/Background Music");
     }
 
     private void PlayBackGroundMusic()
     {
-        audioSource.clip = (AudioClip)Resources.Load("Audio/Music/Background Music");
+        audioSource.clip = audioBackgroundMusic;
         audioSource.loop = true;
         audioSource.volume=0.5f;
         audioSource.Play();

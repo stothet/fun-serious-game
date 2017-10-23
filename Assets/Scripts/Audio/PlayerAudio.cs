@@ -78,4 +78,11 @@ public class PlayerAudio : MonoBehaviour
             stepTimer = stepPause;
         }
     }
+
+    public void PlayDoorSound()
+    {
+        //audioSource.PlayOneShot(SoundManager.audioDoor[Random.RandomRange){
+
+        //}
+    }
 }
