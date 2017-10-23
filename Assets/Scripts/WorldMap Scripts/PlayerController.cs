@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		if (camera.tiltActive) {
-			canMove = false;
+			//canMove = false;
 		} else {
-			canMove = true;
+			//canMove = true;
 		}
         if (!canMove) // this is to stop the player from moving during cutscenes
         {
