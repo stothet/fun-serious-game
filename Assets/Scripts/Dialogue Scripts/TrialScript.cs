@@ -66,7 +66,7 @@ public class TrialScript : MonoBehaviour
 	}
 
 	/// <summary>
-    /// Check if the trail has ended
+    /// Check if the trial has ended
     /// </summary>
 	void Update ()
 	{
@@ -86,7 +86,7 @@ public class TrialScript : MonoBehaviour
 			trialFinished = true;
 			endGameMessage = "You Win!";
 			//SceneManager.LoadScene(Configuration.endGameSceneName);
-			//You win end game screen
+			// You win end game screen
 		}else if(cumulative == 0){
 			trialDialogue (3);
 			trialFinished = true;
@@ -99,7 +99,7 @@ public class TrialScript : MonoBehaviour
 			trialFinished = true;
 			endGameMessage = "Game Over";
 			//SceneManager.LoadScene(Configuration.endGameSceneName);
-			//you lose end game screen
+			// You lose end game screen
 		}
 	}
 
