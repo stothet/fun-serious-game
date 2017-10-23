@@ -23,13 +23,13 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
-		float xpos = player.transform.position.x;
-		float ypos = player.transform.position.y;
-		bool boundaryCondition = (currentGyroPlacement.x + Input.gyro.rotationRateUnbiased.x < xpos+cameraLimit)&&
-			(currentGyroPlacement.x + Input.gyro.rotationRateUnbiased.x > xpos-cameraLimit)&&
-			(currentGyroPlacement.y + Input.gyro.rotationRateUnbiased.y < ypos+cameraLimit)&&
-			(currentGyroPlacement.y + Input.gyro.rotationRateUnbiased.y > ypos-cameraLimit);
-		if (tiltActive && boundaryCondition) {
+	//	float xpos = player.transform.position.x;
+	//	float ypos = player.transform.position.y;
+		//bool boundaryCondition = (currentGyroPlacement.x + Input.gyro.rotationRateUnbiased.x < xpos+cameraLimit)&&
+		//	(-currentGyroPlacement.x + Input.gyro.rotationRateUnbiased.x > xpos-cameraLimit)&&
+		//	(currentGyroPlacement.y + Input.gyro.rotationRateUnbiased.y < ypos+cameraLimit)&&
+		//	(-currentGyroPlacement.y + Input.gyro.rotationRateUnbiased.y > ypos-cameraLimit);
+		if (tiltActive) {
 			currentGyroPlacement += Input.gyro.rotationRateUnbiased;
 			/*if (currentGyroPlacement.y > shakeSpeedY || currentGyroPlacement.y < shakeSpeedY * -1)
 			{
