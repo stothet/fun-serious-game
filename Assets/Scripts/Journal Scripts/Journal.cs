@@ -8,8 +8,10 @@ using UnityEngine.UI;
 public class Journal : MonoBehaviour {
     public Text journalEntry;
     public GameObject JournalSlot;
+	Image journalTabImage;
     public void Start()
     {
+		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
         for(int i = 0; i<PersistenceController.instance.journalState.journal.Count; i++)
         {
             putJournalEntry(PersistenceController.instance.journalState.journal[i]);
@@ -32,6 +34,7 @@ public class Journal : MonoBehaviour {
         if (!PersistenceController.instance.journalState.journal.Contains(txt))
         {
             PersistenceController.instance.journalState.journal.Add(txt);
+			journalTabImage.sprite = Resources.Load<Sprite> ("duck_yellow");
         }
         //journalEntry.text = PersistenceController.JournalState.journal;
     }
