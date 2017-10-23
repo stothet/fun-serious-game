@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
     private Inventory inventory;
     public bool canMove;
     public NPCController cutsceneNPC;
+	public CameraController camera;
+
     void Start(){
         canMove = true;
 		anim = GetComponent<Animator> ();
@@ -17,9 +19,17 @@ public class PlayerController : MonoBehaviour {
         cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
         cutsceneNPC.autoTalk = true;
         transform.position = PersistenceController.instance.playerState.playerPosition;
+
+		camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
+
     }
     // Update is called once per frame
     void Update () {
+		if (camera.tiltActive) {
+			canMove = false;
+		} else {
+			canMove = true;
+		}
         if (!canMove) // this is to stop the player from moving during cutscenes
         {
             anim.SetBool("PlayerMoving", false);
