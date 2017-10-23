@@ -1,7 +1,9 @@
-Erin:Hey there, Brad! Good practice session today?
+﻿Erin:Hey there, Brad! Good practice session today?
 Brad:Hey, what’s up Erin? Thanks for asking, it was a great session today. I’m totally pumped!
 Erin:Nice to hear that, Brad. Listen, you used to hang with Bruce, right? Jimmy too, I think?
-Brad:Yeah, we used to be on the hockey team together. We were really good friends back then, you know. Here’s a photo of us, see? Unfortunately, we had a falling out, and we are not really on good terms these days. Why do you ask?
+Brad:Yeah, we used to be on the hockey team together. We were really good friends back then, you know. Here’s a photo of us, see? 
+Brad:Those hats were pretty cool, right? Only us three had it. It was for being the best player on the hockey team, wouldn't you believe it.
+Brad:Unfortunately, we had a falling out, and we are not really on good terms these days. Why do you ask?
 Erin:Oh, it’s just that some exam scripts have been stolen from the principal’s office. And it seemed that someone was trying to frame Bruce for it, too..
 Brad:That sounds terrible! Who could to such a thing?
 Erin:That’s why I’m here to gather more information about the case. Do you know someone that could have done this, perhaps?
