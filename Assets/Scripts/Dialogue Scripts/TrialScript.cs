@@ -131,6 +131,8 @@ public class TrialScript : MonoBehaviour
     void keepScore(int evidenceValue){
 		cumulative += evidenceValue;
 		_score.text = cumulative.ToString ();
+
+
 	}
 
 	/// <summary>
@@ -146,7 +148,11 @@ public class TrialScript : MonoBehaviour
 		case -1:
 
 		{
-			order = 0;
+				if (Configuration.isFastAct2Mode)
+				{
+					Outcome();
+				}
+				order = 0;
 				txtBox.ReloadScript(introFile);
                     txtBox.ContinueDialogue();
 
@@ -227,7 +233,12 @@ public class TrialScript : MonoBehaviour
 			}
 
 		}
-
+		/*
+		if (Configuration.isFastAct2Mode)
+		{
+			Outcome();
+		}
+*/
 	}
 
     /// <summary>

@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class SoundCompletionScript : MonoBehaviour
 {
     private Button completionButton;
-    public void returnToWorld()
+    public static void returnToWorld()
     {
         BlowMinigameInitialiser.completed = true;
-        PersistenceController.instance.inventoryState.database.Add(Configuration.billArtHistoryReportName);
+		PersistenceController.instance.inventoryState.database.Add(Configuration.cleanPaperName);
         SceneManager.LoadScene(Configuration.worldMapSceneName);
     }
 }
