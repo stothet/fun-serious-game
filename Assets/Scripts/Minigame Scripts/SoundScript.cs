@@ -30,7 +30,9 @@ public class SoundScript : MonoBehaviour
             microphoneInput = Microphone.Start(Microphone.devices[0], true, 999, 44100);
             microphoneInitialised = true;
         }
-
+		if (Configuration.isFastAct2Mode) {
+			//SoundCompletionScript.returnToWorld ();
+		}
     }
 
     void Update()

@@ -14,6 +14,7 @@ public class TrialScript : MonoBehaviour
 	public int order = -1;
 	public bool trialActive = false;
 	public TextBoxManager txtBox;
+    public bool presentEvidenceNow = false;
 
 	//keeps track of player health
 	public GameObject livesKeeper;
@@ -52,6 +53,8 @@ public class TrialScript : MonoBehaviour
 	private Journal journal;
 	private GameObject journalSlot;
 	private Button submitButton;
+    public string evidenceRequired;
+    private int currentCaseSwitch;
 	private Journal godhelpme;
 
 	public static string endGameMessage = null;
@@ -67,18 +70,18 @@ public class TrialScript : MonoBehaviour
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
-		
+        evidenceRequired = "none";
 		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
-		
-		
+
+
 
 		//journaljournal = journalSlot.GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
 
-		choice1.gameObject.SetActive (false);
-		choice2.gameObject.SetActive (false);
+		/*choice1.gameObject.SetActive (false);
+		choice2.gameObject.SetActive (false);*/
 	}
 
 	/// <summary>
@@ -87,7 +90,8 @@ public class TrialScript : MonoBehaviour
 	void Update ()
 	{
         Debug.Log("Updating XDXD");
-		if (Input.GetKey(KeyCode.Space) && trialFinished) {
+		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
+			&& trialFinished) {
             string nextScene = Configuration.endAct1SceneName;
             Debug.Log("Changing to next scene " + nextScene);
             PersistenceController.currentScene = nextScene;
@@ -128,40 +132,52 @@ public class TrialScript : MonoBehaviour
     void keepScore(int evidenceValue){
 		cumulative += evidenceValue;
 		_score.text = cumulative.ToString ();
+
+
 	}
 
 	/// <summary>
     /// Loads the appropriate dialogue based on the players response
     /// </summary>
 	public void trialDialogue(int caseSwitch){
+
+        this.currentCaseSwitch = caseSwitch;
+
         switch (caseSwitch)
 		{
 
 		case -1:
 
 		{
-			order = 0;
+				if (Configuration.isFastAct2Mode)
+				{
+					Outcome();
+				}
+				order = 0;
 				txtBox.ReloadScript(introFile);
+                    txtBox.ContinueDialogue();
 
 				choice1.gameObject.SetActive (true);
 				choice2.gameObject.SetActive (true);
-
+                    txtBox.disableDialogueTap = true;
 				break;
 			}
 
 		case 0:
 
 		{
+                    Debug.Log("lost a life");
 			order = 1;
 				trialActive = true;
 				txtBox.ReloadScript(trialStart);
 				txtBox.ContinueDialogue();
 
-				option1.text = "You were right to doubt him, Mr. Wilson!";
-				option2.text = "It was not Bruce who did it...";
-
-				scoreKeeper.SetActive (true);
-				livesKeeper.SetActive (false);
+                    /*option1.text = "You were right to doubt him, Mr. Wilson!";
+                    option2.text = "It was not Bruce who did it...";*/
+                    evidenceRequired = "register";
+				//scoreKeeper.SetActive (true);
+				//livesKeeper.SetActive (false);
+                    presentEvidenceNow = true;
                 if (Configuration.isFastAct2Mode)
                 {
                     Outcome();
@@ -175,12 +191,13 @@ public class TrialScript : MonoBehaviour
 			order = 2;
 				txtBox.ReloadScript(prelude);
 				txtBox.ContinueDialogue();
+                    presentEvidenceNow = true;
+                    evidenceRequired = Configuration.bruceRegisterEntryName;
+                    /*choice1.gameObject.SetActive (false);
+                    choice2.gameObject.SetActive (false);*/
 
-				choice1.gameObject.SetActive (false);
-				choice2.gameObject.SetActive (false);
 
-
-				break;
+                    break;
 			}
 
 		case 2:
@@ -189,6 +206,7 @@ public class TrialScript : MonoBehaviour
 
 				txtBox.ReloadScript(bruceIsFree);
 				txtBox.ContinueDialogue();
+                    evidenceRequired = "finished";
 				break;
 			}
 		case 3:
@@ -211,27 +229,45 @@ public class TrialScript : MonoBehaviour
 
 		default:
 			{
+                    Debug.Log("r u going in here");
 				break;
 			}
 
 		}
-
+		/*
+		if (Configuration.isFastAct2Mode)
+		{
+			Outcome();
+		}
+*/
 	}
 
     /// <summary>
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-	    
+	    //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+
+	    //Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
-			Debug.Log("INVENTORY");
+            presentEvidenceNow = false;
+            txtBox.disableDialogueTap = false;
 			evidence = inventory.GetSelectedItem();
+            if (true)
+            {
+                trialDialogue(order);
+            } else
+            {
+                trialDialogue(currentCaseSwitch);
+                PersistenceController.instance.playerState.lives--;
+                if(PersistenceController.instance.playerState.lives == 0)
+                {
+                    SceneManager.LoadScene(Configuration.endAct1SceneName);
+                }
+            }
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
-			//if(_evidenceCount == 2){
-				Outcome ();
-			//}
 
 		}
 		else
@@ -243,58 +279,54 @@ public class TrialScript : MonoBehaviour
         }
 	}
 
-
-	/// <summary>
+    /// <summary>
 	/// Checks with dialgogue option has been selected
 	/// </summary>
 	/// <param name="b"> The button clicked </param>
 	public void CheckClick(Button b)
-	{
-		switch (order)
-		{
-			case 0: {
-				if (Button.ReferenceEquals(choice1, b))
-				{
-					/**
-					//depending on the level
-					if (inventory._items.Count == 3)
-					{
-						trialDialogue(1);
-						submitButton.gameObject.SetActive(true);
-					}**/
+    {
+        txtBox.disableDialogueTap = false;
+        choice1.gameObject.SetActive(false);
+        choice2.gameObject.SetActive(false);
+        switch (order)
+        {
+            case 0:
+                {
+                    if (Button.ReferenceEquals(choice1, b))
+                    {
+                        /**
+                        //depending on the level
+                        if (inventory._items.Count == 3)
+                        {
+                            trialDialogue(1);
+                            submitButton.gameObject.SetActive(true);
+                        }**/
 
-					trialDialogue(0);
-				}
+                        trialDialogue(0);
+                    }
 
-				else
-				{
-					txtBox.currentLine = 0;
-					txtBox.DisableDialogueBox();
-					return;
-				}
-				break;
+                    else
+                    {
+                        txtBox.currentLine = 0;
+                        txtBox.DisableDialogueBox();
+                        return;
+                    }
+                    break;
 
-			}
+                }
 
-			case 1:
-			{
-				trialDialogue(1);
-				break;
-			}
+            case 1:
+                {
+                    trialDialogue(1);
+                    break;
+                }
 
-			default:
-			{
-				break;
-			}
+            default:
+                {
+                    break;
+                }
 
-		}
-
-		/**LEADS TO END GAME SCREEN (KEEP PRESSING SPACE)
-		_evidenceCount++;
-		if (_evidenceCount == 2)
-		{
-			Outcome();
-		}**/
-	}
+        }
+    }
 
 }

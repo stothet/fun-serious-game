@@ -10,7 +10,7 @@ public class SoundCompletionScript : MonoBehaviour
     public void returnToWorld()
     {
         BlowMinigameInitialiser.completed = true;
-        PersistenceController.instance.inventoryState.database.Add(Configuration.billArtHistoryReportName);
-        SceneManager.LoadScene(Configuration.worldMapSceneName);
+		PersistenceController.instance.inventoryState.database.Add(Configuration.cleanPaperName);
+        SceneManager.LoadScene(Configuration.act2SceneSceneName);
     }
 }

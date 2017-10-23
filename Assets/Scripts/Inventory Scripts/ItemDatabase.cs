@@ -22,6 +22,9 @@ public class ItemDatabase : MonoBehaviour {
        items.Add(Configuration.principalsKeysName, new Item(Configuration.principalsKeysName, Configuration.principalsKeysNameDescription, 5, Item.ItemType.DUMMY, "keys"));
        items.Add(Configuration.photographName, new Item(Configuration.photographName, Configuration.photographNameDescription, 5, Item.ItemType.DUMMY, "photo"));
        items.Add(Configuration.capName, new Item(Configuration.capName, Configuration.capNameDescription, 5, Item.ItemType.DUMMY, "cap"));
+	   items.Add(Configuration.examScriptName, new Item(Configuration.examScriptName, Configuration.examScriptNameDescription, 5, Item.ItemType.DUMMY, "exam"));
+	   items.Add(Configuration.cleanPaperName, new Item(Configuration.cleanPaperName, Configuration.cleanPaperNameDescription, 5, Item.ItemType.DUMMY, "paperClean"));
+	   items.Add(Configuration.dirtyPaperName, new Item(Configuration.dirtyPaperName, Configuration.dirtyPaperNameDescription, 5, Item.ItemType.DUMMY, "paperDirt"));
 
     }
 
