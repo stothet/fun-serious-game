@@ -52,10 +52,10 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		anim.SetBool ("PlayerMoving", playerMoving);
-		anim.SetFloat ("MoveX", Input.GetAxis("Horizontal"));
-		anim.SetFloat ("MoveY", Input.GetAxis("Vertical"));
-//		anim.SetFloat ("MoveX", TouchControls.directionX); // these all relate to the animation logic for the blend tree
-//		anim.SetFloat ("MoveY", TouchControls.directionY);
+		//anim.SetFloat ("MoveX", Input.GetAxis("Horizontal"));
+		//anim.SetFloat ("MoveY", Input.GetAxis("Vertical"));
+		anim.SetFloat ("MoveX", TouchControls.directionX); // these all relate to the animation logic for the blend tree
+		anim.SetFloat ("MoveY", TouchControls.directionY);
 		anim.SetFloat ("LastMoveX", lastMove.x);
 		anim.SetFloat ("LastMoveY", lastMove.y);
 
