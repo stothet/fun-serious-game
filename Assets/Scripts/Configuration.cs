@@ -43,11 +43,13 @@ public class Configuration
     public static readonly string billArtHistoryReportName = "Scrunched up paper";
     public static readonly string detentionNoteName = "Detention note";
 	public static readonly string blueDrinkName = "Blue drink";
+    public static readonly string principalsKeysName = "Keys to the principal's office";
+    public static readonly string photographName = "Group photo of Brad, Jimmy and Bruce";
+    public static readonly string capName = "Blue Cap with a red cross";
 
     // journal descriptions
     public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature for signing in and out. Timestamp states it's from 12.10 to 12.25.";
     public static readonly string billArtHistoryReportDescription = "Bill's Art History report, scrunched to a ball.";
     public static readonly string detentionNoteDescription = "A detention note for Bruce Buckley, the time period says 12.30 to 1. The handwriting seems a bit messy.";
     public static readonly string blueDrinkDescription = "What in tarnation is this?";
-
 }
