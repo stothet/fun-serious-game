@@ -425,7 +425,7 @@ public class TrialScript : MonoBehaviour
                     PersistenceController.instance.playerState.lives--;
                     if (PersistenceController.instance.playerState.lives == 0)
                     {
-                        SceneManager.LoadScene(Configuration.endAct1SceneName);
+                        SceneManager.LoadScene(Configuration.loseGameSceneName);
                     }
                 }
                 keepScore(evidence._itemValue);
