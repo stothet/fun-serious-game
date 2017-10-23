@@ -1590,6 +1590,7 @@ Transform:
   m_Children:
   - {fileID: 617605775}
   - {fileID: 1618823449}
+  - {fileID: 1275244580}
   m_Father: {fileID: 1128581446}
   m_RootOrder: 4
 --- !u!1001 &185198769
@@ -12909,6 +12910,139 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1308342686}
   m_RootOrder: 0
+--- !u!1 &1275244579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1275244580}
+  - 61: {fileID: 1275244587}
+  - 61: {fileID: 1275244586}
+  - 61: {fileID: 1275244585}
+  - 61: {fileID: 1275244584}
+  - 61: {fileID: 1275244583}
+  - 61: {fileID: 1275244582}
+  - 61: {fileID: 1275244581}
+  m_Layer: 0
+  m_Name: Seat Collisions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1275244580
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 179146224}
+  m_RootOrder: 2
+--- !u!61 &1275244581
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 716.2012, y: -405.3709}
+  serializedVersion: 2
+  m_Size: {x: 214.97899, y: 87.034035}
+--- !u!61 &1275244582
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 716.2012, y: -549.075}
+  serializedVersion: 2
+  m_Size: {x: 214.97899, y: 121.989876}
+--- !u!61 &1275244583
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 446.68536, y: -549.075}
+  serializedVersion: 2
+  m_Size: {x: 241.40062, y: 121.989876}
+--- !u!61 &1275244584
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 446.68536, y: -402.02057}
+  serializedVersion: 2
+  m_Size: {x: 241.40062, y: 83.20571}
+--- !u!61 &1275244585
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 446.68536, y: -549.075}
+  serializedVersion: 2
+  m_Size: {x: 241.40062, y: 121.989876}
+--- !u!61 &1275244586
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 173.37695, y: -405.18463}
+  serializedVersion: 2
+  m_Size: {x: 217.81644, y: 89.53666}
+--- !u!61 &1275244587
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275244579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 173.37695, y: -549.075}
+  serializedVersion: 2
+  m_Size: {x: 217.8164, y: 121.989876}
 --- !u!1 &1277547357
 GameObject:
   m_ObjectHideFlags: 0
@@ -19081,7 +19215,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -10.00914, y: 0.0000076293945}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1995804238
