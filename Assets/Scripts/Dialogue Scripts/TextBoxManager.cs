@@ -118,8 +118,7 @@ public class TextBoxManager : MonoBehaviour
         }
         else
         {
-			Debug.Log (name + "name before kill");
-            DisableDialogueBox();
+			Debug.Log (name + "name before kill");  
             currentLine = 0;
             if (trialBox.evidenceRequired.Equals("finished"))
             {

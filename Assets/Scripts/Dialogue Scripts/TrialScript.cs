@@ -245,9 +245,9 @@ public class TrialScript : MonoBehaviour
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-	    godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+	    //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
 	    
-	    Debug.Log(godhelpme.GetSelectedEntry() +"");
+	    //Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
             presentEvidenceNow = false;
