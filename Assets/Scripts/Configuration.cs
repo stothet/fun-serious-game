@@ -33,6 +33,7 @@ public class Configuration
     public static readonly string endAct1SceneName = "EndAct1";                 // Name of the end act scene
     public static readonly string act2SceneSceneName = "Act 2";                 // Name of the end act scene
     public static readonly string endAct2SceneName = "EndAct2";                 // Name of the end act scene
+	public static readonly string microphoneMinigameSceneName = "MicrophoneMinigame";
 
 
     public static Font mathsMinigameFont = (Font) Resources.Load("Fonts/kindergarten");      // Font used for the minigame
