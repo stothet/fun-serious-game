@@ -34,7 +34,7 @@ public class Journal : MonoBehaviour {
         if (!PersistenceController.instance.journalState.journal.Contains(txt))
         {
             PersistenceController.instance.journalState.journal.Add(txt);
-			journalTabImage.sprite = Resources.Load<Sprite> ("duck_yellow");
+			journalTabImage.sprite = Resources.Load<Sprite> ("Icons/JournalIconAlert");
         }
         //journalEntry.text = PersistenceController.JournalState.journal;
     }

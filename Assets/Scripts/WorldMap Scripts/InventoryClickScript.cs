@@ -21,7 +21,6 @@ public class InventoryClickScript : MonoBehaviour
     {
 		inventoryTabImage = GameObject.FindGameObjectWithTag("InventoryTab").GetComponent<Image>();
 		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
-		Debug.Log (inventoryTabImage.sprite.name + " ANDON");
         Button[] btn = GetComponentsInChildren<Button>();
         for (int i = 0; i < btn.Length; i++)
         {
