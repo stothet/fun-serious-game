@@ -3,6 +3,10 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
+    //public AudioSource backgroundAudio;
+    //public AudioSource uiAudio;
+    //public AudioSource environmentAudio;
+
     public static readonly int NUMBER_OF_PATH_STEPS = 8;
     public static readonly int NUMBER_OF_GRASS_STEPS = 2;
     public static readonly int NUMBER_OF_BUILDING_STEPS = 2;
@@ -11,9 +15,11 @@ public class SoundManager : MonoBehaviour
     public static AudioClip[] audioPathStep = new AudioClip[NUMBER_OF_PATH_STEPS];
     public static AudioClip[] audioDirtStep = new AudioClip[NUMBER_OF_GRASS_STEPS];
     public static AudioClip[] audioBuildingStep = new AudioClip[NUMBER_OF_BUILDING_STEPS];
-    public static AudioClip audioBackgroundMusic;
 
-    public static AudioSource audioSource;
+    public static AudioClip audioBackgroundMusic;
+    public static AudioClip audioClick;
+
+    private static AudioSource audioSource;
 
     void Awake()
     {
@@ -26,11 +32,13 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         LoadAudioAssets();
-
         audioSource = gameObject.GetComponent<AudioSource>();
-        //PlayBackGroundMusic();
+    }
+
+    void Start()
+    {
+        PlayBackgroundMusic();
     }
 
     private void LoadAudioAssets()
@@ -49,14 +57,16 @@ public class SoundManager : MonoBehaviour
         {
             audioBuildingStep[i] = (AudioClip)Resources.Load("Audio/Steps/stepwood_" + (i + 1));
         }
+
         audioBackgroundMusic = (AudioClip)Resources.Load("Audio/Music/Background Music");
+        audioClick = (AudioClip)Resources.Load("Audio/Effects/click");
     }
 
-    private void PlayBackGroundMusic()
+    private static void PlayBackgroundMusic()
     {
-        audioSource.clip = audioBackgroundMusic;
+        audioSource.clip = SoundManager.audioBackgroundMusic;
         audioSource.loop = true;
-        audioSource.volume=0.5f;
+        audioSource.volume = 0.5f;
         audioSource.Play();
     }
 }

@@ -1923,7 +1923,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 241341417}
   m_Layer: 0
-  m_Name: Audio Triggers
+  m_Name: Audio Collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7786,6 +7786,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 544550695}
   m_RootOrder: 5
+--- !u!1001 &904132120
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 321.98303
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 144.85738
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 56.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 475688, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0130e770a43ed9643a9bbe25708b9e19, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &904550738
 GameObject:
   m_ObjectHideFlags: 0
