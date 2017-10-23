@@ -25,7 +25,7 @@ public class NPCController : MonoBehaviour {
 
 	public Sprite _sprite;
 	public string _name;
-	public int order=0;
+	public int score;
 	private SpriteRenderer sr;
 
 	public bool currentlyTalking;
@@ -196,7 +196,7 @@ public class NPCController : MonoBehaviour {
 	{
 		if (!PersistenceController.instance.dialogueState.journalUpdated[name])
 		{
-			journal.putJournalEntry(characterDescription.text);
+			journal.putJournalEntry(characterDescription.text, score);
 			PersistenceController.instance.dialogueState.journalUpdated[name] = true;
 		}
 	}
@@ -212,7 +212,7 @@ public class NPCController : MonoBehaviour {
 		if (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(name) ||
 			PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] == false)
         {
-            journal.putJournalEntry(characterDescription2.text);
+            journal.putJournalEntry(characterDescription2.text,score);
             PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[name] = true;
             Debug.Log("Special updated");
 
@@ -310,13 +310,7 @@ public class NPCController : MonoBehaviour {
 	public Sprite getSprite(){
 		return _sprite;
 	}
-	/// <summary>
-	/// Sets the order
-	/// </summary>
-	/// <param name="_order"> The order number </param>
-	public void setOrder(int _order){
-		order = _order;
-	}
+	
 
     public bool PlayerHasRequiredItem()
     {

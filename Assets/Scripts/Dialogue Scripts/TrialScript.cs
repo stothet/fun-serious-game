@@ -72,8 +72,8 @@ public class TrialScript : MonoBehaviour
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
         evidenceRequired = "none";
 		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
-		
-		
+
+
 
 		//journaljournal = journalSlot.GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
@@ -254,7 +254,7 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	public void SelectObjectEvidence(){
 	    //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
-	    
+
 	    //Debug.Log(godhelpme.GetSelectedEntry() +"");
         if (inventory.GetSelectedItem() != null)
 		{
@@ -277,14 +277,13 @@ public class TrialScript : MonoBehaviour
 			_evidenceCount++;
 
 		}
-		else if (godhelpme.GetSelectedEntry() != 9999999)
+		else
         {
+	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+	        Debug.Log(godhelpme.GetSelectedEntry() +"");
 	        keepScore(godhelpme.GetSelectedEntry());
+	        godhelpme.journalEntryValue = 0;
         }
-		else{
-			// Do nothing as nothing is selected
-			return;
-		}
 	}
 
     /// <summary>
@@ -295,7 +294,7 @@ public class TrialScript : MonoBehaviour
     {
         txtBox.disableDialogueTap = false;
         choice1.gameObject.SetActive(false);
-        choice2.gameObject.SetActive(false); 
+        choice2.gameObject.SetActive(false);
         switch (order)
         {
             case 0:
