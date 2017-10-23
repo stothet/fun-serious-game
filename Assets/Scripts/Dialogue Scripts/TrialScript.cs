@@ -79,8 +79,10 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Update ()
 	{
+        Debug.Log("Updating XDXD");
 		if (Input.GetKey(KeyCode.Space) && trialFinished) {
             string nextScene = Configuration.endAct1SceneName;
+            Debug.Log("Changing to next scene " + nextScene);
             PersistenceController.currentScene = nextScene;
 			SceneManager.LoadScene(nextScene);
 		}
@@ -92,6 +94,7 @@ public class TrialScript : MonoBehaviour
 	void Outcome()
 	{
 		trialActive = false;
+        Debug.Log("Trial finished");
 		trialFinished = true;
 		if(cumulative > 0){
 			trialDialogue (2);
@@ -124,8 +127,7 @@ public class TrialScript : MonoBehaviour
     /// Loads the appropriate dialogue based on the players response
     /// </summary>
 	public void trialDialogue(int caseSwitch){
-
-		switch (caseSwitch)
+        switch (caseSwitch)
 		{
 
 		case -1:
@@ -153,8 +155,11 @@ public class TrialScript : MonoBehaviour
 
 				scoreKeeper.SetActive (true);
 				livesKeeper.SetActive (false);
-
-				break;
+                if (Configuration.isFastAct2Mode)
+                {
+                    Outcome();
+                }
+                break;
 			}
 
 		case 1:
@@ -211,8 +216,7 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	public void SelectObjectEvidence(){
 
-
-		if (inventory.GetSelectedItem() != null)
+        if (inventory.GetSelectedItem() != null)
 		{
 			evidence = inventory.GetSelectedItem();
 			keepScore(evidence._itemValue);
