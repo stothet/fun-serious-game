@@ -16,6 +16,7 @@ public class PersistenceController
     public DialogueState dialogueState;
     public InventoryState inventoryState;
     public JournalState journalState;
+    public static string currentScene = Configuration.mainMenuSceneName; // Not in an inner class because it persists between states
 
     /// <summary>
     /// Stores the states of the player

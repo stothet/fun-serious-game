@@ -75,12 +75,14 @@ public class TrialScript : MonoBehaviour
 	}
 
 	/// <summary>
-    /// Check if the trail has ended
+    /// Check if the trial has ended
     /// </summary>
 	void Update ()
 	{
 		if (Input.GetKey(KeyCode.Space) && trialFinished) {
-			SceneManager.LoadScene (Configuration.endAct1SceneName);
+            string nextScene = Configuration.endAct1SceneName;
+            PersistenceController.currentScene = nextScene;
+			SceneManager.LoadScene(nextScene);
 		}			
 	}
 
@@ -95,7 +97,7 @@ public class TrialScript : MonoBehaviour
 			trialDialogue (2);
 			endGameMessage = "You Win!";
 			//SceneManager.LoadScene(Configuration.endGameSceneName);
-			//You win end game screen
+			// You win end game screen
 		}else if(cumulative == 0){
 			trialDialogue (3);
 			endGameMessage = "Try Again";
@@ -106,7 +108,7 @@ public class TrialScript : MonoBehaviour
 			trialDialogue (4);
 			endGameMessage = "Game Over";
 			//SceneManager.LoadScene(Configuration.endGameSceneName);
-			//you lose end game screen
+			// You lose end game screen
 		}
 	}
 

@@ -13,16 +13,18 @@ public class Journal : MonoBehaviour {
     public GameObject JournalSlot;
     private Text selectedText;
     public List<Button> _entries = new List<Button>();
-    
+    Image journalTabImage;
+
     public void Start()
     {
+		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
         for(int i = 0; i<PersistenceController.instance.journalState.journal.Count; i++)
         {
             putJournalEntry(PersistenceController.instance.journalState.journal[i]);
         }
-        
+
     }
-    
+
     /// <summary>
     /// Adds a new journal slot to the journal interface, populated with the desired text.
     /// </summary>
@@ -46,6 +48,7 @@ public class Journal : MonoBehaviour {
         if (!PersistenceController.instance.journalState.journal.Contains(txt))
         {
             PersistenceController.instance.journalState.journal.Add(txt);
+			journalTabImage.sprite = Resources.Load<Sprite> ("Icons/JournalIconAlert");
         }
         //journalEntry.text = PersistenceController.JournalState.journal;
     }
@@ -67,6 +70,6 @@ public class Journal : MonoBehaviour {
     {
         return selectedText;
     }
-    
-    
+
+
 }

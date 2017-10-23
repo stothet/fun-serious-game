@@ -25,6 +25,7 @@ public class BlowMinigameInitialiser : MonoBehaviour {
             yesBtnObject.SetActive(true);
             noBtnObject.SetActive(true);
             Debug.Log("HELLO?");
+			txtBox.notNPC = true;
             txtBox.ShowDialogueBox();
             txtBox.dialogueText.text =  "The note is dusty. Do you want to blow it?";
         }
