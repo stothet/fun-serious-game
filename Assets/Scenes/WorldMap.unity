@@ -2415,12 +2415,16 @@ MonoBehaviour:
   livesKeeper: {fileID: 422949209}
   scoreKeeper: {fileID: 211417234}
   _score: {fileID: 1796873476}
-  trialStart: {fileID: 4900000, guid: ae645d5e63fba0046a77d09c8490254f, type: 3}
-  introFile: {fileID: 4900000, guid: ae645d5e63fba0046a77d09c8490254f, type: 3}
+  choice1: {fileID: 449565543}
+  choice2: {fileID: 1492766140}
+  option1: {fileID: 793738615}
+  option2: {fileID: 134615455}
+  trialStart: {fileID: 4900000, guid: c77f38d80b9484047b32eb43354b9177, type: 3}
+  introFile: {fileID: 4900000, guid: 6b5608c1f021e41d4a63004b6e23bdfb, type: 3}
   prelude: {fileID: 4900000, guid: 8da2c42bd9c164baaa419a7384d905e5, type: 3}
-  bruceIsFree: {fileID: 4900000, guid: 32c395e61481deb45bf72753d01a6e72, type: 3}
+  bruceIsFree: {fileID: 4900000, guid: e6433e6f6ec204752b4c08cbbd6c8364, type: 3}
   goBack: {fileID: 4900000, guid: c8f4d2f53b3c745e098e8082ee770966, type: 3}
-  youLose: {fileID: 4900000, guid: 9b177d06ad8a0b74bafc30b3af543ca7, type: 3}
+  youLose: {fileID: 4900000, guid: c316540c3408e4c3789a5b7915345151, type: 3}
 --- !u!4 &283015564
 Transform:
   m_ObjectHideFlags: 0
@@ -17453,7 +17457,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -10.009186, y: -0.000009775162}
+  m_AnchoredPosition: {x: -10.009125, y: -0.000009775162}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1975144655
