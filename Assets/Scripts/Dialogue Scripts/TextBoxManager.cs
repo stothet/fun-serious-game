@@ -23,6 +23,7 @@ public class TextBoxManager : MonoBehaviour
 
     public int currentLine;
     public int endLine;
+	public bool notNPC;
 
     public PlayerController player;
     public NPCController NPC;
@@ -41,7 +42,7 @@ public class TextBoxManager : MonoBehaviour
     {
         NPC = FindObjectOfType<NPCController>();
         journal = FindObjectOfType<Journal>();
-
+		notNPC = true;
         // Load the initial dialogue txt file (if there is one)
         ReloadScript(txtFile);
 
@@ -67,7 +68,7 @@ public class TextBoxManager : MonoBehaviour
             return;
         }
         Debug.Log("Running update");
-        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
+        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space") && !notNPC)
         {
             ContinueDialogue();
         }

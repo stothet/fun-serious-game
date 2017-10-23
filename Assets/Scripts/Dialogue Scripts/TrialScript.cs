@@ -80,7 +80,9 @@ public class TrialScript : MonoBehaviour
 	void Update ()
 	{
 		if (Input.GetKey(KeyCode.Space) && trialFinished) {
-			SceneManager.LoadScene (Configuration.endAct1SceneName);
+            string nextScene = Configuration.endAct1SceneName;
+            PersistenceController.currentScene = nextScene;
+			SceneManager.LoadScene(nextScene);
 		}			
 	}
 

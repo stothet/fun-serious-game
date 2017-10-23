@@ -12,15 +12,19 @@ public class InventoryClickScript : MonoBehaviour
     public GameObject SOMET;
     public Button Submit;
     public TrialScript trial;
-    
+    Image inventoryTabImage;
+  	Image journalTabImage;
 
     private bool active = false;
     private string currentTab; // should be null at the start, but currently inventory displays on beginning
 
     // Use this for initialization, register all child buttons of the inventory panel with a listener
     void Start()
+
     {
         trial = FindObjectOfType<TrialScript>();
+        inventoryTabImage = GameObject.FindGameObjectWithTag("InventoryTab").GetComponent<Image>();
+    		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
         Button[] btn = GetComponentsInChildren<Button>();
         for (int i = 0; i < btn.Length; i++)
         {
@@ -36,6 +40,7 @@ public class InventoryClickScript : MonoBehaviour
         {
             currentTab = go.name; // set the currentTab name to the event name
             SOMET.SetActive(true);
+			//inventoryTabImage.sprite = Resources.Load<Sprite>("Icons/BagIcon");
             getTabEvent(currentTab).SetActive(true);
             Debug.Log("did this call?");
             //inventoryPanel.SetActive(true); // show the panel
@@ -73,15 +78,17 @@ public class InventoryClickScript : MonoBehaviour
         {
             Submit.gameObject.SetActive(true);
         }
-        
+
         if(name == "InventoryTab")
         {
             Debug.Log("Hello");
+			inventoryTabImage.sprite = Resources.Load<Sprite>("Icons/BagIcon");
             journalPanel.SetActive(false);
             return inventoryPanel;
         } else
         {
             Debug.Log("DOES THIS ONE WORK!?!?!?!?");
+			journalTabImage.sprite = Resources.Load<Sprite>("Icons/JournalIcon");
             inventoryPanel.SetActive(false);
             return journalPanel;
         }
