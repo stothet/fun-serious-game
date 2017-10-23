@@ -11,7 +11,6 @@ public class SaveGameButton : MonoBehaviour {
         btn.onClick.AddListener(TaskOnClick);
     }
 
-    // Update is called once per frame
     void TaskOnClick()
     {
         LoadingGameScript ls = new LoadingGameScript();
