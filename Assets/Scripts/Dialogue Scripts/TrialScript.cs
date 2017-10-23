@@ -90,7 +90,8 @@ public class TrialScript : MonoBehaviour
 	void Update ()
 	{
         Debug.Log("Updating XDXD");
-		if (Input.GetKey(KeyCode.Space) && trialFinished) {
+		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
+			&& trialFinished) {
             string nextScene = Configuration.endAct1SceneName;
             Debug.Log("Changing to next scene " + nextScene);
             PersistenceController.currentScene = nextScene;
