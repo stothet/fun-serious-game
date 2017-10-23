@@ -394,6 +394,7 @@ GameObject:
   - 4: {fileID: 31597743}
   - 61: {fileID: 31597745}
   - 114: {fileID: 31597744}
+  - 114: {fileID: 31597746}
   m_Layer: 0
   m_Name: Greenhouse
   m_TagString: Untagged
@@ -442,6 +443,17 @@ BoxCollider2D:
   m_Offset: {x: -0.12336731, y: 1.5060806}
   serializedVersion: 2
   m_Size: {x: 2.866818, y: 1.5151917}
+--- !u!114 &31597746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 31597742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &44275413
 Prefab:
   m_ObjectHideFlags: 0
@@ -1205,6 +1217,7 @@ GameObject:
   - 4: {fileID: 141925639}
   - 61: {fileID: 141925641}
   - 114: {fileID: 141925640}
+  - 114: {fileID: 141925642}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -1253,6 +1266,17 @@ BoxCollider2D:
   m_Offset: {x: -0.14741135, y: 1.3706484}
   serializedVersion: 2
   m_Size: {x: 2.8072546, y: 1.6372848}
+--- !u!114 &141925642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 141925638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &169878435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1745,48 @@ Transform:
   - {fileID: 1618823449}
   m_Father: {fileID: 1128581446}
   m_RootOrder: 4
+--- !u!1001 &185198769
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 455754, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5c54ec361c1009f438f860b4b1216f8c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &205776979 stripped
 Transform:
   m_PrefabParentObject: {fileID: 487370, guid: 541a12dfb68d2de4a8be0024c4de3eaf, type: 2}
@@ -2532,6 +2598,7 @@ GameObject:
   - 4: {fileID: 274304460}
   - 61: {fileID: 274304462}
   - 114: {fileID: 274304461}
+  - 114: {fileID: 274304463}
   m_Layer: 0
   m_Name: DetentionRoom
   m_TagString: Untagged
@@ -2580,6 +2647,17 @@ BoxCollider2D:
   m_Offset: {x: 0.046085358, y: 1.2486343}
   serializedVersion: 2
   m_Size: {x: 2.8357499, y: 1.6886563}
+--- !u!114 &274304463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 274304459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &278858706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +3046,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 296471226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &296471226
@@ -3257,6 +3346,7 @@ GameObject:
   - 4: {fileID: 338887053}
   - 61: {fileID: 338887054}
   - 114: {fileID: 338887055}
+  - 114: {fileID: 338887056}
   m_Layer: 0
   m_Name: Toilet Front Door
   m_TagString: Untagged
@@ -3303,6 +3393,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warpTarget: {fileID: 205919459}
+--- !u!114 &338887056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338887052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &340897862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3632,6 +3733,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1880357068}
         m_MethodName: unPauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4595,6 +4707,7 @@ GameObject:
   - 4: {fileID: 531173187}
   - 61: {fileID: 531173189}
   - 114: {fileID: 531173188}
+  - 114: {fileID: 531173190}
   m_Layer: 0
   m_Name: Lab
   m_TagString: Untagged
@@ -4643,6 +4756,17 @@ BoxCollider2D:
   m_Offset: {x: -0.0054941177, y: 1.2995377}
   serializedVersion: 2
   m_Size: {x: 2.8408117, y: 1.6097332}
+--- !u!114 &531173190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 531173186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535937107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4884,6 +5008,7 @@ GameObject:
   - 4: {fileID: 572253034}
   - 61: {fileID: 572253036}
   - 114: {fileID: 572253035}
+  - 114: {fileID: 572253037}
   m_Layer: 0
   m_Name: PrincipalOffice Door
   m_TagString: Untagged
@@ -4930,6 +5055,17 @@ BoxCollider2D:
   m_Offset: {x: 8.211761, y: -1.8812256}
   serializedVersion: 2
   m_Size: {x: 21.989012, y: 96.829544}
+--- !u!114 &572253037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572253033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &599062408
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,8 +5497,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847682925}
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5554,7 +5690,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 633774351}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &638656804
@@ -5633,7 +5780,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 638656807}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &638656807
@@ -5764,6 +5922,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1880357068}
         m_MethodName: hideHelp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6258,6 +6427,17 @@ MonoBehaviour:
       - m_Target: {fileID: 707390558}
         m_MethodName: LoadByIndex
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7053,6 +7233,7 @@ GameObject:
   - 4: {fileID: 783003926}
   - 61: {fileID: 783003928}
   - 114: {fileID: 783003927}
+  - 114: {fileID: 783003929}
   m_Layer: 0
   m_Name: Bathroom
   m_TagString: Untagged
@@ -7099,6 +7280,17 @@ BoxCollider2D:
   m_Offset: {x: 0.9378853, y: 1.1133842}
   serializedVersion: 2
   m_Size: {x: 2.8757777, y: 1.6434093}
+--- !u!114 &783003929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783003925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &793738613
 GameObject:
   m_ObjectHideFlags: 0
@@ -7251,6 +7443,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1880357068}
         m_MethodName: pauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7546,6 +7749,7 @@ GameObject:
   - 4: {fileID: 821208470}
   - 61: {fileID: 821208471}
   - 114: {fileID: 821208472}
+  - 114: {fileID: 821208473}
   m_Layer: 0
   m_Name: Detention Door
   m_TagString: Untagged
@@ -7592,6 +7796,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warpTarget: {fileID: 1986642235}
+--- !u!114 &821208473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821208469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &824353930
 GameObject:
   m_ObjectHideFlags: 0
@@ -9024,7 +9239,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 956829322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &956829322
@@ -9087,6 +9313,7 @@ GameObject:
   - 4: {fileID: 973353491}
   - 61: {fileID: 973353493}
   - 114: {fileID: 973353492}
+  - 114: {fileID: 973353494}
   m_Layer: 0
   m_Name: Reception
   m_TagString: Untagged
@@ -9135,6 +9362,17 @@ BoxCollider2D:
   m_Offset: {x: -0.09879875, y: 0.80493164}
   serializedVersion: 2
   m_Size: {x: 2.9159555, y: 0.5217279}
+--- !u!114 &973353494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 973353490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &976889528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9238,6 +9476,54 @@ Transform:
   - {fileID: 2127850668}
   m_Father: {fileID: 1017243663}
   m_RootOrder: 6
+--- !u!1001 &981990374
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 466928, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 641b29fe73d75b94ba4df14d59d37ec5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &981990375 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11402798, guid: 641b29fe73d75b94ba4df14d59d37ec5,
+    type: 2}
+  m_PrefabInternal: {fileID: 981990374}
+  m_Script: {fileID: 11500000, guid: 5a9aca9c71bd5024296058d2694e288b, type: 3}
 --- !u!4 &988179392
 Transform:
   m_ObjectHideFlags: 0
@@ -9731,6 +10017,7 @@ GameObject:
   - 4: {fileID: 1041776675}
   - 61: {fileID: 1041776677}
   - 114: {fileID: 1041776676}
+  - 114: {fileID: 1041776678}
   m_Layer: 0
   m_Name: Lab Front Door
   m_TagString: Untagged
@@ -9779,6 +10066,17 @@ BoxCollider2D:
   m_Offset: {x: -0.08516407, y: -0.5354271}
   serializedVersion: 2
   m_Size: {x: 2.8460197, y: 0.09634721}
+--- !u!114 &1041776678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041776674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1050075823
 Prefab:
   m_ObjectHideFlags: 0
@@ -9856,6 +10154,7 @@ GameObject:
   - 4: {fileID: 1056332173}
   - 61: {fileID: 1056332174}
   - 114: {fileID: 1056332175}
+  - 114: {fileID: 1056332176}
   m_Layer: 0
   m_Name: Gym
   m_TagString: Untagged
@@ -9902,6 +10201,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warpTarget: {fileID: 1659479212}
+--- !u!114 &1056332176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056332172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1087654084
 GameObject:
   m_ObjectHideFlags: 0
@@ -10757,7 +11067,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1161589860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1161589860
@@ -10860,6 +11181,7 @@ GameObject:
   - 61: {fileID: 1179444882}
   - 61: {fileID: 1179444881}
   - 61: {fileID: 1179444880}
+  - 61: {fileID: 1179444890}
   m_Layer: 0
   m_Name: Building Floor Audio
   m_TagString: Untagged
@@ -11027,6 +11349,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80ba38b95596324bb048fb4ec6944e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1179444890
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179444878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -56.425278, y: 50.906593}
+  serializedVersion: 2
+  m_Size: {x: 14.703583, y: 11.610828}
 --- !u!1001 &1180154688
 Prefab:
   m_ObjectHideFlags: 0
@@ -11530,6 +11866,7 @@ GameObject:
   - 4: {fileID: 1227672561}
   - 61: {fileID: 1227672562}
   - 114: {fileID: 1227672563}
+  - 114: {fileID: 1227672564}
   m_Layer: 0
   m_Name: Music Front Door
   m_TagString: Untagged
@@ -11576,6 +11913,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warpTarget: {fileID: 1030821648}
+--- !u!114 &1227672564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1227672560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1228191511
 GameObject:
   m_ObjectHideFlags: 0
@@ -12025,6 +12373,7 @@ GameObject:
   - 4: {fileID: 1259780605}
   - 61: {fileID: 1259780607}
   - 114: {fileID: 1259780606}
+  - 114: {fileID: 1259780608}
   m_Layer: 0
   m_Name: Cafeteria Front Door
   m_TagString: Untagged
@@ -12073,6 +12422,17 @@ BoxCollider2D:
   m_Offset: {x: -0.041425705, y: -0.5434618}
   serializedVersion: 2
   m_Size: {x: 2.7886465, y: 0.08838868}
+--- !u!114 &1259780608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1259780604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1262633149
 Prefab:
   m_ObjectHideFlags: 0
@@ -12956,6 +13316,7 @@ GameObject:
   - 4: {fileID: 1378927417}
   - 61: {fileID: 1378927418}
   - 114: {fileID: 1378927419}
+  - 114: {fileID: 1378927420}
   m_Layer: 0
   m_Name: Theatre Door Left
   m_TagString: Untagged
@@ -13002,6 +13363,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warpTarget: {fileID: 1330813177}
+--- !u!114 &1378927420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1378927416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1379145765
 GameObject:
   m_ObjectHideFlags: 0
@@ -13268,6 +13640,7 @@ GameObject:
   - 4: {fileID: 1418361111}
   - 61: {fileID: 1418361112}
   - 114: {fileID: 1418361113}
+  - 114: {fileID: 1418361114}
   m_Layer: 0
   m_Name: Theatre Door Right
   m_TagString: Untagged
@@ -13314,6 +13687,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warpTarget: {fileID: 1330813177}
+--- !u!114 &1418361114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418361110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1421947075
 GameObject:
   m_ObjectHideFlags: 0
@@ -13517,6 +13901,7 @@ GameObject:
   - 4: {fileID: 1436946152}
   - 61: {fileID: 1436946154}
   - 114: {fileID: 1436946153}
+  - 114: {fileID: 1436946155}
   m_Layer: 0
   m_Name: Green Room Door
   m_TagString: Untagged
@@ -13563,6 +13948,17 @@ BoxCollider2D:
   m_Offset: {x: 337.19043, y: -443.89764}
   serializedVersion: 2
   m_Size: {x: 96.683334, y: 5.759554}
+--- !u!114 &1436946155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1436946151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1441364334
 Prefab:
   m_ObjectHideFlags: 0
@@ -13672,6 +14068,7 @@ GameObject:
   - 4: {fileID: 1477274672}
   - 61: {fileID: 1477274674}
   - 114: {fileID: 1477274673}
+  - 114: {fileID: 1477274675}
   m_Layer: 0
   m_Name: Art Front Door
   m_TagString: Untagged
@@ -13718,6 +14115,17 @@ BoxCollider2D:
   m_Offset: {x: 0.899765, y: 0}
   serializedVersion: 2
   m_Size: {x: 96.5997, y: 2.9}
+--- !u!114 &1477274675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1477274671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1490491189
 GameObject:
   m_ObjectHideFlags: 0
@@ -14858,6 +15266,7 @@ GameObject:
   - 4: {fileID: 1638497342}
   - 61: {fileID: 1638497344}
   - 114: {fileID: 1638497343}
+  - 114: {fileID: 1638497345}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -14906,6 +15315,17 @@ BoxCollider2D:
   m_Offset: {x: -0.14741135, y: 0.60733414}
   serializedVersion: 2
   m_Size: {x: 2.8072546, y: 0.22533154}
+--- !u!114 &1638497345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638497341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1640919154
 GameObject:
   m_ObjectHideFlags: 0
@@ -14916,6 +15336,7 @@ GameObject:
   - 4: {fileID: 1640919155}
   - 61: {fileID: 1640919157}
   - 114: {fileID: 1640919156}
+  - 114: {fileID: 1640919158}
   m_Layer: 0
   m_Name: Theatre
   m_TagString: Untagged
@@ -14964,6 +15385,17 @@ BoxCollider2D:
   m_Offset: {x: 0.00828743, y: -0.04010582}
   serializedVersion: 2
   m_Size: {x: 2.8126464, y: 1.5202068}
+--- !u!114 &1640919158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1640919154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1645706267
 GameObject:
   m_ObjectHideFlags: 0
@@ -15104,6 +15536,7 @@ GameObject:
   - 4: {fileID: 1662857957}
   - 61: {fileID: 1662857959}
   - 114: {fileID: 1662857958}
+  - 114: {fileID: 1662857960}
   m_Layer: 0
   m_Name: Reception Door
   m_TagString: Untagged
@@ -15150,6 +15583,17 @@ BoxCollider2D:
   m_Offset: {x: 145.13257, y: -380.89355}
   serializedVersion: 2
   m_Size: {x: 97.003845, y: 7.169812}
+--- !u!114 &1662857960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662857956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1665225920
 GameObject:
   m_ObjectHideFlags: 0
@@ -16459,6 +16903,7 @@ GameObject:
   - 4: {fileID: 1792074897}
   - 61: {fileID: 1792074899}
   - 114: {fileID: 1792074898}
+  - 114: {fileID: 1792074900}
   m_Layer: 0
   m_Name: Cafeteria
   m_TagString: Untagged
@@ -16507,6 +16952,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 1.3643265}
   serializedVersion: 2
   m_Size: {x: 1.88, y: 1.8647115}
+--- !u!114 &1792074900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792074896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1793889450
 GameObject:
   m_ObjectHideFlags: 0
@@ -16927,6 +17383,7 @@ GameObject:
   - 4: {fileID: 1860278764}
   - 61: {fileID: 1860278766}
   - 114: {fileID: 1860278765}
+  - 114: {fileID: 1860278767}
   m_Layer: 0
   m_Name: Principal Front Door
   m_TagString: Untagged
@@ -16975,6 +17432,17 @@ BoxCollider2D:
   m_Offset: {x: -0.713523, y: -0.22829008}
   serializedVersion: 2
   m_Size: {x: 0.20608664, y: 4.1585474}
+--- !u!114 &1860278767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1860278763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874020712
 GameObject:
   m_ObjectHideFlags: 0
@@ -17287,6 +17755,7 @@ GameObject:
   - 4: {fileID: 1916519814}
   - 61: {fileID: 1916519816}
   - 114: {fileID: 1916519815}
+  - 114: {fileID: 1916519817}
   m_Layer: 0
   m_Name: Gym Front Door
   m_TagString: Untagged
@@ -17333,6 +17802,17 @@ BoxCollider2D:
   m_Offset: {x: -5.3103027, y: -24.18982}
   serializedVersion: 2
   m_Size: {x: 92.29916, y: 20.453938}
+--- !u!114 &1916519817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1916519813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7fde623efe1c8469c2f987956a7c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923423470
 GameObject:
   m_ObjectHideFlags: 0
@@ -17411,6 +17891,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1880357068}
         m_MethodName: showHelp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 981990375}
+        m_MethodName: PlayClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
