@@ -51,6 +51,8 @@ public class Configuration
     public static readonly string photographName = "Group photo of Brad, Jimmy and Bruce";
     public static readonly string capName = "Blue Cap with a red cross";
 	public static readonly string examScriptName = "Exam Script";
+	public static readonly string cleanPaperName = "Clean Paper";
+	public static readonly string dirtyPaperName = "Dirty Paper";
     
 
 
@@ -63,5 +65,6 @@ public class Configuration
     public static readonly string photographNameDescription = "";
     public static readonly string capNameDescription = "";
 	public static readonly string examScriptNameDescription = "";
-
+	public static readonly string cleanPaperNameDescription = "";
+	public static readonly string dirtyPaperNameDescription = "";
 }

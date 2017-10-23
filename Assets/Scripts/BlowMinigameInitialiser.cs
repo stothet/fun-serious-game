@@ -24,7 +24,6 @@ public class BlowMinigameInitialiser : MonoBehaviour {
         {
             yesBtnObject.SetActive(true);
             noBtnObject.SetActive(true);
-            Debug.Log("HELLO?");
 			txtBox.notNPC = true;
             txtBox.ShowDialogueBox();
             txtBox.dialogueText.text =  "The note is dusty. Do you want to blow it?";
@@ -33,22 +32,18 @@ public class BlowMinigameInitialiser : MonoBehaviour {
 
     private void YesTaskClick()
     {
-        Debug.Log("is this task being called?");
         txtBox.dialogueText.text = "";
         txtBox.DisableDialogueBox();
         yesBtnObject.SetActive(false);
         noBtnObject.SetActive(false);
-        Debug.Log("THINKING?");
 		SceneManager.LoadScene(Configuration.microphoneMinigameSceneName);
     }
 
     private void NoTaskClick()
     {
-        Debug.Log("is this task2 being called?");
         txtBox.dialogueText.text = "";
         txtBox.DisableDialogueBox();
         yesBtnObject.SetActive(false);
         noBtnObject.SetActive(false);
-       // Debug.Log("THINKING?4");
     }
 }

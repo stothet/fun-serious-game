@@ -2574,7 +2574,7 @@ GameObject:
   - 58: {fileID: 316056408}
   - 114: {fileID: 316056407}
   m_Layer: 0
-  m_Name: Work Journal
+  m_Name: Dirty Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2588,7 +2588,7 @@ Transform:
   m_GameObject: {fileID: 316056405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 79, y: -332, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1128581446}
@@ -2647,7 +2647,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 1295a3e09178be441b395225dbb07a01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9053ac686b1b6f74780440b0da2936d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
