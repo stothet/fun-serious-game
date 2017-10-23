@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
+	private static readonly float cameraLimit=40f;
 
 	public Transform player;
 	private Vector3 offset;
@@ -22,7 +23,13 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
-        if (tiltActive) {
+	//	float xpos = player.transform.position.x;
+	//	float ypos = player.transform.position.y;
+		//bool boundaryCondition = (currentGyroPlacement.x + Input.gyro.rotationRateUnbiased.x < xpos+cameraLimit)&&
+		//	(-currentGyroPlacement.x + Input.gyro.rotationRateUnbiased.x > xpos-cameraLimit)&&
+		//	(currentGyroPlacement.y + Input.gyro.rotationRateUnbiased.y < ypos+cameraLimit)&&
+		//	(-currentGyroPlacement.y + Input.gyro.rotationRateUnbiased.y > ypos-cameraLimit);
+		if (tiltActive) {
 			currentGyroPlacement += Input.gyro.rotationRateUnbiased;
 			/*if (currentGyroPlacement.y > shakeSpeedY || currentGyroPlacement.y < shakeSpeedY * -1)
 			{
