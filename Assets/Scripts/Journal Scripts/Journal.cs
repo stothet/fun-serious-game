@@ -23,7 +23,7 @@ public class Journal : MonoBehaviour {
 		journalValues = GameObject.FindGameObjectWithTag("JournalValues").GetComponent<JournalValues>();
 		foreach (var key in PersistenceController.instance.journalState.journalEntries)
 		{
-			putJournalEntry(key.Key,key.Value);
+			putJournalEntry(key.Key, key.Value);
 		}
 
 	}
@@ -35,26 +35,42 @@ public class Journal : MonoBehaviour {
 	public void putJournalEntry(string txt, int score)
 	{
 
-		if (!PersistenceController.instance.journalState.journalEntries.ContainsKey(txt))
-		{
+		if (!PersistenceController.instance.journalState.journalEntries.ContainsKey (txt)) {
 			//if(PersistenceController.JournalState.journal)
-			GameObject slot = GameObject.Instantiate(JournalSlot);
+			GameObject slot = GameObject.Instantiate (JournalSlot);
 			//slot.AddComponent<RectTransform>();
-			slot.AddComponent<Button>();
-			slot.AddComponent<Text>();
-			Button b = slot.GetComponentInChildren<Button>();
-			b.onClick.AddListener(TaskOnClick);
-			_entries.Add(b);
-			Text text = slot.GetComponent<Text>();
-			journalEntry = slot.GetComponentInChildren<Text>();
-			slot.transform.SetParent(this.gameObject.transform, false);
+			slot.AddComponent<Button> ();
+			slot.AddComponent<Text> ();
+			Button b = slot.GetComponentInChildren<Button> ();
+			b.onClick.AddListener (TaskOnClick);
+			_entries.Add (b);
+			Text text = slot.GetComponent<Text> ();
+			journalEntry = slot.GetComponentInChildren<Text> ();
+			slot.transform.SetParent (this.gameObject.transform, false);
 			journalEntry.text = txt;
 			
 
-			Journal jrnl = slot.GetComponent<Journal>(); //Get the journal object of the slot instance.
+			Journal jrnl = slot.GetComponent<Journal> (); //Get the journal object of the slot instance.
 			
 			_score = score; //Set the journal entry value. Hardcoded as 6 as an example.
-			PersistenceController.instance.journalState.journalEntries.Add(txt,score);
+			PersistenceController.instance.journalState.journalEntries.Add (txt, score);
+			journalTabImage.sprite = Resources.Load<Sprite> ("Icons/JournalIconAlert");
+		} else {
+			//if(PersistenceController.JournalState.journal)
+			GameObject slot = GameObject.Instantiate (JournalSlot);
+			//slot.AddComponent<RectTransform>();
+			slot.AddComponent<Button>();
+			slot.AddComponent<Text>();
+			Button b = slot.GetComponentInChildren<Button> ();
+			b.onClick.AddListener (TaskOnClick);
+			_entries.Add (b);
+			Text text = slot.GetComponent<Text> ();
+			journalEntry = slot.GetComponentInChildren<Text> ();
+			slot.transform.SetParent (this.gameObject.transform, false);
+			journalEntry.text = txt;
+			Journal jrnl = slot.GetComponent<Journal> (); //Get the journal object of the slot instance.
+
+			_score = score; //Set the journal entry value. Hardcoded as 6 as an example.
 			journalTabImage.sprite = Resources.Load<Sprite> ("Icons/JournalIconAlert");
 		}
 		//journalEntry.text = PersistenceController.JournalState.journal;

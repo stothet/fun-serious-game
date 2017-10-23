@@ -78,7 +78,15 @@ public class TrialScript : MonoBehaviour
 	{
 		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
 			&& trialFinished) {
-            string nextScene = Configuration.endAct1SceneName;
+			string nextScene = null;
+			string sceneName = SceneManager.GetActiveScene ().name;
+			if (sceneName == Configuration.act2SceneSceneName) {
+				nextScene = Configuration.endAct2SceneName;
+			}
+			else if (sceneName == Configuration.worldMapSceneName) {
+				nextScene = Configuration.endAct1SceneName;
+			}
+            Debug.Log("Changing to next scene " + nextScene);
             PersistenceController.currentScene = nextScene;
 			SceneManager.LoadScene(nextScene);
 		}
@@ -157,7 +165,7 @@ public class TrialScript : MonoBehaviour
 
                     /*option1.text = "You were right to doubt him, Mr. Wilson!";
                     option2.text = "It was not Bruce who did it...";*/
-                    evidenceRequired = "register";
+                    evidenceRequired = "Selma: School's reception lady. Swears she hasn't seen anyone sneak by her while she was at her desk. Was away from desk from 12.30 - 12.40.";
 				//scoreKeeper.SetActive (true);
 				//livesKeeper.SetActive (false);
                     presentEvidenceNow = true;
@@ -223,7 +231,7 @@ public class TrialScript : MonoBehaviour
             presentEvidenceNow = false;
             txtBox.disableDialogueTap = false;
 			evidence = inventory.GetSelectedItem();
-            if (true)
+            if (evidenceRequired.Equals(evidence._itemName))
             {
                 trialDialogue(order);
             } else
@@ -232,7 +240,7 @@ public class TrialScript : MonoBehaviour
                 PersistenceController.instance.playerState.lives--;
                 if(PersistenceController.instance.playerState.lives == 0)
                 {
-                    SceneManager.LoadScene(Configuration.endAct1SceneName);
+					SceneManager.LoadScene(Configuration.loseGameSceneName);
                 }
             }
 			keepScore(evidence._itemValue);
@@ -241,8 +249,32 @@ public class TrialScript : MonoBehaviour
 		}
 		else
         {
+<<<<<<< HEAD
+=======
+	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+	        presentEvidenceNow = false;
+	        txtBox.disableDialogueTap = false;
+	        //Debug.Log(godhelpme.GetSelectedEntry() +"");
+	        Text t = godhelpme.GetComponentInChildren<Text>();
+	        string clickedName = t.text;
+	        if (evidenceRequired.Equals(clickedName))
+	        {
+		        trialDialogue(order);
+	        }
+	        else
+	        {
+		        trialDialogue(currentCaseSwitch);
+		        PersistenceController.instance.playerState.lives--;
+		        if(PersistenceController.instance.playerState.lives == 0)
+		        {
+			        SceneManager.LoadScene(Configuration.endAct1SceneName);
+		        }
+	        }
+	        //if(godhelpme.)
+>>>>>>> a32dbfc6d0c88ffb67a19d2646cfa074bf44cb30
 	        keepScore(godhelpme.GetSelectedEntry());
 	        godhelpme.journalEntryValue = 0;
+	        _evidenceCount++;
         }
 	}
 
