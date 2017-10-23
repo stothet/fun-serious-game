@@ -49,6 +49,7 @@ public class TrialScript : MonoBehaviour
 
 	public Item evidence;
 	private Inventory inventory;
+	private Journal journal;
 	private Button submitButton;
 	
 	public static string endGameMessage = null;
@@ -64,7 +65,7 @@ public class TrialScript : MonoBehaviour
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
-
+		journal= GameObject.FindGameObjectWithTag("Journal").GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
@@ -207,19 +208,23 @@ public class TrialScript : MonoBehaviour
     /// Select an item from the inventory and update the players score
     /// </summary>
 	public void SelectObjectEvidence(){
-		evidence = inventory.GetSelectedItem();
+		
 
-		if (evidence != null)
+		if (inventory.GetSelectedItem() != null)
 		{
-			Debug.Log("Evidence chosen: " + evidence._itemName);
+			evidence = inventory.GetSelectedItem();
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
 			//if(_evidenceCount == 2){
 				Outcome ();
 			//}
 
-		} else
+		} 
+		/**else if (Journal.GetSelectedItem() != null)
 		{
+			Journal journal = Journal.GetSelectedItem();
+		}**/
+		else{
 			// Do nothing as nothing is selected
 			return;
 		}
@@ -271,12 +276,12 @@ public class TrialScript : MonoBehaviour
 
 		}
 		
-		//LEADS TO END GAME SCREEN (KEEP PRESSING SPACE)
+		/**LEADS TO END GAME SCREEN (KEEP PRESSING SPACE)
 		_evidenceCount++;
 		if (_evidenceCount == 2)
 		{
 			Outcome();
-		}
+		}**/
 	}
 
 }
