@@ -6,6 +6,7 @@ public class PauseGameSettings : MonoBehaviour
 {
     public GameObject pauseButton;
     public GameObject pausePanel;
+    public GameObject helpPanel;
     public Slider volumeSlider;
     Text volumeLabel;
     public void Start()
@@ -27,6 +28,7 @@ public class PauseGameSettings : MonoBehaviour
         Time.timeScale = 1;
         pauseButton.SetActive(true);
         pausePanel.SetActive(false);
+        hideHelp();
     }
 
     public void OnValueChanged()
@@ -38,6 +40,16 @@ public class PauseGameSettings : MonoBehaviour
     {
         float valueToBeUpdated = Mathf.RoundToInt(volumeValue * 100);
         volumeLabel.text = valueToBeUpdated + "%";
+    }
+
+    public void showHelp()
+    {
+        helpPanel.SetActive(true);
+    }
+
+    public void hideHelp()
+    {
+        helpPanel.SetActive(false);
     }
 
 
