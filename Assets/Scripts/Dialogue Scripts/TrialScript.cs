@@ -54,6 +54,7 @@ public class TrialScript : MonoBehaviour
 	private Journal godhelpme;
 
 	public static string endGameMessage = null;
+	public static string selectedText;
 
 	//panel and button would handle this script
 
@@ -66,6 +67,9 @@ public class TrialScript : MonoBehaviour
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
         evidenceRequired = "none";
+		selectedText = "";
+		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
+		//journaljournal = journalSlot.GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
@@ -255,7 +259,7 @@ public class TrialScript : MonoBehaviour
 	        //Debug.Log(godhelpme.GetSelectedEntry() +"");
 	        Text t = godhelpme.GetComponentInChildren<Text>();
 	        string clickedName = t.text;
-	        if (evidenceRequired.Equals(clickedName))
+	        if (evidenceRequired.Equals(selectedText))
 	        {
 		        trialDialogue(order);
 	        }
@@ -268,7 +272,6 @@ public class TrialScript : MonoBehaviour
 			        SceneManager.LoadScene(Configuration.endAct1SceneName);
 		        }
 	        }
-	        //if(godhelpme.)
 	        keepScore(godhelpme.GetSelectedEntry());
 	        godhelpme.journalEntryValue = 0;
 	        _evidenceCount++;

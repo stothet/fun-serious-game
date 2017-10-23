@@ -80,10 +80,11 @@ public class Journal : MonoBehaviour {
 	{
 		GameObject selectedSlot = EventSystem.current.currentSelectedGameObject;
 		Journal jrnl = selectedSlot.GetComponent<Journal> ();
+		//Debug.Log(jrnl.GetComponentInChildren<Text>().text);
 
 		//Text text = selectedSlot.GetComponent<Text>();
 		Text text = selectedSlot.GetComponentInChildren<Text>();
-		
+		TrialScript.selectedText = text.text;
 		foreach (var key in PersistenceController.instance.journalState.journalEntries)
 		{
 			string k = key.Key;
