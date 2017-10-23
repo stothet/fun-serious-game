@@ -6,9 +6,10 @@ public class PlayerAudio : MonoBehaviour
     public bool onPath = false;
     public bool onGrass = false;
     public bool onBuildingFloor = false;
+    public bool atDoor = false;
 
     private float stepTimer = 0f;
-    private float stepPause = 0.2f; // amount of time between steps
+    private float stepPause = 0.42f; // amount of time between steps
 
     private float xpos = 0f;
     private float ypos = 0f;
@@ -23,8 +24,6 @@ public class PlayerAudio : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         touchControls = GetComponent<TouchControls>();
         audioSource = GetComponent<AudioSource>();
-
-        onPath = false;
     }
 
     // Update is called once per frame
@@ -81,8 +80,7 @@ public class PlayerAudio : MonoBehaviour
 
     public void PlayDoorSound()
     {
-        //audioSource.PlayOneShot(SoundManager.audioDoor[Random.RandomRange){
-
-        //}
+        audioSource.PlayOneShot(SoundManager.audioDoor[Random.Range(0, SoundManager.NUMBER_OF_DOOR_SOUNDS)], 0.8f);
+        Debug.Log("Play door sound");
     }
 }
