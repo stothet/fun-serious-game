@@ -10,11 +10,8 @@ public class InventoryClickScript : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject journalPanel;
     public GameObject SOMET;
-    public Button Submit;
-    public TrialScript trial;
-    Image inventoryTabImage;
-  	Image journalTabImage;
-
+	Image inventoryTabImage;
+	Image journalTabImage;
     private bool active = false;
     private string currentTab; // should be null at the start, but currently inventory displays on beginning
 
@@ -22,9 +19,8 @@ public class InventoryClickScript : MonoBehaviour
     void Start()
 
     {
-        trial = FindObjectOfType<TrialScript>();
-        inventoryTabImage = GameObject.FindGameObjectWithTag("InventoryTab").GetComponent<Image>();
-    		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
+		inventoryTabImage = GameObject.FindGameObjectWithTag("InventoryTab").GetComponent<Image>();
+		journalTabImage = GameObject.FindGameObjectWithTag("JournalTab").GetComponent<Image>();
         Button[] btn = GetComponentsInChildren<Button>();
         for (int i = 0; i < btn.Length; i++)
         {
@@ -54,7 +50,6 @@ public class InventoryClickScript : MonoBehaviour
                     active = false;
                     SOMET.SetActive(false);
                     getTabEvent(currentTab).SetActive(false); // current active tab is the same as the event, so we toggle the view
-                    Submit.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -74,11 +69,6 @@ public class InventoryClickScript : MonoBehaviour
 
     private GameObject getTabEvent(string name)
     {
-        if (trial.trialActive)
-        {
-            Submit.gameObject.SetActive(true);
-        }
-
         if(name == "InventoryTab")
         {
             Debug.Log("Hello");

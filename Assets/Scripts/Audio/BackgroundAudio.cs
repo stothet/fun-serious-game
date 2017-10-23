@@ -2,18 +2,14 @@
 using System.Collections;
 
 public class BackgroundAudio : MonoBehaviour {
-    private static AudioSource audioSource; 
-
-    // Use this for initialization
-    void Awake () {
+    private AudioSource audioSource;
+	// Use this for initialization
+	void Start () {
         audioSource = gameObject.GetComponent<AudioSource>();
+        PlayBackGroundMusic();
 	}
 
-    void Start()
-    {
-        //PlayBackgroundMusic();
-    }
-    public static void PlayBackgroundMusic()
+    private void PlayBackGroundMusic()
     {
         audioSource.clip = SoundManager.audioBackgroundMusic;
         audioSource.loop = true;

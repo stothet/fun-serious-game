@@ -138,7 +138,7 @@ public class NPCController : MonoBehaviour {
                 {
 					if(_name.Equals("Wilson")){
 						trialBox = FindObjectOfType<TrialScript>();
-						trialBox.trialDialogue(-1);
+						trialBox.trialDialogue(order);
 						trialBox.gameObject.SetActive(true);
 
 					}

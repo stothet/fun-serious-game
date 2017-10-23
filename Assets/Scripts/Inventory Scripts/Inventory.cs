@@ -58,8 +58,7 @@ public class Inventory : MonoBehaviour {
             addItem(PersistenceController.instance.inventoryState.database[i]);
         }
         // Add items you want to show up in the inventory here. The number is the unique ID of the item.
-
-		//addItem(Configuration.bruceRegisterEntryName);
+        //addItem(0);
         //addItem(1);
 		panel.SetActive(false);
 	}

@@ -31,6 +31,7 @@ public class PersistenceController
         /// </summary>
         public PlayerState()
         {
+            Debug.Log("Player.rs");
             playerPosition = Configuration.playerPosition;
             lives = Configuration.maxLives;
         }
