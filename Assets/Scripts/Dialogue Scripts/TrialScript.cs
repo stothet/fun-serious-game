@@ -181,7 +181,7 @@ public class TrialScript : MonoBehaviour
 
                     /*option1.text = "You were right to doubt him, Mr. Wilson!";
                     option2.text = "It was not Bruce who did it...";*/
-                    evidenceRequired = "register";
+                    evidenceRequired = "Selma: School's reception lady. Swears she hasn't seen anyone sneak by her while she was at her desk. Was away from desk from 12.30 - 12.40.";
 				//scoreKeeper.SetActive (true);
 				//livesKeeper.SetActive (false);
                     presentEvidenceNow = true;
@@ -261,7 +261,7 @@ public class TrialScript : MonoBehaviour
             presentEvidenceNow = false;
             txtBox.disableDialogueTap = false;
 			evidence = inventory.GetSelectedItem();
-            if (true)
+            if (evidenceRequired.Equals(evidence._itemName))
             {
                 trialDialogue(order);
             } else
@@ -280,9 +280,28 @@ public class TrialScript : MonoBehaviour
 		else
         {
 	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
-	        Debug.Log(godhelpme.GetSelectedEntry() +"");
+	        presentEvidenceNow = false;
+	        txtBox.disableDialogueTap = false;
+	        //Debug.Log(godhelpme.GetSelectedEntry() +"");
+	        Text t = godhelpme.GetComponentInChildren<Text>();
+	        string clickedName = t.text;
+	        if (evidenceRequired.Equals(clickedName))
+	        {
+		        trialDialogue(order);
+	        }
+	        else
+	        {
+		        trialDialogue(currentCaseSwitch);
+		        PersistenceController.instance.playerState.lives--;
+		        if(PersistenceController.instance.playerState.lives == 0)
+		        {
+			        SceneManager.LoadScene(Configuration.endAct1SceneName);
+		        }
+	        }
+	        //if(godhelpme.)
 	        keepScore(godhelpme.GetSelectedEntry());
 	        godhelpme.journalEntryValue = 0;
+	        _evidenceCount++;
         }
 	}
 
