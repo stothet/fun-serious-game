@@ -5287,8 +5287,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847682925}
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999997
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5745,7 +5745,7 @@ GameObject:
   - 212: {fileID: 659361603}
   - 58: {fileID: 659361602}
   m_Layer: 0
-  m_Name: keys
+  m_Name: Keys to the principal's office
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
