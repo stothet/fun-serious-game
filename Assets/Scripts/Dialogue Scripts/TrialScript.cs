@@ -33,7 +33,7 @@ public class TrialScript : MonoBehaviour
 	public Text option1;
 	public Text option2;
 
-	//all text files needed for dialogue
+	//all text files needed for dialogue in Act 1
 	public TextAsset trialStart;
 	public TextAsset introFile;
 	public TextAsset prelude;
