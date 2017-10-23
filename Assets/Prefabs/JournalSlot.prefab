@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11469574}
   - 114: {fileID: 11402228}
   - 114: {fileID: 11468452}
+  - 114: {fileID: 11401916}
   m_Layer: 5
   m_Name: JournalSlot
   m_TagString: Untagged
@@ -36,6 +37,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11401916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf0b66a6b5db9248b152c4f4955cc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  journalEntry: {fileID: 0}
+  journalEntryValue: 0
+  JournalSlot: {fileID: 0}
+  _entries: []
+  counter: 0
 --- !u!114 &11402228
 MonoBehaviour:
   m_ObjectHideFlags: 1
