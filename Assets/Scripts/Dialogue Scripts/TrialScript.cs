@@ -92,7 +92,14 @@ public class TrialScript : MonoBehaviour
         Debug.Log("Updating XDXD");
 		if ( (Input.GetKey(KeyCode.Space) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began))
 			&& trialFinished) {
-            string nextScene = Configuration.endAct1SceneName;
+			string nextScene;
+			switch (SceneManager.GetActiveScene) {
+			case Configuration.act2SceneSceneName:
+				nextScene = Configuration.act2SceneSceneName;
+		
+			case Configuration.worldMapSceneName:
+				nextScene = Configuration.endAct1SceneName;
+			}
             Debug.Log("Changing to next scene " + nextScene);
             PersistenceController.currentScene = nextScene;
 			SceneManager.LoadScene(nextScene);
@@ -263,7 +270,7 @@ public class TrialScript : MonoBehaviour
                 PersistenceController.instance.playerState.lives--;
                 if(PersistenceController.instance.playerState.lives == 0)
                 {
-                    SceneManager.LoadScene(Configuration.endAct1SceneName);
+					SceneManager.LoadScene(Configuration.loseGameSceneName);
                 }
             }
 			keepScore(evidence._itemValue);
