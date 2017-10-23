@@ -1057,7 +1057,7 @@ GameObject:
   - 222: {fileID: 134615456}
   - 114: {fileID: 134615455}
   m_Layer: 5
-  m_Name: Text
+  m_Name: option2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2297,9 +2297,9 @@ MonoBehaviour:
   _score: {fileID: 1796873476}
   choice1: {fileID: 449565543}
   choice2: {fileID: 1492766140}
-  option1: {fileID: 0}
-  option2: {fileID: 0}
-  trialStart: {fileID: 0}
+  option1: {fileID: 793738615}
+  option2: {fileID: 134615455}
+  trialStart: {fileID: 4900000, guid: c77f38d80b9484047b32eb43354b9177, type: 3}
   introFile: {fileID: 4900000, guid: 6b5608c1f021e41d4a63004b6e23bdfb, type: 3}
   prelude: {fileID: 4900000, guid: 8da2c42bd9c164baaa419a7384d905e5, type: 3}
   bruceIsFree: {fileID: 4900000, guid: e6433e6f6ec204752b4c08cbbd6c8364, type: 3}
@@ -6424,7 +6424,7 @@ GameObject:
   - 222: {fileID: 793738616}
   - 114: {fileID: 793738615}
   m_Layer: 5
-  m_Name: Text
+  m_Name: option1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
