@@ -10401,6 +10401,7 @@ GameObject:
   - 61: {fileID: 1179444882}
   - 61: {fileID: 1179444881}
   - 61: {fileID: 1179444880}
+  - 61: {fileID: 1179444890}
   m_Layer: 0
   m_Name: Building Floor Audio
   m_TagString: Untagged
@@ -10568,6 +10569,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80ba38b95596324bb048fb4ec6944e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &1179444890
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179444878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -56.477333, y: 51.009468}
+  serializedVersion: 2
+  m_Size: {x: 13.19072, y: 11.158188}
 --- !u!1001 &1180154688
 Prefab:
   m_ObjectHideFlags: 0
