@@ -79,6 +79,8 @@ public class TrialScript : MonoBehaviour
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
         evidenceRequired = "none";
 		selectedText = "";
+		choice1.gameObject.SetActive (false);
+		choice2.gameObject.SetActive (false);
 		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
 		//journaljournal = journalSlot.GetComponent<Journal>();
 		submitButton.gameObject.SetActive(false);
