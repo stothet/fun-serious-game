@@ -5153,7 +5153,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 617605775}
-  - 61: {fileID: 617605781}
   - 61: {fileID: 617605780}
   - 61: {fileID: 617605779}
   - 61: {fileID: 617605778}
@@ -5163,6 +5162,8 @@ GameObject:
   - 61: {fileID: 617605784}
   - 61: {fileID: 617605783}
   - 60: {fileID: 617605782}
+  - 60: {fileID: 617605786}
+  - 61: {fileID: 617605781}
   m_Layer: 0
   m_Name: Wall Collisions
   m_TagString: Untagged
@@ -5264,9 +5265,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 446.73544, y: -96.80079}
+  m_Offset: {x: 623.30054, y: -158.71735}
   serializedVersion: 2
-  m_Size: {x: 899.17145, y: 194.60205}
+  m_Size: {x: 83.08952, y: 54.20376}
 --- !u!60 &617605782
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5338,6 +5339,32 @@ PolygonCollider2D:
       - {x: -50.29902, y: -27.948624}
       - {x: -0.58778536, y: -0.80901694}
       - {x: -0.9510565, y: 0.30901712}
+--- !u!60 &617605786
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617605774}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 710.0284, y: -132.5509}
+      - {x: 673.8672, y: -128.36243}
+      - {x: 186.62866, y: -127.89996}
+      - {x: 191.90576, y: -165.78943}
+      - {x: 207.10938, y: -190.75647}
+      - {x: 158.20984, y: -190.32166}
+      - {x: 119.07019, y: -191.77234}
+      - {x: 32.684326, y: -33.539917}
+      - {x: 865.8477, y: -30.426697}
+      - {x: 771.58765, y: -191.2085}
+      - {x: 689.0664, y: -192.8518}
+      - {x: 700.1416, y: -167.14789}
 --- !u!1 &624006786
 GameObject:
   m_ObjectHideFlags: 0
@@ -13410,8 +13437,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1320616747}
   m_HandleRect: {fileID: 1320616746}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.875
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19054,7 +19081,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: 10, y: -28}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0.0000076293945}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1995804238
