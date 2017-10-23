@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -113,13 +114,21 @@ public class TextBoxManager : MonoBehaviour
         }
         else
         {
+			Debug.Log (name + "name before kill");
             DisableDialogueBox();
             currentLine = 0;
             NPC.GiveEvidence(player);
             Debug.Log("running special check");
             // Update the journal if it hasn't already for NPC info.
-            if ((PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(name) &&
-                PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] == true)
+			foreach (KeyValuePair<string, bool> kvp in PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk) {
+				Debug.Log("Key = " +  kvp.Key + ", Value = " + kvp.Value );
+			}
+			Debug.Log("NAME XDXD" + NPC.name);
+
+			Debug.Log(PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(NPC.name) + " boolcheck 1");
+			Debug.Log (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(NPC.name) + " boolcheck 2");
+			if ((PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(NPC.name) &&
+				PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[NPC.name] == true)
             && (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(NPC.name) ||
                 PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[NPC.name] == false))
             {
