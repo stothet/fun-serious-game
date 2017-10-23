@@ -39,7 +39,7 @@ public class BlowMinigameInitialiser : MonoBehaviour {
         yesBtnObject.SetActive(false);
         noBtnObject.SetActive(false);
         Debug.Log("THINKING?");
-        SceneManager.LoadScene(5);
+		SceneManager.LoadScene(Configuration.microphoneMinigameSceneName);
     }
 
     private void NoTaskClick()

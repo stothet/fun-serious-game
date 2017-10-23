@@ -33,6 +33,7 @@ public class Configuration
     public static readonly string endAct1SceneName = "EndAct1";                 // Name of the end act scene
     public static readonly string act2SceneSceneName = "Act 2";                 // Name of the end act scene
     public static readonly string endAct2SceneName = "EndAct2";                 // Name of the end act scene
+	public static readonly string microphoneMinigameSceneName = "MicrophoneMinigame";
 
 
     public static Font mathsMinigameFont = (Font) Resources.Load("Fonts/kindergarten");      // Font used for the minigame
@@ -49,10 +50,16 @@ public class Configuration
     public static readonly string principalsKeysName = "Keys to the principal's office";
     public static readonly string photographName = "Group photo of Brad, Jimmy and Bruce";
     public static readonly string capName = "Blue Cap with a red cross";
+    
+
 
     // journal descriptions
     public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature for signing in and out. Timestamp states it's from 12.10 to 12.25.";
     public static readonly string billArtHistoryReportDescription = "Bill's Art History report, scrunched to a ball.";
     public static readonly string detentionNoteDescription = "A detention note for Bruce Buckley, the time period says 12.30 to 1. The handwriting seems a bit messy.";
     public static readonly string blueDrinkDescription = "What in tarnation is this?";
+    public static readonly string principalsKeysNameDescription = "";
+    public static readonly string photographNameDescription = "";
+    public static readonly string capNameDescription = "";
+
 }

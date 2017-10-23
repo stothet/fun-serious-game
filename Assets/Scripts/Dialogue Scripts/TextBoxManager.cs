@@ -68,7 +68,7 @@ public class TextBoxManager : MonoBehaviour
             return;
         }
         Debug.Log("Running update");
-        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space") && !notNPC)
+        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
         {
             ContinueDialogue();
         }

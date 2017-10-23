@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (other.gameObject.CompareTag("Pickup"))
         {
-            //inventory.addItem(0);
+            inventory.addItem(other.gameObject.name);
             other.gameObject.SetActive(false);
         }
     }
