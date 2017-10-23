@@ -47,15 +47,15 @@ public class PlayerAudio : MonoBehaviour
         {
             if (onBuildingFloor)
             {
-                StepSound(SoundManager.audioBuildingStep, SoundManager.NUMBER_OF_BUILDING_STEPS, 0.3f);
+                StepSound(SoundManager.audioBuildingStep, SoundManager.NUMBER_OF_BUILDING_STEPS, 0.8f);
             }
             else if (onPath)
             {
-                StepSound(SoundManager.audioPathStep, SoundManager.NUMBER_OF_PATH_STEPS, 0.3f);
+                StepSound(SoundManager.audioPathStep, SoundManager.NUMBER_OF_PATH_STEPS, 0.8f);
             }
             else if (onGrass)
             {
-                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS, 0.2f);
+                StepSound(SoundManager.audioDirtStep, SoundManager.NUMBER_OF_GRASS_STEPS, 0.6f);
             }
             
         }
