@@ -2179,11 +2179,18 @@ MonoBehaviour:
 
 
     Press start game in the main menu to begin your game. Move around the world map
-    and enter into rooms and locations to find clues. Press space around characters
-    to communicate with them. By communicating with these characters, you will obtain
-    important clues about the case. You can then enter into the pricnipal''s office
-    to present you findings about who you think the culprit is. Make sure you are
-    making an informed decision by analysing the information you have gathered.
+    using the controls and enter into rooms and locations to find clues. Tap on the
+    characters to communicate with them. By communicating with these characters, you
+    will obtain important clues about the case. You have 3 lives to find out who the
+    real culprit is!
+
+
+    During the game play, you can pause the game, check the items added to the inventory
+    and also read your journal. In the pause panel, you can save your game at any
+    point and then load this game again from the main menu. The tilt feature allows
+    you to pan around the map.
+
+
 
 '
 --- !u!222 &1289723761
