@@ -121,40 +121,68 @@ public class NPCController : MonoBehaviour {
 			currentlyTalking = true;
 			txtBox.IdentifyNPC (this);
 			Debug.Log("Name of NPC: "+name);
-			if (PersistenceController.instance.dialogueState.firstTalk[name])
-			{
-				txtBox.ReloadScript(initialDialogueFile);
-				/*if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
-					PersistenceController.instance.dialogueState.firstTalk[name] == true)
-				{
-					Debug.Log ("Hello?");
-				}
-				/*else
-				{*/
-					txtBox.ContinueDialogue ();
-					PersistenceController.instance.dialogueState.firstTalk[name] = false;
-				//}
+            bool isEvidenceTalk = false;
+            Debug.Log(requiredItem + " ITEM1");
+            if (requiredItem != null)
+            {
+                Debug.Log(requiredItem + " ITEM2");
+                if (PlayerHasRequiredItem())
+                {
+                    Debug.Log(requiredItem + " ITEM3");
+                    if (PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(name) && PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] == false)
+                    {
+                        Debug.Log(requiredItem + " ITEM4");
+                        isEvidenceTalk = true;
+                        shouldUpdateJournalWithNewDescription = true;
+                        PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] = true;
+
+                        txtBox.ReloadScript(evidenceTriggerDialogueFile);
+                        txtBox.ContinueDialogue();
+                    }
+                    
+
+                }
+            }
+            if (!isEvidenceTalk)
+            {
+                if (PersistenceController.instance.dialogueState.firstTalk[name])
+                {
+                    txtBox.ReloadScript(initialDialogueFile);
+                    /*if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
+                        PersistenceController.instance.dialogueState.firstTalk[name] == true)
+                    {
+                        Debug.Log ("Hello?");
+                    }
+                    /*else
+                    {*/
+                    txtBox.ContinueDialogue();
+                    PersistenceController.instance.dialogueState.firstTalk[name] = false;
+                    //}
 
 
-				if (autoTalk)
-				{
-					txtBox.ContinueDialogue();
-				}
+                    if (autoTalk)
+                    {
+                        txtBox.ContinueDialogue();
+                    }
 
-			}
-			else
-			{
-				if(_name.Equals("Wilson")){
-					trialBox = FindObjectOfType<TrialScript>();
-					trialBox.trialDialogue(-1);
-					trialBox.gameObject.SetActive(true);
+                }
+                else
+                {
+                    if (_name.Equals("Wilson"))
+                    {
+                        trialBox = FindObjectOfType<TrialScript>();
+                        trialBox.trialDialogue(-1);
+                        trialBox.gameObject.SetActive(true);
 
-				}
-				else{
-					txtBox.ReloadScript(defaultDialogueFile);
-					txtBox.ContinueDialogue ();
-				}
-			}
+                    }
+                    else
+                    {
+                        txtBox.ReloadScript(defaultDialogueFile);
+                        txtBox.ContinueDialogue();
+                    }
+                }
+            }
+           
 		} else
 		{
 			return;
@@ -202,61 +230,51 @@ public class NPCController : MonoBehaviour {
 			print(getSprite());
 			txtBox.setSprite(getSprite());
 			txtBox.setNPCname(_name);
-			// When the player presses Space to talk to the NPC
-			//if (Input.GetKeyDown(KeyCode.Return))
-			//{
+            // When the player presses Space to talk to the NPC
+            //if (Input.GetKeyDown(KeyCode.Return))
+            //{
+            Debug.Log("ACTUALly DOING SOMETHING");
 			if (!currentlyTalking)
 			{
 				currentlyTalking = true;
 				txtBox.IdentifyNPC (this);
 				Debug.Log(name);
-                bool isEvidenceTalk = false;
-                if (requiredItem != null)
+
+                if (PersistenceController.instance.dialogueState.firstTalk[name])
                 {
-                    if (PlayerHasRequiredItem())
+                    txtBox.ReloadScript(initialDialogueFile);
+                    if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
+                        PersistenceController.instance.dialogueState.firstTalk[name] == true)
                     {
-                        isEvidenceTalk = true;
-                        shouldUpdateJournalWithNewDescription = true;
-                        txtBox.ReloadScript(evidenceTriggerDialogueFile);
-                    }
-                }
-                if (!isEvidenceTalk)
-                {
-                    if (PersistenceController.instance.dialogueState.firstTalk[name])
-                    {
-                        txtBox.ReloadScript(initialDialogueFile);
-                        if (PersistenceController.instance.dialogueState.currentLine.ContainsKey(name) &&
-                            PersistenceController.instance.dialogueState.firstTalk[name] == true)
-                        {
-
-                        }
-                        else
-                        {
-                            PersistenceController.instance.dialogueState.firstTalk[name] = false;
-                        }
-
-
-                        if (autoTalk)
-                        {
-                            txtBox.ContinueDialogue();
-                        }
 
                     }
                     else
                     {
-                        if (_name.Equals("Wilson"))
-                        {
-                            trialBox = FindObjectOfType<TrialScript>();
-                            trialBox.trialDialogue(-1);
-                            trialBox.gameObject.SetActive(true);
+                        PersistenceController.instance.dialogueState.firstTalk[name] = false;
+                    }
 
-                        }
-                        else
-                        {
-                            txtBox.ReloadScript(defaultDialogueFile);
-                        }
+
+                    if (autoTalk)
+                    {
+                        txtBox.ContinueDialogue();
+                    }
+
+                }
+                else
+                {
+                    if (_name.Equals("Wilson"))
+                    {
+                        trialBox = FindObjectOfType<TrialScript>();
+                        trialBox.trialDialogue(-1);
+                        trialBox.gameObject.SetActive(true);
+
+                    }
+                    else
+                    {
+                        txtBox.ReloadScript(defaultDialogueFile);
                     }
                 }
+                
                 
 			} else
 			{
