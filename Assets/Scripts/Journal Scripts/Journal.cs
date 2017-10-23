@@ -59,7 +59,8 @@ public class Journal : MonoBehaviour {
     {
         Debug.Log("HERe2");
         GameObject selectedSlot = EventSystem.current.currentSelectedGameObject;
-		//Debug.Log (jrnl.journalEntryValue);
+		Journal jrnl = selectedSlot.GetComponent<Journal> ();
+		Debug.Log (jrnl.journalEntryValue + " HAKUNA MATATA");
         //selectedText = selectedSlot.GetComponentInChildren<Text>();
 
     }
