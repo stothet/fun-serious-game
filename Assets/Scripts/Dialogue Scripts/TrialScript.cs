@@ -67,15 +67,9 @@ public class TrialScript : MonoBehaviour
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
 		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
         evidenceRequired = "none";
-<<<<<<< HEAD
 		selectedText = "";
 		//journalSlot = GameObject.FindGameObjectWithTag("Journal").GetComponentInChildren<GameObject>();
-
-
-
 		//journaljournal = journalSlot.GetComponent<Journal>();
-=======
->>>>>>> 06edfb30aa7dc9265f898e3f08e9e3dc9b09408a
 		submitButton.gameObject.SetActive(false);
 
 		scoreKeeper.SetActive (false);
