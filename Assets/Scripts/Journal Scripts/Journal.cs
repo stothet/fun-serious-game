@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// </summary>
 public class Journal : MonoBehaviour {
 	public Text journalEntry;
-	public int journalEntryValue;
+	public int journalEntryValue = 9999999;
 	public GameObject JournalSlot;
 	private Text selectedText;
 	public List<Button> _entries = new List<Button>();
@@ -38,12 +38,12 @@ public class Journal : MonoBehaviour {
 			counter += 1;
 			//if(PersistenceController.JournalState.journal)
 			GameObject slot = GameObject.Instantiate(JournalSlot);
-			slot.AddComponent<RectTransform>();
+			//slot.AddComponent<RectTransform>();
 			slot.AddComponent<Button>();
 			Button b = slot.GetComponentInChildren<Button>();
 			b.onClick.AddListener(TaskOnClick);
 			_entries.Add(b);
-			Debug.Log("HERe1");
+			
 			journalEntry = slot.GetComponentInChildren<Text>();
 			slot.transform.SetParent(this.gameObject.transform, false);
 			journalEntry.text = txt;
@@ -58,7 +58,6 @@ public class Journal : MonoBehaviour {
 
 	void TaskOnClick()
 	{
-		Debug.Log("HERe2");
 		GameObject selectedSlot = EventSystem.current.currentSelectedGameObject;
 		Journal jrnl = selectedSlot.GetComponent<Journal> ();
 		Debug.Log (jrnl.journalEntryValue + " HAKUNA MATATA");
@@ -70,9 +69,9 @@ public class Journal : MonoBehaviour {
 	/// Returns the currently selected item by the player.
 	/// </summary>
 	/// <returns></returns>
-	public Text GetSelectedEntry()
+	public int GetSelectedEntry()
 	{
-		return selectedText;
+		return journalEntryValue;
 	}
 
 
