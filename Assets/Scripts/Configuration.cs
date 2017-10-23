@@ -8,7 +8,7 @@ using System.Collections;
 public class Configuration
 {
     public static readonly bool isTestMode = false;                             // Enables test mode. Make sure this is false when releasing the final game
-	public static readonly bool isFastAct2Mode = false;                             // Enables fast act 2 mode. Make sure this is false when releasing the final game
+	public static readonly bool isFastAct2Mode = true;                             // Enables fast act 2 mode. Make sure this is false when releasing the final game
 
 
 
@@ -64,12 +64,12 @@ public class Configuration
     public static readonly string bruceRegisterEntryDescription = "Register entry for Bruce, with his signature for signing in and out. Timestamp states it's from 12.10 to 12.25.";
     public static readonly string billArtHistoryReportDescription = "Bill's Art History report, scrunched to a ball.";
     public static readonly string detentionNoteDescription = "A detention note for Bruce Buckley, the time period says 12.30 to 1. The handwriting seems a bit messy.";
-    public static readonly string blueDrinkDescription = "What in tarnation is this?";
-    public static readonly string blueSprayDescription = "What in tarnation is this?";
-    public static readonly string principalsKeysNameDescription = "";
-    public static readonly string photographNameDescription = "";
-    public static readonly string capNameDescription = "";
-	public static readonly string examScriptNameDescription = "";
-	public static readonly string cleanPaperNameDescription = "";
-	public static readonly string dirtyPaperNameDescription = "";
+    public static readonly string blueDrinkDescription = "A mysterious blue drink...";
+    public static readonly string blueSprayDescription = "A blue window spray cleaner used by Charles.";
+    public static readonly string principalsKeysNameDescription = "A key that unlocks the principal's office.";
+    public static readonly string photographNameDescription = "A photograph showing Bruce, Brad and Jimmy together. All three are wearing identical blue caps similar to the one found in the crime scene.";
+    public static readonly string capNameDescription = "A blue cap.";
+	public static readonly string examScriptNameDescription = "Some of the scripts that have been left behind by the culprit. The pages are stained with a blue liquid.";
+	public static readonly string cleanPaperNameDescription = "An official janitor's working log. Charles name is signed in for bathroom duty from 12.30 to 1.00.";
+	public static readonly string dirtyPaperNameDescription = "A strange scrumpled piece of dusty paper.";
 }

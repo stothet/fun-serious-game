@@ -249,8 +249,6 @@ public class TrialScript : MonoBehaviour
 		}
 		else
         {
-<<<<<<< HEAD
-=======
 	        godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
 	        presentEvidenceNow = false;
 	        txtBox.disableDialogueTap = false;
@@ -271,7 +269,6 @@ public class TrialScript : MonoBehaviour
 		        }
 	        }
 	        //if(godhelpme.)
->>>>>>> a32dbfc6d0c88ffb67a19d2646cfa074bf44cb30
 	        keepScore(godhelpme.GetSelectedEntry());
 	        godhelpme.journalEntryValue = 0;
 	        _evidenceCount++;

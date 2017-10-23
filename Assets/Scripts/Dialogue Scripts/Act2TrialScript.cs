@@ -197,7 +197,7 @@ public class Act2TrialScript : MonoBehaviour
                     txtBox.ReloadScript(blueDrink);
                     txtBox.ContinueDialogue();
                     presentEvidenceNow = true;
-                    evidenceRequired = Configuration.bruceRegisterEntryName;
+                    evidenceRequired = "Lunchlady Rita: Sold three blue drinks today, to Brad, Jimmy, and Bruce.";
                     break;
                 }
 
@@ -205,26 +205,40 @@ public class Act2TrialScript : MonoBehaviour
 
                 {
                     order = 3;
-                    txtBox.ReloadScript(blueDrink);
+                    txtBox.ReloadScript(ritaJournal);
                     txtBox.ContinueDialogue();
-                    evidenceRequired = "finished";
+                    presentEvidenceNow = true;
+                    evidenceRequired = Configuration.photographName;
                     break;
                 }
             case 3:
 
                 {
-
-                    txtBox.ReloadScript(blueDrink);
+                    order = 4;
+                    txtBox.ReloadScript(hatPhoto);
                     txtBox.ContinueDialogue();
+                    presentEvidenceNow = true;
+                    evidenceRequired = "Riley: Jimmy's Mom, here to pick up Jimmy. Complains that her son gets into detention a lot, unlike good boy Brad who never does.";
                     break;
                 }
 
             case 4:
 
                 {
-
-                    txtBox.ReloadScript(wilsonConfused);
+                    order = 5;
+                    txtBox.ReloadScript(rileyJournal);
                     txtBox.ContinueDialogue();
+                    presentEvidenceNow = true;
+                    evidenceRequired = Configuration.principalsKeysName;
+                    break;
+                }
+
+            case 5:
+
+                {
+                    txtBox.ReloadScript(keyInDetention);
+                    txtBox.ContinueDialogue();
+                    evidenceRequired = "finished";
                     break;
                 }
 
