@@ -25,7 +25,7 @@ public class ItemDatabase : MonoBehaviour {
 	   items.Add(Configuration.examScriptName, new Item(Configuration.examScriptName, Configuration.examScriptNameDescription, 5, Item.ItemType.DUMMY, "exam"));
 	   items.Add(Configuration.cleanPaperName, new Item(Configuration.cleanPaperName, Configuration.cleanPaperNameDescription, 5, Item.ItemType.DUMMY, "paperClean"));
 	   items.Add(Configuration.dirtyPaperName, new Item(Configuration.dirtyPaperName, Configuration.dirtyPaperNameDescription, 5, Item.ItemType.DUMMY, "paperDirt"));
-       items.Add(Configuration.dirtyPaperName, new Item(Configuration.blueSprayName, Configuration.blueSprayDescription, 5, Item.ItemType.DUMMY, "bluespray"));
+       items.Add(Configuration.blueSprayName, new Item(Configuration.blueSprayName, Configuration.blueSprayDescription, 5, Item.ItemType.DUMMY, "bluespray"));
     }
 
 }
