@@ -29,16 +29,8 @@ A game based on a serious genre, built with the unity game engine.
 
 
 ### Playtesting bugs 23/10
-* When picking up the scrunched paper, a dialogue with a random npc begins (might need to play minigame first)
-* Can walk off the map
-* Dialogue sometimes overflows and has some typos
 * Controls disappear after minigame until dialogue is completed
 * Erin appears on top of the lunchlady after the minigame
 * The basketball is too big
 * The basketball hoops randomly disappear
-* The journal/inventory times need updating eg Bruce's register entry.
 * Leaving a room after clicking tilt on a computer gives a black screen
-* Must start the trial twice
-* Can't talk to Jimmy
-* Walk animation for mobile joystick always goes up
-* Lives aren't used during the trial
