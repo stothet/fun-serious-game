@@ -2832,7 +2832,7 @@ GameObject:
   - 114: {fileID: 296471225}
   m_Layer: 5
   m_Name: JournalTab
-  m_TagString: Untagged
+  m_TagString: JournalTab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5212,7 +5212,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847682925}
   m_HandleRect: {fileID: 1847682924}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8660,7 +8660,7 @@ GameObject:
   - 114: {fileID: 956829321}
   m_Layer: 5
   m_Name: InventoryTab
-  m_TagString: Untagged
+  m_TagString: InventoryTab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9707,6 +9707,7 @@ MonoBehaviour:
   _slots: []
   panel: {fileID: 1945104138}
   slots: {fileID: 192292, guid: 136b07a7758eac14ea28563f1e52f074, type: 2}
+  _inventoryTabImage: {fileID: 0}
 --- !u!114 &1091506246
 MonoBehaviour:
   m_ObjectHideFlags: 0

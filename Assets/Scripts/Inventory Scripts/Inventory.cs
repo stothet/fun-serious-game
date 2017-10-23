@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 #if UNITY_EDITOR
@@ -15,6 +16,8 @@ public class Inventory : MonoBehaviour {
     public List<Item> _items = new List<Item>();
 	public GameObject panel;
     public GameObject slots;
+	public Image _inventoryTabImage;
+
     ItemDatabase database;
     Journal _journal;
     int x = -90; //Initial x coordinate of the first slot.
@@ -26,6 +29,8 @@ public class Inventory : MonoBehaviour {
         int _slotAmount = 0; // Variable used to notify the slotscript whether to enable the sprite icon in the slot interface.
         database = GameObject.FindGameObjectWithTag("ItemDatabase").GetComponent<ItemDatabase>(); //Instantiate the database
         _journal = GameObject.FindGameObjectWithTag("Journal").GetComponent<Journal>();
+		_inventoryTabImage = GameObject.FindGameObjectWithTag("InventoryTab").GetComponent<Image>();
+
         for (int i = 1; i < 6; i++) // Create 5 columns of slots
         {
             for (int j = 1; j < 6; j++) // Create 5 rows of slots.
@@ -69,7 +74,8 @@ public class Inventory : MonoBehaviour {
             if (!PersistenceController.instance.inventoryState.database.Contains(name)) {
                 PersistenceController.instance.inventoryState.database.Add(name);
             }
-                addToEmptySlot(item);
+            addToEmptySlot(item);
+			_inventoryTabImage.sprite = Resources.Load<Sprite>("duck_yellow");
         
         }
         else
