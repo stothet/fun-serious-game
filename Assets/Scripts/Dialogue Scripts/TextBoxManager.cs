@@ -24,9 +24,11 @@ public class TextBoxManager : MonoBehaviour
     public int currentLine;
     public int endLine;
 	public bool notNPC;
+    public bool disableDialogueTap;
 
     public PlayerController player;
     public NPCController NPC;
+    public TrialScript trialBox;
 
     public Sprite sprite1;
     public Sprite sprite2;
@@ -40,6 +42,7 @@ public class TextBoxManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        trialBox = FindObjectOfType<TrialScript>();
         NPC = FindObjectOfType<NPCController>();
         journal = FindObjectOfType<Journal>();
 		notNPC = true;
@@ -70,9 +73,10 @@ public class TextBoxManager : MonoBehaviour
         Debug.Log("Running update");
         if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))
         {
-            ContinueDialogue();
+            if (!disableDialogueTap) {
+                ContinueDialogue();
+            }
         }
-
     }
 
     /// <summary>
@@ -113,8 +117,17 @@ public class TextBoxManager : MonoBehaviour
         }
         else
         {
-            DisableDialogueBox();
             currentLine = 0;
+            if (trialBox.evidenceRequired.Equals("finished"))
+            {
+                SceneManager.LoadScene(Configuration.endAct1SceneName);
+            }
+            if (trialBox.presentEvidenceNow)
+            {
+                this.disableDialogueTap = true;
+                return;
+            }
+            DisableDialogueBox();
             NPC.GiveEvidence(player);
             Debug.Log("running special check");
             // Update the journal if it hasn't already for NPC info.
