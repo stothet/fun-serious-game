@@ -31,7 +31,7 @@ public class SoundScript : MonoBehaviour
             microphoneInitialised = true;
         }
 		if (Configuration.isFastAct2Mode) {
-			SoundCompletionScript.returnToWorld ();
+			//SoundCompletionScript.returnToWorld ();
 		}
     }
 
