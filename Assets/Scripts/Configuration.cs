@@ -28,7 +28,7 @@ public class Configuration
     public static readonly string mainMenuSceneName = "MainMenu";               // Name of the MainMenu scene
     public static readonly string worldMapSceneName = "WorldMap";               // Name of the WorldMap scene
     public static readonly string endAct1SceneName = "EndAct1";                 // Name of the end act scene
-    public static readonly string act2SceneSceneName = "Act2";                 // Name of the end act scene
+    public static readonly string act2SceneSceneName = "Act 2";                 // Name of the end act scene
     public static readonly string endAct2SceneName = "EndAct2";                 // Name of the end act scene
 
 

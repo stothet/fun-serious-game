@@ -95,10 +95,11 @@ public class NPCController : MonoBehaviour {
     /// <param name="other"></param>
     private void OnTriggerStay2D(Collider2D other)
     {
-
+		//Debug.Log ("TRIGGERED!!!!");
         // When the player comes in contact with the NPC object
 		if (other.gameObject.CompareTag("Player") && (PersistenceController.instance.dialogueState.autoTalk || ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown("space"))))
         {
+			txtBox.notNPC = false;
 			sr = GetComponent<SpriteRenderer>();
             //PersistenceController.instance.journalState.NPC = this;
 			_sprite = sr.sprite;
@@ -137,7 +138,7 @@ public class NPCController : MonoBehaviour {
                 {
 					if(_name.Equals("Wilson")){
 						trialBox = FindObjectOfType<TrialScript>();
-						trialBox.trialDialogue(order);
+						trialBox.trialDialogue(-1);
 						trialBox.gameObject.SetActive(true);
 
 					}
