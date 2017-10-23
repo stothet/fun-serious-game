@@ -27,10 +27,10 @@ public class TrialScript : MonoBehaviour
 
 	//we will only have 2 options during dialogue
 	//the rest will be controlled by evidence presentation
-	public Button choice1;
+	/*public Button choice1;
 	public Button choice2;
 	public Text option1;
-	public Text option2;
+	public Text option2;*/
 
 	//all text files needed for dialogue
 	public TextAsset trialStart;
@@ -51,6 +51,7 @@ public class TrialScript : MonoBehaviour
 	private Inventory inventory;
 	private Journal journal;
 	private Button submitButton;
+    private string evidenceRequired;
 
 	public static string endGameMessage = null;
 
@@ -70,8 +71,8 @@ public class TrialScript : MonoBehaviour
 
 		scoreKeeper.SetActive (false);
 
-		choice1.gameObject.SetActive (false);
-		choice2.gameObject.SetActive (false);
+		/*choice1.gameObject.SetActive (false);
+		choice2.gameObject.SetActive (false);*/
 	}
 
 	/// <summary>
@@ -136,8 +137,8 @@ public class TrialScript : MonoBehaviour
 			order = 0;
 				txtBox.ReloadScript(introFile);
 
-				choice1.gameObject.SetActive (true);
-				choice2.gameObject.SetActive (true);
+				/*choice1.gameObject.SetActive (true);
+				choice2.gameObject.SetActive (true);*/
 
 				break;
 			}
@@ -150,9 +151,9 @@ public class TrialScript : MonoBehaviour
 				txtBox.ReloadScript(trialStart);
 				txtBox.ContinueDialogue();
 
-				option1.text = "You were right to doubt him, Mr. Wilson!";
-				option2.text = "It was not Bruce who did it...";
-
+                    /*option1.text = "You were right to doubt him, Mr. Wilson!";
+                    option2.text = "It was not Bruce who did it...";*/
+                    evidenceRequired = "register";
 				scoreKeeper.SetActive (true);
 				livesKeeper.SetActive (false);
                 if (Configuration.isFastAct2Mode)
@@ -169,8 +170,8 @@ public class TrialScript : MonoBehaviour
 				txtBox.ReloadScript(prelude);
 				txtBox.ContinueDialogue();
 
-				choice1.gameObject.SetActive (false);
-				choice2.gameObject.SetActive (false);
+				/*choice1.gameObject.SetActive (false);
+				choice2.gameObject.SetActive (false);*/
 
 
 				break;
@@ -219,6 +220,10 @@ public class TrialScript : MonoBehaviour
         if (inventory.GetSelectedItem() != null)
 		{
 			evidence = inventory.GetSelectedItem();
+            if (evidence._itemName.CompareTo(evidenceRequired) == 0)
+            {
+                Debug.Log("asdfghjkl");
+            }
 			keepScore(evidence._itemValue);
 			_evidenceCount++;
 			//if(_evidenceCount == 2){
@@ -234,60 +239,6 @@ public class TrialScript : MonoBehaviour
 			// Do nothing as nothing is selected
 			return;
 		}
-	}
-
-
-	/// <summary>
-	/// Checks with dialgogue option has been selected
-	/// </summary>
-	/// <param name="b"> The button clicked </param>
-	public void CheckClick(Button b)
-	{
-		switch (order)
-		{
-			case 0: {
-				if (Button.ReferenceEquals(choice1, b))
-				{
-					/**
-					//depending on the level
-					if (inventory._items.Count == 3)
-					{
-						trialDialogue(1);
-						submitButton.gameObject.SetActive(true);
-					}**/
-
-					trialDialogue(0);
-				}
-
-				else
-				{
-					txtBox.currentLine = 0;
-					txtBox.DisableDialogueBox();
-					return;
-				}
-				break;
-
-			}
-
-			case 1:
-			{
-				trialDialogue(1);
-				break;
-			}
-
-			default:
-			{
-				break;
-			}
-
-		}
-
-		/**LEADS TO END GAME SCREEN (KEEP PRESSING SPACE)
-		_evidenceCount++;
-		if (_evidenceCount == 2)
-		{
-			Outcome();
-		}**/
 	}
 
 }
