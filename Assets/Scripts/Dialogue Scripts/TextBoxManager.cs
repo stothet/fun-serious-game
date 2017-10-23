@@ -115,9 +115,22 @@ public class TextBoxManager : MonoBehaviour
         {
             DisableDialogueBox();
             currentLine = 0;
-            // Update the journal if it hasn't already for NPC info.
-            NPC.UpdateJournal(journal);
             NPC.GiveEvidence(player);
+            Debug.Log("running special check");
+            // Update the journal if it hasn't already for NPC info.
+            if ((PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk.ContainsKey(name) &&
+                PersistenceController.instance.dialogueState.givenEvidenceRequiringTalk[name] == true)
+            && (!PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk.ContainsKey(NPC.name) ||
+                PersistenceController.instance.dialogueState.givenJournalUpdateEvidenceRequiringTalk[NPC.name] == false))
+            {
+                Debug.Log("passed special check");
+                NPC.UpdateJournalSpecialEvidence(journal);
+            }
+            else
+            {
+                Debug.Log("failed special check");
+                NPC.UpdateJournal(journal);
+            }
             return;
         }
 
