@@ -17437,19 +17437,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You are the head of the student council and it is your job to find out
-    whether the person accused has really stolen the exam scripts from the principal''s
-    office!
-
-
-    Press start game in the main menu to begin your game. Move around the world map
-    and enter into rooms and locations to find clues. Press space around characters
-    to communicate with them. By communicating with these characters, you will obtain
-    important clues about the case. You can then enter into the pricnipal''s office
-    to present you findings about who you think the culprit is. Make sure you are
-    making an informed decision by analysing the information you have gathered.
-
-'
+  m_Text: "You are the head of the student council and it is your job to find out
+    whether the person accused has really stolen the exam scripts from the principal's
+    office!\n\nPress start game in the main menu to begin your game. Move around the
+    world map and enter into rooms and locations to find clues. Press space around
+    characters to communicate with them. By communicating with these characters, you
+    will obtain important clues about the case. \n\nYou can enter into the principal's
+    office to present you findings about who you think the culprit is. Make sure you
+    are making an informed decision by analysing the information you have gathered.\n"
 --- !u!222 &2008471330
 CanvasRenderer:
   m_ObjectHideFlags: 0
