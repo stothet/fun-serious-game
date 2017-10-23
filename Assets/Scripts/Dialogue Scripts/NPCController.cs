@@ -13,6 +13,7 @@ public class NPCController : MonoBehaviour {
 
     public TextAsset initialDialogueFile;
     public TextAsset defaultDialogueFile;
+    public TextAsset evidenceTriggerDialogueFile;
 	public TextAsset characterDescription;
 
     public TextBoxManager txtBox;
