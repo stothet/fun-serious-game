@@ -3396,6 +3396,14 @@ Prefab:
       propertyPath: characterDescription
       value: 
       objectReference: {fileID: 4900000, guid: 444e7621c58dbbd43ac06d17946fd3b9, type: 3}
+    - target: {fileID: 6106138, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106138, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
+      propertyPath: m_Size.x
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9593564, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 84afd5b5d1e0c451a92bb232e58460f7, type: 2}
