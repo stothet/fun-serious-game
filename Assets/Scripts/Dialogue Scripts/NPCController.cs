@@ -17,6 +17,7 @@ public class NPCController : MonoBehaviour {
     public TextAsset evidenceTriggerDialogueFile;
     public TextAsset requiredItem;
     public TextAsset characterDescription;
+    public TextAsset characterDescription2;
 
     public TextBoxManager txtBox;
 	public TrialScript trialBox;
@@ -29,6 +30,7 @@ public class NPCController : MonoBehaviour {
     public bool currentlyTalking;
 
 	public bool journalUpdated;
+    public bool shouldUpdateJournalWithNewDescription;
 
     public bool givenEvidence;
     public string evidenceName;
@@ -47,6 +49,7 @@ public class NPCController : MonoBehaviour {
 		journalUpdated = false;
         givenEvidence = false;
         autoTalk = false;
+        shouldUpdateJournalWithNewDescription = false;
         if (!PersistenceController.instance.dialogueState.firstTalk.ContainsKey(name)){
             PersistenceController.instance.dialogueState.firstTalk.Add(name, true);
             PersistenceController.instance.dialogueState.givenEvidence.Add(name, false);
@@ -67,7 +70,13 @@ public class NPCController : MonoBehaviour {
     /// <param name="journal"> The journal to be updated </param>
 	public void UpdateJournal(Journal journal)
 	{
-		if (!PersistenceController.instance.dialogueState.journalUpdated[name])
+        // Update with char description 2 if bool is set
+        if (shouldUpdateJournalWithNewDescription)
+        {
+            shouldUpdateJournalWithNewDescription = false;
+            journal.putJournalEntry(characterDescription2.text);
+        }
+		else if (!PersistenceController.instance.dialogueState.journalUpdated[name])
 		{
             journal.putJournalEntry(characterDescription.text);
             PersistenceController.instance.dialogueState.journalUpdated[name] = true;
@@ -123,8 +132,8 @@ public class NPCController : MonoBehaviour {
                     if (PlayerHasRequiredItem())
                     {
                         isEvidenceTalk = true;
+                        shouldUpdateJournalWithNewDescription = true;
                         txtBox.ReloadScript(evidenceTriggerDialogueFile);
-
                     }
                 }
                 if (!isEvidenceTalk)
