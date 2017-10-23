@@ -15,6 +15,7 @@ TagManager:
   - Principal
   - InventoryTab
   - JournalTab
+  - NPC
   layers:
   - Default
   - TransparentFX
