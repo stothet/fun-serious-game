@@ -56,10 +56,11 @@ public class TrialScript : MonoBehaviour
     public static int cumulative=0;
 
 	public Item evidence;
+	public bool submitActive;
 	private Inventory inventory;
 	private Journal journal;
 	private GameObject journalSlot;
-	private Button submitButton;
+	private GameObject submitButton;
     public string evidenceRequired;
     private int currentCaseSwitch;
 	private Journal godhelpme;
@@ -74,9 +75,10 @@ public class TrialScript : MonoBehaviour
     /// </summary>
 	void Start ()
 	{
+		submitActive = false;
 		txtBox = FindObjectOfType<TextBoxManager>();
 		inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
-		submitButton = GameObject.FindGameObjectWithTag("SubmitButton").GetComponent<Button>();
+		submitButton = GameObject.FindGameObjectWithTag("SubmitButton");
         evidenceRequired = "none";
 		selectedText = "";
 		choice1.gameObject.SetActive (false);
@@ -151,6 +153,10 @@ public class TrialScript : MonoBehaviour
     {
 
         this.currentCaseSwitch = caseSwitch;
+		if (submitButton.activeSelf) {
+			submitActive = !submitActive;
+			submitButton.SetActive (false);
+		}
         if (!act2Script)
         {
             switch (caseSwitch)
@@ -394,7 +400,7 @@ public class TrialScript : MonoBehaviour
                     PersistenceController.instance.playerState.lives--;
                     if (PersistenceController.instance.playerState.lives == 0)
                     {
-                        SceneManager.LoadScene(Configuration.endAct1SceneName);
+						SceneManager.LoadScene(Configuration.loseGameSceneName);
                     }
                 }
                 keepScore(godhelpme.GetSelectedEntry());
@@ -453,7 +459,7 @@ public class TrialScript : MonoBehaviour
                     PersistenceController.instance.playerState.lives--;
                     if (PersistenceController.instance.playerState.lives == 0)
                     {
-                        SceneManager.LoadScene(Configuration.endAct1SceneName);
+						SceneManager.LoadScene(Configuration.loseGameSceneName);
                     }
                 }
                 //keepScore(godhelpme.GetSelectedEntry());

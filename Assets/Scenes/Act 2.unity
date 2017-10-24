@@ -2323,6 +2323,7 @@ MonoBehaviour:
   blueLiquidPrompt: {fileID: 4900000, guid: 8a02a12830c31e94f90686e4edc90dcc, type: 3}
   wilsonConfused: {fileID: 4900000, guid: ff6ce48dd48d9034881ef465902e4e29, type: 3}
   trialIntro: {fileID: 4900000, guid: 72abbcbf8c3639d4db6a57fa1e79f68e, type: 3}
+  submitActive: 0
   evidenceRequired: 
 --- !u!4 &283015564
 Transform:
@@ -11827,8 +11828,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -204.4, y: -135}
-  m_SizeDelta: {x: 408.7, y: 224}
+  m_AnchoredPosition: {x: -209.5, y: -113.7}
+  m_SizeDelta: {x: 398.5, y: 181.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195843569
 MonoBehaviour:
@@ -13661,7 +13662,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1320616747}
   m_HandleRect: {fileID: 1320616746}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -16898,6 +16899,7 @@ MonoBehaviour:
   _currentNPCname: 
   journal: {fileID: 0}
   controls: {fileID: 1039738631}
+  submitBtn: {fileID: 661916285}
 --- !u!4 &1689302475
 Transform:
   m_ObjectHideFlags: 0
@@ -19307,7 +19309,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: -10.009079, y: 0.0000076293945}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0.0000076293945}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1995804238

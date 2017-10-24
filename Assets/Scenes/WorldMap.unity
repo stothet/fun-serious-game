@@ -2495,6 +2495,7 @@ MonoBehaviour:
   blueLiquidPrompt: {fileID: 0}
   wilsonConfused: {fileID: 0}
   trialIntro: {fileID: 0}
+  submitActive: 0
   evidenceRequired: 
 --- !u!4 &283015564
 Transform:
@@ -12863,8 +12864,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -204.4, y: -135}
-  m_SizeDelta: {x: 408.7, y: 224}
+  m_AnchoredPosition: {x: -204.38, y: -114.6}
+  m_SizeDelta: {x: 408.75, y: 183.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291057140
 MonoBehaviour:
@@ -16180,6 +16181,7 @@ MonoBehaviour:
   _currentNPCname: 
   journal: {fileID: 0}
   controls: {fileID: 1039738631}
+  submitBtn: {fileID: 878829296}
 --- !u!4 &1689302475
 Transform:
   m_ObjectHideFlags: 0
@@ -18937,8 +18939,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -130.75, y: -0.50001}
-  m_SizeDelta: {x: -261.51, y: -1}
+  m_AnchoredPosition: {x: -130.75, y: 28}
+  m_SizeDelta: {x: -261.5, y: -58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044773045
 MonoBehaviour:

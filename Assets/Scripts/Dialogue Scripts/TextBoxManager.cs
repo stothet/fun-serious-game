@@ -37,6 +37,7 @@ public class TextBoxManager : MonoBehaviour
     public string _currentNPCname; // second method
     public Journal journal;
     public GameObject controls;
+	public GameObject submitBtn;
 
     /// <summary>
     /// Initialise fields. Set up dialgoue box
@@ -46,6 +47,7 @@ public class TextBoxManager : MonoBehaviour
         trialBox = FindObjectOfType<TrialScript>();
         NPC = FindObjectOfType<NPCController>();
         journal = FindObjectOfType<Journal>();
+		//submitBtn = GameObject.FindGameObjectWithTag ("SubmitButton");
 		notNPC = true;
         // Load the initial dialogue txt file (if there is one)
         ReloadScript(txtFile);
@@ -116,6 +118,7 @@ public class TextBoxManager : MonoBehaviour
         }
         else
         {
+			Debug.Log ("ello");
             currentLine = 0;
             if (trialBox.evidenceRequired.Equals("finished"))
             {
@@ -123,6 +126,8 @@ public class TextBoxManager : MonoBehaviour
             }
             if (trialBox.presentEvidenceNow)
             {
+				submitBtn.SetActive (true);
+				trialBox.submitActive = true;
                 this.disableDialogueTap = true;
                 return;
             }
