@@ -93,8 +93,8 @@ public class Journal : MonoBehaviour {
 				jrnl.journalEntryValue = key.Value;
 			}
 		}
-		Button b = selectedSlot.GetComponentInChildren<Button>();
-		b.interactable = false;
+		//Button b = selectedSlot.GetComponentInChildren<Button>();
+		//b.interactable = false;
 	}
 
 	/// <summary>

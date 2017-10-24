@@ -403,9 +403,9 @@ public class TrialScript : MonoBehaviour
 						SceneManager.LoadScene(Configuration.loseGameSceneName);
                     }
                 }
-                keepScore(godhelpme.GetSelectedEntry());
-                godhelpme.journalEntryValue = 0;
-                _evidenceCount++;
+                //keepScore(godhelpme.GetSelectedEntry());
+                //godhelpme.journalEntryValue = 0;
+                //_evidenceCount++;
             }
         } else
         {

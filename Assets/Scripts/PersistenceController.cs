@@ -16,6 +16,7 @@ public class PersistenceController
     public DialogueState dialogueState;
     public InventoryState inventoryState;
     public JournalState journalState;
+	public bool loadGame;
     public static string currentScene = Configuration.mainMenuSceneName; // Not in an inner class because it persists between states
 
     /// <summary>
@@ -145,5 +146,6 @@ public class PersistenceController
         playerState = new PlayerState();
         journalState = new JournalState();
         inventoryState = new InventoryState();
+		loadGame = false;
     }
 }

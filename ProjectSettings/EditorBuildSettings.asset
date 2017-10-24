@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MicrophoneMinigame.unity
   - enabled: 1
     path: Assets/Scenes/EndAct1.unity
+  - enabled: 1
+    path: Assets/Scenes/LoseGame.unity

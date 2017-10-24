@@ -21,6 +21,7 @@ public class LoadingGameScript : MonoBehaviour {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
         PersistenceController.instance = (PersistenceController)(bf.Deserialize(file));
+		PersistenceController.instance.loadGame = true;
         file.Close();
     }
 }

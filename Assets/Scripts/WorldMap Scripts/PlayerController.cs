@@ -16,8 +16,12 @@ public class PlayerController : MonoBehaviour {
         canMove = true;
 		anim = GetComponent<Animator> ();
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>(); // finding the inventory
-        cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
-        cutsceneNPC.autoTalk = true;
+		/*if (PersistenceController.instance.loadGame) {
+			cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
+			cutsceneNPC.autoTalk = true;
+		}*/
+		cutsceneNPC = GameObject.FindGameObjectWithTag("Principal").GetComponent<NPCController>();
+		cutsceneNPC.autoTalk = true;
         transform.position = PersistenceController.instance.playerState.playerPosition;
 
 		camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+		Debug.Log ("canMove: "+canMove);
 		if (camera.tiltActive) {
 			//canMove = false;
 		} else {
@@ -35,8 +40,8 @@ public class PlayerController : MonoBehaviour {
             anim.SetBool("PlayerMoving", false);
             return;
         }
-
         playerMoving = false;
+		//Debug.Log (Input.GetAxis ("Horizontal"));
 		if (Input.GetAxis ("Horizontal") > 0.5f || Input.GetAxis ("Horizontal") < -0.5f) { // checking the input every frame, to see the directional input corresponding to L/R
 			transform.Translate (new Vector3 (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0f, 0f)); // moving the player across the X axis
 			playerMoving = true;
