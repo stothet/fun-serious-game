@@ -1110,7 +1110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Sir, I believe Bruce did not steal the exam scripts
+  m_Text: Nope - give me more time!
 --- !u!222 &134615456
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7513,7 +7513,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You were right to suspect him, Mr. Wilson
+  m_Text: Yes, I am ready to start.
 --- !u!222 &793738616
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13662,8 +13662,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1320616747}
   m_HandleRect: {fileID: 1320616746}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19309,7 +19309,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.025552975, y: 1}
   m_AnchorMax: {x: 0.025552975, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -9.748459, y: 0.0000076293945}
   m_SizeDelta: {x: 348, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1995804238
