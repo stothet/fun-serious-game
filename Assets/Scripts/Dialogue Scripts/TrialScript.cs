@@ -184,6 +184,7 @@ public class TrialScript : MonoBehaviour
 
                     {
                         Debug.Log("lost a life");
+                        scoreKeeper.SetActive(true);
                         order = 1;
                         trialActive = true;
                         txtBox.ReloadScript(trialStart);
@@ -384,7 +385,7 @@ public class TrialScript : MonoBehaviour
             else
             {
                 Debug.Log("Does this call?");
-                //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+                godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
                 presentEvidenceNow = false;
                 txtBox.disableDialogueTap = false;
                 //Debug.Log(godhelpme.GetSelectedEntry() +"");
@@ -403,7 +404,7 @@ public class TrialScript : MonoBehaviour
 						SceneManager.LoadScene(Configuration.loseGameSceneName);
                     }
                 }
-                //keepScore(godhelpme.GetSelectedEntry());
+                keepScore(godhelpme.GetSelectedEntry());
                 //godhelpme.journalEntryValue = 0;
                 //_evidenceCount++;
             }
@@ -440,7 +441,7 @@ public class TrialScript : MonoBehaviour
             }
             else
             {
-                //godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
+                godhelpme = GameObject.FindGameObjectWithTag("JournalSlot").GetComponent<Journal>();
                 presentEvidenceNow = false;
                 txtBox.disableDialogueTap = false;
                 //Debug.Log(godhelpme.GetSelectedEntry() +"");
@@ -462,7 +463,7 @@ public class TrialScript : MonoBehaviour
 						SceneManager.LoadScene(Configuration.loseGameSceneName);
                     }
                 }
-                //keepScore(godhelpme.GetSelectedEntry());
+                keepScore(godhelpme.GetSelectedEntry());
                 //godhelpme.journalEntryValue = 0;
                 _evidenceCount++;
             }
